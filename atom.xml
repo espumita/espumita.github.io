@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Espumita&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://espumita.org/"/>
+  <updated>2020-03-29T23:14:13.586Z</updated>
+  <id>http://espumita.org/</id>
+  
+  <author>
+    <name>David Falcón Naranjo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Software Craftsman (Part I)</title>
+    <link href="http://espumita.org/2020/03/04/software-craftsmanship/"/>
+    <id>http://espumita.org/2020/03/04/software-craftsmanship/</id>
+    <published>2020-03-04T19:35:10.000Z</published>
+    <updated>2020-03-29T23:14:13.586Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2020/03/04/software-craftsmanship/asibjhd8238db231b8fna.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;h1 id=&quot;Why-this-book&quot;&gt;&lt;a href=&quot;#Why-this-book&quot; class=&quot;headerlink&quot; title=&quot;Why this book?&quot;&gt;&lt;/a&gt;Why this book?&lt;/h1&gt;&lt;p&gt;During the last years, I had been in Software Craftsmanship conferences in Pamplona, Madrid and Barcelona, and some editions of the Socrates Canaries (Software Crafters and Testers Conference). I have participated in some editions of the Global Day of Coderetreat, and some Coding Dojos of the local Gran Canaria local community of developers.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Craftsmanship" scheme="http://espumita.org/categories/Craftsmanship/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Software Development</title>
+    <link href="http://espumita.org/2019/07/05/software-development/"/>
+    <id>http://espumita.org/2019/07/05/software-development/</id>
+    <published>2019-07-05T22:03:34.000Z</published>
+    <updated>2020-03-29T13:07:47.664Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;When you develop you are only sitting in a chair, in front of your screen, writing lines. Once and again the same commands and numbers.&lt;/p&gt;
+&lt;p&gt;This is what a person that is watching you from outside see. Probably thinks that programming is based in to learn commands and write them. That you probably are listening to music while programming to fight the &lt;strong&gt;tedious work&lt;/strong&gt; of writing thousands of times the same lines every day. Maybe many people think that software development it’s a purely mathematical, methodic and antisocial work. Every day is the same, same screen, same operations, and the same game rules.&lt;/p&gt;
+&lt;p&gt;But actually, you are just watching the code, you are thinking. Thinking in your next step to sculpt a new feature or just to &lt;strong&gt;improve.&lt;/strong&gt; Improve the legibility, the performance, the team or just you. You are immersed in the “gold rush”, you are looking for the perfect code. The most optimal solution, the easiest to implement, the less expensive or the one that brings more &lt;strong&gt;value.&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&quot;/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Development" scheme="http://espumita.org/categories/Development/"/>
+    
+    
+  </entry>
+  
+</feed>
