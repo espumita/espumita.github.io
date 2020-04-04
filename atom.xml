@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-03-29T23:14:13.586Z</updated>
+  <updated>2020-04-04T16:50:50.070Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Software Development Pyramid</title>
+    <link href="http://espumita.org/2020/03/29/software-development-pyramid/"/>
+    <id>http://espumita.org/2020/03/29/software-development-pyramid/</id>
+    <published>2020-03-29T15:57:19.000Z</published>
+    <updated>2020-04-04T16:50:50.070Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;When I was at the university, I learned that software development principles can be classified at different levels, depending on the impact that they affect the structure of a software project. This means that they have a different use, different abstraction level, and different difficulty. So, if you want to learn this  &lt;strong&gt;discipline&lt;/strong&gt; in deep, you can know where to &lt;strong&gt;start&lt;/strong&gt;, according to this hierarchy.&lt;/p&gt;
+&lt;img src=&quot;/2020/03/29/software-development-pyramid/23nje4o93xo23dn29od0923d.png&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Development" scheme="http://espumita.org/categories/Development/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>The Software Craftsman (Part I)</title>
