@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://espumita.org/2020/04/25/pppddd/h23h424bj234j32h3jj.png">
 <meta property="article:published_time" content="2020-04-25T08:10:44.000Z">
-<meta property="article:modified_time" content="2020-06-01T23:18:02.101Z">
+<meta property="article:modified_time" content="2020-06-01T23:49:31.895Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://espumita.org/2020/04/25/pppddd/h23h424bj234j32h3jj.png">
@@ -246,7 +246,7 @@
 <li>Decompose the problem domain into subdomains, according to the capability of the business process and functionality of the system.</li>
 <li>Identify the core domains: What are the parts of the product that will make it a success? Why are these parts of the system important? And why can’t they be bought off the shelf? In other words, what makes your system worth building? (competitive advantage), set the efforts here.</li>
 <li>Treat the core domains as a product.</li>
-<li>Identify the generic domains. Not core but the business can’t operate without them. Not focus efforts on them</li>
+<li>Identify the generic domains. Not core but the business can’t operate without them. Not focus efforts on them.</li>
 <li>Identify the supporting domains. Not defining what your system does, help to support your core domains. They need to work but do not require your prolonged attention. As with the generic domains, if possible, you should look to buy off‐the‐shelf solutions. Maybe, can be a manual process.</li>
 <li>Clean Boundaries over perfect models.</li>
 <li>Build subdomains for replacement over build subdomains for reuse.</li>
@@ -302,7 +302,7 @@
 <ul>
 <li><p>Bounded contexts <strong>do not share</strong> the data model and the domain model.</p>
 </li>
-<li><p>The scope of architecture: If there is many bounded contexts in one Application, There are one architecture in each bounded context. Its possible to find different pattern in each domain layer.</p>
+<li><p>The scope of architecture: If there are many bounded contexts in one Application, There is one architecture in each bounded context. Its possible to find different pattern in each domain layer.</p>
 </li>
 </ul>
 <h1 id="Common-problems-for-teams-starting-out-with-DDD"><a href="#Common-problems-for-teams-starting-out-with-DDD" class="headerlink" title="Common problems for teams starting out with DDD"></a>Common problems for teams starting out with DDD</h1><ul>
@@ -334,7 +334,7 @@
 <h1 id="Selling-DDD"><a href="#Selling-DDD" class="headerlink" title="Selling DDD"></a>Selling DDD</h1><ul>
 <li>Is not a silver bullet.</li>
 <li>Won’t solve all your problems.</li>
-<li>Powerful y extremely philosophy when used in the correct.</li>
+<li>Powerful and extremely philosophy when used in the correct.</li>
 </ul>
 <p>keep in mind that is required:</p>
 <ul>
@@ -370,16 +370,16 @@
 <li>Event-driven reactive DDD: more resilence, less logical, and temporal coupling, best easy to scale. But adds much more complexity.</li>
 <li>RPC Still relevant approach, but depends on the context.</li>
 <li>SOA and Reactive DDD makes more scalable, fault-tolerant distributed systems.</li>
-<li>Applaying SOA means view your bounded contexts as SOA Services.</li>
-<li>Decompouse bounded context into business components, based on business responsibilities.</li>
-<li>Decompouse business components into components. Applaying the single responsibility principle.</li>
-<li>Architecting with components makes that your business can invest more resources, infrastructure, and better strategies only on necessary components.</li>
-<li>This components a.k.a. autonomous components (Udi Dahan), or micros services.</li>
-<li>Messing patterns like: messaging gateway, messaging bridge cam be found <a href="https://www.enterpriseintegrationpatterns.com/" target="_blank" rel="noopener">here</a> or in the book.</li>
+<li>Applying SOA means view your bounded contexts as SOA Services.</li>
+<li>Decompose bounded context into business components, based on business responsibilities.</li>
+<li>Decompose business components into components. Applying the single responsibility principle.</li>
+<li>Architecting with components makes that your business can invest in further resources, infrastructure, and better strategies only on necessary components.</li>
+<li>This components a.k.a. autonomous components (Udi Dahan), or microservices.</li>
+<li>Messaging patterns like: messaging gateway, messaging bridge can be found <a href="https://www.enterpriseintegrationpatterns.com/" target="_blank" rel="noopener">here</a> or in the book.</li>
 <li>Each bounded context can store the data they need.</li>
 <li>Messaging should include message versioning.</li>
 <li>RPC works over HTTP, Clasic RPC evolved to SOAP and REST.</li>
-<li>Important to whell undestand the values behind REST: Resources, Hypermeddia, Stateless.</li>
+<li>Important to well understand the values behind REST: Resources, Hypermeddia, Stateless.</li>
 </ul>
 <h1 id="Tactical-The-solution-space"><a href="#Tactical-The-solution-space" class="headerlink" title="Tactical: The solution space"></a>Tactical: The solution space</h1><p>The objective in the solution space is to create the domain model.</p>
 <h1 id="Domain-Model-Building-Blocks"><a href="#Domain-Model-Building-Blocks" class="headerlink" title="Domain Model Building Blocks"></a>Domain Model Building Blocks</h1><p>Model:</p>
@@ -388,7 +388,7 @@
 <li>Is not the data model.</li>
 <li>Its the domain behaviour.</li>
 </ul>
-<h2 id="Vlue-Objects"><a href="#Vlue-Objects" class="headerlink" title="Vlue Objects"></a>Vlue Objects</h2><ul>
+<h2 id="Value-Objects"><a href="#Value-Objects" class="headerlink" title="Value Objects"></a>Value Objects</h2><ul>
 <li>Value equality.</li>
 <li>Context-Dependent.</li>
 <li>Behavior-Rich.</li>
@@ -409,7 +409,7 @@
 <li>Avoid anemic domain models when overusing them.</li>
 </ul>
 <h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><ul>
-<li>You can take in account the modules and namespaces when you a designing this models. And the relations between them.</li>
+<li>You can take into account the modules and namespaces when you are designing this models. And the relations between them.</li>
 </ul>
 <p>Lifecycle:</p>
 <h2 id="Aggregates"><a href="#Aggregates" class="headerlink" title="Aggregates"></a>Aggregates</h2><ul>
@@ -430,7 +430,7 @@
 <li>Query hydration/persistence syncronization entry points.</li>
 <li>Transactional behavior.</li>
 </ul>
-<h2 id="Factories"><a href="#Factories" class="headerlink" title="Factories"></a>Factories</h2><p>Using factories will improve your code legivility and you will enfacy the isolation and complexity of complex models creation.</p>
+<h2 id="Factories"><a href="#Factories" class="headerlink" title="Factories"></a>Factories</h2><p>Using factories will improve your code legibility and you will enfacy the isolation and complexity of complex models creation.</p>
 <p>New Patterns (events):</p>
 <h2 id="Domain-Events"><a href="#Domain-Events" class="headerlink" title="Domain Events"></a>Domain Events</h2><ul>
 <li>External events.</li>
