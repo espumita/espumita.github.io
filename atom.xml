@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-06-02T01:01:07.742Z</updated>
+  <updated>2020-06-07T21:21:54.113Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dotnet Dependency Injection Setup</title>
+    <link href="http://espumita.org/2020/06/07/dotnet-dependency-injection/"/>
+    <id>http://espumita.org/2020/06/07/dotnet-dependency-injection/</id>
+    <published>2020-06-07T20:52:27.000Z</published>
+    <updated>2020-06-07T21:21:54.113Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/espumita/dotnet-setup-examples&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Thease&lt;/a&gt; are some examples of the dotnet dependency injection engine setup, in some different kind of projects.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="dotnet" scheme="http://espumita.org/categories/dotnet/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Motivation Boost: Objetives</title>
