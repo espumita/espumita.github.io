@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"espumita.org","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Reading this book has been an interesting experience. This book can give you some light to many diferent topics in a software developer life. John Z. Sonmez tells his story. You can learn very inter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Book notes: Soft Skills, The software developer&#39;s life manual">
+<meta property="og:url" content="http://espumita.org/2020/08/13/soft-skills/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="Reading this book has been an interesting experience. This book can give you some light to many diferent topics in a software developer life. John Z. Sonmez tells his story. You can learn very inter">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://espumita.org/2020/08/13/soft-skills/njb32hbj2whkasj2j2hjj.png">
+<meta property="article:published_time" content="2020-08-13T18:51:57.000Z">
+<meta property="article:modified_time" content="2020-08-14T18:02:59.425Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://espumita.org/2020/08/13/soft-skills/njb32hbj2whkasj2j2hjj.png">
+
+<link rel="canonical" href="http://espumita.org/2020/08/13/soft-skills/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Book notes: Soft Skills, The software developer's life manual | Espumita's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Espumita's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-posts">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Posts</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-read-list">
+
+    <a href="/readlist/" rel="section"><i class="fa fa-fw fa-book"></i>Read list</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://espumita.org/2020/08/13/soft-skills/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Book notes: Soft Skills, The software developer's life manual
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-13 19:51:57" itemprop="dateCreated datePublished" datetime="2020-08-13T19:51:57+01:00">2020-08-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index"><span itemprop="name">Development</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/2020/08/13/soft-skills/njb32hbj2whkasj2j2hjj.png" class="">
+
+<p>Reading this book has been an interesting experience. This book can give you some <strong>light</strong> to many diferent <strong>topics</strong> in a software developer life. John Z. Sonmez tells his <strong>story</strong>. You can learn very interesting lessons. I recomend not only read the book, but also discover his story the years after writing it.</p>
+<a id="more"></a>
+
+<p>As always, if you want to go in deep in the topics in the book, I recomend to you to adquire it and help the author.</p>
+<h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><p>Business mindset. You as a profesional ofer a <strong>service</strong> or a <strong>product</strong> to a client. Can you describe this service in a sentece? You should treating you carrer like a <strong>business</strong>. Had you ever thought in how do you offer thease service to your clients? What they expect?</p>
+<p>What are your <strong>goals</strong> in you carrer? What about next 5 or 10 years? Are you making steps to this goals every day or to other <strong>direction</strong>? You should keep this goals in mind everyday, becouse the easy path is to stay in the “confort zone” and live in an horizotnal aimlessly way. Take care that making steps whithout objetives can make you walk in circles.</p>
+<p><strong>Quit</strong> your job and find a new one if you <strong>cannot make</strong> thease goals’ <strong>steps</strong> in that job.</p>
+<p><strong>People skills</strong> are more important than you think. Think in all the <strong>interactions</strong> you got during the day: apointments, emails, discusions, Slack, documentation, etc. This profesion is more about dealing with <strong>people</strong> and situations, than with <strong>code</strong>.</p>
+<p>Boost your oportunities in interview process. Find companies that have <strong>problems</strong> that you can <strong>solve</strong>. Networking its very important, becouse when you are a good profesional and make a <strong>good work</strong>, your teamates and all the profesionals/friends you know can <strong>refer</strong> you. Be refered put you in a diferent position in a selection process, but take in acount that they provally expect more about you. Its important to be yourself, selection process are about finding the <strong>right</strong> person for the job, not the most <strong>smart</strong>.</p>
+<p>There are many <strong>options</strong> to work as a software developer: Frelancer, independient consultant, consultant, developer in a company, create your product, create your startup, etc. Take all the options in mind.</p>
+<p>You should <strong>specialize</strong> at some area. When you speciaize you <strong>close</strong> some doors but <strong>open</strong> many other ones. Think about tools, technologies and languajes. But, focus on a specif area, for example: backend development, mobile development, etc.</p>
+<p>There are many types of <strong>companies</strong>: small/startup, medium, large. And there is a big  diferencie betwren a software develop company and company with software developers. Think about what fits you.</p>
+<p>Promotions are based on <strong>visiblity</strong> and <strong>good work</strong>. For example, make weekly report. To get <strong>promoted</strong> or to just <strong>improve</strong> as profesional you can do things like: Teaching or mentor others, make talks, take more responsability, improve your skills, inprove the team, improve the product, or be a problem solver. Some companies has politic stuff but this is less important.</p>
+<p>Being <strong>profesional</strong> is diferent to be an amateur developer, do what is right. Learn to say no. <strong>Learn</strong> to priorize and to act. Don’t depend on others, be profesional. Don’t fall into no exit ways. Keep your <strong>freedom</strong> and <strong>authonomy</strong>, don’t get condicioned or controlled. This hanppends when you cannot say no, for example when you have to make a desition about generate technical debt caused by deadline. Find a balance from <strong>quality</strong> vs <strong>self improvement</strong> you have to be very carefully to decide why and how you can decrease your quality, thease depends on the context and what do you can improve instead.</p>
+<p>Know all your profesional <strong>options</strong>. If you want to change your parth, for example to freelancing, or to live from a product builded by yourself, make a <strong>parallel change</strong>. This is important, becouse you can think that if you where not working you will have 40 hours per week to spend on other side projects, but this is not true, your productive time will never be 40 hours. Remember that you have to pay the bills. Take in acount contract clausules with a company when trying to swap thease kinds of projects.</p>
+<p><strong>Freelancer</strong>. How much should you charge to your clients for the work. Probally the double or triple than a normal job. Becouse you have to pay taxes, lawyers, economic administrators, you have to pay yourself your equipment, etc… Remember that you  probally will not work 40 hours, and you will have periods without clients or doing other stuff related to the job but not for clients.</p>
+<p>Building your <strong>own product</strong>. Search your audience first, then find their problems, and then the solution. Make sure to do thinks like preorder programs, becouse someone have to pay that invested effort. Test first the idea, make fast feedback loops, <strong>Lean Startup</strong>. Take care to enter a game with much competitors.</p>
+<p>Creating a <strong>startup</strong>. What will be the startup <strong>type</strong>: created to grow with inversionss or one boostraped, created and financed by the founders. Think about the startup <strong>inversion cicle</strong>: Inital Seed with Ángels investors or next iterations with capital investors. What is the startup economic <strong>payday plan</strong>? Get arquired in a big pay day, wich is the normal,  or to generate a profitable business. The more founders, the less benefists and desition power. Take care with the % of the company that is given to the inversors.</p>
+<p><strong>Remote work</strong>. Take care with, schedule, distractions, loneliness and motivation.</p>
+<p><strong>Fake</strong> untill you <strong>make it</strong>. Probally you are not the profesional that you whant to be at 100% today.. So you should <strong>act as</strong> the person you want to be, untill you <strong>became it</strong>. The power of the mind is important here.</p>
+<p>Don’t <strong>waste</strong> your time making the <strong>perfect resume</strong>. Its a skill that you will use few time in you career, compared with the real work time. So don’t waste time improving this skill. It all depends on the company you want to enter, but, if you really need an efective resume consider to <strong>pay</strong> to get it generated by a <strong>profesional</strong>.</p>
+<p>In case you want to create it yourself, remember that companies need personal to work on <strong>problems</strong>, its important wich of thease problems you can <strong>solve</strong> or had been solved and what actions has you performed to solve them, pay atention to <strong>details</strong>, and think <strong>diferent</strong>.</p>
+<p><strong>Open</strong> your <strong>mind</strong> in the tech world, do <strong>not be dogmatic</strong> ever, this will only limit yourself, never be religious about frameworks, technologies or languajes.</p>
+<h1 id="Marketing-yourself"><a href="#Marketing-yourself" class="headerlink" title="Marketing yourself"></a>Marketing yourself</h1><p>You should treating you <strong>carrer</strong> like a <strong>business</strong>, and <strong>yourself</strong> as a <strong>brand</strong>.</p>
+<p>Find your <strong>niche</strong>, thinks about what <strong>value</strong> or entertiment you can <strong>give</strong> to others.</p>
+<p>Making a talks, blog, podcast, screencast, youtube, etc. are well methods now a days to have a <strong>precense</strong> and to generate value to others. If you want to <strong>became relevant</strong>, with the time in some area, you have to create an <strong>strategy</strong>. <strong>Expose</strong> your <strong>talent</strong> is equal or more important than having it.</p>
+<p>You are a brand consider, find your niche, tagline, elevator pitch, visuals, etc. The same in social networks.</p>
+<p><strong>Public speaking</strong>. Remember that the people <strong>remembers</strong> the concerts not the thimes they reproduce a song in Spotify. You should consider speak at conferences.</p>
+<p>Do <strong>not be afraid</strong> to look like an idiot when you start, all good people start for something. Whit the <strong>time</strong> your skills <strong>will improve</strong>. You will have to deal with positive and negative opinions during the process, it will be hard. But its important to keep in mind that take the steep to <strong>start</strong> is the <strong>most important</strong> one, and is what normaly people don’t dare to.</p>
+<h1 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h1><p>Transform your learning path in a game, caouse playing a game is most easy. Think about a topic, then find the <strong>20% of knowledge</strong> you need to <strong>solve the 80%</strong> of the problems. You don’t need to know in deep evrything, even a complete book, even thease post. You <strong>don’t need to consume</strong> what you <strong>don’t need</strong>.</p>
+<p>Ten steps strategy:</p>
+<ol>
+<li>Get the big picture</li>
+<li>Determine scope</li>
+<li>Define success</li>
+<li>Find resources</li>
+<li>Create a learning plan</li>
+<li>Filter resources</li>
+<li>Learn enough to get started (repeat this steps for each module)</li>
+<li>Play around</li>
+<li>Learn enough to do something useful</li>
+<li>Teach</li>
+</ol>
+<p>Learn to <strong>teach</strong> and learn to explain will make you improve your understand avility for things.</p>
+<p><strong>Fill gabs</strong> in your knowledge of the tasks you usually do can help you to be much <strong>more productive</strong> and do much more with less.</p>
+<h1 id="Financial"><a href="#Financial" class="headerlink" title="Financial"></a>Financial</h1><p>Find <strong>assets</strong> and avoid <strong>liabilities</strong>. Get much money doesn’t necesary means economic freedom. Take in acount <strong>inflaction</strong> when you think in <strong>long term</strong>.</p>
+<p>Stocks, options and futures, real state investment, pasives incomes. You should know a bit about all the <strong>options</strong> and the benefists and drawbacks of all of them.</p>
+<p>When tallking about a jobs offers. Know first <strong>your numbers</strong>, then the <strong>company numbers</strong>. If you want to enter in the game of negotioations you must know very well the <strong>strengs</strong> and <strong>weak points</strong>, be in a disadvantage position is usually a bad point of start.</p>
+<p>What about your <strong>retirement plan</strong>? had you ever thought about? had you thought when you want to retire and how much you need to generate to do that? How some people get retired at 33? How can be thease posible? Is this your goal? Had you ever thought how retirements plans works in other countries?</p>
+<p><strong>Debts</strong> are <strong>evil</strong>. Paying an interest directly means pay to other one to make him rich. Take care with interests, comon failures when dealing with multiple debts are:</p>
+<ol>
+<li>Having a debts and trying to save money at the same time.</li>
+<li>Debts are not priorized based on the type of interest. The higher the interest is the most it should be priorized.</li>
+<li>Unnecesarry debts. Example: buying a car. If you want to be 5/6 years paying a car, why not save that money for the car and buy it in 5/6 years instead of paying a bill without interest. You save much money in the long term.</li>
+<li>Taking debt without thinking in how and when paying it. If its a debts that is not goin to give you an economic advantage in the future, maybe you should not take it.</li>
+</ol>
+<p>Retirement at 33 book example: get enought pasive incomes untill you don’t need a 40 hours work. Priorize debts and reduce as much interest as you can. Invest in real state. <strong>Take</strong> the <strong>oportunities</strong> that only happend <strong>once</strong> in life.</p>
+<h1 id="Spirit"><a href="#Spirit" class="headerlink" title="Spirit"></a>Spirit</h1><p>The <strong>power</strong> of the <strong>mind</strong>. If you are a <strong>positive</strong> person, thease will increase your health and you will have a better life with much more posibilities, oportunities, and chance to success. <strong>Mindfulness</strong>. Think about the placebo efect. When you act as you will like, your mind will control your body to make it posible. <strong>Don’t be a victim</strong> of each situation, the world doesn’t conspire againts you. Only you with your mind can change things. Things happend, but you don’t allready know if something is god or bad in first instance. Create a <strong>positive mind</strong>.</p>
+<p>If your objetive is to fight with mediocrity, don’t put rocks in your way. <strong>Stop</strong> telling <strong>you canno do</strong> something, or you are bad in something. The <strong>bigger enemy</strong> you have to defeat will be <strong>you</strong>. </p>
+<p>Build a strong <strong>self image</strong>. Had you ever thought in how you act depending on the clothes you wear? We act diferent, becouse or mind has a mindset acording to the clothes. The same happends when our body changes due to an operation. We act diferent. This is in our subconscious. So thease is the same, but at a <strong>mental level</strong>. Your self image should work for you. Act as the person you want to be some day until you be that person.</p>
+<p><strong>Don’t</strong> have <strong>fear</strong> to <strong>fail</strong>. A fail is not a defeat, only if you don’t want that will be the end. Most people that has making a <strong>step of success</strong> in life, comes from the <strong>worst fail step</strong> in life.</p>
+<p>Force yourself to go through uncomfortable situations to get more a more better in things, <strong>deal</strong> with <strong>confort</strong>.</p>
+<p><strong>Decide</strong> what life you want to <strong>live</strong>, and <strong>go for it</strong>.</p>
+<h1 id="Productivity-amp-Fitness"><a href="#Productivity-amp-Fitness" class="headerlink" title="Productivity &amp; Fitness"></a>Productivity &amp; Fitness</h1><p>Nothing new for me about this topics, in this book. Feel free to go deep there when you need.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/13/motivation-boost-stimulus/" rel="prev" title="Motivation Boost: Stimulus">
+      <i class="fa fa-chevron-left"></i> Motivation Boost: Stimulus
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Espumitadk" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Espumitadk" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/david-de-jes%C3%BAs-falc%C3%B3n-naranjo-a44237118/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;david-de-jes%C3%BAs-falc%C3%B3n-naranjo-a44237118&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">David Falcón Naranjo</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
