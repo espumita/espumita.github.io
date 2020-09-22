@@ -96,6 +96,10 @@ NexT.utils = {
           event.target.querySelector('i').className = 'fa fa-clipboard';
         }, 300);
       });
+    //Espumita made this (Rmove headers of codeblocks)
+      const figcaption = element.getElementsByTagName("figcaption");
+      element.removeChild(figcaption[0]);
+
     });
   },
 

@@ -20,25 +20,22 @@
     var CONFIG = {"hostname":"espumita.org","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="When you develop you are only sitting in a chair, in front of your screen, writing lines. Once and again the same commands and numbers. This is what a person that is watching you from outside see. Pro">
+  <meta name="description" content="HTTP provides some authentication schemes like: Basic, Bearer, Digest, HOBA, Mutual, Negotiate, OAutg, etc. As described in the RFCS.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Software Development">
-<meta property="og:url" content="http://espumita.org/2019/07/05/software-development/index.html">
+<meta property="og:title" content="Dangers of using your own HTTP authentication scheme">
+<meta property="og:url" content="http://espumita.org/2020/09/22/http-custom-authentication/index.html">
 <meta property="og:site_name" content="Espumita&#39;s Blog">
-<meta property="og:description" content="When you develop you are only sitting in a chair, in front of your screen, writing lines. Once and again the same commands and numbers. This is what a person that is watching you from outside see. Pro">
+<meta property="og:description" content="HTTP provides some authentication schemes like: Basic, Bearer, Digest, HOBA, Mutual, Negotiate, OAutg, etc. As described in the RFCS.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://espumita.org/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg">
-<meta property="og:image" content="http://espumita.org/2019/07/05/software-development/1_7_4gLAoCZe3ps3Agqi-fnA.jpeg">
-<meta property="og:image" content="http://espumita.org/2019/07/05/software-development/1_bp75tlLecxXM7LU6bHcysA.jpeg">
-<meta property="og:image" content="http://espumita.org/2019/07/05/software-development/1_MmgXyEVWLioUndwjBkHBGw.jpeg">
-<meta property="og:image" content="http://espumita.org/2019/07/05/software-development/1_5K8w_Dme_1pigHT2pn4r1A.jpeg">
-<meta property="article:published_time" content="2019-07-05T22:03:34.000Z">
-<meta property="article:modified_time" content="2020-03-29T13:07:47.664Z">
+<meta property="og:image" content="http://espumita.org/static/J23J2J2KSKK12lkk2kwlsll22la.png">
+<meta property="og:image" content="http://espumita.org/2020/09/22/http-custom-authentication/1_CRr_DB-bNPCDMWnzgGqjPQ.png">
+<meta property="article:published_time" content="2020-09-22T19:49:01.000Z">
+<meta property="article:modified_time" content="2020-09-22T21:43:09.586Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://espumita.org/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg">
+<meta name="twitter:image" content="http://espumita.org/static/J23J2J2KSKK12lkk2kwlsll22la.png">
 
-<link rel="canonical" href="http://espumita.org/2019/07/05/software-development/">
+<link rel="canonical" href="http://espumita.org/2020/09/22/http-custom-authentication/">
 
 
 <script id="page-configurations">
@@ -50,7 +47,7 @@
   };
 </script>
 
-  <title>Software Development | Espumita's Blog</title>
+  <title>Dangers of using your own HTTP authentication scheme | Espumita's Blog</title>
   
 
 
@@ -166,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://espumita.org/2019/07/05/software-development/">
+    <link itemprop="mainEntityOfPage" href="http://espumita.org/2020/09/22/http-custom-authentication/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
@@ -179,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Software Development
+          Dangers of using your own HTTP authentication scheme
         </h1>
 
         <div class="post-meta">
@@ -189,7 +186,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-07-05 23:03:34" itemprop="dateCreated datePublished" datetime="2019-07-05T23:03:34+01:00">2019-07-05</time>
+              <time title="Created: 2020-09-22 20:49:01" itemprop="dateCreated datePublished" datetime="2020-09-22T20:49:01+01:00">2020-09-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -197,7 +194,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Development/" itemprop="url" rel="index"><span itemprop="name">Development</span></a>
+                  <a href="/categories/HTTP/" itemprop="url" rel="index"><span itemprop="name">HTTP</span></a>
                 </span>
             </span>
 
@@ -212,38 +209,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>When you develop you are only sitting in a chair, in front of your screen, writing lines. Once and again the same commands and numbers.</p>
-<p>This is what a person that is watching you from outside see. Probably thinks that programming is based in to learn commands and write them. That you probably are listening to music while programming to fight the <strong>tedious work</strong> of writing thousands of times the same lines every day. Maybe many people think that software development it’s a purely mathematical, methodic and antisocial work. Every day is the same, same screen, same operations, and the same game rules.</p>
-<p>But actually, you are just watching the code, you are thinking. Thinking in your next step to sculpt a new feature or just to <strong>improve.</strong> Improve the legibility, the performance, the team or just you. You are immersed in the “gold rush”, you are looking for the perfect code. The most optimal solution, the easiest to implement, the less expensive or the one that brings more <strong>value.</strong></p>
-<img src="/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg" class="">
+        <img src="/static/J23J2J2KSKK12lkk2kwlsll22la.png"/>
 
+<p>HTTP provides some <strong>authentication schemes</strong> like: Basic, Bearer, Digest, HOBA, Mutual, Negotiate, OAutg, etc. As described in the <a href="http://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml" target="_blank" rel="noopener">RFCS</a>.</p>
 <a id="more"></a>
 
-<p>This obsession has nothing to do with what people believe that this profession is.</p>
-<p>And this is probably one of the big mistakes that humans make again and again. The damned <strong>prejudices</strong>, barriers that we don’t even think that exists. Those of us who have some experience in the trenches know some other things… things that they don’t tell you in the school.</p>
-<h1 id="Each-person-is-a-world-and-here-creativity-is-the-key"><a href="#Each-person-is-a-world-and-here-creativity-is-the-key" class="headerlink" title="Each person is a world, and here creativity is the key"></a>Each person is a world, and here creativity is the key</h1><p>When we are developing, we give solutions to problems. We do this based on everything we know in that <strong>context.</strong> We remember what we already know, and think about the effects that these decisions will have in the future, in the short and long term of the software lifecycle.</p>
-<p>Taking these decisions is a constant process. Experience and previous knowledge are important, but <strong>creativity</strong> is more important. Normally when you develop you always face new casuistics. You have to consider a lot of knowledge to make a good decision, but in the end, you are free to decide how to solve it, and that freedom is where you can take advantage of your creativity.</p>
-<img src="/2019/07/05/software-development/1_7_4gLAoCZe3ps3Agqi-fnA.jpeg" class="">
+<p>There is <strong>no need</strong> to reinvent the wheel. If you want to protect an HTTP comunication, you should start with something build on top of these.</p>
+<p>Some reasons to <strong>not promote</strong> the use of a custom authentication scheme:</p>
+<ol>
+<li><p>It’s <strong>not standardized</strong>. This will make that anyone who wants to use it, will have to understand what have you created and how to use it.</p>
+</li>
+<li><p><strong>Less documentation</strong>.</p>
+</li>
+<li><p>There will be less people using it, so there will be <strong>less information</strong> about errors in the internet.</p>
+</li>
+<li><p>Is <strong>less safe</strong>.</p>
+</li>
+<li><p>Has <strong>more errors rate</strong> and <strong>incopatibilities</strong> with existing systems.</p>
+</li>
+</ol>
+<h1 id="Real-example"><a href="#Real-example" class="headerlink" title="Real example"></a>Real example</h1><p>This is a real case that made some poeple lose some time wondering what were going on.</p>
+<p>In this case, we were connecting to the <a href="https://docs.clickatell.com/channels/one-api/one-api-reference/" target="_blank" rel="noopener">One API</a> of Clickatell with an <a href="https://docs.microsoft.com/es-es/dotnet/api/system.net.http.httpclient?view=netcore-3.1" target="_blank" rel="noopener">HttpClient</a> instance in netcore.</p>
+<p>As you can see in the <a href="https://docs.clickatell.com/channels/one-api/one-api-reference/#section/Authentication/api-key" target="_blank" rel="noopener">documentation</a>, the specification of the Authorization HTTP header is an <strong>api-key scheme</strong>, and looks like this:</p>
+<figure class="highlight plain"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line">Authorization: JihURVNUMjMm&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
 
-<p>Apparently, you have no limitations, in a virtual world <strong>not limited</strong> to traditional physics rules, like gravity. In this way, you are free to make any design decision you want.</p>
-<p>Famous sentences like “If there is a shell, there is a way” or “If you can imagine it, it can be programmed” are reflections of this infinite limitation world.</p>
-<p>With this level of over-freedom, nobody has the key to making the perfect design. But you can learn a lot of <strong>good</strong> and bad <strong>practices</strong>, In every branch of this profession, there are good practices. Finding, understanding and applying them will make your <strong>apprenticeship</strong> grow.</p>
-<h1 id="The-knowledge-comes-and-goes"><a href="#The-knowledge-comes-and-goes" class="headerlink" title="The knowledge comes and goes"></a>The knowledge comes and goes</h1><p>If you have been programming for some time, you will have realized that this world is a constant flow of knowledge in <strong>all directions.</strong> And I don’t mean answers in StackOverflow or Github. It’s like an ocean of information.</p>
-<p>In the middle of the over-information era, going alone for a swim in this water can seem scary. You have to develop a sixth sense for the selection of useful information. But luckily you are <strong>not alone.</strong> You are in a worldwide community. Luckily you will find more experienced people that can help and guide you in the way off learning. Someday you will also pass this witness to others.</p>
-<img src="/2019/07/05/software-development/1_bp75tlLecxXM7LU6bHcysA.jpeg" class="">
+<h2 id="1-Invalid-syntax"><a href="#1-Invalid-syntax" class="headerlink" title="1. Invalid syntax"></a>1. Invalid syntax</h2><p>As you can see, this expresion <strong>don’t follow</strong> the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization" target="_blank" rel="noopener">convention syntax</a> of Authorization header:</p>
+<figure class="highlight plain"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line">Authorization: &lt;type&gt; &lt;credentials&gt;</span><br></pre></td></tr></table></figure>
 
-<p>In this world, it is important to leave the shame aside and “take the bull by the horns”. Your parents are not responsible for your professional career, neither is the university or your company, <strong>only you.</strong></p>
-<h1 id="The-failure-is-important"><a href="#The-failure-is-important" class="headerlink" title="The failure is important"></a>The failure is important</h1><p>You have to <strong>make mistakes</strong> to learn, and you have to assume that what you know right now is nothing compared with what you will know in a few months. Doing things wrong, is the same <strong>or more important</strong> than doing things well.</p>
-<p>This search for constant improvement is the only way to progress in any profession. Otherwise, you might feel bad, and <strong>motivation</strong> is another important key.</p>
-<img src="/2019/07/05/software-development/1_MmgXyEVWLioUndwjBkHBGw.jpeg" class="">
 
-<h1 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h1><p>Currently, software development is an infinite field. It is very useful to experiment with new technologies especially if you don’t know anything, this will give you new experiences and points of view bout the things you think you already know.</p>
-<p>You have to learn <strong>how to walk</strong> first in order to <strong>run</strong>. Some times, you will deal with new awesome technologies. But what happened when you are not prepared for that? This happens some times and it does only mean that unfortunately, you are <strong>not ready yet</strong> for that technology. That cannot discourage you!</p>
-<h1 id="It’s-not-just-a-mathematical-world"><a href="#It’s-not-just-a-mathematical-world" class="headerlink" title="It’s not just a mathematical world"></a>It’s not just a mathematical world</h1><p>Develop implies <strong>discipline</strong> and <strong>empathy</strong> for the code reader. Code written in high-level programming languages was made to be read by <strong>humans</strong>, and then, in second place, to be executed by machines.</p>
-<h1 id="Motivation-is-important"><a href="#Motivation-is-important" class="headerlink" title="Motivation is important"></a>Motivation is important</h1><img src="/2019/07/05/software-development/1_5K8w_Dme_1pigHT2pn4r1A.jpeg" class="">
+<p>If you not specify the scheme, you cannot use something like the comon way of setting Authorization schemes in an HTTPClient:</p>
+<figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> httpClient = <span class="keyword">new</span> HttpClient();</span><br><span class="line">httpClient.DefaultRequestHeaders.Authorization = <span class="keyword">new</span> AuthenticationHeaderValue(<span class="string">"api-key"</span>, <span class="string">"JihURVNUMjMm=="</span>);</span><br></pre></td></tr></table></figure>
 
-<p>Its a world that goes very <strong>fasts</strong> and it takes many turns. This is something to consider in the <strong>long term.</strong> So it is important to be motivated and knows how to manage your <strong>time</strong>, and your <strong>health</strong> as an apprentice and professional.</p>
-<p>And the most important thing: <strong>Take it easy.</strong></p>
+<p>This will throws an exception.</p>
+<h2 id="2-Invalid-scheme"><a href="#2-Invalid-scheme" class="headerlink" title="2. Invalid scheme"></a>2. Invalid scheme</h2><p>Notice that “api-key” is <strong>not</strong> an <strong>specified scheme</strong> in the <a href="http://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml" target="_blank" rel="noopener">RFCS</a>. The “Api Key” format is a common way to call a single value in the Authorization header. You can see this convention in applications like Postman:</p>
+<img src="/2020/09/22/http-custom-authentication/1_CRr_DB-bNPCDMWnzgGqjPQ.png" class="">
+
+<p>Once we noticed this, we decided to set the Authorization header <strong>manualy</strong>. This makes the code chages a little:</p>
+<figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> httpClient = <span class="keyword">new</span> HttpClient();</span><br><span class="line">httpClient.DefaultRequestHeaders.Add(<span class="string">"Authorization"</span>, <span class="string">"JihURVNUMjMm=="</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Or if you want, you can set it directly in an HttpRequestMessage:</p>
+<figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line">HttpRequestMessage request = <span class="keyword">new</span> HttpRequestMessage();</span><br><span class="line">request.Headers.Add(<span class="string">"Authorization"</span>, <span class="string">"JihURVNUMjMm=="</span>);</span><br></pre></td></tr></table></figure>
+
+<p>But, this still throws and exception. </p>
+<h2 id="3-Invalid-token-validation"><a href="#3-Invalid-token-validation" class="headerlink" title="3. Invalid token validation"></a>3. Invalid token validation</h2><p>As we allready know, HttpClient implementation follow the RFCS and the standards. This means that by default, Authorization <strong>header is validated</strong>.</p>
+<p>Token “JihURVNUMjMm==” don’t follow <type> <credentials> format. But not only that, you can se that the token ends with ==. This usually means that the token is a result of a hashed string, probally in base64. The problem here is that “=” is not a characted alowed by default as a part of a token.</p>
+<p>The <strong>developer desition</strong> to use base64, and to specify any scheme <strong>generates us</strong> an exception.</p>
+<p>To solve this problem, we had to adapt the code in order to skip te token validation with:</p>
+<figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> httpClient = <span class="keyword">new</span> HttpClient();</span><br><span class="line">httpClient.DefaultRequestHeaders.TryAddWithoutValidation(<span class="string">"Authorization"</span>, <span class="string">"JihURVNUMjMm=="</span>);</span><br></pre></td></tr></table></figure>
+
+<p>You can read more about this topic <a href="https://stackoverflow.com/questions/49818959/httpclient-authorization-header-invalid-format" target="_blank" rel="noopener">here</a>.</p>
+<p>Finally, as a result of this, we get a <strong>more complex</strong> code, <strong>harder to understand</strong> for newcomers and more <strong>harder to create</strong> than it seems.</p>
+<p>As a general rule, <strong>don’t reinvent the wheel</strong>.</p>
 
     </div>
 
@@ -258,11 +274,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/03/04/software-craftsmanship/" rel="next" title="The Software Craftsman (Part I)">
-      The Software Craftsman (Part I) <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/13/soft-skills/" rel="prev" title="Book notes: Soft Skills, The software developer's life manual">
+      <i class="fa fa-chevron-left"></i> Book notes: Soft Skills, The software developer's life manual
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
