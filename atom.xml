@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-09-22T21:59:16.245Z</updated>
+  <updated>2020-09-22T22:46:51.884Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://espumita.org/2020/09/22/http-custom-authentication/"/>
     <id>http://espumita.org/2020/09/22/http-custom-authentication/</id>
     <published>2020-09-22T19:49:01.000Z</published>
-    <updated>2020-09-22T21:59:16.245Z</updated>
+    <updated>2020-09-22T22:46:51.884Z</updated>
     
     <summary type="html">
     
       &lt;img src=&quot;/static/J23J2J2KSKK12lkk2kwlsll22la.png&quot;/&gt;
 
-&lt;p&gt;HTTP provides some &lt;strong&gt;authentication schemes&lt;/strong&gt; like: Basic, Bearer, Digest, HOBA, Mutual, Negotiate, OAutg, etc. As described in the &lt;a href=&quot;http://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RFCS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;HTTP provides some &lt;strong&gt;authentication schemes&lt;/strong&gt; like: Basic, Bearer, Digest, HOBA, Mutual, Negotiate, OAuth, etc. As described in the &lt;a href=&quot;http://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RFC&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
