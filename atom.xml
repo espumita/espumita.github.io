@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-09-23T22:56:05.748Z</updated>
+  <updated>2020-10-20T16:59:29.625Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Be the worst != Feel the worst</title>
+    <link href="http://espumita.org/2020/10/20/be-the-worst/"/>
+    <id>http://espumita.org/2020/10/20/be-the-worst/</id>
+    <published>2020-10-20T15:37:25.000Z</published>
+    <updated>2020-10-20T16:59:29.625Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Be the worst is about &lt;strong&gt;learning&lt;/strong&gt;, and to have people about to &lt;strong&gt;learn from&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Maybe you are better than someone in some at some area, but that doesn’t mean &lt;strong&gt;you’re better&lt;/strong&gt; than him. Someone may be &lt;strong&gt;much better&lt;/strong&gt; than &lt;strong&gt;you&lt;/strong&gt; at something, that does not mean that you are worst than him.&lt;/p&gt;
+&lt;img src=&quot;/2020/10/20/be-the-worst/jl23h4jkh23kjsjkwjwsjj2jsjwskkkw.png&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Apprenticeship" scheme="http://espumita.org/categories/Apprenticeship/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Dangers of using your own HTTP authentication scheme</title>
