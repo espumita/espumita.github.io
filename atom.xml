@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-10-20T16:59:29.625Z</updated>
+  <updated>2020-11-30T20:46:49.561Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Software Architectures examples : Hexagonal Architecture</title>
+    <link href="http://espumita.org/2020/11/21/hexagonal-architecture/"/>
+    <id>http://espumita.org/2020/11/21/hexagonal-architecture/</id>
+    <published>2020-11-21T17:41:45.000Z</published>
+    <updated>2020-11-30T20:46:49.561Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;What is this architecture about, and what it`s the difference with other traditionals like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;If we go back to 2005, according to &lt;a href=&quot;https://alistair.cockburn.us/hexagonal-architecture/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Alistair Cockburn&lt;/a&gt;, the creator of this term, this architecture try to solve the problem of: &lt;em&gt;Avoid infiltration of business logic into the user interface code&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The most importan thing of this architecture is to &lt;strong&gt;protect&lt;/strong&gt; the most valueable code of any application, &lt;strong&gt;the domain&lt;/strong&gt;. &lt;/p&gt;
+&lt;img src=&quot;/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Architecture" scheme="http://espumita.org/categories/Architecture/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Be the worst != Feel the worst</title>
