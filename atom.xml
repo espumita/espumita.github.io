@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-11-30T23:17:43.380Z</updated>
+  <updated>2020-12-05T12:11:30.673Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Software Architectures examples : CQRS</title>
+    <link href="http://espumita.org/2020/11/30/cqrs/"/>
+    <id>http://espumita.org/2020/11/30/cqrs/</id>
+    <published>2020-11-30T21:02:56.000Z</published>
+    <updated>2020-12-05T12:11:30.673Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In some applications, we can find many benefits by &lt;strong&gt;spliting the model&lt;/strong&gt; in two parts: the update part,&lt;strong&gt;commands&lt;/strong&gt;, and the read part, &lt;strong&gt;queries&lt;/strong&gt;. In 2006, Greg Young started talking about &lt;a href=&quot;https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this pattern&lt;/a&gt;, also know as &lt;strong&gt;Command Query Responsibility Segregation (CQRS)&lt;/strong&gt;. &lt;/p&gt;
+&lt;img src=&quot;/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Architecture" scheme="http://espumita.org/categories/Architecture/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Software Architectures examples : Hexagonal Architecture</title>
