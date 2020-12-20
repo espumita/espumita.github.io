@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-12-19T14:20:43.343Z</updated>
+  <updated>2020-12-20T20:24:08.123Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Software Architectures examples : Event Driven</title>
+    <title>Software Architectures examples: Event-Driven</title>
     <link href="http://espumita.org/2020/12/19/event-driven/"/>
     <id>http://espumita.org/2020/12/19/event-driven/</id>
     <published>2020-12-19T12:15:04.000Z</published>
-    <updated>2020-12-19T14:20:43.343Z</updated>
+    <updated>2020-12-20T20:24:08.123Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;We can discuss a &lt;a href=&quot;https://www.youtube.com/watch?v=STKCRSUsyP0&amp;ab_channel=GOTOConferences&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;lot&lt;/a&gt; about what is or what not is &lt;a href=&quot;https://en.wikipedia.org/wiki/Event-driven_architecture&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Event Driven Architecture&lt;/a&gt;. But in this post we will see how &lt;strong&gt;events&lt;/strong&gt; can &lt;strong&gt;improve&lt;/strong&gt; the &lt;strong&gt;desing&lt;/strong&gt; in our solutions.&lt;/p&gt;
+      &lt;p&gt;We can discuss a &lt;a href=&quot;https://www.youtube.com/watch?v=STKCRSUsyP0&amp;ab_channel=GOTOConferences&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;lot&lt;/a&gt; about what is or what is not &lt;a href=&quot;https://en.wikipedia.org/wiki/Event-driven_architecture&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Event Driven Architecture&lt;/a&gt;. But in this post, we will see how &lt;strong&gt;events&lt;/strong&gt; can &lt;strong&gt;improve&lt;/strong&gt; the &lt;strong&gt;design&lt;/strong&gt; in our solutions.&lt;/p&gt;
 &lt;img src=&quot;/2020/12/19/event-driven/jd3jdjk32jkt2k3jrk32jd3j2dk32kd32e32d.png&quot; class=&quot;&quot;&gt;
     
     </summary>
@@ -37,15 +37,15 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples : CQRS</title>
+    <title>Software Architectures examples: CQRS</title>
     <link href="http://espumita.org/2020/11/30/cqrs/"/>
     <id>http://espumita.org/2020/11/30/cqrs/</id>
     <published>2020-11-30T21:02:56.000Z</published>
-    <updated>2020-12-19T13:08:48.963Z</updated>
+    <updated>2020-12-20T20:29:36.272Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;In some applications, we can find many benefits by &lt;strong&gt;spliting the model&lt;/strong&gt; in two parts: the update part, &lt;strong&gt;commands&lt;/strong&gt;, and the read part, &lt;strong&gt;queries&lt;/strong&gt;. In 2006, Greg Young started talking about &lt;a href=&quot;https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this pattern&lt;/a&gt;, also know as &lt;strong&gt;Command Query Responsibility Segregation (CQRS)&lt;/strong&gt;. &lt;/p&gt;
+      &lt;p&gt;In some applications, we can find many benefits by &lt;strong&gt;splitting the model&lt;/strong&gt; into two parts: the update part, &lt;strong&gt;commands&lt;/strong&gt;, and the reading part, &lt;strong&gt;queries&lt;/strong&gt;. In 2006, Greg Young started talking about &lt;a href=&quot;https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this pattern&lt;/a&gt;, also known as &lt;strong&gt;Command Query Responsibility Segregation (CQRS)&lt;/strong&gt;. &lt;/p&gt;
 &lt;img src=&quot;/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg&quot; class=&quot;&quot;&gt;
     
     </summary>
@@ -57,17 +57,17 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples : Hexagonal Architecture</title>
+    <title>Software Architectures examples: Hexagonal Architecture</title>
     <link href="http://espumita.org/2020/11/21/hexagonal-architecture/"/>
     <id>http://espumita.org/2020/11/21/hexagonal-architecture/</id>
     <published>2020-11-21T17:41:45.000Z</published>
-    <updated>2020-11-30T23:17:43.380Z</updated>
+    <updated>2020-12-20T20:32:19.855Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;What is this architecture about, and what it`s the difference with other traditionals like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;
-&lt;p&gt;If we go back to 2005, according to &lt;a href=&quot;https://alistair.cockburn.us/hexagonal-architecture/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Alistair Cockburn&lt;/a&gt;, the creator of this term, this architecture try to solve the problem of: &lt;em&gt;Avoid infiltration of business logic into the user interface code&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The most importan thing of this architecture is to &lt;strong&gt;protect&lt;/strong&gt; the most valueable code of any application, &lt;strong&gt;the domain&lt;/strong&gt;. &lt;/p&gt;
+      &lt;p&gt;What is this architecture about, and what`s the difference from others more traditional like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;If we go back to 2005, according to &lt;a href=&quot;https://alistair.cockburn.us/hexagonal-architecture/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Alistair Cockburn&lt;/a&gt;, the creator of this term, this architecture tries to solve the problem of &lt;em&gt;Avoid infiltration of business logic into the user interface code&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The most important thing of this architecture is to &lt;strong&gt;protect&lt;/strong&gt; the most valuable code of any application, &lt;strong&gt;the domain&lt;/strong&gt;. &lt;/p&gt;
 &lt;img src=&quot;/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png&quot; class=&quot;&quot;&gt;
     
     </summary>
@@ -104,7 +104,7 @@
     <link href="http://espumita.org/2020/09/22/http-custom-authentication/"/>
     <id>http://espumita.org/2020/09/22/http-custom-authentication/</id>
     <published>2020-09-22T19:49:01.000Z</published>
-    <updated>2020-09-23T22:56:05.748Z</updated>
+    <updated>2020-12-20T20:05:32.389Z</updated>
     
     <summary type="html">
     
@@ -125,7 +125,7 @@
     <link href="http://espumita.org/2020/08/13/soft-skills/"/>
     <id>http://espumita.org/2020/08/13/soft-skills/</id>
     <published>2020-08-13T18:51:57.000Z</published>
-    <updated>2020-08-15T09:28:21.359Z</updated>
+    <updated>2020-12-20T19:51:43.098Z</updated>
     
     <summary type="html">
     
@@ -146,7 +146,7 @@
     <link href="http://espumita.org/2020/06/13/motivation-boost-stimulus/"/>
     <id>http://espumita.org/2020/06/13/motivation-boost-stimulus/</id>
     <published>2020-06-13T22:51:55.000Z</published>
-    <updated>2020-08-13T18:50:22.570Z</updated>
+    <updated>2020-12-20T19:52:08.586Z</updated>
     
     <summary type="html">
     
@@ -209,7 +209,7 @@
     <link href="http://espumita.org/2020/04/25/pppddd/"/>
     <id>http://espumita.org/2020/04/25/pppddd/</id>
     <published>2020-04-25T08:10:44.000Z</published>
-    <updated>2020-08-13T18:50:22.578Z</updated>
+    <updated>2020-12-20T20:15:07.356Z</updated>
     
     <summary type="html">
     
@@ -250,7 +250,7 @@
     <link href="http://espumita.org/2020/03/04/software-craftsmanship/"/>
     <id>http://espumita.org/2020/03/04/software-craftsmanship/</id>
     <published>2020-03-04T19:35:10.000Z</published>
-    <updated>2020-05-25T19:21:56.911Z</updated>
+    <updated>2020-12-20T19:57:59.971Z</updated>
     
     <summary type="html">
     

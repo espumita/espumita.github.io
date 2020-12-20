@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"espumita.org","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="What is this architecture about, and what it&#96;s the difference with other traditionals like MVC? If we go back to 2005, according to Alistair Cockburn, the creator of this term, this architecture try t">
+  <meta name="description" content="What is this architecture about, and what&#96;s the difference from others more traditional like MVC? If we go back to 2005, according to Alistair Cockburn, the creator of this term, this architecture tri">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Software Architectures examples : Hexagonal Architecture">
+<meta property="og:title" content="Software Architectures examples: Hexagonal Architecture">
 <meta property="og:url" content="http://espumita.org/2020/11/21/hexagonal-architecture/index.html">
 <meta property="og:site_name" content="Espumita&#39;s Blog">
-<meta property="og:description" content="What is this architecture about, and what it&#96;s the difference with other traditionals like MVC? If we go back to 2005, according to Alistair Cockburn, the creator of this term, this architecture try t">
+<meta property="og:description" content="What is this architecture about, and what&#96;s the difference from others more traditional like MVC? If we go back to 2005, according to Alistair Cockburn, the creator of this term, this architecture tri">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://espumita.org/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png">
 <meta property="og:image" content="http://espumita.org/2020/11/21/hexagonal-architecture/1lkwskskxkjkk32kk23l2lvek2ckkwed.JPG">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://espumita.org/2020/11/21/hexagonal-architecture/kjw3rjk324djkdl23l232kd2lkd3k2rktl23l.JPG">
 <meta property="og:image" content="http://espumita.org/2020/11/21/hexagonal-architecture/kjjksadxjlkaslkjdlaskdlkdlk2kllkklak.png">
 <meta property="article:published_time" content="2020-11-21T17:41:45.000Z">
-<meta property="article:modified_time" content="2020-11-30T23:17:43.380Z">
+<meta property="article:modified_time" content="2020-12-20T20:32:19.855Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://espumita.org/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>Software Architectures examples : Hexagonal Architecture | Espumita's Blog</title>
+  <title>Software Architectures examples: Hexagonal Architecture | Espumita's Blog</title>
   
 
 
@@ -179,7 +179,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Software Architectures examples : Hexagonal Architecture
+          Software Architectures examples: Hexagonal Architecture
         </h1>
 
         <div class="post-meta">
@@ -212,24 +212,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>What is this architecture about, and what it`s the difference with other traditionals like <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank" rel="noopener">MVC</a>?</p>
-<p>If we go back to 2005, according to <a href="https://alistair.cockburn.us/hexagonal-architecture/" target="_blank" rel="noopener">Alistair Cockburn</a>, the creator of this term, this architecture try to solve the problem of: <em>Avoid infiltration of business logic into the user interface code</em>.</p>
-<p>The most importan thing of this architecture is to <strong>protect</strong> the most valueable code of any application, <strong>the domain</strong>. </p>
+        <p>What is this architecture about, and what`s the difference from others more traditional like <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank" rel="noopener">MVC</a>?</p>
+<p>If we go back to 2005, according to <a href="https://alistair.cockburn.us/hexagonal-architecture/" target="_blank" rel="noopener">Alistair Cockburn</a>, the creator of this term, this architecture tries to solve the problem of <em>Avoid infiltration of business logic into the user interface code</em>.</p>
+<p>The most important thing of this architecture is to <strong>protect</strong> the most valuable code of any application, <strong>the domain</strong>. </p>
 <img src="/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png" class="">
 
 <a id="more"></a>
 
-<p>So, we can summary it as an <strong>isolation</strong> strategy of the <strong>domain</strong>. And isolated code can be <strong>tested better</strong>.</p>
+<p>So, we can summarize it as an <strong>isolation</strong> strategy of the <strong>domain</strong>. And isolated code can be <strong>tested better</strong>.</p>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>Following <a href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Ports%20%20%26%20Adapters%20-%20Hexagonal" target="_blank" rel="noopener">this</a> aspnetcore example, consider the next code distribution:</p>
 <img src="/2020/11/21/hexagonal-architecture/1lkwskskxkjkk32kk23l2lvek2ckkwed.JPG" class="">
 
-<p>As you can see, we already got a music aplication. In this case, we got an API called <em>MyMusic.Api</em>. We had decided for this example to separate the code in <strong>folders</strong> acording to each <strong>layer</strong>:</p>
+<p>As you can see, we already got a music application. In this case, we got an API called <em>MyMusic.Api</em>. We had decided for this example to separate the code in <strong>folders</strong> according to each <strong>layer</strong>:</p>
 <ul>
 <li><strong>Domain</strong> with the domain <strong>models</strong> <em>PlayList</em> and <em>Track</em>. </li>
-<li><strong>Application.Core</strong> with the application <a href="https://en.wikipedia.org/wiki/Use_case" target="_blank" rel="noopener">use cases</a>, models as <strong>services</strong>. This layer tells us <strong>what the aplication do</strong>, in this case: <em>GetPlayList</em>, <em>CreatePlayList</em>, <em>AddTrackToPlayList</em>, etc. Also we have the <strong>ports</strong>, wich are the <strong>contracts</strong> wich describe the behaviour that the aplication need.</li>
+<li><strong>Application.Core</strong> with the application <a href="https://en.wikipedia.org/wiki/Use_case" target="_blank" rel="noopener">use cases</a>, models as <strong>services</strong>. This layer tells us <strong>what the application do</strong>, in this case: <em>GetPlayList</em>, <em>CreatePlayList</em>, <em>AddTrackToPlayList</em>, etc. Also we have the <strong>ports</strong>, wich are the <strong>contracts</strong> wich describe the behaviour that the application need.</li>
 <li><strong>Adapters</strong> are the <strong>infrasctucture implementations</strong> of the contracts, for example to read/write from a database like <em>PLayListPostgreSQLAdapter</em> or just call another api using http like <em>TraksSpotifyApiAdapter</em>.</li>
 </ul>
-<h2 id="Layers-dependency-flow"><a href="#Layers-dependency-flow" class="headerlink" title="Layers dependency flow"></a>Layers dependency flow</h2><p>To mantain this isolation, the layers of the architecture must follow a <strong>directional dependency flow</strong>: <em>Inside layers should not know anything about outside layers</em>.</p>
+<h2 id="Layers-dependency-flow"><a href="#Layers-dependency-flow" class="headerlink" title="Layers dependency flow"></a>Layers dependency flow</h2><p>To maintain this isolation, the layers of the architecture must follow a <strong>directional dependency flow</strong>: <em>Inside layers should not know anything about outside layers</em>.</p>
 <img src="/2020/11/21/hexagonal-architecture/312LIKH3QJL2WJLKLKSKLSLK2KLALAL.png" class="">
 
 <p>As you can see, if we look at the project dependency tree, we can confirm this dependency flow:</p>
@@ -237,16 +237,16 @@
 
 <p>Working like this have some benefits:</p>
 <ul>
-<li>The <strong>domain</strong> is <strong>isolated</strong>, so rules and models <strong>are not afected</strong> from <strong>infrastructure</strong> desitions.</li>
-<li>The code is more easily <strong>testeable</strong>. For example, aplication layer can be tested separately withouth  infrastructure dependencies.</li>
-<li><strong>Responabilities are separated</strong>. Now each layer and code component follow the <strong>Single Responsability Principle</strong> (<a href="https://en.wikipedia.org/wiki/Single-responsibility_principle" target="_blank" rel="noopener">SRP</a>), This increase code reusability.</li>
-<li>The code is more <strong>ready</strong> <strong>to change</strong> and <strong>to grow</strong>, following the <strong>Open/Close Principle</strong> (<a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle" target="_blank" rel="noopener">OCP</a>). For example, if you want to change any infrastructure implementation, you only need to follow a defined contract, without affecting the whole aplication.</li>
+<li>The <strong>domain</strong> is <strong>isolated</strong>, so rules and models <strong>are not affected</strong> from <strong>infrastructure</strong> decisions.</li>
+<li>The code is more easily <strong>testable</strong>. For example, the application layer can be tested separately without  infrastructure dependencies.</li>
+<li><strong>Responsibilities are separated</strong>. Now each layer and code component follows the <strong>Single Responsibility Principle</strong> (<a href="https://en.wikipedia.org/wiki/Single-responsibility_principle" target="_blank" rel="noopener">SRP</a>), This increases code reusability.</li>
+<li>The code is more <strong>ready</strong> <strong>to change</strong> and <strong>to grow</strong>, following the <strong>Open/Closed Principle</strong> (<a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle" target="_blank" rel="noopener">OCP</a>). For example, if you want to change any infrastructure implementation, you only need to follow a defined contract, without affecting the whole application.</li>
 </ul>
-<h1 id="How-is-this-posible"><a href="#How-is-this-posible" class="headerlink" title="How is this posible?"></a>How is this posible?</h1><p>This awesome dependency graph is posible thanks to the <strong>Dependency Iversion Principle</strong> (<a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" target="_blank" rel="noopener">DIP</a>).</p>
+<h1 id="How-is-this-possible"><a href="#How-is-this-possible" class="headerlink" title="How is this possible?"></a>How is this possible?</h1><p>This awesome dependency graph is possible thanks to the <strong>Dependency Inversion Principle</strong> (<a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" target="_blank" rel="noopener">DIP</a>).</p>
 <ul>
 <li><em>High-level modules should not depend on low-level modules. Both should depend on abstractions</em></li>
 </ul>
-<p>In this case, we reach this using the <em>ports</em> abstraction, making aplication code <strong>only depends</strong> on an <strong>interface</strong> for example <em>PlayListPersistencePort</em>:</p>
+<p>In this case, we reach this using the <em>ports</em> abstraction, making application code <strong>only depends</strong> on an <strong>interface</strong> for example <em>PlayListPersistencePort</em>:</p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">PlayListPersistencePort</span> &#123;</span><br><span class="line">    <span class="function">PlayList <span class="title">GetPlayList</span>(<span class="params"><span class="keyword">string</span> playlistId</span>)</span>;</span><br><span class="line">    <span class="function">List&lt;PlayList&gt; <span class="title">GetAllPlayList</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Persist</span>(<span class="params">PlayList playList</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -255,7 +255,7 @@
 <p>We reach this making adapters implement interfaces. This interfaces are just interfaces with models objects in signatures. So, all the <strong>implementations details stay in</strong> the <strong>adapters</strong>. In this case <em>PLayListPostgreSQLAdapter</em> implements <em>PlayListPersistencePort</em>: </p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PLayListPostgreSQLAdapter</span> : <span class="title">PlayListPersistencePort</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> PlayList <span class="title">GetPlayList</span>(<span class="params"><span class="keyword">string</span> playlistId</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//This should be read from PostgreSQL DB</span></span><br><span class="line">        <span class="keyword">var</span> trackList = <span class="keyword">new</span> List&lt;Track&gt; &#123;</span><br><span class="line">            <span class="keyword">new</span> Track(<span class="string">"D7D0BF31-CC98-44EA-B983-C8C37FA95A59"</span>, <span class="string">"Hakujitsu"</span>, <span class="string">"King Gnu"</span>,<span class="number">261000</span>),</span><br><span class="line">            <span class="keyword">new</span> Track(<span class="string">"560D59E0-0487-4DF5-90C6-95C5594F244A"</span>, <span class="string">"Era - Ameno (The Scientist Remix)"</span>, <span class="string">"The Scientist DJ"</span>, <span class="number">202200</span>)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PlayList(playlistId, <span class="string">"Example PlayList"</span>, PlayListStatus.Active, trackList, <span class="string">"https://imageUrl.com"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;PlayList&gt; <span class="title">GetAllPlayList</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> trackList = <span class="keyword">new</span> List&lt;Track&gt; &#123;</span><br><span class="line">            <span class="keyword">new</span> Track(<span class="string">"D7D0BF31-CC98-44EA-B983-C8C37FA95A59"</span>, <span class="string">"Hakujitsu"</span>, <span class="string">"King Gnu"</span>,<span class="number">261000</span>),</span><br><span class="line">            <span class="keyword">new</span> Track(<span class="string">"560D59E0-0487-4DF5-90C6-95C5594F244A"</span>, <span class="string">"Era - Ameno (The Scientist Remix)"</span>, <span class="string">"The Scientist DJ"</span>, <span class="number">202200</span>)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> List&lt;PlayList&gt; &#123;</span><br><span class="line">            <span class="keyword">new</span> PlayList(<span class="string">"B6AED672-2663-49BA-85B0-0DDB02D59C1B"</span>, <span class="string">"Example PlayList"</span>, PlayListStatus.Active, <span class="keyword">new</span> List&lt;Track&gt;(), <span class="string">"https://imageUrl.com"</span>),</span><br><span class="line">            <span class="keyword">new</span> PlayList(<span class="string">"916A3E10-7AF2-4D54-BD78-48364F783F78"</span>, <span class="string">"Example PlayList 2"</span>, PlayListStatus.Active, trackList, <span class="string">"https://imageUrl2.com"</span>),</span><br><span class="line">            <span class="keyword">new</span> PlayList(<span class="string">"BF2D7788-D1FE-4772-B362-6D89686D895A"</span>, <span class="string">"Example PlayList 3"</span>, PlayListStatus.Archived, <span class="keyword">new</span> List&lt;Track&gt;(), <span class="string">"https://imageUrl3.com"</span>),</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Persist</span>(<span class="params">PlayList playList</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//This should persist in PostgreSQL DB</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Code-dependency-flow"><a href="#Code-dependency-flow" class="headerlink" title="Code dependency flow"></a>Code dependency flow</h1><p>To undestand how <strong>powerfull</strong> this aproach can be, we need to undestand <strong>how</strong> code dependencies <strong>are connected</strong>. If we pay atention to layer connections, we can notice that code dependency flow can be represented like this:</p>
+<h1 id="Code-dependency-flow"><a href="#Code-dependency-flow" class="headerlink" title="Code dependency flow"></a>Code dependency flow</h1><p>To understand how <strong>powerfull</strong> this approach can be, we need to understand <strong>how</strong> code dependencies <strong>are connected</strong>. If we pay atention to layer connections, we can notice that code dependency flow can be represented like this:</p>
 <img src="/2020/11/21/hexagonal-architecture/kjjksadxjlkaslkjdlaskdlkdlk2kllkklak.png" class="">
 
 <p>Controller: <em>PlaylistsController</em></p>
@@ -267,16 +267,16 @@
 <p>Domain: <em>PlayList</em></p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PlayList <span class="title">Create</span>(<span class="params"><span class="keyword">string</span> id, <span class="keyword">string</span> name</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PlayList(id, name, PlayListStatus.Active, <span class="keyword">new</span> List&lt;Track&gt;(), <span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Did you notice the <strong>magic</strong>? Well, let me explain a little a bout what is going on here:</p>
-<p><em>PlayListPersistencePort</em> It`s just an <strong>abstraction</strong>, so <em>playListPersistence.Persist(playList)</em> aplication layer is saying “<em>I want to persist this playlist</em>“, but it <strong>doesnt care how</strong>.</p>
-<p>This is <strong>responsability</strong> for the <strong>infrastructure</strong>.</p>
-<p>If we go back to the controller we can see <em>playListServiceCreator.CreateCreatePlayListService()</em> method call. With is the infrastructure part of code who is really carring about how data will be persisted.</p>
+<p>Did you notice the <strong>magic</strong>? Well, let me explain a little about what is going on here:</p>
+<p><em>PlayListPersistencePort</em> It`s just an <strong>abstraction</strong>, so <em>playListPersistence.Persist(playList)</em> application layer is saying “<em>I want to persist this playlist</em>“, but it <strong>doesn’t care how</strong>.</p>
+<p>This is <strong>Responsibility</strong> for the <strong>infrastructure</strong>.</p>
+<p>If we go back to the controller we can see <em>playListServiceCreator.CreateCreatePlayListService()</em> method call. With is the infrastructure part of code that is really caring about how data will be persisted.</p>
 <p><em>PlayListServiceCreator</em></p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> CreatePlayListService <span class="title">CreateCreatePlayListService</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> pLayListDatabaseAdapter = <span class="keyword">new</span> PLayListPostgreSQLAdapter();</span><br><span class="line">    <span class="keyword">var</span> musicCloudApiHttpAdapter = <span class="keyword">new</span> PlayListSpotifyApiAdapter();</span><br><span class="line">    <span class="keyword">var</span> uniqueIdentifiersInMemoryAdapter = <span class="keyword">new</span> UniqueIdentifiersInMemoryAdapter();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CreatePlayListService(uniqueIdentifiersInMemoryAdapter, pLayListDatabaseAdapter, musicCloudApiHttpAdapter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>This class is responsible to <strong>inject</strong> a concrete implementation, <strong>adapter</strong>, in this case <em>PLayListPostgreSQLAdapter</em>.</p>
 <p>This tecknike is also knowed as <strong>dependency inyection</strong> (<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="noopener">DI</a>).</p>
-<h1 id="And-what-about-testing"><a href="#And-what-about-testing" class="headerlink" title="And.. what about testing?"></a>And.. what about testing?</h1><p>Here another big improvement comes in to play, becouse now aplication layer and domain can be <strong>tested alone</strong>.</p>
+<h1 id="And-what-about-testing"><a href="#And-what-about-testing" class="headerlink" title="And.. what about testing?"></a>And.. what about testing?</h1><p>Here another big improvement comes in to play, because now application layer and domain can be <strong>tested alone</strong>.</p>
 <p>You do not need any infrastructure code in your application layer tests like test databases. Now we have <strong>fastest test</strong> covering the core rules.</p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line">[<span class="meta">Test</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">create_a_play_list</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> aPlaylistId = APlaylist.Id;</span><br><span class="line">    <span class="keyword">var</span> aPlaylistName = APlaylist.Name;</span><br><span class="line">    uniqueIdentifiers.GetNewUniqueIdentifier().Returns(aPlaylistId);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> result = createPlayListService.Execute(aPlaylistName);</span><br><span class="line">    </span><br><span class="line">    result.IsRight.Should().BeTrue();</span><br><span class="line">    VerifyPlayListHasBeenPersistedWith(aPlaylistId, aPlaylistName, PlayListStatus.Active);</span><br><span class="line">    playListNotifierPort.Received().NotifyPlayListHasBeenCreated(aPlaylistId, aPlaylistName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -303,8 +303,8 @@
       <i class="fa fa-chevron-left"></i> Be the worst != Feel the worst
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/11/30/cqrs/" rel="next" title="Software Architectures examples : CQRS">
-      Software Architectures examples : CQRS <i class="fa fa-chevron-right"></i>
+    <a href="/2020/11/30/cqrs/" rel="next" title="Software Architectures examples: CQRS">
+      Software Architectures examples: CQRS <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

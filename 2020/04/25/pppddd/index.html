@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://espumita.org/2020/04/25/pppddd/h23h424bj234j32h3jj.png">
 <meta property="article:published_time" content="2020-04-25T08:10:44.000Z">
-<meta property="article:modified_time" content="2020-08-13T18:50:22.578Z">
+<meta property="article:modified_time" content="2020-12-20T20:15:07.356Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://espumita.org/2020/04/25/pppddd/h23h424bj234j32h3jj.png">
@@ -250,7 +250,7 @@
 <li>Identify the supporting domains. Not defining what your system does, help to support your core domains. They need to work but do not require your prolonged attention. As with the generic domains, if possible, you should look to buy off‐the‐shelf solutions. Maybe, can be a manual process.</li>
 <li>Clean Boundaries over perfect models.</li>
 <li>Build subdomains for replacement over build subdomains for reuse.</li>
-<li>If there is no core domain, do not apply DDD.</li>
+<li>If there is any core domain, do not apply DDD.</li>
 </ul>
 <h1 id="Solution-space-Domain-Model"><a href="#Solution-space-Domain-Model" class="headerlink" title="Solution space: Domain Model"></a>Solution space: Domain Model</h1><p>Traditional software processes keep the code model and analysis model separate, which leads to an implementation that rarely resembles the blueprint due to new insight and constraints of the technical solution. DDD acknowledges the need to produce a <strong>single model</strong> that serves as an <strong>analysis model</strong> for business people to understand and which is <strong>implemented</strong> using the same terminology and concepts <strong>in code</strong>.</p>
 <p>It is formed first as an analysis model through the collaboration between a development team and business experts during knowledge‐crunching sessions. It represents <strong>a view</strong>, not the reality, of the <strong>problem domain</strong> designed only to meet the needs of business use cases. It is described in a <strong>shared language</strong> that the team speaks and the <strong>diagrams</strong> that the team sketches. When it is expressed as a <strong>code</strong> implementation, it is bound to the analysis model through the use of the <strong>shared language</strong>. Its usefulness comes from its ability to represent complex logic and polices in the domain to solve business use cases. The model contains <strong>only</strong> what is <strong>relevant</strong> to solve problems in the context of the application being created. It needs to <strong>constantly evolve</strong> with the business to <strong>keep</strong> itself <strong>useful</strong> and <strong>valid</strong>.</p>
@@ -284,7 +284,7 @@
 </ul>
 <p>Relationships between bounded contexts:</p>
 <ul>
-<li>Context Map, the big picture of relations between contexts Easy way to identify the core parts of the system, ownership and responsability. Reveals areas of consufion. Adds many value to onboardings.</li>
+<li>Context Map, the big picture of relations between contexts Easy way to identify the core parts of the system, ownership and responsibility. Reveals areas of consufion. Adds many value to onboardings.</li>
 <li>Anticorruption layer.</li>
 <li>Shared kernel.</li>
 <li>Open host service.</li>
@@ -427,7 +427,7 @@
 </ul>
 <h2 id="Repositories"><a href="#Repositories" class="headerlink" title="Repositories"></a>Repositories</h2><ul>
 <li>Aggregate Root repositories has only getById and add/save methods.</li>
-<li>Query hydration/persistence syncronization entry points.</li>
+<li>Query hydration/persistence synchronization entry points.</li>
 <li>Transactional behavior.</li>
 </ul>
 <h2 id="Factories"><a href="#Factories" class="headerlink" title="Factories"></a>Factories</h2><p>Using factories will improve your code legibility and you will enfacy the isolation and complexity of complex models creation.</p>

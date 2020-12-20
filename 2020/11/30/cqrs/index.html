@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"espumita.org","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="In some applications, we can find many benefits by spliting the model in two parts: the update part, commands, and the read part, queries. In 2006, Greg Young started talking about this pattern, also">
+  <meta name="description" content="In some applications, we can find many benefits by splitting the model into two parts: the update part, commands, and the reading part, queries. In 2006, Greg Young started talking about this pattern,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Software Architectures examples : CQRS">
+<meta property="og:title" content="Software Architectures examples: CQRS">
 <meta property="og:url" content="http://espumita.org/2020/11/30/cqrs/index.html">
 <meta property="og:site_name" content="Espumita&#39;s Blog">
-<meta property="og:description" content="In some applications, we can find many benefits by spliting the model in two parts: the update part, commands, and the read part, queries. In 2006, Greg Young started talking about this pattern, also">
+<meta property="og:description" content="In some applications, we can find many benefits by splitting the model into two parts: the update part, commands, and the reading part, queries. In 2006, Greg Young started talking about this pattern,">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://espumita.org/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg">
 <meta property="og:image" content="http://espumita.org/2020/11/30/cqrs/hjke3kbjbjk2sjkbjkbn2jkkj23jkskj.JPG">
 <meta property="og:image" content="http://espumita.org/2020/11/30/cqrs/KJBDKJD3JKDJ3LKLKJLKLSL2LK2SK2SKSN.JPG">
 <meta property="article:published_time" content="2020-11-30T21:02:56.000Z">
-<meta property="article:modified_time" content="2020-12-19T13:08:48.963Z">
+<meta property="article:modified_time" content="2020-12-20T20:29:36.272Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://espumita.org/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>Software Architectures examples : CQRS | Espumita's Blog</title>
+  <title>Software Architectures examples: CQRS | Espumita's Blog</title>
   
 
 
@@ -177,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Software Architectures examples : CQRS
+          Software Architectures examples: CQRS
         </h1>
 
         <div class="post-meta">
@@ -210,7 +210,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>In some applications, we can find many benefits by <strong>spliting the model</strong> in two parts: the update part, <strong>commands</strong>, and the read part, <strong>queries</strong>. In 2006, Greg Young started talking about <a href="https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf" target="_blank" rel="noopener">this pattern</a>, also know as <strong>Command Query Responsibility Segregation (CQRS)</strong>. </p>
+        <p>In some applications, we can find many benefits by <strong>splitting the model</strong> into two parts: the update part, <strong>commands</strong>, and the reading part, <strong>queries</strong>. In 2006, Greg Young started talking about <a href="https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf" target="_blank" rel="noopener">this pattern</a>, also known as <strong>Command Query Responsibility Segregation (CQRS)</strong>. </p>
 <img src="/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg" class="">
 
 <a id="more"></a>
@@ -223,19 +223,19 @@
 </li>
 <li><p><strong>Read model</strong> only knows about views data, data do not need to be validated.</p>
 </li>
-<li><p>Posibility to take decisions about <strong>improving performance</strong> without affect the whole application. For example, the read model can be <strong>scaled separatelly</strong> using a fastest database technology.</p>
+<li><p>Possibility to take decisions about <strong>improving performance</strong> without affecting the whole application. For example, the read model can be <strong>scaled separately</strong> using other faster database technology.</p>
 </li>
-<li><p>Highly <strong>potential</strong> to <strong>integrate with other patterns</strong>, for example patterns based in events.</p>
+<li><p>Highly <strong>potential</strong> to <strong>integrate with other patterns</strong>, for example, patterns based on events.</p>
 </li>
-<li><p><strong>Potentialy</strong> to implement <strong>resilence</strong> strategies like <strong>rebuild queries persistence</strong> in case of data lost.</p>
+<li><p><strong>Potentially</strong> to implement <strong>resilence</strong> strategies like <strong>rebuild queries persistence</strong> in case of data loss.</p>
 </li>
 </ul>
-<h1 id="Drawnbacks"><a href="#Drawnbacks" class="headerlink" title="Drawnbacks"></a>Drawnbacks</h1><p>This pattern is <strong>not a silver bullet</strong>. In many cases using this patterns only adds <strong>more complexity</strong>, more code to maintaint and usualy more infrastructure parts. An example is to apply this pattern in a simple CRUD application.</p>
-<p>The <strong>desition to apply</strong> this pattern must be followed by model <strong>simplification benefits</strong>, and maybe by <strong>non funcional requirements</strong> like queries velocity <strong>scalability</strong>.</p>
+<h1 id="Drawnbacks"><a href="#Drawnbacks" class="headerlink" title="Drawnbacks"></a>Drawnbacks</h1><p>This pattern is <strong>not a silver bullet</strong>. In many cases using this pattern only adds <strong>more complexity</strong>, more code to maintain, and usually more infrastructure parts. An example is to apply this pattern in a simple CRUD application.</p>
+<p>The <strong>decision to apply</strong> this pattern must be followed by model <strong>simplification benefits</strong>, and maybe by <strong>nonfunctional requirements</strong> like queries velocity <strong>scalability</strong>.</p>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>Following <a href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/CQRS" target="_blank" rel="noopener">this</a> aspnetcore example, consider the next code distribution:</p>
 <img src="/2020/11/30/cqrs/hjke3kbjbjk2sjkbjkbn2jkkj23jkskj.JPG" class="">
 
-<p>This music aplication example is built on top of the previous <a href="/2020/11/21/hexagonal-architecture/">Hexagonal Architecture example</a>. It’s recommended to understand previous examples first. In this example we had decided for to separate the code in two parts: reads and writes. In the <strong>application layer</strong> now we find two different <strong>folders</strong>:</p>
+<p>This music application example is built on top of the previous <a href="/2020/11/21/hexagonal-architecture/">Hexagonal Architecture example</a>. It’s recommended to understand previous examples first. In this example, we had decided to separate the code into two parts: reads and writes. In the <strong>application layer</strong> now we find two different <strong>folders</strong>:</p>
 <ul>
 <li><p><strong>Application.Write</strong> with the application write <a href="https://en.wikipedia.org/wiki/Use_case" target="_blank" rel="noopener">use cases</a>, the commands, models as <strong>services</strong>. In this case: <em>CreatePlayList</em>, <em>AddTrackToPlayList</em>, etc.</p>
 </li>
@@ -254,19 +254,19 @@
 <p>But, If we take a look to <em>Track</em> class:</p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Track</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Id &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Track</span>(<span class="params"><span class="keyword">string</span> id</span>)</span> &#123;</span><br><span class="line">        Id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Track <span class="title">With</span>(<span class="params"><span class="keyword">string</span> trackId</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Track(trackId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>We can see that the <strong>domain only needs</strong> the <em>Id</em> property to work with the rules. This means, that <strong>spliting the models</strong> has <strong>simplify</strong> our write model.</p>
+<p>We can see that the <strong>domain only needs</strong> the <em>Id</em> property to work with the rules. This means, that <strong>splitting the models</strong> has <strong>simplify</strong> our write model.</p>
 <h1 id="Read-model"><a href="#Read-model" class="headerlink" title="Read model"></a>Read model</h1><p>We can see that in the real model we also have a <em>PlayList</em> class, with the same properties, but <strong>without business rules</strong>. So we end up with just a <strong>plain object</strong> to serve data.</p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayList</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Id &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> PlayListStatus Status &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> List&lt;Track&gt; TrackList &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ImageUrl &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PlayList</span>(<span class="params"><span class="keyword">string</span> id, <span class="keyword">string</span> name, PlayListStatus status, List&lt;Track&gt; trackList, <span class="keyword">string</span> imageUrl</span>)</span> &#123;</span><br><span class="line">        Id = id;</span><br><span class="line">        Name = name;</span><br><span class="line">        Status = status;</span><br><span class="line">        TrackList = trackList;</span><br><span class="line">        ImageUrl = imageUrl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>And if we look at <em>Track</em> class, we can see that it have <strong>properties</strong> like <em>Name</em> and <em>Artist, who are *</em>important for the views<strong>, but **not necesary</strong> for the <strong>business rules</strong>.</p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Track</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Id &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Artist &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DurationInMs &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Track</span>(<span class="params"><span class="keyword">string</span> id, <span class="keyword">string</span> name, <span class="keyword">string</span> artist, <span class="keyword">int</span> durationInMs</span>)</span> &#123;</span><br><span class="line">        Id = id;</span><br><span class="line">        Name = name;</span><br><span class="line">        Artist = artist;</span><br><span class="line">        DurationInMs = durationInMs;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>At this point, the <strong>model doesn’t care</strong> who part of the infrastructure fills the <em>Name</em> data in the database, maybe another system, or a data migration.</p>
-<h1 id="What-about-spliting-persistence"><a href="#What-about-spliting-persistence" class="headerlink" title="What about spliting persistence?"></a>What about spliting persistence?</h1><p>A big beneffist to work like this is that now, <strong>optionaly</strong>, we can <strong>change</strong> read models <strong>persistence</strong> by another technology <strong>withouth affecting</strong> any <strong>business rules</strong>.</p>
+<p>At this point, the <strong>model doesn’t care</strong> who part of the infrastructure fills the <em>Name</em> data in the database, maybe another system, or data migration.</p>
+<h1 id="What-about-splitting-persistence"><a href="#What-about-splitting-persistence" class="headerlink" title="What about splitting persistence?"></a>What about splitting persistence?</h1><p>A big beneffist to work like this is that now, <strong>optionaly</strong>, we can <strong>change</strong> read models <strong>persistence</strong> by another technology <strong>without affecting</strong> any <strong>business rules</strong>.</p>
 <p>As simple as implement other adapter, in this case we have <em>TracksPostgreSQLQueriesAdapter</em></p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TracksPostgreSQLQueriesAdapter</span> : <span class="title">TracksQueryPort</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Track <span class="title">GetTrack</span>(<span class="params"><span class="keyword">string</span> trackId</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//This should be read from PostgreSQL DB</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Track(<span class="string">"2E5804A7-A0CC-46E0-B167-A818A696F3E0"</span>, <span class="string">"Mis Colegas"</span>, <span class="string">"Ska-P"</span>, <span class="number">246600</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>But it can be easily replaced by <em>TracksMongoQueriesAdapter</em> for example. But take in to account, that if you decide to <strong>split the persistence</strong>, you <strong>need a syncronization method</strong> between models.</p>
+<p>But it can be easily replaced by <em>TracksMongoQueriesAdapter</em> for example. But take into account, that if you decide to <strong>split the persistence</strong>, you <strong>need a synchronization method</strong> between models.</p>
 
     </div>
 
@@ -282,12 +282,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/21/hexagonal-architecture/" rel="prev" title="Software Architectures examples : Hexagonal Architecture">
-      <i class="fa fa-chevron-left"></i> Software Architectures examples : Hexagonal Architecture
+    <a href="/2020/11/21/hexagonal-architecture/" rel="prev" title="Software Architectures examples: Hexagonal Architecture">
+      <i class="fa fa-chevron-left"></i> Software Architectures examples: Hexagonal Architecture
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/19/event-driven/" rel="next" title="Software Architectures examples : Event Driven">
-      Software Architectures examples : Event Driven <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/19/event-driven/" rel="next" title="Software Architectures examples: Event-Driven">
+      Software Architectures examples: Event-Driven <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
