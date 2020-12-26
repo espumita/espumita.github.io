@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://espumita.org/"/>
-  <updated>2020-12-20T20:24:08.123Z</updated>
+  <updated>2020-12-26T19:31:26.649Z</updated>
   <id>http://espumita.org/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Software Architectures examples : Asynchronous Command Queue</title>
+    <link href="http://espumita.org/2020/12/26/asynchronous-command-queue/"/>
+    <id>http://espumita.org/2020/12/26/asynchronous-command-queue/</id>
+    <published>2020-12-26T15:59:57.000Z</published>
+    <updated>2020-12-26T19:31:26.649Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are some scenarios where we &lt;strong&gt;don’t need to wait&lt;/strong&gt; for fast feedback when executing tasks. In some cases, we can just &lt;strong&gt;request the computation&lt;/strong&gt; of that a task, &lt;strong&gt;a command&lt;/strong&gt;, and at some moment in the future, we can &lt;strong&gt;receive a callback&lt;/strong&gt; notification with the execution result.&lt;/p&gt;
+&lt;p&gt;To explore a solution for this posibilities, I decided to build &lt;a href=&quot;https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this&lt;/a&gt; example by applying an &lt;strong&gt;asynchronous command queue&lt;/strong&gt;.&lt;/p&gt;
+&lt;img src=&quot;/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg&quot; class=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Architecture" scheme="http://espumita.org/categories/Architecture/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Software Architectures examples: Event-Driven</title>
     <link href="http://espumita.org/2020/12/19/event-driven/"/>
     <id>http://espumita.org/2020/12/19/event-driven/</id>
     <published>2020-12-19T12:15:04.000Z</published>
-    <updated>2020-12-20T20:24:08.123Z</updated>
+    <updated>2020-12-26T18:29:37.891Z</updated>
     
     <summary type="html">
     
