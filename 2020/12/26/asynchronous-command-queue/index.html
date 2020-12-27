@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://espumita.org/2020/12/26/asynchronous-command-queue/kweskjhw3jkh3jk3wjslkjk4d3wfjk434wdfjkwfjk3.JPG">
 <meta property="og:image" content="http://espumita.org/2020/12/26/asynchronous-command-queue/SHJBK3ZS2KHBJ243DKJH3DJK2L324JKLSK2JS23KJS324K.JPG">
 <meta property="article:published_time" content="2020-12-26T15:59:57.000Z">
-<meta property="article:modified_time" content="2020-12-26T19:31:26.649Z">
+<meta property="article:modified_time" content="2020-12-27T09:33:21.442Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://espumita.org/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg">
@@ -222,18 +222,20 @@
 <p>Under the hood, we can find that the original request has an HTTP 200 ok. But the dialogs between the servers are quite different from when we were used. Patterns like <strong>pooling</strong> or <strong>WebSockets</strong> are very common in the frontend.</p>
 <h1 id="Benefits"><a href="#Benefits" class="headerlink" title="Benefits"></a>Benefits</h1><ul>
 <li><strong>Concurrency disappears</strong>. Because now commands can be processed one by one, so potentially there are <strong>no race conditions</strong> between resources.</li>
-<li><strong>Less coupling</strong> and <strong>more flexibility</strong> because systems can now be integrated just <strong>command contract</strong>.</li>
-<li><strong>Improve client usage</strong> with the fastest request, and without error management, at least in command publishing.</li>
+<li><strong>Less coupling</strong> and <strong>more flexibility</strong> because systems can now be integrated just with a <strong>command contract</strong>.</li>
+<li><strong>Improve client usage</strong> with faster requests, and less error management, at least in command publishing.</li>
 <li><strong>Possibility to define</strong> a command <strong>execution context</strong> and <strong>pipeline</strong>, to deal with stuff like transactions scopes or schedule.</li>
-<li>Possibility to <strong>integrate</strong> with retry <strong>patterns</strong>.</li>
-<li>Posibility to <strong>integrate</strong> with <strong>technologies</strong> like webhooks, webshockets, etc.</li>
-<li>Possibility to <strong>replay production loads</strong> in test environments replaying production commands history.</li>
+<li>Possibility to <strong>implement</strong> with <strong>retry policities</strong>.</li>
+<li><strong>Good integration</strong> with <strong>technologies</strong> like webhooks, webshockets, etc.</li>
+<li>If command history is stored, there is a possibility to <strong>replay production loads</strong> in test environments replaying production commands.</li>
 </ul>
 <h1 id="Drawnbacks"><a href="#Drawnbacks" class="headerlink" title="Drawnbacks"></a>Drawnbacks</h1><ul>
-<li>Much more <strong>complexity</strong>.</li>
-<li>This only has sense in a couple of scenarios, where executions and notifications are needed. <strong>Each solution</strong> has its <strong>suitable problem</strong>.</li>
-<li>Usually <strong>need of a callback mechanism</strong> for the client to receive results and <strong>error handling</strong>.</li>
+<li>Much <strong>more complexity</strong>, compared with previous architectures examples.</li>
+<li><strong>Harder learning curve</strong> than with other approaches.</li>
+<li>More technologies are involved, <strong>more points of failure</strong>.</li>
+<li>Usually <strong>need of a callback mechanism</strong> for the client to receive results and manage <strong>errors</strong>.</li>
 </ul>
+<p>This only has sense in a couple of scenarios, where executions and notifications are needed. <strong>Each solution</strong> has its <strong>suitable problem</strong>.</p>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>Following <a href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue" target="_blank" rel="noopener">this</a> aspnetcore example, consider the next code distribution:</p>
 <img src="/2020/12/26/asynchronous-command-queue/kweskjhw3jkh3jk3wjslkjk4d3wfjk434wdfjkwfjk3.JPG" class="">
 
@@ -262,7 +264,7 @@
 <h1 id="Running-the-example-with-SignalR"><a href="#Running-the-example-with-SignalR" class="headerlink" title="Running the example with SignalR"></a>Running the example with SignalR</h1><p>Class: <em>MyMusic.Application.EventHandlers.PlayListHasBeenCreatedEventHandler</em></p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayListHasBeenCreatedEventHandler</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> PlayListNotifierPort playListNotifier;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> WebsocketPort websocket;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PlayListHasBeenCreatedEventHandler</span>(<span class="params">PlayListNotifierPort playListNotifier, WebsocketPort websocket</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.playListNotifier = playListNotifier;</span><br><span class="line">        <span class="keyword">this</span>.websocket = websocket;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Handle</span>(<span class="params">PlayListHasBeenCreated @<span class="keyword">event</span></span>)</span> &#123;</span><br><span class="line">        playListNotifier.NotifyPlayListHasBeenCreated(@<span class="keyword">event</span>.PlayListId, @<span class="keyword">event</span>.PlayListName);</span><br><span class="line">        <span class="keyword">await</span> websocket.PushMessageWithEventToAll(@<span class="keyword">event</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>And, As you can see, an <strong>event handlers</strong> is <strong>subscribed to that event</strong>, and we had added <em>websocket.PushMessageWithEventToAll(@event)</em></p>
+<p>And, as you can see, an <strong>event handlers</strong> is <strong>subscribed to that event</strong>, and we had added <em>websocket.PushMessageWithEventToAll(@event)</em></p>
 <h1 id="Send-messages-to-sockets"><a href="#Send-messages-to-sockets" class="headerlink" title="Send messages to sockets"></a>Send messages to sockets</h1><p>Class: <em>MyMusic.Websockets.SignalRWebsocketAdapter</em></p>
 <figure class="highlight csharp"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SignalRWebsocketAdapter</span> : <span class="title">Hub</span>, <span class="title">WebsocketPort</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span>  Task <span class="title">PushMessageWithEventToAll</span>(<span class="params">Event @<span class="keyword">event</span></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (Clients != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">await</span> Clients.All.SendAsync(<span class="string">"AllMyMusicTarget"</span>, @<span class="keyword">event</span>.GetType().Name,@<span class="keyword">event</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">PushMessageWithErrorToAll</span>(<span class="params"><span class="keyword">string</span> error, Command command</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (Clients != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">await</span> Clients.All.SendAsync(<span class="string">"AllMyMusicTarget"</span>, error, command);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -278,7 +280,6 @@
 <p>And then we can see, that the message has traveled from the server through the client in the browser network tab:</p>
 <img src="/2020/12/26/asynchronous-command-queue/SHJBK3ZS2KHBJ243DKJH3DJK2L324JKLSK2JS23KJS324K.JPG" class="">
 
-<h1 id="Command-queue"><a href="#Command-queue" class="headerlink" title="Command queue"></a>Command queue</h1>
     </div>
 
     
