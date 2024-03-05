@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2023-08-15T14:46:04.972Z</updated>
+  <updated>2024-03-05T18:42:27.138Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to reach the Senior Software Engineer level</title>
+    <link href="https://espumita.org/2024/03/04/senior-software-engineer/"/>
+    <id>https://espumita.org/2024/03/04/senior-software-engineer/</id>
+    <published>2024-03-04T16:19:53.000Z</published>
+    <updated>2024-03-05T18:42:27.138Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2024/03/04/senior-software-engineer/aslkjnjlkasdflkjlasdjklasdjkl.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;This time I want to share my view about the Senior Software Engineer path.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Development" scheme="https://espumita.org/categories/Development/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Software Architectures examples : Vertical Slice</title>
@@ -168,7 +187,7 @@
     <link href="https://espumita.org/2021/02/21/money/"/>
     <id>https://espumita.org/2021/02/21/money/</id>
     <published>2021-02-21T10:31:15.000Z</published>
-    <updated>2022-01-09T12:03:49.431Z</updated>
+    <updated>2024-03-03T09:21:09.853Z</updated>
     
     
     <summary type="html">&lt;p&gt;In our society, we could say that &lt;strong&gt;money&lt;/strong&gt; is equal to &lt;strong&gt;power&lt;/strong&gt;. Because with money you have the power to buy things or services. But that is not actually all.&lt;/p&gt;
@@ -177,7 +196,7 @@
     
     
     
-    <category term="economy" scheme="https://espumita.org/categories/economy/"/>
+    <category term="Economy" scheme="https://espumita.org/categories/Economy/"/>
     
     
   </entry>
@@ -281,7 +300,7 @@
     <link href="https://espumita.org/2020/09/22/http-custom-authentication/"/>
     <id>https://espumita.org/2020/09/22/http-custom-authentication/</id>
     <published>2020-09-22T19:49:01.000Z</published>
-    <updated>2022-01-09T20:11:56.619Z</updated>
+    <updated>2024-01-07T23:28:43.655Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/static/J23J2J2KSKK12lkk2kwlsll22la.png&quot;/&gt;
