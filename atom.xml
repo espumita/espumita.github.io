@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2024-03-09T11:17:58.219Z</updated>
+  <updated>2024-04-30T20:23:07.754Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Azure Cosmos DB filter by multiple IDs performance comparison:</title>
+    <link href="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/"/>
+    <id>https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/</id>
+    <published>2024-04-29T16:46:02.000Z</published>
+    <updated>2024-04-30T20:23:07.754Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/2akjhbsjk32bxkjs2z3ks2k.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;Some days ago we were designing a new feature using Azure Cosmos DB. We needed to query data filtering by 4 different IDs. After comparing a few options, we ended up wondering: What is the most efficient way to query this data?&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Databases" scheme="https://espumita.org/categories/Databases/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>How to reach the Senior Software Engineer level</title>
