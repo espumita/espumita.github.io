@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2024-04-30T20:23:07.754Z</updated>
+  <updated>2024-05-12T11:24:10.482Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Query Performance Tunning: ORDER BY from 20s to 119ms in Microsoft SQL Server</title>
+    <link href="https://espumita.org/2024/05/12/sql-query-performance-tunning/"/>
+    <id>https://espumita.org/2024/05/12/sql-query-performance-tunning/</id>
+    <published>2024-05-12T07:20:47.000Z</published>
+    <updated>2024-05-12T11:24:10.482Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Last week we noticed that in some of our production environments, a request was performing very bad times, more than &lt;strong&gt;20 seconds&lt;/strong&gt; to complete. After analyzing the case we could reduce this to &lt;strong&gt;119 milliseconds&lt;/strong&gt;. I would like to share the steps we made to reach this:&lt;/p&gt;
+&lt;img src=&quot;/2024/05/12/sql-query-performance-tunning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Databases" scheme="https://espumita.org/categories/Databases/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Azure Cosmos DB filter by multiple IDs performance comparison:</title>
