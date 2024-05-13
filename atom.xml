@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2024-05-12T17:58:31.910Z</updated>
+  <updated>2024-05-13T19:48:38.313Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -21,10 +21,11 @@
     <link href="https://espumita.org/2024/05/12/sql-query-performance-tuning/"/>
     <id>https://espumita.org/2024/05/12/sql-query-performance-tuning/</id>
     <published>2024-05-12T07:20:47.000Z</published>
-    <updated>2024-05-12T17:58:31.910Z</updated>
+    <updated>2024-05-13T19:48:38.313Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Last week we noticed that in some of our production environments, a request was performing very bad times, more than &lt;strong&gt;20 seconds&lt;/strong&gt; to complete. After analyzing the case we could reduce this to &lt;strong&gt;119 milliseconds&lt;/strong&gt;. I would like to share the steps we made to reach this:&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Last week we noticed that in some of our production environments, a request was performing very bad times, more than &lt;strong&gt;20 seconds&lt;/strong&gt; to complete. After analyzing the case we could reduce this to &lt;strong&gt;119 milliseconds&lt;/strong&gt;. I would like to share the steps we made to reach this:&lt;/p&gt;
+&lt;img src=&quot;/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png&quot; class=&quot;&quot;&gt;</summary>
     
     
     
