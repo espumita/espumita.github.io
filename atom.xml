@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2024-05-13T19:48:38.313Z</updated>
+  <updated>2024-06-12T20:15:42.430Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Book notes: Staff Engineer, Leadership beyond the management track</title>
+    <link href="https://espumita.org/2024/06/12/staff-engineering-book-notes/"/>
+    <id>https://espumita.org/2024/06/12/staff-engineering-book-notes/</id>
+    <published>2024-06-12T19:29:34.000Z</published>
+    <updated>2024-06-12T20:15:42.430Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2024/06/12/staff-engineering-book-notes/123981293881238912w899so121.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;This is an interesting and recommended book by &lt;a href=&quot;https://lethain.com/about/&quot;&gt;Will Larson&lt;/a&gt; published in 2021 about Staff engineers roles.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Techniques" scheme="https://espumita.org/categories/Techniques/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server</title>
@@ -318,7 +337,7 @@
     <link href="https://espumita.org/2020/10/20/be-the-worst/"/>
     <id>https://espumita.org/2020/10/20/be-the-worst/</id>
     <published>2020-10-20T15:37:25.000Z</published>
-    <updated>2022-01-09T12:03:49.399Z</updated>
+    <updated>2024-06-08T15:17:23.320Z</updated>
     
     
     <summary type="html">&lt;p&gt;Be the worst is about &lt;strong&gt;learning&lt;/strong&gt;, and to have people about to &lt;strong&gt;learn from&lt;/strong&gt;.&lt;/p&gt;
