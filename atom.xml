@@ -40,11 +40,12 @@
     <link href="https://espumita.org/2024/05/12/sql-query-performance-tuning/"/>
     <id>https://espumita.org/2024/05/12/sql-query-performance-tuning/</id>
     <published>2024-05-12T07:20:47.000Z</published>
-    <updated>2024-05-13T19:48:38.313Z</updated>
+    <updated>2024-06-12T20:18:17.195Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Last week we noticed that in some of our production environments, a request was performing very bad times, more than &lt;strong&gt;20 seconds&lt;/strong&gt; to complete. After analyzing the case we could reduce this to &lt;strong&gt;119 milliseconds&lt;/strong&gt;. I would like to share the steps we made to reach this:&lt;/p&gt;
-&lt;img src=&quot;/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;Last week we noticed that in some of our production environments, a request was performing very bad times, more than &lt;strong&gt;20 seconds&lt;/strong&gt; to complete. After analyzing the case we could reduce this to &lt;strong&gt;119 milliseconds&lt;/strong&gt;. I would like to share the steps we made to reach this:&lt;/p&gt;</summary>
     
     
     
@@ -96,11 +97,12 @@
     <link href="https://espumita.org/2023/08/15/vertical-slice/"/>
     <id>https://espumita.org/2023/08/15/vertical-slice/</id>
     <published>2023-08-15T13:00:56.000Z</published>
-    <updated>2023-08-15T14:46:04.972Z</updated>
+    <updated>2024-06-12T20:21:31.360Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.jimmybogard.com/vertical-slice-architecture/&quot;&gt;5 Years ago&lt;/a&gt; Jimmy Bogard launches Vertical Slice architecture as an &lt;strong&gt;alternative&lt;/strong&gt; to traditional Clean Architecture. So let’s take a look:&lt;/p&gt;
-&lt;img src=&quot;/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.jimmybogard.com/vertical-slice-architecture/&quot;&gt;5 Years ago&lt;/a&gt; Jimmy Bogard launches Vertical Slice architecture as an &lt;strong&gt;alternative&lt;/strong&gt; to traditional Clean Architecture. So let’s take a look:&lt;/p&gt;</summary>
     
     
     
@@ -133,11 +135,12 @@
     <link href="https://espumita.org/2021/10/31/tdd-with-copilot-preview/"/>
     <id>https://espumita.org/2021/10/31/tdd-with-copilot-preview/</id>
     <published>2021-10-31T08:04:02.000Z</published>
-    <updated>2022-01-09T12:03:49.532Z</updated>
+    <updated>2024-06-12T20:21:17.892Z</updated>
     
     
-    <summary type="html">&lt;p&gt;This weekend I had the opportunity to test &lt;a href=&quot;https://copilot.github.com/&quot;&gt;GitHub Copilot&lt;/a&gt; and to play a little bit with it. And, yeah, it blew my mind.&lt;/p&gt;
-&lt;img src=&quot;/2021/10/31/tdd-with-copilot-preview/asjkhgdkhqkjh2kjj2kkakddak.png&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2021/10/31/tdd-with-copilot-preview/asjkhgdkhqkjh2kjj2kkakddak.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;This weekend I had the opportunity to test &lt;a href=&quot;https://copilot.github.com/&quot;&gt;GitHub Copilot&lt;/a&gt; and to play a little bit with it. And, yeah, it blew my mind.&lt;/p&gt;</summary>
     
     
     
@@ -170,11 +173,12 @@
     <link href="https://espumita.org/2021/05/08/about-resources/"/>
     <id>https://espumita.org/2021/05/08/about-resources/</id>
     <published>2021-05-08T15:00:43.000Z</published>
-    <updated>2022-01-09T12:03:49.393Z</updated>
+    <updated>2024-06-12T20:18:42.210Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Some people feel anxiety or stress when many other professionals share a lot of content. Hours and hours of books, posts, videos, courses, and a lot of stuff that you can simply no digest. I would like to share some tips about my “method” about this topic and interesting things that I had found.&lt;/p&gt;
-&lt;img src=&quot;/2021/05/08/about-resources/asdasdkmawmdkl2123lkasj1l23l123ljk12hjkl31l.PNG&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2021/05/08/about-resources/asdasdkmawmdkl2123lkasj1l23l123ljk12hjkl31l.PNG&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;Some people feel anxiety or stress when many other professionals share a lot of content. Hours and hours of books, posts, videos, courses, and a lot of stuff that you can simply no digest. I would like to share some tips about my “method” about this topic and interesting things that I had found.&lt;/p&gt;</summary>
     
     
     
@@ -188,11 +192,12 @@
     <link href="https://espumita.org/2021/05/08/9-years-of-code/"/>
     <id>https://espumita.org/2021/05/08/9-years-of-code/</id>
     <published>2021-05-08T14:34:38.000Z</published>
-    <updated>2022-01-09T12:03:49.393Z</updated>
+    <updated>2024-06-12T20:18:34.413Z</updated>
     
     
-    <summary type="html">&lt;p&gt;I wrote my first hello world in Java in 2012, at the university. And I want to share few thoughts that I have changed over these years.&lt;/p&gt;
-&lt;img src=&quot;/2021/05/08/9-years-of-code/345hj34h534hjk5k3j45k34534kjh5gh34vh.jpg&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2021/05/08/9-years-of-code/345hj34h534hjk5k3j45k34534kjh5gh34vh.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;I wrote my first hello world in Java in 2012, at the university. And I want to share few thoughts that I have changed over these years.&lt;/p&gt;</summary>
     
     
     
@@ -206,11 +211,12 @@
     <link href="https://espumita.org/2021/04/01/minimalism-thoughts/"/>
     <id>https://espumita.org/2021/04/01/minimalism-thoughts/</id>
     <published>2021-04-01T21:57:57.000Z</published>
-    <updated>2022-01-09T12:03:49.431Z</updated>
+    <updated>2024-06-12T20:20:18.246Z</updated>
     
     
-    <summary type="html">&lt;p&gt;In the last few months, I have been learning about the &lt;strong&gt;minimalism movement&lt;/strong&gt; for a while and I will like to share some thoughts about this.&lt;/p&gt;
-&lt;img src=&quot;/2021/04/01/minimalism-thoughts/3hjk434k3k4jjk53j45j3kjjk5h3k45.jpg&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2021/04/01/minimalism-thoughts/3hjk434k3k4jjk53j45j3kjjk5h3k45.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;In the last few months, I have been learning about the &lt;strong&gt;minimalism movement&lt;/strong&gt; for a while and I will like to share some thoughts about this.&lt;/p&gt;</summary>
     
     
     
@@ -224,12 +230,13 @@
     <link href="https://espumita.org/2021/03/25/debug-https/"/>
     <id>https://espumita.org/2021/03/25/debug-https/</id>
     <published>2021-03-25T20:28:21.000Z</published>
-    <updated>2022-01-09T20:11:39.774Z</updated>
+    <updated>2024-06-12T20:19:24.719Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Sometimes we deal with well-secured scenarios where there are no many ways to check HTTP traffic. And in these cases, common tracing tools are not enough.&lt;/p&gt;
-&lt;p&gt;Consider the next communication:&lt;/p&gt;
-&lt;img src=&quot;/2021/03/25/debug-https/kj3bajk32jk23ejlkd23jlksdjlk2jlk23elkjl2kdlk.JPG&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2021/03/25/debug-https/kj3bajk32jk23ejlkd23jlksdjlk2jlk23elkjl2kdlk.JPG&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;Sometimes we deal with well-secured scenarios where there are no many ways to check HTTP traffic. And in these cases, common tracing tools are not enough.&lt;/p&gt;
+&lt;p&gt;Consider the next communication:&lt;/p&gt;</summary>
     
     
     
@@ -243,12 +250,13 @@
     <link href="https://espumita.org/2021/02/21/money/"/>
     <id>https://espumita.org/2021/02/21/money/</id>
     <published>2021-02-21T10:31:15.000Z</published>
-    <updated>2024-03-03T09:21:09.853Z</updated>
+    <updated>2024-06-12T20:20:27.109Z</updated>
     
     
-    <summary type="html">&lt;p&gt;In our society, we could say that &lt;strong&gt;money&lt;/strong&gt; is equal to &lt;strong&gt;power&lt;/strong&gt;. Because with money you have the power to buy things or services. But that is not actually all.&lt;/p&gt;
-&lt;p&gt;What does &lt;strong&gt;really&lt;/strong&gt; money &lt;strong&gt;means&lt;/strong&gt; nowadays? In essence, since the fall of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Gold_standard&quot;&gt;gold standard&lt;/a&gt;, caused by the &lt;a href=&quot;https://en.wikipedia.org/wiki/Nixon_shock&quot;&gt;Nixon shock&lt;/a&gt; in 1971, money now is just a portion of &lt;strong&gt;debt&lt;/strong&gt;. That’s it, for the last 50 years, a paper that means that you have a representation of a debt.&lt;/p&gt;
-&lt;img src=&quot;/2021/02/21/money/LKLKWEKLWEKWLKRLKWLKRWLKRKLWE.jpg&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2021/02/21/money/LKLKWEKLWEKWLKRLKWLKRWLKRKLWE.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;In our society, we could say that &lt;strong&gt;money&lt;/strong&gt; is equal to &lt;strong&gt;power&lt;/strong&gt;. Because with money you have the power to buy things or services. But that is not actually all.&lt;/p&gt;
+&lt;p&gt;What does &lt;strong&gt;really&lt;/strong&gt; money &lt;strong&gt;means&lt;/strong&gt; nowadays? In essence, since the fall of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Gold_standard&quot;&gt;gold standard&lt;/a&gt;, caused by the &lt;a href=&quot;https://en.wikipedia.org/wiki/Nixon_shock&quot;&gt;Nixon shock&lt;/a&gt; in 1971, money now is just a portion of &lt;strong&gt;debt&lt;/strong&gt;. That’s it, for the last 50 years, a paper that means that you have a representation of a debt.&lt;/p&gt;</summary>
     
     
     
@@ -262,12 +270,13 @@
     <link href="https://espumita.org/2020/12/26/asynchronous-command-queue/"/>
     <id>https://espumita.org/2020/12/26/asynchronous-command-queue/</id>
     <published>2020-12-26T15:59:57.000Z</published>
-    <updated>2023-12-30T15:40:25.914Z</updated>
+    <updated>2024-06-12T20:18:51.213Z</updated>
     
     
-    <summary type="html">&lt;p&gt;There are some scenarios where we &lt;strong&gt;don’t need to wait&lt;/strong&gt; for fast feedback when executing tasks. In some cases, we can just &lt;strong&gt;request the computation&lt;/strong&gt; of that a task, &lt;strong&gt;a command&lt;/strong&gt;, and at some moment in the future, we can &lt;strong&gt;receive a callback&lt;/strong&gt; notification with the execution result.&lt;/p&gt;
-&lt;p&gt;To explore a solution for this posibilities, I decided to build &lt;a href=&quot;https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue&quot;&gt;this&lt;/a&gt; example by applying an &lt;strong&gt;asynchronous command queue&lt;/strong&gt;.&lt;/p&gt;
-&lt;img src=&quot;/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;There are some scenarios where we &lt;strong&gt;don’t need to wait&lt;/strong&gt; for fast feedback when executing tasks. In some cases, we can just &lt;strong&gt;request the computation&lt;/strong&gt; of that a task, &lt;strong&gt;a command&lt;/strong&gt;, and at some moment in the future, we can &lt;strong&gt;receive a callback&lt;/strong&gt; notification with the execution result.&lt;/p&gt;
+&lt;p&gt;To explore a solution for this posibilities, I decided to build &lt;a href=&quot;https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue&quot;&gt;this&lt;/a&gt; example by applying an &lt;strong&gt;asynchronous command queue&lt;/strong&gt;.&lt;/p&gt;</summary>
     
     
     
@@ -281,11 +290,12 @@
     <link href="https://espumita.org/2020/12/19/event-driven/"/>
     <id>https://espumita.org/2020/12/19/event-driven/</id>
     <published>2020-12-19T12:15:04.000Z</published>
-    <updated>2022-01-09T20:09:40.010Z</updated>
+    <updated>2024-06-12T20:19:39.890Z</updated>
     
     
-    <summary type="html">&lt;p&gt;We can discuss a &lt;a href=&quot;https://www.youtube.com/watch?v=STKCRSUsyP0&amp;ab_channel=GOTOConferences&quot;&gt;lot&lt;/a&gt; about what is or what is not &lt;a href=&quot;https://en.wikipedia.org/wiki/Event-driven_architecture&quot;&gt;Event Driven Architecture&lt;/a&gt;. But in this post, we will see how &lt;strong&gt;events&lt;/strong&gt; can &lt;strong&gt;improve&lt;/strong&gt; the &lt;strong&gt;design&lt;/strong&gt; in our solutions.&lt;/p&gt;
-&lt;img src=&quot;/2020/12/19/event-driven/jd3jdjk32jkt2k3jrk32jd3j2dk32kd32e32d.png&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2020/12/19/event-driven/jd3jdjk32jkt2k3jrk32jd3j2dk32kd32e32d.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;We can discuss a &lt;a href=&quot;https://www.youtube.com/watch?v=STKCRSUsyP0&amp;ab_channel=GOTOConferences&quot;&gt;lot&lt;/a&gt; about what is or what is not &lt;a href=&quot;https://en.wikipedia.org/wiki/Event-driven_architecture&quot;&gt;Event Driven Architecture&lt;/a&gt;. But in this post, we will see how &lt;strong&gt;events&lt;/strong&gt; can &lt;strong&gt;improve&lt;/strong&gt; the &lt;strong&gt;design&lt;/strong&gt; in our solutions.&lt;/p&gt;</summary>
     
     
     
@@ -299,11 +309,12 @@
     <link href="https://espumita.org/2020/11/30/cqrs/"/>
     <id>https://espumita.org/2020/11/30/cqrs/</id>
     <published>2020-11-30T21:02:56.000Z</published>
-    <updated>2022-01-09T20:09:40.011Z</updated>
+    <updated>2024-06-12T20:19:17.781Z</updated>
     
     
-    <summary type="html">&lt;p&gt;In some applications, we can find many benefits by &lt;strong&gt;splitting the model&lt;/strong&gt; into two parts: the update part, &lt;strong&gt;commands&lt;/strong&gt;, and the reading part, &lt;strong&gt;queries&lt;/strong&gt;. In 2006, Greg Young started talking about &lt;a href=&quot;https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf&quot;&gt;this pattern&lt;/a&gt;, also known as &lt;strong&gt;Command Query Responsibility Segregation (CQRS)&lt;/strong&gt;. &lt;/p&gt;
-&lt;img src=&quot;/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;In some applications, we can find many benefits by &lt;strong&gt;splitting the model&lt;/strong&gt; into two parts: the update part, &lt;strong&gt;commands&lt;/strong&gt;, and the reading part, &lt;strong&gt;queries&lt;/strong&gt;. In 2006, Greg Young started talking about &lt;a href=&quot;https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf&quot;&gt;this pattern&lt;/a&gt;, also known as &lt;strong&gt;Command Query Responsibility Segregation (CQRS)&lt;/strong&gt;. &lt;/p&gt;</summary>
     
     
     
@@ -317,13 +328,14 @@
     <link href="https://espumita.org/2020/11/21/hexagonal-architecture/"/>
     <id>https://espumita.org/2020/11/21/hexagonal-architecture/</id>
     <published>2020-11-21T17:41:45.000Z</published>
-    <updated>2022-01-09T20:09:40.023Z</updated>
+    <updated>2024-06-12T20:19:53.646Z</updated>
     
     
-    <summary type="html">&lt;p&gt;What is this architecture about, and what&amp;#96;s the difference from others more traditional like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;
+    <summary type="html">&lt;img src=&quot;/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;What is this architecture about, and what&amp;#96;s the difference from others more traditional like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;
 &lt;p&gt;If we go back to 2005, according to &lt;a href=&quot;https://alistair.cockburn.us/hexagonal-architecture/&quot;&gt;Alistair Cockburn&lt;/a&gt;, the creator of this term, this architecture tries to solve the problem of &lt;em&gt;Avoid infiltration of business logic into the user interface code&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The most important thing of this architecture is to &lt;strong&gt;protect&lt;/strong&gt; the most valuable code of any application, &lt;strong&gt;the domain&lt;/strong&gt;. &lt;/p&gt;
-&lt;img src=&quot;/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png&quot; class=&quot;&quot;&gt;</summary>
+&lt;p&gt;The most important thing of this architecture is to &lt;strong&gt;protect&lt;/strong&gt; the most valuable code of any application, &lt;strong&gt;the domain&lt;/strong&gt;. &lt;/p&gt;</summary>
     
     
     
@@ -337,12 +349,13 @@
     <link href="https://espumita.org/2020/10/20/be-the-worst/"/>
     <id>https://espumita.org/2020/10/20/be-the-worst/</id>
     <published>2020-10-20T15:37:25.000Z</published>
-    <updated>2024-06-08T15:17:23.320Z</updated>
+    <updated>2024-06-12T20:19:04.037Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Be the worst is about &lt;strong&gt;learning&lt;/strong&gt;, and to have people about to &lt;strong&gt;learn from&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Maybe you are better than someone in some at some area, but that doesn’t mean &lt;strong&gt;you’re better&lt;/strong&gt; than him. Someone may be &lt;strong&gt;much better&lt;/strong&gt; than &lt;strong&gt;you&lt;/strong&gt; at something, that does not mean that you are worst than him.&lt;/p&gt;
-&lt;img src=&quot;/2020/10/20/be-the-worst/jl23h4jkh23kjsjkwjwsjj2jsjwskkkw.png&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2020/10/20/be-the-worst/jl23h4jkh23kjsjkwjwsjj2jsjwskkkw.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;Be the worst is about &lt;strong&gt;learning&lt;/strong&gt;, and to have people about to &lt;strong&gt;learn from&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Maybe you are better than someone in some at some area, but that doesn’t mean &lt;strong&gt;you’re better&lt;/strong&gt; than him. Someone may be &lt;strong&gt;much better&lt;/strong&gt; than &lt;strong&gt;you&lt;/strong&gt; at something, that does not mean that you are worst than him.&lt;/p&gt;</summary>
     
     
     
@@ -470,11 +483,12 @@
     <link href="https://espumita.org/2020/04/04/software-development-pyramid/"/>
     <id>https://espumita.org/2020/04/04/software-development-pyramid/</id>
     <published>2020-04-04T15:57:19.000Z</published>
-    <updated>2022-01-09T12:03:49.525Z</updated>
+    <updated>2024-06-12T20:20:57.479Z</updated>
     
     
-    <summary type="html">&lt;p&gt;When I was at the university, I learned that software development principles can be classified at different levels, depending on the impact that they affect the structure of a software project. This means that they have a different use, different abstraction level, and different difficulty. So, if you want to learn this  &lt;strong&gt;discipline&lt;/strong&gt; in deep, you can know where to &lt;strong&gt;start&lt;/strong&gt;, according to this hierarchy.&lt;/p&gt;
-&lt;img src=&quot;/2020/04/04/software-development-pyramid/23nje4o93xo23dn29od0923d.png&quot; class=&quot;&quot;&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/2020/04/04/software-development-pyramid/23nje4o93xo23dn29od0923d.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;When I was at the university, I learned that software development principles can be classified at different levels, depending on the impact that they affect the structure of a software project. This means that they have a different use, different abstraction level, and different difficulty. So, if you want to learn this  &lt;strong&gt;discipline&lt;/strong&gt; in deep, you can know where to &lt;strong&gt;start&lt;/strong&gt;, according to this hierarchy.&lt;/p&gt;</summary>
     
     
     
@@ -507,13 +521,14 @@
     <link href="https://espumita.org/2019/07/05/software-development/"/>
     <id>https://espumita.org/2019/07/05/software-development/</id>
     <published>2019-07-05T22:03:34.000Z</published>
-    <updated>2022-01-09T12:03:49.527Z</updated>
+    <updated>2024-06-12T20:21:06.391Z</updated>
     
     
-    <summary type="html">&lt;p&gt;When you develop you are only sitting in a chair, in front of your screen, writing lines. Once and again the same commands and numbers.&lt;/p&gt;
+    <summary type="html">&lt;img src=&quot;/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;When you develop you are only sitting in a chair, in front of your screen, writing lines. Once and again the same commands and numbers.&lt;/p&gt;
 &lt;p&gt;This is what a person that is watching you from outside see. Probably thinks that programming is based in to learn commands and write them. That you probably are listening to music while programming to fight the &lt;strong&gt;tedious work&lt;/strong&gt; of writing thousands of times the same lines every day. Maybe many people think that software development it’s a purely mathematical, methodic and antisocial work. Every day is the same, same screen, same operations, and the same game rules.&lt;/p&gt;
-&lt;p&gt;But actually, you are just watching the code, you are thinking. Thinking in your next step to sculpt a new feature or just to &lt;strong&gt;improve.&lt;/strong&gt; Improve the legibility, the performance, the team or just you. You are immersed in the “gold rush”, you are looking for the perfect code. The most optimal solution, the easiest to implement, the less expensive or the one that brings more &lt;strong&gt;value.&lt;/strong&gt;&lt;/p&gt;
-&lt;img src=&quot;/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg&quot; class=&quot;&quot;&gt;</summary>
+&lt;p&gt;But actually, you are just watching the code, you are thinking. Thinking in your next step to sculpt a new feature or just to &lt;strong&gt;improve.&lt;/strong&gt; Improve the legibility, the performance, the team or just you. You are immersed in the “gold rush”, you are looking for the perfect code. The most optimal solution, the easiest to implement, the less expensive or the one that brings more &lt;strong&gt;value.&lt;/strong&gt;&lt;/p&gt;</summary>
     
     
     

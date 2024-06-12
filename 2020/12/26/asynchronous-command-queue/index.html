@@ -19,18 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="There are some scenarios where we don’t need to wait for fast feedback when executing tasks. In some cases, we can just request the computation of that a task, a command, and at some moment in the fut">
+    <meta name="description" content="There are some scenarios where we don’t need to wait for fast feedback when executing tasks. In some cases, we can just request the computation of that a task, a command, and at some moment in the f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Software Architectures examples : Asynchronous Command Queue">
 <meta property="og:url" content="https://espumita.org/2020/12/26/asynchronous-command-queue/index.html">
 <meta property="og:site_name" content="Espumita&#39;s Blog">
-<meta property="og:description" content="There are some scenarios where we don’t need to wait for fast feedback when executing tasks. In some cases, we can just request the computation of that a task, a command, and at some moment in the fut">
+<meta property="og:description" content="There are some scenarios where we don’t need to wait for fast feedback when executing tasks. In some cases, we can just request the computation of that a task, a command, and at some moment in the f">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg">
 <meta property="og:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/kweskjhw3jkh3jk3wjslkjk4d3wfjk434wdfjkwfjk3.JPG">
 <meta property="og:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/SHJBK3ZS2KHBJ243DKJH3DJK2L324JKLSK2JS23KJS324K.JPG">
 <meta property="article:published_time" content="2020-12-26T15:59:57.000Z">
-<meta property="article:modified_time" content="2023-12-30T15:40:25.914Z">
+<meta property="article:modified_time" content="2024-06-12T20:18:51.213Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg">
@@ -213,10 +213,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>There are some scenarios where we <strong>don’t need to wait</strong> for fast feedback when executing tasks. In some cases, we can just <strong>request the computation</strong> of that a task, <strong>a command</strong>, and at some moment in the future, we can <strong>receive a callback</strong> notification with the execution result.</p>
-<p>To explore a solution for this posibilities, I decided to build <a target="_blank" rel="noopener" href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue">this</a> example by applying an <strong>asynchronous command queue</strong>.</p>
-<img src="/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg" class="">
+    <div class="post-body" itemprop="articleBody"><img src="/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg" class="">
 
+<p>There are some scenarios where we <strong>don’t need to wait</strong> for fast feedback when executing tasks. In some cases, we can just <strong>request the computation</strong> of that a task, <strong>a command</strong>, and at some moment in the future, we can <strong>receive a callback</strong> notification with the execution result.</p>
+<p>To explore a solution for this posibilities, I decided to build <a target="_blank" rel="noopener" href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue">this</a> example by applying an <strong>asynchronous command queue</strong>.</p>
 <span id="more"></span>
 
 <h1 id="An-asynchronous-world-needs-asynchronous-solutions"><a href="#An-asynchronous-world-needs-asynchronous-solutions" class="headerlink" title="An asynchronous world needs asynchronous solutions"></a>An <strong>asynchronous world</strong> needs <strong>asynchronous solutions</strong></h1><p>This means that in many cases we need to build systems that are able to deal with <strong>asynchronous use cases</strong>, where no one is waiting for an immediate response.</p>
