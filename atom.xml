@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2024-06-12T20:15:42.430Z</updated>
+  <updated>2024-09-01T14:33:22.965Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling</title>
+    <link href="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/"/>
+    <id>https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/</id>
+    <published>2024-09-01T08:29:34.000Z</published>
+    <updated>2024-09-01T14:33:22.965Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2024/09/01/agile-technical-practices-distilled-book-notes/ljk123lj1elklk2slksk12ksk21lsllslsl.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;As the 50th anniversary of cohesion and coupling concepts I decided to read this book in order to refresh concepts and compare how things has change (or not) since that. This is a great book by &lt;a href=&quot;https://twitter.com/pedromsantos?lang=en&quot;&gt;Pedro Moreira Santos&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/consolondon&quot;&gt;Marco Consolaro&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://2020.dddeurope.com/speakers/alessandro-di-gioia/&quot;&gt;Alessandro Di Gioia&lt;/a&gt; published in 2018 about agile technical practices&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Techniques" scheme="https://espumita.org/categories/Techniques/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Book notes: Staff Engineer, Leadership beyond the management track</title>
