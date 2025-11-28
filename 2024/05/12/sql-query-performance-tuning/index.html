@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Last week we noticed that in some of our production environments, a request was performing very bad times, more than 20 seconds to complete. After analyzing the case we could reduce this to 119 mill">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server">
+<meta property="og:url" content="https://espumita.org/2024/05/12/sql-query-performance-tuning/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="Last week we noticed that in some of our production environments, a request was performing very bad times, more than 20 seconds to complete. After analyzing the case we could reduce this to 119 mill">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png">
+<meta property="og:image" content="https://espumita.org/2024/05/12/sql-query-performance-tuning/ksjhdjh2djk2kdjk3dkk3k12kdk32dkkd.png">
+<meta property="og:image" content="https://espumita.org/2024/05/12/sql-query-performance-tuning/12ljnkekjh12kjsk1jsklsls21lslks2kks2k.png">
+<meta property="article:published_time" content="2024-05-12T07:20:47.000Z">
+<meta property="article:modified_time" content="2025-11-14T17:01:18.150Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png">
+
+
+<link rel="canonical" href="https://espumita.org/2024/05/12/sql-query-performance-tuning/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2024/05/12/sql-query-performance-tuning/","path":"2024/05/12/sql-query-performance-tuning/","title":"Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2024/05/12/sql-query-performance-tuning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-12 08:20:47" itemprop="dateCreated datePublished" datetime="2024-05-12T08:20:47+01:00">2024-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Databases/" itemprop="url" rel="index"><span itemprop="name">Databases</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/05/12/sql-query-performance-tuning/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/05/12/sql-query-performance-tuning/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png" class="">
+
+<p>Last week we noticed that in some of our production environments, a request was performing very bad times, more than <strong>20 seconds</strong> to complete. After analyzing the case we could reduce this to <strong>119 milliseconds</strong>. I would like to share the steps we made to reach this:</p>
+<span id="more"></span>
+
+<p><strong>Note:</strong> For performance benchmarks, I created similar code with random data in <a target="_blank" rel="noopener" href="https://github.com/espumita/databases-performance-comparison/blob/main/src/DatabasesBenchmarksComparation/SqlServerBenchmarks.cs">this exampe</a>.</p>
+<h1 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h1><p>After analyzing some metrics, the first thing on the table was to consider using a cache. But, wait, this seems more like a <strong>solution instead of the root cause of the problem</strong> right? Let’s take a look at what we have here:</p>
+<p>We got an endpoint that returns all product operations details with the most recent data. To get all this information, we do 3 steps:</p>
+<ol>
+<li>Get all the ProductIds from an external source, for example, files in disk.</li>
+<li>For each product, we execute a query to get the most recent product details from a MSSQL database.</li>
+<li>We merge all data and send the response.</li>
+</ol>
+<p>The table of the step 2 <em>dbo.ProductsOperationsTable</em> looks something like this:</p>
+<img src="/2024/05/12/sql-query-performance-tuning/ksjhdjh2djk2kdjk3dkk3k12kdk32dkkd.png" class="">
+
+<h1 id="Finding-the-root-cause"><a href="#Finding-the-root-cause" class="headerlink" title="Finding the root cause"></a>Finding the root cause</h1><p>The problem was found in certain production environments with several amount of products and operations. We decided to automatize a few load tests with <a target="_blank" rel="noopener" href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotnets</a> and after reproducing the error locally we noticed that the time was growing linearly (Aprox: 50 products <strong>2 seconds</strong>, 500 products <strong>20 seconds</strong> all over 80k operations, around 42 million rows scanned).</p>
+<p>On the other hand, we compared the amount of time invested in I&#x2F;O operations to get all the PipelineIds from disk vs the amount of time invested to query all data from the database. We found that <strong>the bottleneck was the database</strong> (Aprox: 500 products <strong>0.0734 milliseconds</strong> for I&#x2F;O operations reading files from disk and around <strong>20 seconds</strong> for the database queries).</p>
+<p>Also, we noticed that the query we were performing in step 2 was filtering by columns without indexes:</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT TOP 1
+    OperationId,
+    OperationStatus,
+    ProductId,
+    OperationStartDate,
+    OperationEndDate,
+    OperationDetails
+FROM
+    dbo.&#123;DB.ProductsOperationsTable&#125;
+WHERE
+    ProductId &#x3D; @ProductId
+ORDER BY
+    OperationStartDate DESC</code></pre>
+
+<h1 id="Adding-the-right-index"><a href="#Adding-the-right-index" class="headerlink" title="Adding the right index"></a>Adding the right index</h1><p>We could compare 3 different options of index here (over 500 products):</p>
+<ul>
+<li>Index by ProductID <strong>10 seconds</strong></li>
+<li>Index by StartDate DESC <strong>30 seconds</strong></li>
+<li>Compose Index by (ProductID, StartDate DESC) <strong>10 seconds</strong></li>
+</ul>
+<p>As we saw, we were filtering by ProductId and then by StartDate in a desc way, and by comparing the results we found that the <strong>compose Index and the ProductID Index were the best</strong> way to go.</p>
+<img src="/2024/05/12/sql-query-performance-tuning/12ljnkekjh12kjsk1jsklsls21lslks2kks2k.png" class="">
+
+<p>But. Why the Order Index is not working? Well, after reading <a target="_blank" rel="noopener" href="https://use-the-index-luke.com/sql/sorting-grouping/indexed-order-by">this post</a> about Pipelined&#x2F;Indexed ORDER BY for best performance, we noticed that we were using the wrong query. <strong>When using a composed index</strong>, to get the advantage of the two indexes while filtering, we <strong>need to specify both columns in order from left to right</strong>, like a pure B-tree search.</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT TOP 1
+    OperationId,
+    OperationStatus,
+    ProductId,
+    OperationStartDate,
+    OperationEndDate,
+    OperationDetails
+FROM
+    dbo.&#123;DB.ProductsOperationsTable2&#125;
+WHERE
+    ProductId &#x3D; @ProductId
+ORDER BY
+    ProductId, OperationStartDate DESC</code></pre>
+
+<p>With this update, we could reduce the query time to <strong>10 seconds</strong>.</p>
+<h1 id="But-what-about-latency"><a href="#But-what-about-latency" class="headerlink" title="But what about latency"></a>But what about latency</h1><p>According to the original algorithm, what happens if there is latency? We are performing 500 queries, so performance could be highly degraded. To solve this possible problem, we decided to compare other two different solutions:</p>
+<ul>
+<li>Using chunks, for example, query 25 by 25 Products. <strong>5475 milliseconds</strong></li>
+<li>Run all queries together, by querying all ProductsIds at the same time. <strong>2315.3 milliseconds</strong></li>
+</ul>
+<p>After comparing them, we decided to <strong>run all queries together</strong> in this case. We also compare client memory for this case and see <strong>no huge difference in memory allocation between strategies</strong>. In the end, here we went from N Query executions and SQLConnection usage to just 1.</p>
+<p>With this update, we could reduce the query time arround <strong>2 seconds</strong>.</p>
+<h1 id="Bonus-use-an-optimized-function-instead-of-a-complex-query"><a href="#Bonus-use-an-optimized-function-instead-of-a-complex-query" class="headerlink" title="Bonus: use an optimized function instead of a complex query"></a>Bonus: use an optimized function instead of a complex query</h1><p>If <strong>data is ordered</strong>, consider <strong>use an optimized function</strong>. During this performance tuning process, we noticed a huge gain in performance is we replaced the TOP 1 Order by StartDate desc filter with just a MAX aggregate function.</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT
+    OperationId,
+    OperationStatus,
+    ProductId,
+    OperationStartDate,
+    OperationEndDate,
+    OperationDetails
+FROM
+    dbo.&#123;DB.ProductsOperationsTable2&#125; PO2
+WHERE
+    ProductId IN ( @ProductIds )
+    AND OperationStartDate &#x3D; (
+        SELECT
+            MAX(OperationStartDate)
+        FROM
+            dbo.&#123;DB.ProductsOperationsTable2&#125;
+        WHERE
+            ProductId &#x3D; PO2.ProductId
+    )</code></pre>
+
+<ul>
+<li>Using chunks, for example, query 25 by 25 Products. <strong>1110.1 milliseconds</strong></li>
+<li>Run all queries together, by querying all ProductsIds at the same time. <strong>119.43 milliseconds</strong></li>
+</ul>
+<p>MAX function is optimized, if we need to process an operation over a data structure, that is already ordered. The operation can be optimized by <strong>directly selecting the first or the last element</strong> in the structure, <strong>instead of traversing to all the indexes</strong>.</p>
+<p>Time was reduced to <strong>119 milliseconds</strong> for 500 products over 80k product operations.</p>
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><ul>
+<li>If we were to start with a cache, it would never <strong>solve the problem</strong>, we just will be <strong>moving it into another place</strong>. The query performance will still have the same problem, and also data is not real-time.</li>
+<li>Is important to use <strong>the right index</strong>.</li>
+<li>When we are looping multiple queries we should take into account that <strong>latency can have a huge impact on general performance</strong>.</li>
+<li>When dealing with sorting requirements, <strong>having the data “pre-sorted” in the desired order can result in a huge performance boost</strong>, specifically if we correctly specify this in the query 🙂.</li>
+<li>Some <strong>aggregation functions</strong> like MAX <strong>have performance optimizations under the hood if they are run against ordered data</strong>.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/" rel="prev" title="Azure Cosmos DB filter by multiple IDs performance comparison:">
+                  <i class="fa fa-angle-left"></i> Azure Cosmos DB filter by multiple IDs performance comparison:
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/06/12/staff-engineering-book-notes/" rel="next" title="Book notes: Staff Engineer, Leadership beyond the management track">
+                  Book notes: Staff Engineer, Leadership beyond the management track <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

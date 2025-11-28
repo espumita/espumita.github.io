@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="As the 50th anniversary of cohesion and coupling concepts I decided to read this book in order to refresh concepts and compare how things has change (or not) since that. This is a great book by Pedr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling">
+<meta property="og:url" content="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="As the 50th anniversary of cohesion and coupling concepts I decided to read this book in order to refresh concepts and compare how things has change (or not) since that. This is a great book by Pedr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/ljk123lj1elklk2slksk12ksk21lsllslsl.png">
+<meta property="og:image" content="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/askdjbkjabwhdkjasdjkbadkjhaskjdakjadk.png">
+<meta property="og:image" content="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/2s34ljhxhdkj34x5345kdjsk232ka2k2.png">
+<meta property="og:image" content="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/kjhae12hkjs21jkl23s4kj2s3k23k2k2ks2k2.png">
+<meta property="article:published_time" content="2024-09-01T08:29:34.000Z">
+<meta property="article:modified_time" content="2025-11-14T16:14:50.801Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/ljk123lj1elklk2slksk12ksk21lsllslsl.png">
+
+
+<link rel="canonical" href="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/","path":"2024/09/01/agile-technical-practices-distilled-book-notes/","title":"Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-01 09:29:34" itemprop="dateCreated datePublished" datetime="2024-09-01T09:29:34+01:00">2024-09-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Development/" itemprop="url" rel="index"><span itemprop="name">Software Development</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/09/01/agile-technical-practices-distilled-book-notes/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/09/01/agile-technical-practices-distilled-book-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2024/09/01/agile-technical-practices-distilled-book-notes/ljk123lj1elklk2slksk12ksk21lsllslsl.png" class="">
+
+<p>As the 50th anniversary of cohesion and coupling concepts I decided to read this book in order to refresh concepts and compare how things has change (or not) since that. This is a great book by <a target="_blank" rel="noopener" href="https://twitter.com/pedromsantos?lang=en">Pedro Moreira Santos</a>, <a target="_blank" rel="noopener" href="https://twitter.com/consolondon">Marco Consolaro</a> &amp; <a target="_blank" rel="noopener" href="https://2020.dddeurope.com/speakers/alessandro-di-gioia/">Alessandro Di Gioia</a> published in 2018 about agile technical practices</p>
+<span id="more"></span>
+
+<p>Many of the topics in this book are connected  with my previous post: <a href="/2020/04/04/software-development-pyramid/">The Software Development Pyramid</a></p>
+<h1 id="The-big-picture"><a href="#The-big-picture" class="headerlink" title="The big picture"></a>The big picture</h1><p>The general idea of ​​the book is about the different and most popular concepts that we have today in the industry, their <strong>meaning</strong>, <strong>when they should be used</strong>, and what <strong>relationship they have with each other</strong>. To understand the principles behind everything I recommend to take a look at the book</p>
+<p>To do this, it gives us a big picture:</p>
+<img src="/2024/09/01/agile-technical-practices-distilled-book-notes/askdjbkjabwhdkjasdjkbadkjhaskjdakjadk.png" class="">
+
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-oriented programming (OOP) began to be used in the 1960s</a> with that in the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Object-oriented_analysis_and_design#Object-oriented_design">Object oriented software design (OOD) began </a>. Now a days, we can find relevant topics like:</p>
+<h1 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.cleancoder.com/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html">Transformation Priority Premise (TPP), Evan Coplien and James Coplien, 2005 </a>, to keep complexity in control you can transform the code using those premises (transformations on the top are preferred to those on the bottom)<ul>
+<li>({}–&gt;nil) no code at all-&gt;code that employs nil</li>
+<li>(nil-&gt;constant)</li>
+<li>(constant-&gt;constant+) a simple constant to a more complex constant</li>
+<li>(constant-&gt;scalar) replacing a constant with a variable or an argument</li>
+<li>(statement-&gt;statements) adding more unconditional statements</li>
+<li>(unconditional-&gt;if) splitting the execution path</li>
+<li>(scalar-&gt;array)</li>
+<li>(array-&gt;container)</li>
+<li>(statement-&gt;recursion)</li>
+<li>(if-&gt;while)</li>
+<li>(expression-&gt;function) replacing an expression with a function or algorithm</li>
+<li>(variable-&gt;assignment) replacing the value of a variable</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://williamdurand.fr/2013/06/03/object-calisthenics/">Object Calisthenics, Jeff Bay, 2008</a><ul>
+<li>Only One Level Of Indentation Per Method</li>
+<li>Don’t Use The ELSE Keyword</li>
+<li>Wrap All Primitives And Strings (wrap primitive types in classes)</li>
+<li>First Class Collections (wrap collections in classes)</li>
+<li>One Dot Per Line</li>
+<li>Don’t Abbreviate</li>
+<li>Keep All Entities Small</li>
+<li>No Classes With More Than Two Instance Variables</li>
+<li>No Getters&#x2F;Setters&#x2F;Properties</li>
+<li>All classes must have state</li>
+</ul>
+</li>
+</ul>
+<h1 id="Consequences"><a href="#Consequences" class="headerlink" title="Consequences"></a>Consequences</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://refactoring.guru/refactoring/smells">Code Smells, Kent Beck and Martin Fowler, 1999</a><ul>
+<li>Bloaters<ul>
+<li>Long Method (cohesion++ too much)</li>
+<li>Large Class (cohesion++ too much)</li>
+<li>Primitive Obsession (cohesion–)</li>
+<li>Long Parameter List (cohesion++ too much)</li>
+<li>Data Clumps  (cohesion++ too much)</li>
+</ul>
+</li>
+<li>Object-Orientation Abusers<ul>
+<li>Alternative Classes with Different Interfaces</li>
+<li>Refused Bequest</li>
+<li>Switch Statements</li>
+<li>Temporary Field</li>
+</ul>
+</li>
+<li>Change Preventers<ul>
+<li>Divergent Change (coupling++) (cohesion++ too much)</li>
+<li>Parallel Inheritance Hierarchies</li>
+<li>Shotgun Surgery (coupling++) (cohesion–)</li>
+</ul>
+</li>
+<li>Dispensables<ul>
+<li>Comments</li>
+<li>Duplicate Code (cohesion++ too much)</li>
+<li>Data Class (cohesion–)</li>
+<li>Dead Code</li>
+<li>Lazy Class (cohesion–)</li>
+<li>Speculative Generality</li>
+</ul>
+</li>
+<li>Couplers<ul>
+<li>Feature Envy (coupling++)</li>
+<li>Inappropriate Intimacy (coupling++)</li>
+<li>Incomplete Library Class</li>
+<li>Message Chains (coupling++)</li>
+<li>Middle Man (coupling++) (cohesion–)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Solve with <a target="_blank" rel="noopener" href="https://refactoring.guru/refactoring/techniques">Refactoring, Kent Beck and Martin Fowler, 1999</a><ul>
+<li>Composing Methods<ul>
+<li>Extract Method</li>
+<li>Inline Method</li>
+<li>Extract Variable</li>
+<li>Inline Temp</li>
+<li>Replace Temp with Query</li>
+<li>Split Temporary Variable</li>
+<li>Remove Assignments to Parameters</li>
+<li>Replace Method with Method Object</li>
+<li>Substitute Algorithm</li>
+</ul>
+</li>
+<li>Moving Features between Objects<ul>
+<li>Move Method</li>
+<li>Move Field</li>
+<li>Extract Class</li>
+<li>Inline Class</li>
+<li>Hide Delegate</li>
+<li>Remove Middle Man</li>
+<li>Introduce Foreign Method</li>
+<li>Introduce Local Extension</li>
+</ul>
+</li>
+<li>Organizing Data<ul>
+<li>Change Value to Reference</li>
+<li>Change Reference to Value</li>
+<li>Duplicate Observed Data</li>
+<li>Self Encapsulate Field</li>
+<li>Replace Data Value with Object</li>
+<li>Replace Array with Object</li>
+<li>Change Unidirectional Association to Bidirectional</li>
+<li>Change Bidirectional Association to Unidirectional</li>
+<li>Encapsulate Field</li>
+<li>Encapsulate Collection</li>
+<li>Replace Magic Number with Symbolic Constant</li>
+<li>Replace Type Code with Class</li>
+<li>Replace Type Code with Subclasses</li>
+<li>Replace Type Code with State&#x2F;Strategy</li>
+<li>Replace Subclass with Fields</li>
+</ul>
+</li>
+<li>Simplifying Conditional Expressions<ul>
+<li>Consolidate Conditional Expression</li>
+<li>Consolidate Duplicate Conditional Fragments</li>
+<li>Decompose Conditional</li>
+<li>Replace Conditional with Polymorphism</li>
+<li>Remove Control Flag</li>
+<li>Replace Nested Conditional with Guard Clauses</li>
+<li>Introduce Null Object</li>
+<li>Introduce Assertion</li>
+</ul>
+</li>
+<li>Simplifying Method Calls<ul>
+<li>Add Parameter</li>
+<li>Remove Parameter</li>
+<li>Rename Method</li>
+<li>Separate Query from Modifier</li>
+<li>Parameterize Method</li>
+<li>Introduce Parameter Object</li>
+<li>Preserve Whole Object</li>
+<li>Remove Setting Method</li>
+<li>Replace Parameter with Explicit Methods</li>
+<li>Replace Parameter with Method Call</li>
+<li>Hide Method</li>
+<li>Replace Constructor with Factory Method</li>
+<li>Replace Error Code with Exception</li>
+<li>Replace Exception with Test</li>
+</ul>
+</li>
+<li>Dealing with Generalization<ul>
+<li>Pull Up Field</li>
+<li>Pull Up Method</li>
+<li>Pull Up Constructor Body</li>
+<li>Push Down Field</li>
+<li>Push Down Method</li>
+<li>Extract Subclass</li>
+<li>Extract Superclass</li>
+<li>Extract Interface</li>
+<li>Collapse Hierarchy</li>
+<li>Form Template Method</li>
+<li>Replace Inheritance with Delegation</li>
+<li>Replace Delegation with Inheritance</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You can use:<ul>
+<li><a target="_blank" rel="noopener" href="https://martinfowler.com/bliki/ParallelChange.html">Parallel Change</a></li>
+<li><a target="_blank" rel="noopener" href="https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf">Automatic IDE refactoring</a></li>
+</ul>
+</li>
+<li>You can also use <a target="_blank" rel="noopener" href="https://refactoring.guru/design-patterns/catalog">Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, “Gang of Four” (GoF), 1994</a>, when specific problem occurs<ul>
+<li>Creational patterns<ul>
+<li>Abstract factory</li>
+<li>Factory method</li>
+<li>Builder</li>
+<li>Prototype</li>
+<li>Singleton</li>
+</ul>
+</li>
+<li>Behavioral patterns<ul>
+<li>Strategy</li>
+<li>Template method</li>
+<li>Command</li>
+<li>Observer</li>
+<li>State</li>
+<li>Chain of responsibility</li>
+<li>Visitor</li>
+<li>Iterator</li>
+<li>Mediator</li>
+<li>Memento</li>
+</ul>
+</li>
+<li>Structural patterns<ul>
+<li>Proxy</li>
+<li>Adapter</li>
+<li>Decorator</li>
+<li>Facade</li>
+<li>Composite</li>
+<li>Bridge</li>
+<li>Flyweight</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h1><p><strong>High cohesion and low coupling</strong> was first introduced by <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/5388187">Stevens, Myers &amp; Constantine</a> in 1974 and popularized by the book <a target="_blank" rel="noopener" href="https://vtda.org/books/Computing/Programming/StructuredDesign_EdwardYourdonLarryConstantine.pdf">Structured Design</a> by Larry Constantine and Edward Yourdon in 1979. It has become a standard in the industry. For example, in 2002, Martin Fowler’s Enterprise Application Patterns, it becames one of the <a target="_blank" rel="noopener" href="https://martinfowler.com/bliki/LayeringPrinciples.html">Layering Principles</a>: <em>Low coupling between layers, high cohesion within them</em></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)">Coupling</a>: Degree of interdependence between software components</p>
+<ul>
+<li>Interaction<ul>
+<li>Message, communication (<strong>Good</strong>)</li>
+<li>Data, share data through parameters</li>
+<li>Stamp, data structure</li>
+<li>Control flow of another component</li>
+<li>External data or protocol</li>
+<li>Commonm, shared global data</li>
+<li>Content, depends on other components’ data (<strong>Bad</strong>)</li>
+</ul>
+</li>
+<li>Method coupling premises &#x3D;&gt; Impact<ul>
+<li>void Method() &#x3D;&gt; 0 (<strong>Less coupling</strong>)</li>
+<li>void Method(int x) &#x3D;&gt; 1</li>
+<li>int Method() &#x3D;&gt; 1</li>
+<li>void Method(ClassA a) &#x3D;&gt; 1 + FanIn</li>
+<li>ClassA Method() &#x3D;&gt; 1 + FanOut</li>
+<li>void Method(int x, int y) &#x3D;&gt; 2</li>
+<li>int Method(int x) &#x3D;&gt; 2</li>
+<li>void Method(ClassA a, ClassB b) &#x3D;&gt; 2 + 2FanIn</li>
+<li>ClassA Method(ClassB b) &#x3D;&gt; 2 + FanIn + FanOut (<strong>More coupling</strong>)</li>
+<li>etc…</li>
+</ul>
+</li>
+<li>Inheritance<ul>
+<li>Strongest king of coupling (When using inheritance)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)">Cohesion</a>: Is a measure of how strongly related and focused the various responsibilities of a software module are</p>
+<ul>
+<li>Other indicators:<ul>
+<li>Static methods in class (cohesion–)</li>
+<li>Helper classes (cohesion–)</li>
+<li>Criteria for grouping things (*helper, *core, *utils, *shared) (cohesion–)</li>
+</ul>
+</li>
+<li>Class cohesion<ul>
+<li>Ideal, no other mixed cochesion (<strong>Good</strong>)</li>
+<li>Mixed-Role, one or more fields with types in the same abstraction layer, and types have nothing to do with the semantic of the class</li>
+<li>Mixed-Domain, one or more fields with types in different abstraction layer, and types have nothing to do with the semantic of the class</li>
+<li>Mixed-Instance, class represent two different types and should be splited in two classes (<strong>Bad</strong>)</li>
+</ul>
+</li>
+<li>Method cohesion<ul>
+<li>Functional (<strong>Good</strong>)</li>
+<li>Sequential</li>
+<li>Communicational</li>
+<li>Procedural</li>
+<li>Temporal</li>
+<li>Logical</li>
+<li>Coincidental (<strong>Bad</strong>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Connascence">Connascence</a> <a target="_blank" rel="noopener" href="https://connascence.io/pages/about.html">Meilir Page-Jones, In 1995</a>, A three degree Metric to measure:</p>
+<ul>
+<li>Strength (stronger connascences are harder to discover, or harder to refactor) (Weak-Strong)</li>
+<li>Degree (size of the impact, estimated by the number of occurrences and the number of entities it affects)</li>
+<li>Locality (connascent elements that are close together in a codebase are better than ones that are far apart)</li>
+<li>Types:<ul>
+<li>Static connascences<ul>
+<li>Connascence of name (CoN) (<strong>Weak</strong>)</li>
+<li>Connascence of type (CoT)</li>
+<li>Connascence of meaning (CoM) or connascence of convention (CoC)</li>
+<li>Connascence of position (CoP)</li>
+<li>Connascence of algorithm (CoA)</li>
+</ul>
+</li>
+<li>Dynamic connascence<ul>
+<li>Connascence of execution order (CoE)</li>
+<li>Connascence of timing (CoT)</li>
+<li>Connascence of values (CoV)</li>
+<li>Connascence of identity (CoI) </li>
+<li>Manual Task (CoMT) (<strong>Strong</strong>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://simple.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a>: <a target="_blank" rel="noopener" href="https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf">Robert C. Martin (aka Uncle Bob), 2000, paper Design Principles and Design Patterns</a></p>
+<ul>
+<li>Single responsibility principle, (<a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/agile-principles-patterns/0131857258/ch08.xhtml">Tom DeMarco and Meilir Page-Jones on cohesion and coupling in the 1980s</a>). More info in <a target="_blank" rel="noopener" href="https://codesai.com/posts/2017/08/notes-on-srp">this codesai post</a>.</li>
+<li>Open&#x2F;closed principle (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction">Bertrand Meyer, 1988</a>).</li>
+<li>Liskov substitution principle(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Barbara Liskov, 1987</a>)</li>
+<li>Interface segregation principle(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Robert C. Martin (aka Uncle Bob) in the late 1990s</a>)</li>
+<li>Dependency inversion principle (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Robert C. Martin (aka Uncle Bob) in the mid-1990s</a>)</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.codurance.com/publications/2015/01/27/balanced-abstraction-principle">Balanced Abstraction Principle, Sandro Mancuso 2015</a>: All code constructs grouped by a higher-level construct should be on the same level of abstraction. That means:</p>
+<ul>
+<li>All instructions inside a method should be at the same level of abstraction</li>
+<li>All public methods inside a class should be at the same level of abstraction</li>
+<li>All classes inside a package&#x2F;namespace</li>
+<li>All sibling packages&#x2F;namespace inside a parent package&#x2F;namespace</li>
+<li>All modules, sub-systems, etc.</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.martinfowler.com/bliki/BeckDesignRules.html">The Four Elements of Simple Design, Kent Beck in the 1990s.</a></p>
+<ul>
+<li>Passes the tests</li>
+<li>Reveals intention</li>
+<li>No duplication</li>
+<li>Fewest elements</li>
+</ul>
+</li>
+</ul>
+<p>On the other hand we can also see some topics related to:</p>
+<h1 id="Passes-its-tests"><a href="#Passes-its-tests" class="headerlink" title="Passes its tests"></a>Passes its tests</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Test-driven_development">Classic TDD</a>, <a target="_blank" rel="noopener" href="https://www.quora.com/Why-does-Kent-Beck-refer-to-the-rediscovery-of-test-driven-development-Whats-the-history-of-test-driven-development-before-Kent-Becks-rediscovery">“rediscovered” in 1999 by Kent Beck</a></li>
+</ul>
+<p>Flow: </p>
+<img src="/2024/09/01/agile-technical-practices-distilled-book-notes/2s34ljhxhdkj34x5345kdjsk232ka2k2.png" class="">
+
+<ul>
+<li>Red Green Refactor</li>
+<li>Test behaviour</li>
+<li>Triangulation</li>
+<li>Degrees of freedom</li>
+<li>Naming</li>
+<li>Fake it</li>
+<li>Obvious implementation</li>
+<li>Rule of three</li>
+<li>Duplication</li>
+<li><a target="_blank" rel="noopener" href="https://wiki.c2.com/?ArrangeActAssert">Arrange Act Assert</a><ul>
+<li><a target="_blank" rel="noopener" href="https://martinfowler.com/bliki/GivenWhenThen.html">Given When Then</a></li>
+</ul>
+</li>
+<li>Start from assertion</li>
+<li>Unit test principles (FIRST)<ul>
+<li>Fast</li>
+<li>Isolated</li>
+<li>Repetable</li>
+<li>Self-validating</li>
+<li>Timely</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.martinfowler.com/bliki/TestDouble.html">Test Doubles</a><ul>
+<li>Only use in classes that you own</li>
+<li>Do not add behaviour</li>
+<li>Only use for immediate neighbors</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Outside%E2%80%93in_software_development">Outside–in development</a><ul>
+<li>Schools<ul>
+<li>London (Mockist TDD, commonly know as Outside-In) (useful when there are complex interactions)<ul>
+<li><a target="_blank" rel="noopener" href="https://martinfowler.com/bliki/TellDontAsk.html">Tell Don’t Ask</a></li>
+</ul>
+</li>
+<li>Chicago (Classicist TDD) (useful when states are clear)</li>
+</ul>
+</li>
+<li>Types of tests: <ul>
+<li>End to end (E2E) tests</li>
+<li>Acceptance tests</li>
+<li>Integration tests</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unit_testing">Unit test, began to be used in the 1960s</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/2024/09/01/agile-technical-practices-distilled-book-notes/kjhae12hkjs21jkl23s4kj2s3k23k2k2ks2k2.png" class="">
+
+<ul>
+<li><p>Other types:</p>
+<ul>
+<li>Manual tests</li>
+<li>Performance tests</li>
+<li>Stress tests</li>
+<li>Smoke tests</li>
+<li>Snapshot tests</li>
+<li>Property based tests</li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/types-software-testing/#principles-of-software-testing">Other types</a></li>
+<li>etc.</li>
+</ul>
+</li>
+<li><p><strong>Great habits</strong>:</p>
+<ul>
+<li>Considerations when writing a new test<ul>
+<li>Tests should test one thing only</li>
+<li>Create more specific tests to drive a more generic solution (triangulate)</li>
+<li>Give your tests meaningful names (behavior&#x2F;goal-oriented) that reflects your business domain</li>
+<li>See the test fail for the right reason</li>
+<li>Ensure you have meaningful feedback from failing tests</li>
+<li>Keep you tests and production code separate</li>
+<li>Organize your unit tests to reflect your production code (similar project structure)</li>
+<li>Organize your test in arrange, act and assert blocks</li>
+<li>Write the assertion first and work backward</li>
+<li>Write fast, isolated, repeteable and self-validating tests</li>
+<li>Consider using object calisthenics to drive design decisions</li>
+<li>Consider adding tests to legacy code</li>
+<li>Consider using classic TDD or Outside-In TDD<ul>
+<li>If use Outside-In, start with acceptance test and folow the double loop TDD</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Considerations when making a failing test pass<ul>
+<li>Write the simplest code to pass the test</li>
+<li>Write any code that makes you get to the refactor phase quicker</li>
+<li>Use Transformation Priority Premise (TPP)</li>
+</ul>
+</li>
+<li>Considerations after the test passes<ul>
+<li>Use the rule of three to tackle duplication</li>
+<li>Refactor design constantly</li>
+<li>Apply object calisthenics to improve your design</li>
+<li>Stay on the green while refactoring</li>
+<li>Use the IDE to refactor quickly and safely</li>
+<li>Refactor code for redability&#x2F;understandability first</li>
+<li>Look out for code smells and refactor your code accordingly</li>
+<li>Refactor to patterns when the context is appropiate</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="More-agile-techniques"><a href="#More-agile-techniques" class="headerlink" title="More agile techniques"></a>More agile techniques</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">Unified model language, by Grady Booch, James Rumbaugh, Ivar Jacobson, “Three Amigos”, in the 1990s</a>.</p>
+</li>
+<li><p>The <a target="_blank" rel="noopener" href="https://agilemanifesto.org/">Agile Manifesto, in 2001</a> by Kent Beck,Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick, Robert C. Martin, Steve Mellor, Ken Schwaber, Jeff Sutherland and Dave Thomas:</p>
+<ul>
+<li>Individuals and interactions over processes and tools</li>
+<li>Working software over comprehensive documentation</li>
+<li>Customer collaboration over contract negotiation</li>
+<li>Responding to change over following a plan</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://agilemanifesto.org/principles.html">The Principles behind the Agile Manifesto</a>:</p>
+<ul>
+<li>Our highest priority is to satisfy the customer through the early and continuous delivery of valuable software.</li>
+<li>Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.</li>
+<li>Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.</li>
+<li>Business people and developers must work together daily throughout the project.</li>
+<li>Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.</li>
+<li>The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.</li>
+<li>Working software is the primary measure of progress.</li>
+<li>Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.</li>
+<li>Continuous attention to technical excellence and good design enhances agility.</li>
+<li>Simplicity–the art of maximizing the amount of work not done–is essential.</li>
+<li>The best architectures, requirements, and designs emerge from self-organizing teams.</li>
+<li>At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Extreme_programming">Extreme programming (XP), Kent beck in the 1990s</a></p>
+<ul>
+<li>Values <ul>
+<li>Communication</li>
+<li>Simplicity</li>
+<li>Feedback</li>
+<li>Courage</li>
+<li>Respect</li>
+</ul>
+</li>
+<li>Principles<ul>
+<li>Feedback</li>
+<li>Assuming simplicity</li>
+<li>Embracing change</li>
+</ul>
+</li>
+<li>Practices<ul>
+<li>Fine-scale feedback<ul>
+<li>Pair Programming</li>
+<li>Planning game</li>
+<li>Test-Driven Development (TDD)</li>
+<li>Whole team</li>
+</ul>
+</li>
+<li>Continuous process<ul>
+<li>Continuous Integration (CI)</li>
+<li>Refactoring</li>
+<li>Small Releases</li>
+</ul>
+</li>
+<li>Shared understanding<ul>
+<li>Coding Standards</li>
+<li>Collective code ownership</li>
+<li>Simple design</li>
+<li>System metaphor</li>
+</ul>
+</li>
+<li>Programmer welfare<ul>
+<li>Sustainable pace (No more than 40h)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://manifesto.softwarecraftsmanship.org/">The Software Craftsmanship Manifesto, in 2009</a></p>
+<ul>
+<li>Not only working software, but also well-crafted software</li>
+<li>Not only responding to change, but also steadily adding value</li>
+<li>Not only individuals and interactions, but also a community of professionals</li>
+<li>Not only customer collaboration, but also productive partnerships</li>
+</ul>
+</li>
+</ul>
+<h1 id="Beyond-those-techniques"><a href="#Beyond-those-techniques" class="headerlink" title="Beyond those techniques"></a>Beyond those techniques</h1><p>Other interesting topics in the final part of the book about how to connect those practices and business and how to understand the business like BDD (2006), user story mapping (2014), DDD (2003), EventStorming (2013), Business Model canvas (2005), impact mapping (2012), DevOps (2009), etc. In my experience I recommend to use: <a target="_blank" rel="noopener" href="https://github.com/ddd-crew/ddd-starter-modelling-process">Domain-Driven Design Starter Modelling Process</a> to go deeper in this path.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/12/staff-engineering-book-notes/" rel="prev" title="Book notes: Staff Engineer, Leadership beyond the management track">
+                  <i class="fa fa-angle-left"></i> Book notes: Staff Engineer, Leadership beyond the management track
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/03/11/character-encodings/" rel="next" title="How Many Bits Do Character Encodings Use?">
+                  How Many Bits Do Character Encodings Use? <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

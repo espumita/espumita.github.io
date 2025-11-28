@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Sometimes we deal with well-secured scenarios where there are no many ways to check HTTP traffic. And in these cases, common tracing tools are not enough. Consider the next communication:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to debug HTTPS traffic">
+<meta property="og:url" content="https://espumita.org/2021/03/25/debug-https/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="Sometimes we deal with well-secured scenarios where there are no many ways to check HTTP traffic. And in these cases, common tracing tools are not enough. Consider the next communication:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2021/03/25/debug-https/kj3bajk32jk23ejlkd23jlksdjlk2jlk23elkjl2kdlk.JPG">
+<meta property="og:image" content="https://espumita.org/2021/03/25/debug-https/slkhdjwsdlfdslflsdflksflk3lkklkflkdfkskfskfks.JPG">
+<meta property="article:published_time" content="2021-03-25T20:28:21.000Z">
+<meta property="article:modified_time" content="2025-11-14T17:01:40.056Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2021/03/25/debug-https/kj3bajk32jk23ejlkd23jlksdjlk2jlk23elkjl2kdlk.JPG">
+
+
+<link rel="canonical" href="https://espumita.org/2021/03/25/debug-https/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2021/03/25/debug-https/","path":"2021/03/25/debug-https/","title":"How to debug HTTPS traffic"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How to debug HTTPS traffic | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2021/03/25/debug-https/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How to debug HTTPS traffic | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to debug HTTPS traffic
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-25 20:28:21" itemprop="dateCreated datePublished" datetime="2021-03-25T20:28:21+00:00">2021-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Security/" itemprop="url" rel="index"><span itemprop="name">Software Security</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/03/25/debug-https/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/25/debug-https/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2021/03/25/debug-https/kj3bajk32jk23ejlkd23jlksdjlk2jlk23elkjl2kdlk.JPG" class="">
+
+<p>Sometimes we deal with well-secured scenarios where there are no many ways to check HTTP traffic. And in these cases, common tracing tools are not enough.</p>
+<p>Consider the next communication:</p>
+<span id="more"></span>
+
+<p>A webserver <code>A</code>, making a request to another internet server <code>B</code>. Traffic is encrypted thanks to HTTPS protocol supported by the SSL certificate of <code>B</code>.</p>
+<h1 id="What-do-we-talk-about"><a href="#What-do-we-talk-about" class="headerlink" title="What do we talk about?"></a>What do we talk about?</h1><p>We are going to talk about <a target="_blank" rel="noopener" href="https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html">request scoped traces</a>. Notice that <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a> is a request&#x2F;response protocol, running over <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> packages, commonly we want to debug the information related to headers, query string params, body contents.</p>
+<p>In other cases, we need the HTTP request&#x2F;response dialog sequence, to know if there is a CONNECT method request before or just to know if the response of a request was completed before another request. All this <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Application_layer">application layer</a> content is encrypted and protected with HTTPS.</p>
+<p>Basically, there are two ways to see HTTPS data under the hood:</p>
+<h1 id="Intercepting-traffic-from-inside-the-BOX"><a href="#Intercepting-traffic-from-inside-the-BOX" class="headerlink" title="Intercepting traffic from inside the BOX:"></a>Intercepting traffic from inside the BOX:</h1><p>That’s, you can easily intercept traffic using HTTP <strong>interceptors</strong> inside HTTP clients, in <code>A</code>. This feature enables you to <strong>access</strong> to HTTP client request&#x2F;response <strong>message pipeline</strong>.</p>
+<p>Example using NET Core:</p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">var httpClient &#x3D; new HttpClient(new InterceptorDelegatingHandler(logger));</code></pre>
+
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">public class InterceptorDelegatingHandler : DelegatingHandler &#123;
+    private readonly ILogger logger;
+
+    public InterceptorDelegatingHandler(ILogger logger) &#123;
+        this.logger &#x3D; logger;
+        InnerHandler &#x3D; new HttpClientHandler();
+    &#125;
+
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) &#123;
+        logger.Log(LogLevel.Debug, request.ToString());
+        var response &#x3D; await base.SendAsync(request, cancellationToken);
+        logger.Log(LogLevel.Debug, response.ToString());
+        return response;
+    &#125;
+&#125;</code></pre>
+
+<p>Now, you just added one more layer to the request&#x2F;response pipeline, where you have access to the <em>HttpRequestMessage</em>, at this point you can modify the message, but in this example, we only log it.</p>
+<p>Maybe you are thinking that telemetry tools like Application Insights will automatically log this dependency call, but, for security reasons, Application Insights <a target="_blank" rel="noopener" href="https://docs.microsoft.com/es-es/azure/azure-monitor/app/asp-net-dependencies#manually-tracking-dependencies">do not trace this kind of information by default</a>.</p>
+<p>You can do exactly the same in Javascript, for example with <a target="_blank" rel="noopener" href="https://github.com/axios/axios#interceptors">axios</a> using the same interceptor concept.</p>
+<h1 id="Intercepting-and-decrypting-Https-traces-using-a-web-proxy"><a href="#Intercepting-and-decrypting-Https-traces-using-a-web-proxy" class="headerlink" title="Intercepting and decrypting Https traces using a web proxy"></a>Intercepting and decrypting Https traces using a web proxy</h1><p>Now we will introduce a web server debugging tool as a <strong>proxy</strong> in the middle, like <a target="_blank" rel="noopener" href="https://www.telerik.com/fiddler">Fiddler</a>:</p>
+<img src="/2021/03/25/debug-https/slkhdjwsdlfdslflsdflksflk3lkklkflkdfkskfskfks.JPG" class="">
+
+<p>The difference with the first example is that in this case now we have a proxy <code>C</code>, in the middle. This will let us <strong>monitor</strong> and <strong>decrypt</strong> the traffic in the network.</p>
+<p>To setup the proxy:</p>
+<ul>
+<li>You need to <strong>redirect</strong> your <code>A</code> server outgoing traffic trought the proxy.</li>
+</ul>
+<p>In NET Core:</p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">HttpClient.DefaultProxy &#x3D; new WebProxy(&quot;127.0.0.1:8888&quot;);</code></pre>
+
+<p>or in NET full framework 4.6:</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup">&lt;system.net&gt;
+    &lt;defaultProxy enabled &#x3D; &quot;true&quot; useDefaultCredentials &#x3D; &quot;true&quot;&gt;
+        &lt;proxy autoDetect&#x3D;&quot;false&quot; bypassonlocal&#x3D;&quot;false&quot; proxyaddress&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:8888&quot; usesystemdefault&#x3D;&quot;false&quot; &#x2F;&gt;
+    &lt;&#x2F;defaultProxy&gt;
+&lt;&#x2F;system.net&gt;</code></pre>
+
+<ul>
+<li>You need to <strong>trust</strong> in the proxy <code>C</code> SSL certificate, adding it as a trusted root certification authority.</li>
+</ul>
+<p>Now you will be able to decrypt the traffic 😛, this method is more <strong>tedious</strong> to implement but more <strong>powerful</strong>.</p>
+<p><strong>NOTE</strong>: Optionally, if outgoing traffic needs specific extra authentications, like SSL client certificates, you need to <a target="_blank" rel="noopener" href="https://docs.telerik.com/fiddler/configure-fiddler/tasks/respondwithclientcert">configure</a> it in the proxy.</p>
+<h2 id="Other-usages"><a href="#Other-usages" class="headerlink" title="Other usages"></a>Other usages</h2><p>The same strategy can be applied for example to debug <a target="_blank" rel="noopener" href="https://docs.telerik.com/fiddler/configure-fiddler/tasks/configurebrowsers">browser traffic</a>, or <a target="_blank" rel="noopener" href="https://danq.me/2018/08/07/android-emulator-https-intercept/">Android emulators traffic</a>.</p>
+<p>This kind of tool can help us with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transport_layer">transport layer</a> problems like <a target="_blank" rel="noopener" href="https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/">TLS&#x2F;SSL handshake</a> problems, but usually more sophisticated tools like protocol analyzers or sniffers like <a target="_blank" rel="noopener" href="https://github.com/wireshark/wireshark">Wireshark</a> can help you more here.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/02/21/money/" rel="prev" title="Money is draining your life">
+                  <i class="fa fa-angle-left"></i> Money is draining your life
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/01/minimalism-thoughts/" rel="next" title="Thoughts on Minimalism">
+                  Thoughts on Minimalism <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

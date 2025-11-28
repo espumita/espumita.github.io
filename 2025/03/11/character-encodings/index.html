@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="If we look at the Computer History, we can see that since the 1940s, characters have been represented in very different ways.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Many Bits Do Character Encodings Use?">
+<meta property="og:url" content="https://espumita.org/2025/03/11/character-encodings/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="If we look at the Computer History, we can see that since the 1940s, characters have been represented in very different ways.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/kdjsckjsdafklsfkjlsdfklsfklsdfklsdfjlksflksdlklksdf.jpg">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/adslkjasjkldakjljnkldnjl1djnkl2jkln2djk.jpg">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/2JJWK2K2JK2JK2SKJSJKSJ2J2JK2SKSJK2SJS.jpg">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/kjjkl2d3kljd32kldkl23dkl3dkl.jpg">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/klajhsdfhlkasdfhjkajkdskjsdkfjskjdfhkjsdf.jpg">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/akshjgbdkhasdkjasdjkadjkasdklj.png">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/b2s3b324b23b42b3b23b2sb2bb234bb4.png">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/c87c789cuyhuchu9cucihchcc99ch9c.png">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/sd098fd90sf90df90dsf09dsf90sd90fs09fs90fd.png">
+<meta property="og:image" content="https://espumita.org/2025/03/11/character-encodings/aso089da87d98ad89aq9diuaoduj2h.png">
+<meta property="article:published_time" content="2025-03-11T09:29:34.000Z">
+<meta property="article:modified_time" content="2025-11-24T19:57:07.953Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2025/03/11/character-encodings/kdjsckjsdafklsfkjlsdfklsfklsdfklsdfjlksflksdlklksdf.jpg">
+
+
+<link rel="canonical" href="https://espumita.org/2025/03/11/character-encodings/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2025/03/11/character-encodings/","path":"2025/03/11/character-encodings/","title":"How Many Bits Do Character Encodings Use?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How Many Bits Do Character Encodings Use? | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2025/03/11/character-encodings/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How Many Bits Do Character Encodings Use? | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How Many Bits Do Character Encodings Use?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-03-11 09:29:34" itemprop="dateCreated datePublished" datetime="2025-03-11T09:29:34+00:00">2025-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2025/03/11/character-encodings/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/03/11/character-encodings/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2025/03/11/character-encodings/kdjsckjsdafklsfkjlsdfklsfklsdfklsdfjlksflksdlklksdf.jpg" class="">
+
+<p>If we look at the <a target="_blank" rel="noopener" href="https://www.computerhistory.org/timeline/computers/">Computer History</a>, we can see that since the 1940s, characters have been represented in very different ways.</p>
+<span id="more"></span>
+
+<h1 id="Writing-systems-changed-everything—more-than-you-think"><a href="#Writing-systems-changed-everything—more-than-you-think" class="headerlink" title="Writing systems changed everything—more than you think"></a>Writing systems changed everything—more than you think</h1><p>According to Wikipedia, we call <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prehistory">Prehistory</a> the period of human history between the first known use of stone tools by hominins, c. 3.3 million years ago, and the beginning of recorded history with the invention of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Writing_system">writing systems</a>.</p>
+<p>And YES! That’s it. Until this moment, we unlocked the ability to <strong>transmit information that persists through time</strong>. Or in other words, our knowledge became <strong>immortal</strong>.</p>
+<h1 id="Breaking-the-Space-Time-Barrier"><a href="#Breaking-the-Space-Time-Barrier" class="headerlink" title="Breaking the Space-Time Barrier"></a>Breaking the Space-Time Barrier</h1><p>We have been using many systems to communicate over long distances, including visual methods such as beacons, smoke signals, flag semaphore, and optical telegraphs, as well as messenger systems like homing pigeons.  </p>
+<p>The next breakthrough that changed everything was <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Telegraphy">Telegraphy</a>. For the first time in history, it enabled the <strong>transmission of information at the speed of light</strong>.  </p>
+<h1 id="Morse-Code-1-Bit-Not-Binary"><a href="#Morse-Code-1-Bit-Not-Binary" class="headerlink" title="Morse Code (1-Bit, Not Binary)"></a>Morse Code (1-Bit, Not Binary)</h1><p>In 1865, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Morse_code#Development_and_history">Morse code</a> became the standard for communications. These systems were able to send and record messages over long distances by pressing a <strong>single button</strong>, representing <strong>dots, dashes, and silences</strong>. With this, the code was able to represent 26 letters and 10 numerals.  </p>
+<img src="/2025/03/11/character-encodings/adslkjasjkldakjljnkldnjl1djnkl2jkln2djk.jpg" class="">
+
+<p>Notice that with this and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Telegraphy#Oceanic_telegraph_cables">a lot of cables</a>, <strong>we connected a large part of the world</strong> in the 19th century.  </p>
+<img src="/2025/03/11/character-encodings/2JJWK2K2JK2JK2SKJSJKSJ2J2JK2SKSJK2SJS.jpg" class="">
+
+<p>Dots and dashes changed the game and conquered the world. But to scale, we needed more human-friendly interfaces that didn’t require knowledge of Morse Code. That’s where <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Teleprinter">teleprinters</a> appeared. A teleprinter is a telegraph machine that can send messages from a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Typewriter">typewriter</a>-like keyboard.  </p>
+<h1 id="Baudot-Code-5-Bit"><a href="#Baudot-Code-5-Bit" class="headerlink" title="Baudot Code (5-Bit)"></a>Baudot Code (5-Bit)</h1><p>In the beginning, teleprinters used the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Baudot_code">Baudot code</a>, which relied on a <strong>five-key keyboard</strong> to represent the 26 letters of the basic Latin encoding, known as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Baudot_code#Baudot_code_(ITA1)">International Telegraph Alphabet No. 1 (ITA1)</a>.  </p>
+<p>In 1932, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Baudot_code#ITA2">ITA2</a> became the standard for teletypewriters.</p>
+<img src="/2025/03/11/character-encodings/kjjkl2d3kljd32kldkl23dkl3dkl.jpg" class="">
+
+<h1 id="ASCII-7-Bit"><a href="#ASCII-7-Bit" class="headerlink" title="ASCII (7-Bit)"></a>ASCII (7-Bit)</h1><p>In 1963, the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ASCII">American Standard Code for Information Interchange</a> (ASCII) encoding was created.  </p>
+<p>ASCII used a <strong>7-bit system</strong>, allowing for 128 characters. This included English letters (both uppercase and lowercase), digits, punctuation marks, and control characters (such as newline (LF) and carriage return (CR)).</p>
+<img src="/2025/03/11/character-encodings/klajhsdfhlkasdfhjkajkdskjsdkfjskjdfhkjsdf.jpg" class="">
+
+<p>7-bit ASCII was designed for teleprinters. It coexisted with early computers in the 1950s but was replaced by fully electronic computer terminals.</p>
+<h1 id="Extended-ASCII-8-Bit"><a href="#Extended-ASCII-8-Bit" class="headerlink" title="Extended ASCII (8-Bit)"></a>Extended ASCII (8-Bit)</h1><p>In the 1980s, as computers became more widespread, the need for additional symbols, accented characters (for non-English languages), and graphical symbols led to the development of Extended ASCII. There were multiple Extended ASCII variants (1980s–1990s), for example:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ISCII">ISCII for India</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/VISCII">VISCII for Vietnam</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Code_page_437">IBM Code Pages (437)</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ATASCII">Atari ATASCII</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kaypro">Kaypro CP&#x2F;M for Greek</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PETSCII">PETSCII</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sharp_MZ_character_set">Sharp MZ character set</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multinational_Character_Set">DEC-MCS</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mac_OS_Roman">Aooke Mac OS Roman</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PostScript_Standard_Encoding">Adobe PostScript Standard Encoding</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ISO/IEC_8859">ISO&#x2F;IEC 8859</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Windows-1252">Windows-1252</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/KOI8-R">KOI8-R for Cyrillic</a></li>
+</ul>
+<h1 id="Unicode-One-Encoding-to-Rule-Them-All"><a href="#Unicode-One-Encoding-to-Rule-Them-All" class="headerlink" title="Unicode, One Encoding to Rule Them All"></a>Unicode, One Encoding to Rule Them All</h1><p>In the 1990s, as computers began to be used more globally, the need for a character encoding system that could support <strong>all languages and scripts</strong> became apparent. This led to the development of the Unicode Standard by the <a target="_blank" rel="noopener" href="https://www.unicode.org/history/">Unicode Consortium</a>, founded in 1988 and incorporated in 1991.</p>
+<ul>
+<li><strong>Universal</strong> (addressing the needs of world languages)</li>
+<li><strong>Uniform</strong> (fixed-width codes for efficient access)</li>
+<li><strong>Unique</strong> (each bit sequence has only one interpretation into character codes)</li>
+</ul>
+<p>It is a character encoding standard that aims to represent every character from every writing system, including symbols, emoji, and historical characters.</p>
+<h2 id="Versions"><a href="#Versions" class="headerlink" title="Versions:"></a>Versions:</h2><p>Initially, Unicode 1.0 used a <strong>16-bit</strong> system, which allowed for 7,129 characters. It quickly became clear that more characters were needed, so Unicode has been extended over the years, for example:</p>
+<ul>
+<li>Version 1.0 (October 1991) - 7,129 Characters</li>
+<li>Version 16.0 (September 2024) - <a target="_blank" rel="noopener" href="https://www.unicode.org/charts/">154,998 Characters</a></li>
+</ul>
+<p>But it’s not that easy. If we stored all numbers as <strong>32-bits</strong>, it would take up too much space, wouldn’t it?</p>
+<h1 id="UTF"><a href="#UTF" class="headerlink" title="UTF"></a>UTF</h1><p>Unicode defines two mapping methods: the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unicode#Mapping_and_encodings">Unicode Transformation Format</a> (UTF) encodings and the Universal Coded Character Set (UCS) encodings. An encoding maps (possibly a subset of) the range of Unicode code points to sequences of values in some fixed-size range, termed code units. All UTF encodings map code points to a <strong>unique sequence of bytes</strong>.</p>
+<ul>
+<li>UTF-8, <strong>(1 to 4) 8-bit</strong> units per code point (maximal compatibility with ASCII)</li>
+<li>UTF-16, <strong>1 16-bit unit</strong> per code point below U+010000, and a surrogate pair of <strong>2 16-bit units</strong> per code point in the range U+010000 to U+10FFFF</li>
+<li>UTF-32, which uses <strong>1 32-bit unit</strong> per code point</li>
+</ul>
+<h1 id="Example-U-0041-A"><a href="#Example-U-0041-A" class="headerlink" title="Example U+0041 A"></a>Example U+0041 A</h1><p><a target="_blank" rel="noopener" href="https://symbl.cc/en/0041/">Character A</a>, Latin Capital Letter A, Unicode Number (Unicode Code Point) <strong>U+0041</strong>, is part of the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/basic-latin/">Basic Latin</a> (Code Block <strong>0000–007F</strong>), included in the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/basic-latin/#subblock-0041">Uppercase Latin Alphabet Subblock (0041)</a>, which is fully compatible with ASCII.</p>
+<table>
+<thead>
+<tr>
+<th>Encoding</th>
+<th>Hex</th>
+<th>Dec (Bytes)</th>
+<th>Dec</th>
+<th>Binary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UTF-8</td>
+<td>41</td>
+<td>65</td>
+<td>65</td>
+<td>01000001</td>
+</tr>
+<tr>
+<td>UTF-16BE</td>
+<td>00 41</td>
+<td>0 65</td>
+<td>65</td>
+<td>00000000 01000001</td>
+</tr>
+<tr>
+<td>UTF-16LE</td>
+<td>41 00</td>
+<td>65 0</td>
+<td>16640</td>
+<td>01000001 00000000</td>
+</tr>
+<tr>
+<td>UTF-32BE</td>
+<td>00 00 00 41</td>
+<td>0 0 0 65</td>
+<td>65</td>
+<td>00000000 00000000 00000000 01000001</td>
+</tr>
+<tr>
+<td>UTF-32LE</td>
+<td>41 00 00 00</td>
+<td>65 0 0 0</td>
+<td>1090519040</td>
+<td>01000001 00000000 00000000 00000000</td>
+</tr>
+</tbody></table>
+<h1 id="Example-U-00C1-A"><a href="#Example-U-00C1-A" class="headerlink" title="Example U+00C1 Á"></a>Example U+00C1 Á</h1><p><a target="_blank" rel="noopener" href="https://symbl.cc/en/00C1/">Character Á</a>, Latin Capital Letter A with Acute Á, Unicode Number (Unicode Code Point) <strong>U+00C1</strong>, is part of the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/latin-1-supplement/">Latin-1 Supplement</a> (Code Block <strong>0080–00FF</strong>), included in the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/latin-1-supplement/#subblock-00D8">Uppercase Letters Subblock (00D8)</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Encoding</th>
+<th>Hex</th>
+<th>Dec (Bytes)</th>
+<th>Dec</th>
+<th>Binary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UTF-8</td>
+<td>C3 81</td>
+<td>195 129</td>
+<td>50049</td>
+<td>11000011 10000001</td>
+</tr>
+<tr>
+<td>UTF-16BE</td>
+<td>00 C1</td>
+<td>0 193</td>
+<td>193</td>
+<td>00000000 11000001</td>
+</tr>
+<tr>
+<td>UTF-16LE</td>
+<td>C1 00</td>
+<td>193 0</td>
+<td>49408</td>
+<td>11000001 00000000</td>
+</tr>
+<tr>
+<td>UTF-32BE</td>
+<td>00 00 00 C1</td>
+<td>0 0 0 193</td>
+<td>193</td>
+<td>00000000 00000000 00000000 11000001</td>
+</tr>
+<tr>
+<td>UTF-32LE</td>
+<td>C1 00 00 00</td>
+<td>193 0 0 0</td>
+<td>3238002688</td>
+<td>11000001 00000000 00000000 00000000</td>
+</tr>
+</tbody></table>
+<h1 id="Example-U-1F642-🙂"><a href="#Example-U-1F642-🙂" class="headerlink" title="Example U+1F642 🙂"></a>Example U+1F642 🙂</h1><p><a target="_blank" rel="noopener" href="https://symbl.cc/en/1F642-slightly-smiling-face-emoji/">Character 🙂</a>, Slightly Smiling Face Emoji 🙂, Unicode Number (Unicode Code Point) <strong>U+1F642</strong>,<br>is part of the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/emoticons/">Emoticons (Emoji)</a> (Code Block <strong>1F600–1F64F</strong>), included in the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/emoticons/#subblock-1F600">Faces Subblock (1F600)</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Encoding</th>
+<th>Hex</th>
+<th>Dec (Bytes)</th>
+<th>Dec</th>
+<th>Binary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>UTF-8</strong></td>
+<td>F0 9F 99 82</td>
+<td>240 159 153 130</td>
+<td>4036991362</td>
+<td>11110000 10011111 10011001 10000010</td>
+</tr>
+<tr>
+<td><strong>UTF-16BE</strong></td>
+<td>D8 3D DE 42</td>
+<td>216 61 222 66</td>
+<td>3627933250</td>
+<td>11011000 00111101 11011110 01000010</td>
+</tr>
+<tr>
+<td><strong>UTF-16LE</strong></td>
+<td>3D D8 42 DE</td>
+<td>61 216 66 222</td>
+<td>1037583070</td>
+<td>00111101 11011000 01000010 11011110</td>
+</tr>
+<tr>
+<td><strong>UTF-32BE</strong></td>
+<td>00 01 F6 42</td>
+<td>0 1 246 66</td>
+<td>128578</td>
+<td>00000000 00000001 11110110 01000010</td>
+</tr>
+<tr>
+<td><strong>UTF-32LE</strong></td>
+<td>42 F6 01 00</td>
+<td>66 246 1 0</td>
+<td>1123418368</td>
+<td>01000010 11110110 00000001 00000000</td>
+</tr>
+</tbody></table>
+<h1 id="Example-U-1F44D-U-1F3FD-👍🏽"><a href="#Example-U-1F44D-U-1F3FD-👍🏽" class="headerlink" title="Example U+1F44D + U+1F3FD 👍🏽"></a>Example U+1F44D + U+1F3FD 👍🏽</h1><p><a target="_blank" rel="noopener" href="https://symbl.cc/en/thumbs-up-medium-skin-tone-emoji/">Character 👍🏽</a> is the combination of two Unicode Code Points: 👍 <a target="_blank" rel="noopener" href="https://symbl.cc/en/1F44D-thumbs-up-emoji/">Thumbs Up Emoji U+1F44D</a> and 🏽 <a target="_blank" rel="noopener" href="https://symbl.cc/en/1F3FD-medium-skin-tone-emoji/">Medium Skin Tone Emoji U+1F3FD</a>. It was approved in <strong>2015</strong> as an <a target="_blank" rel="noopener" href="https://symbl.cc/en/emoji/">Emoji</a> in version <strong>1.0</strong> and added to the <a target="_blank" rel="noopener" href="https://symbl.cc/en/emoji/people-and-body/hand-fingers-closed/">Closed Hand with Fingers</a> subcategory of the <a target="_blank" rel="noopener" href="https://symbl.cc/en/emoji/people-and-body/">People &amp; Body category</a>.</p>
+<p>For example, 👨‍👩‍👧‍👧 <a target="_blank" rel="noopener" href="https://symbl.cc/en/family-man-woman-girl-girl-emoji/">Family: Man, Woman, Girl, Girl Emoji</a> is an emoji <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ligature_(writing)">ligature</a> composed of the Unicode Code Points: <strong>U+1F468 U+200D U+1F469 U+200D U+1F467 U+200D U+1F467</strong>. This requires 4 + 2 + 4 + 2 + 4 + 2 + 4 &#x3D; <strong>22 bytes</strong> in the best case (UTF-16) to represent this emoji 🤯.</p>
+<h1 id="How-many-Bits-in-disk"><a href="#How-many-Bits-in-disk" class="headerlink" title="How many Bits in disk?"></a>How many Bits in disk?</h1><h2 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h2><img src="/2025/03/11/character-encodings/akshjgbdkhasdkjasdjkadjkasdklj.png" class="">
+
+<p>For this example, I will create a file containing the following string:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">echo &quot;AÁ🙂&quot; &gt; utf8_example.txt</code></pre>
+<p>I will check the file encoding, which by default is UTF-8.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">file -i utf8_example.txt</code></pre>
+<p>If we check the file length, we can see that it is <strong>8 bytes</strong>.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">ls -l utf8_example.txt</code></pre>
+<p>I will print the content of the file in the terminal, and since it is UTF-8, it will be displayed without any issues.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">cat utf8_example.txt</code></pre>
+<p>If we examine the binary data of the file, we will see the following:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">xxd -b utf8_example.txt</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Bytes</th>
+<th>Binary Representation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A</strong></td>
+<td>1</td>
+<td>01000001</td>
+</tr>
+<tr>
+<td><strong>Á</strong></td>
+<td>2</td>
+<td>11000011 10000001</td>
+</tr>
+<tr>
+<td><strong>🙂</strong></td>
+<td>4</td>
+<td>11110000 10011111 10011001 10000010</td>
+</tr>
+<tr>
+<td><strong>LF (Line Feed)</strong></td>
+<td>1</td>
+<td>00001010</td>
+</tr>
+</tbody></table>
+<p><strong>8 bytes</strong> in total with UTF-8 encoding, as you can see in the ls -l output.</p>
+<h2 id="UTF-16"><a href="#UTF-16" class="headerlink" title="UTF-16"></a>UTF-16</h2><img src="/2025/03/11/character-encodings/b2s3b324b23b42b3b23b2sb2bb234bb4.png" class="">
+
+<p>If we convert the file to UTF-16:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">iconv -f UTF-8 -t UTF-16LE utf8_example.txt -o utf16le_example.txt</code></pre>
+<p>We need to reconvert the encoding to UTF-8 in order to print it on the screen.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">cat utf16le_example.txt | iconv -f UTF-16LE -t UTF-8</code></pre>
+<p>If we take a look at the binary data:</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Bytes</th>
+<th>Binary Representation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A</strong></td>
+<td>2</td>
+<td>01000001 00000000</td>
+</tr>
+<tr>
+<td><strong>Á</strong></td>
+<td>2</td>
+<td>11000001 00000000</td>
+</tr>
+<tr>
+<td><strong>🙂</strong></td>
+<td>4</td>
+<td>00111101 11011000 01000010 11011110</td>
+</tr>
+<tr>
+<td><strong>LF (Line Feed)</strong></td>
+<td>2</td>
+<td>00001010 00000000</td>
+</tr>
+</tbody></table>
+<p><strong>10 bytes</strong> in total with UTF-16 encoding.</p>
+<h2 id="UTF-32"><a href="#UTF-32" class="headerlink" title="UTF-32"></a>UTF-32</h2><img src="/2025/03/11/character-encodings/c87c789cuyhuchu9cucihchcc99ch9c.png" class="">
+
+<p>If we do the same and examine the binary data:</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Bytes</th>
+<th>Binary Representation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A</strong></td>
+<td>4</td>
+<td>01000001 00000000 00000000 00000000</td>
+</tr>
+<tr>
+<td><strong>Á</strong></td>
+<td>4</td>
+<td>11000001 00000000 00000000 00000000</td>
+</tr>
+<tr>
+<td><strong>🙂</strong></td>
+<td>4</td>
+<td>01000010 11110110 00000001 00000000</td>
+</tr>
+<tr>
+<td><strong>LF (Line Feed)</strong></td>
+<td>4</td>
+<td>00001010 00000000 00000000 00000000</td>
+</tr>
+</tbody></table>
+<p><strong>16 bytes</strong> in total with UTF-32 encoding.</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ul>
+<li>Notice that despite being the same Unicode Code Point, depending on the UTF encoding, the <strong>byte representation can vary</strong>, requiring more or fewer bytes to represent the same character. (The file size depends on the encoding).</li>
+<li>Notice that the <strong>capacity to represent new symbols</strong>, like new emojis, depends on the <strong>Unicode version</strong>, not the UTF encoding.</li>
+<li><strong>UTF-8 is the most flexible and memory-efficient</strong> since it uses 1 byte for ASCII Code Points, which is the most common in most situations (for Latin-based languages), and up to 4 bytes for more complex characters.</li>
+<li>Measuring the <strong>size of a string</strong> or <strong>accessing a specific character</strong> can be <strong>inefficient in UTF-8</strong> because each character has a variable size in bytes.</li>
+<li><strong>UTF-16</strong> would be the <strong>most efficient for other languages, such as Asian</strong> languages, as it handles symbols outside the ASCII range. UTF-16 requires conversion to ASCII because, despite using 2 bytes, it uses different bits than ASCII.</li>
+<li><strong>UTF-32</strong> requires the <strong>most memory</strong> of all, although size <strong>calculations and access are the most efficient</strong> since it has a <strong>fixed length</strong>, simplifying decoding.</li>
+</ul>
+<h1 id="Extra-Knowledge-👀"><a href="#Extra-Knowledge-👀" class="headerlink" title="Extra Knowledge 👀"></a>Extra Knowledge 👀</h1><h2 id="Unicode-Code-Point-to-Bits"><a href="#Unicode-Code-Point-to-Bits" class="headerlink" title="Unicode Code Point to Bits"></a>Unicode Code Point to Bits</h2><p>Not all bits are required to be part of the Code Point representation. For example, the <a target="_blank" rel="noopener" href="https://symbl.cc/en/20AC/">Euro Sign €</a> is the Code Point U+20AC or U+0020AC. <strong>0020AC</strong> hexadecimal in binary is 00100000 10101100 (2 bytes), but the representation in UTF-8 is 3 bytes: 11100010 10000010 10101100.</p>
+<p>UTF-8 encodes code points in one to four bytes, depending on the value of the code point. In the following table, the characters u to z are replaced by the bits of the code point, from the positions U+uvwxyz:</p>
+<p>Code point ↔ UTF-8 conversion</p>
+<table>
+<thead>
+<tr>
+<th>First code point</th>
+<th>Last code point</th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3</th>
+<th>Byte 4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>U+0000</td>
+<td>U+007F</td>
+<td>0yyyzzzz</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>U+0080</td>
+<td>U+07FF</td>
+<td>110xxxyy</td>
+<td>10yyzzzz</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>U+0800</td>
+<td>U+FFFF</td>
+<td>1110wwww</td>
+<td>10xxxxyy</td>
+<td>10yyzzzz</td>
+<td></td>
+</tr>
+<tr>
+<td>U+010000</td>
+<td>U+10FFFF</td>
+<td>11110uvv</td>
+<td>10vvwwww</td>
+<td>10xxxxyy</td>
+<td>10yyzzzz</td>
+</tr>
+</tbody></table>
+<p>The thing is that a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/UTF-8">default table</a> with <strong>default values (1 byte)</strong> is used to generate the resulting 24 bits code:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>11</strong></td>
+<td><strong>10</strong></td>
+<td>00</td>
+<td>10</td>
+<td>11100010</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>00</td>
+<td>00</td>
+<td>10</td>
+<td>10000010</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>10</td>
+<td>11</td>
+<td>00</td>
+<td>10101100</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Number of bits</th>
+<th>Binary codification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8</td>
+<td><strong>0</strong>XXX XXXX</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>110</strong>X XXXX <strong>10</strong>XX XXXX</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong>1110</strong> XXXX <strong>10</strong>XX XXXX <strong>10</strong>XX XXXX</td>
+</tr>
+<tr>
+<td>32</td>
+<td><strong>1111 0</strong>XXX <strong>10</strong>XX XXXX <strong>10</strong>XX XXXX <strong>10</strong>XX XXXX</td>
+</tr>
+</tbody></table>
+<h2 id="LE-BE"><a href="#LE-BE" class="headerlink" title="LE&#x2F;BE"></a>LE&#x2F;BE</h2><p>LE (Little Endian) and BE (Big Endian) refer to the <strong>byte order</strong> used to store the multi-byte characters in the encoding.</p>
+<ul>
+<li><p>Little Endian: The least significant byte (LSB) of the character is stored first (at the lower memory address). For example: 0xD800 &#x3D;&gt; 0x00 0xD8.</p>
+</li>
+<li><p>Big Endian (BE): The most significant byte (MSB) is stored first. For example: 0xD800 &#x3D;&gt; 0xD8 0x00.</p>
+</li>
+</ul>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Byte_order_mark">Byte Order Mark (BOM)</a> is a particular usage of the special Unicode character code, <a target="_blank" rel="noopener" href="https://symbl.cc/en/FEFF/"><strong>U+FEFF</strong></a>. Is a sequence of bytes at the beginning of a text file that indicates the byte order (endianness) and sometimes the character encoding used in the file.</p>
+<ul>
+<li>UTF-8: <strong>EF BB BF</strong></li>
+<li>UTF-16 (Big Endian): <strong>FE FF</strong></li>
+<li>UTF-16 (Little Endian): <strong>FF FE</strong></li>
+<li>UTF-32 (Big Endian): <strong>00 00 FE FF</strong></li>
+<li>UTF-32 (Little Endian): <strong>FF FE 00 00</strong></li>
+</ul>
+<p>We can test this in Visual Studio Code, for example, using the <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor">Hex Editor</a>. Open the file with the editor, then click on ‘Save with Encoding’ &gt; ‘UTF-8 with BOM’. You will then see these bytes:”</p>
+<img src="/2025/03/11/character-encodings/sd098fd90sf90df90dsf09dsf90sd90fs09fs90fd.png" class="">
+
+<h1 id="End-of-String-U-0000"><a href="#End-of-String-U-0000" class="headerlink" title="End of String U+0000"></a>End of String U+0000</h1><p>The symbol <a target="_blank" rel="noopener" href="https://symbl.cc/en/0000/">Null, <strong>U+0000</strong></a> is included in the <a target="_blank" rel="noopener" href="https://symbl.cc/en/unicode/blocks/basic-latin/#subblock-0000">C0 controls subblock</a> of the Basic Latin block. Null can be <strong>used as a marker for the end of a string or an array of characters</strong>, especially in programming languages such as C and C++ (C-strings).</p>
+<p>Programs and UIs like SQL Server Manager <strong>do not print this character</strong>. However, if the presence of null characters is enough, this could unexpectedly result in string-end representations for the UI, making it appear as though the string is truncated. Take a look to this with an example:</p>
+<img src="/2025/03/11/character-encodings/aso089da87d98ad89aq9diuaoduj2h.png" class="">
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">echo &quot;41410A&quot; | xxd -r -p &gt; test01.txt
+echo &quot;410000000000000000000000000000000000000410A&quot; | xxd -r -p &gt; test02.txt</code></pre>
+
+<p>As you can see, test01.txt contains <strong>3 bytes</strong> (A + A + LF), while test02.txt is <strong>22 bytes</strong>. However, when printed, it only displays “A” because the x37 ceros are interpreted as string end.</p>
+<p>Notice that this character is part of string escape sequences in many languages like <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#string-escape-sequences">.NET</a>, but not in <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/data/characters.html">Java</a>.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/01/agile-technical-practices-distilled-book-notes/" rel="prev" title="Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling">
+                  <i class="fa fa-angle-left"></i> Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/28/system-design-interview-book-notes/" rel="next" title="Book notes: System Design Interview: Volume 1">
+                  Book notes: System Design Interview: Volume 1 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

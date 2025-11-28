@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="There are some scenarios where we don’t need to wait for fast feedback when executing tasks. In some cases, we can just request the computation of that a task, a command, and at some moment in the f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Software Architectures examples : Asynchronous Command Queue">
+<meta property="og:url" content="https://espumita.org/2020/12/26/asynchronous-command-queue/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="There are some scenarios where we don’t need to wait for fast feedback when executing tasks. In some cases, we can just request the computation of that a task, a command, and at some moment in the f">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg">
+<meta property="og:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/kweskjhw3jkh3jk3wjslkjk4d3wfjk434wdfjkwfjk3.JPG">
+<meta property="og:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/SHJBK3ZS2KHBJ243DKJH3DJK2L324JKLSK2JS23KJS324K.JPG">
+<meta property="article:published_time" content="2020-12-26T15:59:57.000Z">
+<meta property="article:modified_time" content="2025-11-14T16:00:32.155Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg">
+
+
+<link rel="canonical" href="https://espumita.org/2020/12/26/asynchronous-command-queue/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2020/12/26/asynchronous-command-queue/","path":"2020/12/26/asynchronous-command-queue/","title":"Software Architectures examples : Asynchronous Command Queue"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Software Architectures examples : Asynchronous Command Queue | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2020/12/26/asynchronous-command-queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Software Architectures examples : Asynchronous Command Queue | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Software Architectures examples : Asynchronous Command Queue
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-12-26 15:59:57" itemprop="dateCreated datePublished" datetime="2020-12-26T15:59:57+00:00">2020-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Architecture/" itemprop="url" rel="index"><span itemprop="name">Software Architecture</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/12/26/asynchronous-command-queue/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/26/asynchronous-command-queue/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg" class="">
+
+<p>There are some scenarios where we <strong>don’t need to wait</strong> for fast feedback when executing tasks. In some cases, we can just <strong>request the computation</strong> of that a task, <strong>a command</strong>, and at some moment in the future, we can <strong>receive a callback</strong> notification with the execution result.</p>
+<p>To explore a solution for this posibilities, I decided to build <a target="_blank" rel="noopener" href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue">this</a> example by applying an <strong>asynchronous command queue</strong>.</p>
+<span id="more"></span>
+
+<h1 id="An-asynchronous-world-needs-asynchronous-solutions"><a href="#An-asynchronous-world-needs-asynchronous-solutions" class="headerlink" title="An asynchronous world needs asynchronous solutions"></a>An <strong>asynchronous world</strong> needs <strong>asynchronous solutions</strong></h1><p>This means that in many cases we need to build systems that are able to deal with <strong>asynchronous use cases</strong>, where no one is waiting for an immediate response.</p>
+<p>A typical example is when buying online. Traditional webs created <strong>big transactions</strong> with many comprobations like payment information, stock, delivery addresses… and users had to <strong>wait mandatory for all</strong> validations.</p>
+<p>But nowadays, when we think about <strong>improving</strong> the <strong>user experience</strong>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/User_experience">UX</a> today’s applications tend to <strong>simplify</strong> and <strong>accelerate</strong> the process for the user. The same <em>buy</em> action button, trigger a process. And at some time, the user <strong>will be notified</strong> via an email or a notification with the process result about if it’s finished o rejected.</p>
+<p>Under the hood, we can find that the original request has an HTTP 200 ok. But the dialogs between the servers are quite different from when we were used. Patterns like <strong>pooling</strong> or <strong>WebSockets</strong> are very common in the frontend.</p>
+<h1 id="Benefits"><a href="#Benefits" class="headerlink" title="Benefits"></a>Benefits</h1><ul>
+<li><strong>Concurrency disappears</strong>. Because now commands can be processed one by one, so potentially there are <strong>no race conditions</strong> between resources.</li>
+<li><strong>Less coupling</strong> and <strong>more flexibility</strong> because systems can now be integrated just with a <strong>command contract</strong>.</li>
+<li><strong>Improve client usage</strong> with faster requests, and less error management, at least in command publishing.</li>
+<li><strong>Possibility to define</strong> a command <strong>execution context</strong> and <strong>pipeline</strong>, to deal with stuff like transactions scopes or schedule.</li>
+<li>Possibility to <strong>implement</strong> with <strong>retry policities</strong>.</li>
+<li><strong>Good integration</strong> with <strong>technologies</strong> like webhooks, webshockets, etc.</li>
+<li>If command history is stored, there is a possibility to <strong>replay production loads</strong> in test environments replaying production commands.</li>
+</ul>
+<h1 id="Drawnbacks"><a href="#Drawnbacks" class="headerlink" title="Drawnbacks"></a>Drawnbacks</h1><ul>
+<li>Much <strong>more complexity</strong>, compared with previous architectures examples.</li>
+<li><strong>Harder learning curve</strong> than with other approaches.</li>
+<li>More technologies are involved, <strong>more points of failure</strong>.</li>
+<li>Usually <strong>need of a callback mechanism</strong> for the client to receive results and manage <strong>errors</strong>.</li>
+</ul>
+<p>This only has sense in a couple of scenarios, where executions and notifications are needed. <strong>Each solution</strong> has its <strong>suitable problem</strong>.</p>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>Following <a target="_blank" rel="noopener" href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Asynchronous%20Command%20Queue">this</a> aspnetcore example, consider the next code distribution:</p>
+<img src="/2020/12/26/asynchronous-command-queue/kweskjhw3jkh3jk3wjslkjk4d3wfjk434wdfjkwfjk3.JPG" class="">
+
+<p>This music application example is built on top of the previous <a target="_blank" rel="noopener" href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Event%20Driven">Event Driven</a> example. It’s recommended to understand previous examples first. In this case, we had included some projects like <em>MyMusic.Application.Commands</em> and <em>MyMusic.Application.CommandsHandlers</em>:</p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><p>Class: <em>MyMusic.Application.Commands.CreatePLayList</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">public class CreatePLayList : Command &#123;
+    public string PlayListName &#123; get; &#125;
+
+    public CreatePLayList(string playListName) &#123;
+        PlayListName &#x3D; playListName;
+    &#125;
+&#125;</code></pre>
+
+<p>Commands are just <strong>request for use cases executions</strong> in this case.</p>
+<h1 id="Commands-subscription"><a href="#Commands-subscription" class="headerlink" title="Commands subscription"></a>Commands subscription</h1><p>Class: <em>MyMusic.Configuration</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">private static void RegisterPlayListCommandProcessorsInTo(CommandQueuePort commandQueue, PlayListCommandProcessor playListCommandProcessor) &#123;
+    commandQueue.SetQueueSingleConsumer&lt;CreatePLayList&gt;(playListCommandProcessor.Process);
+    commandQueue.SetQueueSingleConsumer&lt;RenamePlaylist&gt;(playListCommandProcessor.Process);
+    commandQueue.SetQueueSingleConsumer&lt;ChangePlayListImageUrl&gt;(playListCommandProcessor.Process);
+    commandQueue.SetQueueSingleConsumer&lt;ArchivePlayList&gt;(playListCommandProcessor.Process);
+&#125;</code></pre>
+
+<p>As you can see, for this example we had decided to create an in-memory command queue, found in <em>AsynchronousCommandQueueInMemoryAdapter</em>. In this part, we manually register the commands we are going to deal with in this application, and who is it going to process them.</p>
+<h1 id="Commands-creations"><a href="#Commands-creations" class="headerlink" title="Commands creations"></a>Commands creations</h1><p>Class: <em>MyMusic.Controllers.PlaylistsController</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">[HttpPost]
+public ActionResult CreatePlayList([FromBody]CreatePlayListRequest request) &#123;
+    commandQueue.Queue(new CreatePLayList(request.PlayListName));
+    return Ok();
+&#125;</code></pre>
+
+<p>Commands are <strong>created</strong> directly in the <strong>delivery layer</strong>, in this case in the controller.</p>
+<h1 id="Commands-processing"><a href="#Commands-processing" class="headerlink" title="Commands processing"></a>Commands processing</h1><p>Class: <em>MyMusic.CommandProcessors.PlayListCommandProcessor</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">public class PlayListCommandProcessor &#123;
+    private readonly PlayListCommandHandlerCreator playListCommandHandlerCreator;
+
+    public PlayListCommandProcessor(PlayListCommandHandlerCreator playListCommandHandlerCreator) &#123;
+        this.playListCommandHandlerCreator &#x3D; playListCommandHandlerCreator;
+    &#125;
+
+    public Either&lt;DomainError, CommandResult&gt; Process(CreatePLayList command) &#123;
+        var commandHandler &#x3D; playListCommandHandlerCreator.CreateCreatePlayListCommandHandler();
+        return commandHandler.Handle(command);
+    &#125;
+&#125;</code></pre>
+
+<p>I decided to create this processor abstraction on top of handlers, the same with events in <a href="/2020/12/19/event-driven/">previous example</a>, to deal with injections and to generate a flow as similar as possible to the traditional controller-services approach.</p>
+<h1 id="Commands-handling"><a href="#Commands-handling" class="headerlink" title="Commands handling"></a>Commands handling</h1><p>Class: <em>MyMusic.Application.CommandHandlers.CreatePlayListCommandHandler</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">public class CreatePlayListCommandHandler &#123;
+    
+    private readonly UniqueIdentifiersPort uniqueIdentifiers;
+    private readonly PlayListPersistencePort playListPersistence;
+    private readonly EventPublisherPort eventPublisher;
+
+    public CreatePlayListCommandHandler(UniqueIdentifiersPort uniqueIdentifiers, PlayListPersistencePort playListPersistence, EventPublisherPort eventPublisher) &#123;
+        this.uniqueIdentifiers &#x3D; uniqueIdentifiers;
+        this.playListPersistence &#x3D; playListPersistence;
+        this.eventPublisher &#x3D; eventPublisher;
+    &#125;
+
+    public Either&lt;DomainError, CommandResult&gt; Handle(CreatePLayList command) &#123;
+        var newPlayListId &#x3D; uniqueIdentifiers.GetNewUniqueIdentifier();
+        var playList &#x3D; PlayList.Create(newPlayListId, command.PlayListName);
+        
+        playListPersistence.Persist(playList);
+        eventPublisher.Publish(playList.Events());
+        return CommandResult.Success;
+    &#125;
+    
+&#125;</code></pre>
+
+<p><strong>Commands handlers are</strong> now <strong>use cases</strong> executions and are the <strong>substitution of services</strong> from previous examples.</p>
+<p>Notice that <strong>each command</strong> now <strong>has</strong> the <strong>side effect</strong> of <strong>publishing an event</strong>.</p>
+<h1 id="Running-the-example-with-SignalR"><a href="#Running-the-example-with-SignalR" class="headerlink" title="Running the example with SignalR"></a>Running the example with SignalR</h1><p>Class: <em>MyMusic.Application.EventHandlers.PlayListHasBeenCreatedEventHandler</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">public class PlayListHasBeenCreatedEventHandler &#123;
+    private readonly PlayListNotifierPort playListNotifier;
+    private readonly WebsocketPort websocket;
+
+    public PlayListHasBeenCreatedEventHandler(PlayListNotifierPort playListNotifier, WebsocketPort websocket) &#123;
+        this.playListNotifier &#x3D; playListNotifier;
+        this.websocket &#x3D; websocket;
+    &#125;
+
+    public async Task Handle(PlayListHasBeenCreated @event) &#123;
+        playListNotifier.NotifyPlayListHasBeenCreated(@event.PlayListId, @event.PlayListName);
+        await websocket.PushMessageWithEventToAll(@event);
+    &#125;
+&#125;</code></pre>
+
+<p>And, as you can see, an <strong>event handlers</strong> is <strong>subscribed to that event</strong>, and we had added <em>websocket.PushMessageWithEventToAll(@event)</em></p>
+<h1 id="Send-messages-to-sockets"><a href="#Send-messages-to-sockets" class="headerlink" title="Send messages to sockets"></a>Send messages to sockets</h1><p>Class: <em>MyMusic.Websockets.SignalRWebsocketAdapter</em></p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">public class SignalRWebsocketAdapter : Hub, WebsocketPort &#123;
+    
+    public async  Task PushMessageWithEventToAll(Event @event) &#123;
+        if (Clients !&#x3D; null)&#123;
+            await Clients.All.SendAsync(&quot;AllMyMusicTarget&quot;, @event.GetType().Name,@event);
+        &#125;
+    &#125;
+
+    public async Task PushMessageWithErrorToAll(string error, Command command) &#123;
+        if (Clients !&#x3D; null)&#123;
+            await Clients.All.SendAsync(&quot;AllMyMusicTarget&quot;, error, command);
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>This implementation simply sends to all server socket connections all the events.</p>
+<h1 id="Receibe-messages-in-the-client"><a href="#Receibe-messages-in-the-client" class="headerlink" title="Receibe messages in the client"></a>Receibe messages in the client</h1><p>Code: <em>Websocket-Web-Client&#x2F;index.html</em></p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">var connection &#x3D; new signalR.HubConnectionBuilder()
+        .withUrl(&quot;https:&#x2F;&#x2F;localhost:44375&#x2F;MyMusicHub&quot;, &#123;
+            skipNegotiation: true,
+            transport: signalR.HttpTransportType.WebSockets
+        &#125;)
+        .configureLogging(signalR.LogLevel.Debug)
+        .build();
+        
+    connection.on(&quot;AllMyMusicTarget&quot;, function (user, message) &#123;
+        console.log(&quot;AllMyMusicTarget&quot;, user, message)
+    &#125;);
+
+    connection.start().then(function () &#123;
+        console.log(&quot;SignalR connection started...&quot;)
+    &#125;).catch(function (error) &#123;
+        return console.error(error.toString());
+    &#125;);</code></pre>
+
+<p>In the javascript frontend client, we can see the socket connection opening with the server and the subscription to the <em>AllMyMusicTarget</em> messages.</p>
+<p>We can serve this code in a local web server by executing <em>npm install</em> and <em>npm run server</em>.</p>
+<h1 id="Run-execution"><a href="#Run-execution" class="headerlink" title="Run execution"></a>Run execution</h1><p>Then If we want to test the playlist creation endpoint, we only need to create a request like:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">curl -X POST &quot;https:&#x2F;&#x2F;localhost:44375&#x2F;playlists&quot; -H &quot;accept: *&#x2F;*&quot; -H &quot;Content-Type: application&#x2F;json&quot; -d &quot;&#123;\&quot;playListName\&quot;:\&quot;a playlist\&quot;&#125;&quot;</code></pre>
+
+<p>And then we can see, that the message has traveled from the server through the client in the browser network tab:</p>
+<img src="/2020/12/26/asynchronous-command-queue/SHJBK3ZS2KHBJ243DKJH3DJK2L324JKLSK2JS23KJS324K.JPG" class="">
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/19/event-driven/" rel="prev" title="Software Architectures examples: Event-Driven">
+                  <i class="fa fa-angle-left"></i> Software Architectures examples: Event-Driven
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/02/21/money/" rel="next" title="Money is draining your life">
+                  Money is draining your life <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="5 Years ago Jimmy Bogard launches Vertical Slice architecture as an alternative to traditional Clean Architecture. So let’s take a look:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Software Architectures examples : Vertical Slice">
+<meta property="og:url" content="https://espumita.org/2023/08/15/vertical-slice/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="5 Years ago Jimmy Bogard launches Vertical Slice architecture as an alternative to traditional Clean Architecture. So let’s take a look:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png">
+<meta property="og:image" content="https://espumita.org/2023/08/15/vertical-slice/d2x33787d65s232323243427890sd987sd.png">
+<meta property="og:image" content="https://espumita.org/2023/08/15/vertical-slice/76787d65s232323243427890sd987sd.png">
+<meta property="article:published_time" content="2023-08-15T13:00:56.000Z">
+<meta property="article:modified_time" content="2025-11-14T17:00:48.085Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png">
+
+
+<link rel="canonical" href="https://espumita.org/2023/08/15/vertical-slice/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2023/08/15/vertical-slice/","path":"2023/08/15/vertical-slice/","title":"Software Architectures examples : Vertical Slice"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Software Architectures examples : Vertical Slice | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2023/08/15/vertical-slice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Software Architectures examples : Vertical Slice | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Software Architectures examples : Vertical Slice
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-15 14:00:56" itemprop="dateCreated datePublished" datetime="2023-08-15T14:00:56+01:00">2023-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Architecture/" itemprop="url" rel="index"><span itemprop="name">Software Architecture</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/08/15/vertical-slice/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/08/15/vertical-slice/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png" class="">
+
+<p><a target="_blank" rel="noopener" href="https://www.jimmybogard.com/vertical-slice-architecture/">5 Years ago</a> Jimmy Bogard launches Vertical Slice architecture as an <strong>alternative</strong> to traditional Clean Architecture. So let’s take a look:</p>
+<span id="more"></span>
+
+<h1 id="What-is-Vertical-Slicing-about"><a href="#What-is-Vertical-Slicing-about" class="headerlink" title="What is Vertical Slicing about?"></a>What is Vertical Slicing about?</h1><p>The new premise is: <strong>Minimize coupling between slices, and maximize coupling in a slice.</strong>, so, we can define this architectural pattern with 3 key points:</p>
+<ol>
+<li>Code is <strong>split into slices</strong> (Features)</li>
+<li>Slices are <strong>isolated</strong>, they should not depend on each other.</li>
+<li>Slices are <strong>self-contained</strong>, so all the code necessary to run the feature is under the slice. (Domain, Infrastructure, etc.)</li>
+</ol>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>For <a target="_blank" rel="noopener" href="https://github.com/espumita/Architectural-styles-examples-in-.NET-core/tree/master/Vertical%20Slice">this example</a>, I decided to refactor my previous example <a href="/2020/12/26/asynchronous-command-queue/">Asynchronous Command Queue</a> in this series.</p>
+<h1 id="What-is-inside-a-slice"><a href="#What-is-inside-a-slice" class="headerlink" title="What is inside a slice?"></a>What is inside a slice?</h1><p>One slice or feature contains <strong>all the necessary code</strong> to solve the business use case. (Request&#x2F;Response, Command&#x2F;Query&#x2F;Event, Command&#x2F;Query&#x2F;EventHandler, Domain and Infrastructure).</p>
+<p>To make this refactor easier, I first decided to join all namespaces code together inside the API, and then <strong>split by entities</strong> in my domain: <em>PlayLists</em> and <em>Tracks</em>, and the same with the tests. In order to split the code into slices (1.), I have <strong>joined</strong> both, <strong>queries and commands</strong> as features.</p>
+<h1 id="What-happens-if-two-slices-use-the-same-code"><a href="#What-happens-if-two-slices-use-the-same-code" class="headerlink" title="What happens if two slices use the same code?"></a>What happens if two slices use the same code?</h1><p>In my example, I had decided to not be strict with the isolation (2.) and self-contained slices (3.). I think it’s <strong>more productive</strong> to have the <strong>shared code written only once</strong>. At this point, we still could decide if split the shared code or not by method, like in <em>PlayListNotifier</em> or <em>PlayListQuery</em>, but this depends on the isolation level you want to reach.</p>
+<img src="/2023/08/15/vertical-slice/d2x33787d65s232323243427890sd987sd.png" class="">
+
+<p>We still have <strong>good isolation</strong>. We can completely delete a single feature folder, and the rest features will not be affected.</p>
+<h1 id="What-happens-if-two-entities-use-the-same-code"><a href="#What-happens-if-two-entities-use-the-same-code" class="headerlink" title="What happens if two entities use the same code?"></a>What happens if two entities use the same code?</h1><p>I made the same trade-off here, If multiple entities have features with <strong>common code</strong> I decided to extract it as a top-level concept <strong>shared</strong>. In this case, not only infrastructure code is here, but also the domain, cause in this case, <em>PlayList</em> is necessary for <em>Tracks</em> features.</p>
+<img src="/2023/08/15/vertical-slice/76787d65s232323243427890sd987sd.png" class="">
+
+<p>As a self-contained feature, read model features, contain their own specific read models, but notice that this could be moved to <em>shared</em> in order to specify that multiple reading features are <strong>sharing the same model</strong>.</p>
+<p>At this point, we still have <strong>isolated entities</strong>, cause if we delete <em>Tracks</em>, the <em>PlayList</em> module will not be affected.</p>
+<h1 id="When-makes-sense-to-use-this-architecture"><a href="#When-makes-sense-to-use-this-architecture" class="headerlink" title="When makes sense to use this architecture?"></a>When makes sense to use this architecture?</h1><ul>
+<li>This is good for <strong>fast development</strong> cause there are <strong>fewer rules to follow</strong>, and the <strong>learning curve</strong> for new developers is <strong>low</strong>.</li>
+<li>Solutions are more simple and projects tend to have <strong>fewer classes</strong>, in this example, we maybe don’t need many of the interfaces that we have cause we only have one single implementation, and now we are <strong>not using</strong> interfaces as <strong>strict contracts between layers</strong>.</li>
+<li>If you have services that <strong>grow too much</strong>, maybe this could be an interesting solution, in this refactor we moved from 15 to 2 projects.</li>
+<li>When you have too <strong>much complexity</strong> for simple features, like creating <strong>unnecessary abstractions</strong> or <strong>touching several projects</strong> to add a feature.</li>
+<li><strong>Reduce the number of mocks</strong> in tests. With this approach, filly integration tests make more sense.</li>
+</ul>
+<h1 id="Drawnbacks"><a href="#Drawnbacks" class="headerlink" title="Drawnbacks"></a>Drawnbacks</h1><ul>
+<li><strong>Dependency anarchy</strong>: Boundaries are not defined, so you can &amp; (Should), <strong>mix infrastructure and feature-specific code</strong>. In this topic, I feel more comfortable separating domain code from the rest of the code in order to have it isolated, because it rarely will change. But this always depends. For example, if we were using an ORM, until what point we will let the database decisions affect our domain?</li>
+<li><strong>Test</strong> trend to be from the feature perspective, so probably they are <strong>more long-running</strong> compared with the clean architecture approach where we tend to make more isolated testing.</li>
+<li>If trade-offs are not made, will end in <strong>multiple duplications</strong> of concepts in order to archive pure feature isolation and self-contained slices. In my opinion <strong>shared code wins in the long term</strong>. How often had you deleted a feature in the past? 😉</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/15/user-story-mapping/" rel="prev" title="Book notes: User Story Mapping">
+                  <i class="fa fa-angle-left"></i> Book notes: User Story Mapping
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/04/how-to-reach-the-senior-software-engineer-level/" rel="next" title="How to reach the Senior Software Engineer level">
+                  How to reach the Senior Software Engineer level <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

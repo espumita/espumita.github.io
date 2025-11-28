@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="This is an interesting and recommended book by Will Larson published in 2021 about Staff engineers roles.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Book notes: Staff Engineer, Leadership beyond the management track">
+<meta property="og:url" content="https://espumita.org/2024/06/12/staff-engineering-book-notes/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="This is an interesting and recommended book by Will Larson published in 2021 about Staff engineers roles.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2024/06/12/staff-engineering-book-notes/123981293881238912w899so121.jpg">
+<meta property="article:published_time" content="2024-06-12T19:29:34.000Z">
+<meta property="article:modified_time" content="2025-11-14T16:14:12.198Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2024/06/12/staff-engineering-book-notes/123981293881238912w899so121.jpg">
+
+
+<link rel="canonical" href="https://espumita.org/2024/06/12/staff-engineering-book-notes/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2024/06/12/staff-engineering-book-notes/","path":"2024/06/12/staff-engineering-book-notes/","title":"Book notes: Staff Engineer, Leadership beyond the management track"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Book notes: Staff Engineer, Leadership beyond the management track | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2024/06/12/staff-engineering-book-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Book notes: Staff Engineer, Leadership beyond the management track | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Book notes: Staff Engineer, Leadership beyond the management track
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-06-12 20:29:34" itemprop="dateCreated datePublished" datetime="2024-06-12T20:29:34+01:00">2024-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Career-Path/" itemprop="url" rel="index"><span itemprop="name">Career Path</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/06/12/staff-engineering-book-notes/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/06/12/staff-engineering-book-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2024/06/12/staff-engineering-book-notes/123981293881238912w899so121.jpg" class="">
+
+<p>This is an interesting and recommended book by <a target="_blank" rel="noopener" href="https://lethain.com/about/">Will Larson</a> published in 2021 about Staff engineers roles.</p>
+<span id="more"></span>
+
+<p>Here are my notes:</p>
+<h1 id="Staff-engineer-archetypes"><a href="#Staff-engineer-archetypes" class="headerlink" title="Staff engineer archetypes"></a>Staff engineer archetypes</h1><ul>
+<li><strong>Tech lead:</strong><ul>
+<li>Scope complex tasks.</li>
+<li>Coordinating the team.</li>
+<li>Unlocking the team.</li>
+<li>Cross-functional relationships.</li>
+<li>Closer to the team’s manager.</li>
+<li>Coding less.</li>
+<li>Delegating projects in the team.</li>
+<li>Grow their teammates.</li>
+<li>Guide the team’s approach and execution.</li>
+<li>Define the team’s technical vision.</li>
+<li>1 Tech lead for every 8 engineers.</li>
+<li>Typical meetings (On-Call, Team Standup, 1:1, Focus Bloc&#x2F; Coding, Interviews, Sprint Planning, Sprint Demos, Incient Retrospectives, Arch Reviews).</li>
+</ul>
+</li>
+<li><strong>Architect:</strong><ul>
+<li>Success of a specific technical domain (API design, stack, storage strategy, etc…).</li>
+<li>They should not design in isolation and then tell others what to implement.</li>
+<li>Influential architects maintain an intimate understanding of the business needs, users’ goals, and relevant technical constraints.</li>
+<li>Advocate for effective approaches.</li>
+<li>Have organizational authority, earned by demonstrating consistently good judgment.</li>
+<li>Only present in companies with very complex core domains.</li>
+<li>In some companies they are deep in the code base, in others they do not code.</li>
+<li>Companies with more than 100 engineers.</li>
+<li>Typical meetings (Org Standup, 1:1, Arch Reviews, Prep Proposal Arcs, Interviews, Acquisitions discussions, Incient Retrospectives, Urgent sync scalability).</li>
+</ul>
+</li>
+<li><strong>Solver:</strong><ul>
+<li>Trusted agent in the Org who solves complex problems.</li>
+<li>Work on critical problems until they are solved.</li>
+<li>More present in companies that think of individuals rather than teams.</li>
+<li>Typical meetings (Team meeting, Scalability work, 1:1, Interviews, Incient Retrospectives, Urgent sync scalability).</li>
+</ul>
+</li>
+<li><strong>Right hand:</strong><ul>
+<li>Compared with the Got Hand of the King, operating with the authority of a senior leader.</li>
+<li>Aligned with the leader’s approach, beliefs, and values.</li>
+<li>Solve important (essential) problems at a high level.</li>
+<li>Problems are never purely technical, they are the intersection of business, technology, people, culture, and process.</li>
+<li>Drive into a fire, edit the approach, delegate to the appropriate team, and jump to the next fire in another part of the Org.</li>
+<li>Companies with more than 1000 engineers.</li>
+<li>Typical meetings (Org Status meeting, Scalability calls&#x2F;status, 1:1, Interviews, Eng Budget Review, Quarter Planning Offsite, Team Meetings, Urgent sync scalability, Acquisitions discussions).</li>
+</ul>
+</li>
+</ul>
+<p>Time enough in a thirty or <a target="_blank" rel="noopener" href="https://lethain.com/forty-year-career/">forty</a> year career to experiment with every archetype.</p>
+<h1 id="1-What-do-Staff-engineers-do"><a href="#1-What-do-Staff-engineers-do" class="headerlink" title="1. What do Staff engineers do?"></a>1. What do Staff engineers do?</h1><ul>
+<li>Working on projects&#x2F;efforts that have <strong>strategic value for the company</strong> while <strong>driving technical design</strong> and <strong>up-leveling their team</strong>.</li>
+<li>They <strong>keep doing much of what made them successful as Senior Engineers</strong>: building relationships, writing software, coordinating projects. &#x3D;&gt; <strong>No</strong>.</li>
+</ul>
+<p>These tasks were core work tasks, now <strong>they are auxiliary</strong>. The <strong>new core tasks are</strong>:</p>
+<ul>
+<li><p><strong>Setting and editing technical direction:</strong></p>
+<ul>
+<li><strong>Pragmatic, deliberate, and focus on long-term trend of progress</strong>.</li>
+<li><strong>Prioritize</strong> understanding and solving the <strong>company’s real needs over technology approaches</strong> you are excited to learn about.</li>
+<li><strong>Organization first, you second</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Providing sponsorship and mentorship:</strong></p>
+<ul>
+<li>You can <strong>change the company’s long-term trajectory</strong> more by <strong>growing the engineers</strong> around you <strong>rather than through personal heroics</strong>.</li>
+<li><strong>Sharing your experience and advice</strong>, and <strong>building relationships</strong> is high-impact work.</li>
+<li>Effective staff pair a <strong>moderate amount of mentorship</strong> with <strong>considerably more <a target="_blank" rel="noopener" href="https://larahogan.me/blog/what-sponsorship-looks-like/">sponsorship</a></strong>.<ul>
+<li>Learn the <strong>opportunities</strong> you have <strong>to raise people’s names</strong> each week.</li>
+<li><strong>Find a person to sponsor</strong>.</li>
+<li>Listen to their experiences, <strong>learn about their skills</strong>, and <strong>how they want to grow</strong>.</li>
+<li><strong>Raise your sponsee’s name</strong> in those opportunities.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Providing engineering perspective</strong>:</p>
+<ul>
+<li>Injecting <strong>engineering context into organizational decisions</strong>.</li>
+<li>Delivering <strong>valuable input</strong> that can <strong>change the outcome</strong> of companies’ routine decision-making.</li>
+<li>Staff engineers <strong>unexpectedly are in a room</strong> where this sort of <strong>decision is happening</strong>. Ej: Review customer contracts, Interviewing process, Roadmap-planning.</li>
+<li>You are <strong>representing the interests of all engineers</strong>, not only your owns.</li>
+</ul>
+</li>
+<li><p><strong>Exploration:</strong></p>
+<ul>
+<li>A team that <strong>masters <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbing</a></strong> to do <strong>exploratory work is far</strong> from a sure thing.</li>
+<li>Dedicate specific resources and <strong>exploratory work to staff engineers</strong>.</li>
+<li>It’s <strong>not necessarily a business problem</strong>, some time is infrastructure, security, etc.</li>
+<li>Great deal of <strong>organizational trust to be trusted</strong>, having enough respect from the business that <strong>if you fail, it’s the reflection on the problem</strong> and not you.</li>
+</ul>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://noidea.dog/glue">Being glue</a>:</strong></p>
+<ul>
+<li><strong>Doing what’s needed</strong>, but often <strong>invisible</strong>, tasks to keep the team moving forward and shipping its work.</li>
+<li>Expediting the <strong>most important work</strong> and ensuring it gets <strong>finished, behind the scenes</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>But Will you still write software?</strong></p>
+<ul>
+<li>Depends, probably <strong>more code reviews</strong> and <strong>experiments</strong>.</li>
+</ul>
+<p><strong>Slow but rewarding:</strong></p>
+<ul>
+<li><strong>No fast feedback loop</strong>, time frames are longer. It <strong>is normal to feel like you haven’t accomplished anything</strong>.</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ol>
+<li>Allow you to <strong>bypass informal gauges of seniority</strong>.<ul>
+<li>You already demonstrated your performance in the core work, so now <strong>you do not need to prove yourself</strong>, this means more free time and energy.</li>
+<li>It gives you <strong>respect and authority</strong>.</li>
+</ul>
+</li>
+<li>Facilitating <strong>access to “the room”</strong> where <strong>high-level engineering discussions</strong> take place (technical and non-technical ).</li>
+<li>Increase in current and <strong>career compensation</strong>.</li>
+<li>More agency to <strong>select the project you work on</strong>, maybe <strong>more exciting work</strong>. (Depends on the company).</li>
+</ol>
+<p><strong>Different rather than better:</strong></p>
+<ul>
+<li>If you’re more focused on <strong>hitting Staff than on setting yourself up to do work that energizes you</strong>, it’s easy to <strong>end up stuck</strong> in a role you don’t want.</li>
+<li>In your career, there are <strong>few choices without consequences</strong>, and this isn’t one of them.</li>
+</ul>
+<h1 id="2-Operating-at-Staff"><a href="#2-Operating-at-Staff" class="headerlink" title="2. Operating at Staff"></a>2. Operating at Staff</h1><p><strong>Work on what matters:</strong></p>
+<ul>
+<li>Your <strong>work maintains</strong> an aloof <strong>indifference to your sacrifice</strong> rather than rewarding it.</li>
+<li>To success in the task to <strong>do more in less time</strong>, you need to use a <strong>deliberate approach</strong> to look for <strong>high-impact work with low effort</strong>.</li>
+<li><strong>Avoid “snacking”</strong>, when prioritizing work. When high-impact and easy work ends there are two types of work: high-impact and hard effort and <strong>low-impact and easy</strong>. You probably can go for the easy for a while to keep motivated (Psychologically reward, “snack”), but you should always look for high-impact.</li>
+<li><strong>Do not “preening” low-impact with high-visibility</strong> work.</li>
+<li><strong>Stop chasing ghosts</strong>, from previous work. Understand the context first.</li>
+</ul>
+<p><strong>What should you work on?</strong></p>
+<ul>
+<li>Work on <strong>existential risks first</strong>.</li>
+<li>Work <strong>where there’s room for attention</strong>, teaching a company to value something it does not care about it’s hard work and it often fails.</li>
+<li><strong>Create a legacy in the team by developing them</strong>, this will last more than your code.</li>
+<li>Look for <strong>small, quick changes</strong> that <strong>increase project outcomes</strong> with little effort, like 1 single consensus, 1 single conversation, or 1 quick modification.</li>
+<li><strong>We only get value from finishing projects</strong>. Invest time into finishing a project, try to define finishable work, or help others to rescope projects into finishable work. Investing time into finishing a project is always time well spent.</li>
+<li><strong>Do things that matter that only will happen if you do them</strong>.</li>
+<li>You <strong>can’t escape subjective interview practices</strong>, but you can <strong>deliberately accumulate expertise</strong> from doing <strong>valuable work</strong>. Indeed, that’s <strong>the only viable long-term bet on your career</strong>: focus on <strong>work that matters</strong>, do <strong>projects that develop you</strong>, and steer towards <strong>companies that value</strong> genuine <strong>expertise</strong>.</li>
+</ul>
+<p><strong>Write an engineering strategy:</strong></p>
+<ul>
+<li><strong>Good engineering strategy is boring</strong> and <strong>effective strategy is easy to write</strong>.</li>
+<li><strong>Five design documents</strong>, remove similarities, that an <strong>engineering strategy</strong>.</li>
+<li><strong>Five engineering strategies</strong>, forecast implications <strong>in two years’ future</strong>, and that’s the <strong>engineering vision</strong>.</li>
+<li>Durably useful <strong>engineering strategy and vision</strong> are the output of <strong>iterative</strong>, <strong>bottom-up organizational learning</strong>.</li>
+<li><strong>Strategies</strong> are <strong>tools for proactive alignment</strong> that <strong>empower teams to move quickly with confidence</strong>.</li>
+<li>Same <strong>discussion three times</strong>, <strong>write a strategy</strong>.</li>
+<li>When <strong>there are no clear investments</strong> that are worth making in the future, <strong>create another vision</strong>.</li>
+<li><strong>Designing docs or RFCs</strong>: describe decisions and tradeoffs in a project.<ul>
+<li>Use when capabilities will be used by numerous projects.</li>
+<li>Use when high impact your users.</li>
+<li>Use when work takes longer than a month.</li>
+<li>Start to clarify the problem. The clearer the problem statement the more obvious the solution.</li>
+<li>Keep the template simple.</li>
+<li>Gather and review together, write alone. (Remember that they are collaborative documents, do not fall in love with your proposals)</li>
+<li>Prefer good over perfect.</li>
+</ul>
+</li>
+<li><strong>Engineering strategy:</strong><ul>
+<li>Look at controversial decisions that came up in multiple designs.</li>
+<li>Good strategies guide trade-offs and explain rationale, bad strategies remain policy without explanation.</li>
+<li>Strategies are <a target="_blank" rel="noopener" href="https://danlebrero.com/2022/02/23/staff-engineering-leadership-beyond-the-management-track-book-summary/#ch-1">a Framework for Responsible Innovation</a></li>
+<li><a target="_blank" rel="noopener" href="https://slack.engineering/how-big-technical-changes-happen-at-slack/">Big Technical Changes Happen at Slack</a></li>
+<li>Advises for strategy document:<ul>
+<li>Start where you are</li>
+<li>Write the specifics, write until you start to generalize. Wait until you write more design documents.<ul>
+<li>Specific statements create alignment.</li>
+<li>Generic statements create the illusion of alignment.</li>
+</ul>
+</li>
+<li>Good strategies are opinionated.</li>
+<li>Show your work, you provide the underlying context, but enable others to modify and extend your work.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Engineering vision:</strong><ul>
+<li>Group strategies, extrapolate how the trade-off will play out over the next two or three years.</li>
+<li>Grounded on serving business and users.</li>
+<li>Be optimistic rather than audacious. Everything goes well and every project is finished on time, but do not assume infinite resources.</li>
+<li>Illustrative rather than declarative. Stay concrete and specific.</li>
+<li>Keep it one or two pages long.</li>
+<li>Vision in for few people, the ones that are writing strategies, do not expect a load of excitement.</li>
+<li>Good visions are obvious and boring.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Curate technical quality:</strong></p>
+<ul>
+<li>Well-intentioned proposals are good, but a <strong>well-structured plan is better</strong>. Most <strong>essential value, sooner</strong>.</li>
+<li>Successfully <strong>companies raise the quality bar as they scale</strong>.</li>
+<li>At a well-run and successful company, most of your <strong>previous technical decisions won’t meet your current quality threshold</strong>. <strong>Filling the gap is a routine</strong>.</li>
+<li><strong>Technical quality is a long-term game</strong>.</li>
+<li>Approaches:<ul>
+<li><strong>Fix host sports:</strong> (unless the company is creating more problems faster)<ul>
+<li><a target="_blank" rel="noopener" href="https://lethain.com/systems-thinking/">Systems thinking</a></li>
+<li><a target="_blank" rel="noopener" href="https://pragprog.com/titles/atevol/software-design-x-rays/">Software design x rays</a></li>
+</ul>
+</li>
+<li><strong>Use best practices:</strong> that are known<ul>
+<li>Good processes are evolved rather than maintained, use only 1 new practice at the same time.</li>
+<li>Workflow to adopt a good practice:<ul>
+<li>Document the approach.</li>
+<li>Experiment with a few engaged (and motivated) teams.</li>
+<li>Sand down rough edges.</li>
+<li>Improve the documentation.</li>
+<li>And go back to the experiment.</li>
+</ul>
+</li>
+<li>For improving research: <a target="_blank" rel="noopener" href="https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">Accelerate</a></li>
+</ul>
+</li>
+<li><strong>Use leverage points</strong><ul>
+<li>Prevent gross quality failures and reduce the cost of future quality investments. For example:<ul>
+<li>Interfaces (Contracts between systems):<ul>
+<li>Effective: decouple from implementation.</li>
+<li>Durable: expose essential complexity, not accidental.</li>
+<li><a target="_blank" rel="noopener" href="https://increment.com/apis/api-design-for-eager-discerning-developers/">Delightful interfaces are Eagerly discerning</a> (Designed for a specific audience)</li>
+</ul>
+</li>
+<li>Stateful systems (The more requirements, the more challenging, failures, performance, security, compliance, consistency, etc…)</li>
+<li>Data models:<ul>
+<li>Rigid: only exposes what supports and prevents invalid states.</li>
+<li>Tolerant of evolution over time.</li>
+<li>Effective: not necessarily very clever.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Align Technical vectors</strong><ul>
+<li>Are the direction in which every technical decision points. Most of them should be aligned with the organization’s shared vision.</li>
+<li>To align technical direction, you can route all this to <em>Architect</em>, but this doesn’t scale. And every team with its own independent decisions isn’t a good idea.</li>
+<li>Alignment tools:<ul>
+<li>Direct feedback: A quick conversation can prevent years of unnecessary processes.</li>
+<li>Refine engineering strategy.</li>
+<li>Encapsulate your approach in workflows and tooling: Deliberate tools create workflows that nurture habits better than documentation. EJ: Mandatory steps for deployments, templates for PRs.</li>
+<li>Train new team members during onboarding, it’s easier than when they’ve formed.</li>
+<li>Use <a target="_blank" rel="noopener" href="https://www.martinfowler.com/bliki/ConwaysLaw.html">Conway’s law</a>, “Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization’s communication structure”.</li>
+<li>Work on technology change, using architecture reviews</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Measure technical quality:</strong> It’s important to be specific with the definition of quality that we want to achieve.<ul>
+<li>Percentage of statically typed code.</li>
+<li>Number of files with tests.</li>
+<li>Test coverage.</li>
+<li>How narrow are the public interfaces across modules?</li>
+<li>What percentage of files use the preferred HTTP library?</li>
+<li>Do endpoints respond to requests within 500ms after a cold start?</li>
+<li>How many functions have dangerous read-after-write behavior? Or perform unnecessary reads against the primary database instance?</li>
+<li>How many endpoints perform all state mutations within a single transaction?</li>
+<li>How many functions acquire low-granularity locks?</li>
+<li>How many hot files exist that are changed in more than half of pull requests?</li>
+</ul>
+</li>
+<li><strong>Spin up a technical quality team:</strong> developer productivity&#x2F; developer tools&#x2F;product infrastructure. The team goal is to preserve quality across your company’s software. Small team form 3–6 and 1 from every 15 devs.<ul>
+<li>Trust metrics over intuition.</li>
+<li>Keep your intuition fresh, and keep in touch with product developers.</li>
+<li>Listen to, and learn from, your users.</li>
+<li>Do fewer things, but do them better: transversal tools impact everything.</li>
+<li>Don’t hoard impact, decentralized approach, balance the benefits of exploration against the benefits of standardization.</li>
+</ul>
+</li>
+<li><strong>Run a quality program:</strong> Boost the org quality with a quality sponsor, ej quality consultancy.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Stay aligned with authority:</strong></p>
+<ul>
+<li>Act as a proxy: <strong>What would X (Your direct manager) do here?</strong> This demonstrates a shared and <strong>aligned vision</strong> with your Manager and with the organizational authority.</li>
+<li>The <strong>company is not designed to set you up for success</strong>, The safety net ends normally in a Senior role, in a Staff role, <strong>you are the safety net</strong>.</li>
+<li><strong>Don’t surprise your manager</strong>.</li>
+</ul>
+<p><strong>To lead, you have to follow:</strong></p>
+<ul>
+<li>Has a <strong>vision of how things should be</strong>.</li>
+<li>Know <strong>how things work</strong>.</li>
+<li>Take <strong>actions to change them</strong>, this creates early success.</li>
+<li><strong>Effective</strong> leadership: <strong>More time following than doing leading</strong>.<ul>
+<li>Follow how much you disagree. <strong>Let’s other lead</strong> if you only disagree in a <strong>minor way</strong>.</li>
+<li><strong>Follow other leaders</strong> that you <strong>can trust</strong>.</li>
+<li>Make <strong>feedback comments</strong> explicitly <strong>optional</strong> to <strong>not block</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Learn to never be wrong:</strong></p>
+<ul>
+<li><p>Don’t spend social capital repairing relationships with conflicts, learn to <strong>collaborate with folks with different priorities and perspectives</strong>.</p>
+</li>
+<li><p>Have a <strong>deep perspective on technology and architecture</strong>.</p>
+</li>
+<li><p>Remain <strong>skeptical of yourself</strong>, keep pragmatic and agnostic to technical religion.</p>
+</li>
+<li><p>Do not go to a meeting thinking you have the reason and trying to convince everyone. To be effective, go with <strong>the goal of agreeing on the problem</strong>, and <strong>understanding the needs and the perspectives</strong> in the room. Identify what needs to happen to <strong>align on an approach</strong>.</p>
+</li>
+<li><p><strong>Key points for meetings:</strong></p>
+<ul>
+<li><strong>Listening through questions</strong>: Ask <strong>three good questions before</strong> sharing your perspective.</li>
+<li>Good <strong>questions are asked</strong> with the <strong>desire to learn</strong>, and they are <strong>specific</strong>.</li>
+<li><strong>Define the purpose of the meeting</strong>. But don’t do it twice, meetings with multiple failed reframings almost always end with scheduling another meeting.</li>
+<li><strong>Read the room</strong>. Maybe there are frustrated folks, or too far apart, maybe escalating the problem outside the room could be an option.</li>
+</ul>
+</li>
+<li><p><strong>Key points for “difficult folks”:</strong></p>
+<ul>
+<li>Invest time to be <strong>aligned before the meeting</strong>.</li>
+<li><strong>Introduce someone they can’t be a jerk to</strong> in the meeting like the manager or the CTO.</li>
+</ul>
+</li>
+<li><p>Your career depends more on <strong>being easy to involve</strong> than being <strong>technically correct</strong>.</p>
+</li>
+</ul>
+<p><strong>Create space for others:</strong></p>
+<ul>
+<li>In previous roles you were the go-to person, in staff roles you should <strong>deliberately create space</strong> for them.</li>
+<li><strong>Good discussion:</strong> the one that turns out <strong>you didn’t need to attend</strong>.</li>
+<li>You made a key contribution, <strong>think</strong> about <strong>what needs to happen</strong> for <strong>someone else to make it next time</strong>.</li>
+<li><strong>In meetings:</strong><ul>
+<li>Contribute by <strong>asking powerful questions</strong>.</li>
+<li><strong>Pull people not participating</strong>.</li>
+<li>Be the one to <strong>take notes</strong> (more time for others to speak).</li>
+<li>Be the person to <strong>pull the missing key person</strong> into the next meeting.</li>
+</ul>
+</li>
+<li><strong>How to shift complex and important desitions to the team:</strong><ul>
+<li>Write it down, folks can <strong>learn from our decisions</strong> rather than <strong>being directed</strong> by them.</li>
+<li>Circulate early, incorporate feedback, and <strong>involve folks in the decision-making</strong> from the beginning. They can see the thinking process and then the final output.</li>
+<li>Separate style from substance. Do not give feedback on other folks’ decisions. <strong>Do not give feedback that won’t meaningfully change</strong> a project’s success. If it’s <strong>valuable feedback</strong>, consider giving it <strong>in private</strong>.</li>
+<li>Don’t try to show value. Do not push insecurity over impact, <strong>you do not need to be everywhere</strong> in the team and not all your decisions should be the same as others. Let others grow as leaders too.</li>
+<li>Change your mind: Listen to your coworkers, and then <strong>change your mind</strong>, this is a sign of respect.</li>
+</ul>
+</li>
+<li><strong>Sponsorship:</strong><ul>
+<li>When critical work comes to you, think: <strong>Who</strong> could be both <strong>successful</strong> with and grow by <strong>this work?</strong></li>
+<li>When the work becomes theirs, you have to <strong>let it be theirs</strong>.</li>
+<li>You should sponsor a <strong>few times a month</strong>.</li>
+</ul>
+</li>
+<li><strong>What if you don’t?</strong><ul>
+<li>The only way to remain a long-term leader of a genuinely successful company is to <strong>continually create space for others to take the recognition, reward, and work</strong> that got you to where you’re currently sitting.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Build a network of peers:</strong> </p>
+<ul>
+<li>It’s those <strong>conversations about career challenges and growth</strong> that have gotten me to where I am in my career.</li>
+<li><strong>Keep in touch</strong> regularly with previous managers&#x2F;colleagues.</li>
+<li>Build your <strong>internal network</strong> too.</li>
+<li><strong>Be visible</strong>: Blogging&#x2F;public speaking.</li>
+<li>Ambient networks: <strong>follow interesting people</strong>.</li>
+<li>Prioritize <strong>quality over quantity</strong>.</li>
+</ul>
+<p><strong>Present to executives:</strong></p>
+<ul>
+<li><strong>Know your audience</strong>. If you need to attach an appendix with datasets or not use an academic report too boring, etc.</li>
+<li>Most important: <strong>Why you’re communicating with them?</strong> Planning, status report or resolve misalignment.</li>
+<li>Your goal should be to <strong>extract as much perspective from the executive as possible</strong>, not to change their mind.</li>
+<li>Controll the sequence in which you present your ideas: The clearest sequence to present your ideas is <strong>always to give the summarizing idea before</strong> you give the individual ideas being summarized. <a target="_blank" rel="noopener" href="https://www.amazon.com/Pyramid-Principle-Logic-Writing-Thinking/dp/0273710516">The Pyramid Principle</a></li>
+<li><strong>SCQA for documents:</strong><ul>
+<li><strong>Situation</strong>, relevant context.</li>
+<li><strong>Complication</strong>, why the situation is problematic?</li>
+<li><strong>Question</strong>, what is the core question to address?</li>
+<li><strong>Answer</strong>, what is the best answer to that question?</li>
+</ul>
+</li>
+<li><strong>Mistakes to avoid:</strong><ul>
+<li><strong>Never fight feedback</strong>.</li>
+<li><strong>Don’t evade responsibility</strong> or problems.</li>
+<li><strong>Don’t</strong> present a <strong>question without an answer</strong>.</li>
+<li><strong>Avoid academic-style</strong> presentations, <a target="_blank" rel="noopener" href="https://untools.co/minto-pyramid/">The Minto Pyramid principle</a>.</li>
+<li><strong>Don’t fixate</strong> on <strong>your</strong> preferred <strong>outcome</strong>.</li>
+</ul>
+</li>
+<li><strong>Share drafts</strong> with executives attending the meeting asking for feedback.</li>
+</ul>
+<h1 id="3-Getting-the-title-where-you-are"><a href="#3-Getting-the-title-where-you-are" class="headerlink" title="3. Getting the title where you are"></a>3. Getting the title where you are</h1><ul>
+<li><strong>Opportunities are not evenly distributed across the company:</strong><ul>
+<li>Infrastructure is different from product.</li>
+<li>Fixing vs preventing.</li>
+<li>Work more visible in headquarters than in a distributed office.</li>
+</ul>
+</li>
+<li><strong>Give management a try</strong> if you have doubts.</li>
+<li><strong>Promotion packages:</strong><ul>
+<li><strong>Write them before</strong>, and then translate them into that format. It <strong>becomes a map to accomplish your goal</strong>.</li>
+<li><strong>Template:</strong><ol>
+<li>What are your staff projects?<ul>
+<li>Goal, complexity, what you did, and project’s impact. Keep it short and link design documents.</li>
+</ul>
+</li>
+<li>High-leverage ways you have improved in the company.<br>  . Quantificable impact of your projetcs. Cost reductions ($), and the number of tickets reduced (20%).</li>
+<li>Mentored people and accomplishments.</li>
+<li>Evidence glue work and the impact.</li>
+<li>Which teams&#x2F;leaders are familiar with and advocate for your work?</li>
+<li>Do you have any skill&#x2F;behavior gap? How would you address the concerns?</li>
+</ol>
+</li>
+<li><strong>Iterate:</strong><ol>
+<li>Answer why you’re doing this.</li>
+<li>Temper your expectations, it takes time.</li>
+<li>Bring your manager into the fold. Communicate your goals, and ask for feedback and guidance. Be honest, don’t tell them what they want to hear.</li>
+<li>Write the promotion packet.</li>
+<li>Wait two days and then edit the promotion packet.</li>
+<li>Edit the promotion packet with trusted peers.</li>
+<li>Edit the promotion packet with your manager.</li>
+<li>Periodically review the promotion packet with your manager.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Find a sponsor</strong>.</li>
+<li><strong>Staff projects</strong> are usually not required, but worth pursuing for <strong>personal growth</strong> and ease the promotion. Basically is a huge project where you can demonstrate that you are <strong>able to navigate that ambiguity</strong> and <strong>deliver successfully</strong> in an <strong>effective way</strong>.<ul>
+<li>Complex and ambigous.</li>
+<li>Numerous and divided stakeholders.</li>
+<li>Named bet where failure matters.</li>
+</ul>
+</li>
+<li><strong>Get into the room:</strong><ul>
+<li>Bring <strong>something useful to the room</strong>: Critical details for a project, expertise, similar experience, and relations with relevant customers.</li>
+<li>That the room doesn’t already have: Bring <strong>something distinct</strong>.</li>
+<li>A <strong>sponsor in the room</strong>.</li>
+<li>Your <strong>sponsor needs to know you want to be there</strong>.</li>
+<li><strong>Decrease the cost of including you:</strong><ul>
+<li>Stay aligned with your manager.</li>
+<li>Optimize for the group.</li>
+<li>Speak clearly and concisely. Develop an economy of speech.</li>
+<li>Be a low-friction person.</li>
+<li>Come prepared.</li>
+<li>Focus and be present.</li>
+<li>Volunteer for low-status tasks.</li>
+</ul>
+</li>
+<li><strong>To avoid</strong>.<ul>
+<li>Misunderstanding the room’s purpose.</li>
+<li>Being dogmatic.</li>
+<li>Withholding consent.</li>
+<li>Sucking the oxygen out of the room.</li>
+<li>Embarrassing your sponsor.</li>
+<li>Being flakey or not showing up regularly.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Being visible:</strong><ul>
+<li>Be known for good things.</li>
+<li>People know your name.</li>
+<li><strong>Internal visibility:</strong><ul>
+<li>Write and distribute more long-lived documents.</li>
+<li>Lead and participate in company forums like architecture reviews, code reviews, and learning circles.</li>
+<li>Be a cheerleader for your team’s and peer’s work on Slack, email, etc.</li>
+<li>Share weekly notes of your work with your team and stakeholders.</li>
+<li>Contribute to your company’s blog.</li>
+<li>Attend, or potentially event hosts, office hours for your team or org.</li>
+<li>Avoid overburned activities with volume.</li>
+<li>Find the activities that leverage your strengths.</li>
+</ul>
+</li>
+<li><strong>Executive visibility:</strong><ul>
+<li>Build relationships with your manager’s manager and that layer.</li>
+</ul>
+</li>
+<li><strong>External visibility:</strong> This is optional and depends.<ul>
+<li>Create a mailing list.</li>
+<li>Write books.</li>
+<li>Be a conference speaker.</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.kalzumeus.com/2012/01/23/salary-negotiation/">Salary Negotiation</a>.</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/12/sql-query-performance-tuning/" rel="prev" title="Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server">
+                  <i class="fa fa-angle-left"></i> Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/09/01/agile-technical-practices-distilled-book-notes/" rel="next" title="Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling">
+                  Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>

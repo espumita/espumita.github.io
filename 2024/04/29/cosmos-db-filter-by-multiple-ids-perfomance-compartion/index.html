@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Some days ago we were designing a new feature using Azure Cosmos DB. We needed to query data filtering by 4 different IDs. After comparing a few options, we ended up wondering: What is the most effi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure Cosmos DB filter by multiple IDs performance comparison:">
+<meta property="og:url" content="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="Some days ago we were designing a new feature using Azure Cosmos DB. We needed to query data filtering by 4 different IDs. After comparing a few options, we ended up wondering: What is the most effi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/2akjhbsjk32bxkjs2z3ks2k.png">
+<meta property="og:image" content="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/12k3hj12kj3jkh123jkh1j2k3kjkjkk.png">
+<meta property="og:image" content="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/ljkdlijlk213jkl32kljdkll3kdkl3dlk.png">
+<meta property="og:image" content="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/aslkjnjlkasdflkjlasdjklasdjkd2.png">
+<meta property="article:published_time" content="2024-04-29T16:46:02.000Z">
+<meta property="article:modified_time" content="2025-11-14T16:13:33.534Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/2akjhbsjk32bxkjs2z3ks2k.png">
+
+
+<link rel="canonical" href="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/","path":"2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/","title":"Azure Cosmos DB filter by multiple IDs performance comparison:"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Azure Cosmos DB filter by multiple IDs performance comparison: | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Azure Cosmos DB filter by multiple IDs performance comparison: | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Azure Cosmos DB filter by multiple IDs performance comparison:
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-29 17:46:02" itemprop="dateCreated datePublished" datetime="2024-04-29T17:46:02+01:00">2024-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Databases/" itemprop="url" rel="index"><span itemprop="name">Databases</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/2akjhbsjk32bxkjs2z3ks2k.png" class="">
+
+<p>Some days ago we were designing a new feature using Azure Cosmos DB. We needed to query data filtering by 4 different IDs. After comparing a few options, we ended up wondering: What is the most efficient way to query this data?</p>
+<span id="more"></span>
+
+<p>The answer to that question, in computer science should be simple: “direct access” O(1). But, when dealing with multiple IDs at the same time, this is not always trivial. So we decided to benchmark a few different options.</p>
+<h1 id="How-Cosmos-DB-Data-is-distributed"><a href="#How-Cosmos-DB-Data-is-distributed" class="headerlink" title="How Cosmos DB Data is distributed"></a>How Cosmos DB Data is distributed</h1><img src="/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/12k3hj12kj3jkh123jkh1j2k3kjkjkk.png" class="">
+
+<ul>
+<li>Data is stored in <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/resource-model#azure-cosmos-db-containers">Containers</a> and partitioned using a partition-key.</li>
+<li>A <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey">partition-key</a> consists in two parts: partition-key path and the partition-key value.</li>
+<li>Partition-key path is defined during Container creation.</li>
+<li>In NoSQL API, data entries are called <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/resource-model#azure-cosmos-db-items">Items</a>.</li>
+<li>Partition-key value is defined during Item insertion.</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#logical-partitions">Logial partitions</a> are a group of items with the same partition-key value.</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#physical-partitions">Physical partitions</a> are managed by Azure Cosmos DB under the hood, based on load and amount of data. Internally, one or more logical partitions are mapped to a single physical partition.</li>
+<li>Depending on which partition-key property path we select, we will have a more or less balanced data storage and data load across partitions. This will depend on the distribution of the values. For more info:<ul>
+<li><a target="_blank" rel="noopener" href="https://www.mssqltips.com/sqlservertip/7406/cosmos-db-partition-key-best-practices/">Partition keys best practices</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/training/modules/implement-non-relational-data-model/6-choose-partition-key">Choose a partition key</a></li>
+</ul>
+</li>
+</ul>
+<p>Partition-key value and <code>&quot;&#123;Item id&#125;&quot;</code> can be the same value. This will cause that: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/training/modules/implement-non-relational-data-model/6-choose-partition-key">“Millions of customers would result in millions of logical partitions”</a>, and is perfectly fine.</p>
+<h1 id="How-index-works-in-Cosmos-DB"><a href="#How-index-works-in-Cosmos-DB" class="headerlink" title="How index works in Cosmos DB"></a>How index works in Cosmos DB</h1><p>When storing documents in Cosmos db, document data is indexed, according to the <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-policy">indexing policy</a> of the container. Azure Cosmos DB uses a tree representation for the data based on a sorted ascendent <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Inverted_index">inverted index</a> data structure. </p>
+<p>Depending on the clauses used in the query, the query engine can utilize the inverted index in five different ways with different performance and cost(<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#index-usage">Index lookup</a>):</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#index-seek">Index Seek</a> (Equality filters, IN)  <img src="/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/ljkdlijlk213jkl32kljdkll3kdkl3dlk.png" class=""></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#precise-index-scan">Precise index scan</a> (Range comparisons (&gt;, &lt;, &lt;&#x3D;, or &gt;&#x3D;), StartsWith)</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#expanded-index-scan">Expanded index scan</a> (StartsWith (case-insensitive), StringEquals (case-insensitive))</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#full-index-scan">Full index scan</a> (Contains, EndsWith, RegexMatch, LIKE)</li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#full-scan">Full scan</a> (Upper, Lower, Avg, Count, Max, Min, Sum)</li>
+</ul>
+<h1 id="How-queries-are-executed-in-Azure-Cosmos-DB"><a href="#How-queries-are-executed-in-Azure-Cosmos-DB" class="headerlink" title="How queries are executed in Azure Cosmos DB"></a>How queries are executed in Azure Cosmos DB</h1><p>To maximize the advantage of the optimizations during the query execution pipeline, and to predict unexpected costs, we should understand that <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query-metrics#about-sql-query-execution">the SDK performs these logical steps</a>:</p>
+<ul>
+<li>Parse the SQL query to determine the query execution plan.</li>
+<li>If the query includes a filter against the partition key it’s routed to a single partition. If not, the result is the merge of results from all the executions in all partitions.</li>
+<li>The query is executed within each partition in series or parallel depending on the configuration. Each partition takes one or more rounds depending on query complexity, page size, or provisioned throughput.</li>
+<li>The SDK performs a summarization of the query results across partitions.</li>
+</ul>
+<h1 id="Option-1-Using-Cosmos-DB-NoSQL-property-indexing-tree"><a href="#Option-1-Using-Cosmos-DB-NoSQL-property-indexing-tree" class="headerlink" title="Option 1: Using Cosmos DB NoSQL property indexing tree"></a>Option 1: Using Cosmos DB NoSQL property indexing tree</h1><p>According to the <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview">Cosmos DB indexing theory</a> data should be indexed inside a container by path levels, in this case:</p>
+<ol>
+<li><strong>Item level</strong>: using <code>&quot;&#123;ProductId&#125;&quot;</code> and containing multiple tenants.</li>
+<li><strong>Tenant level</strong>: using <code>&quot;&#123;TenantId&#125;&quot;</code> and containing multiple users.</li>
+<li><strong>User level</strong>: using <code>&quot;&#123;UserId&#125;&quot;</code> and containing multiple sessions.</li>
+<li><strong>Session level</strong>: using <code>&quot;&#123;SessionId&#125;&quot;</code> and containing some <strong>Data</strong>.</li>
+</ol>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+    &quot;id&quot;: &quot;b79bd870-a752-4457-81b0-550af9e6b2c8&quot;,
+    &quot;tenants&quot;: [&#123;
+        &quot;TenantId&quot;: &quot;a02054b8-7ddd-46b6-a855-4408f469be11&quot;,
+        &quot;users&quot;: [&#123;
+            &quot;UserId&quot;: &quot;962504d8-d434-4a57-b90b-d521a381e6e6&quot;,
+            &quot;sessions&quot;: [&#123;
+                &quot;SessionId&quot;: &quot;944c3e84-8c31-4593-a6e8-568ca7c39cc4&quot;,
+                &quot;Data&quot;: &quot;417c1bb5-6549-493d-b72e-8a30c3b52e79&quot;
+            &#125;]
+        &#125;]
+    &#125;]
+&#125;</code></pre>
+
+<p>So, queries should filter by the 4 levels:</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT
+    c.id,
+    t.TenantId,
+    u.UserId,
+    s.SessionId,
+    s.Data
+FROM 
+    c
+JOIN
+    t IN c.tenants
+JOIN
+    u IN t.users
+JOIN
+    s IN u.sessions
+WHERE
+    c.id &#x3D; &#39;b79bd870-a752-4457-81b0-550af9e6b2c8&#39;
+    AND t.TenantId &#x3D; &#39;a02054b8-7ddd-46b6-a855-4408f469be11&#39;
+    AND u.UserId &#x3D; &#39;962504d8-d434-4a57-b90b-d521a381e6e6&#39;
+    AND s.SessionId &#x3D; &#39;944c3e84-8c31-4593-a6e8-568ca7c39cc4&#39;</code></pre>
+
+<h1 id="Option-2-Concatenate-three-IDS-into-a-single-ID-and-then-search-by-2-only-IDs"><a href="#Option-2-Concatenate-three-IDS-into-a-single-ID-and-then-search-by-2-only-IDs" class="headerlink" title="Option 2: Concatenate three IDS into a single ID and then search by 2 only IDs."></a>Option 2: Concatenate three IDS into a single ID and then search by 2 only IDs.</h1><p>The idea behind this approach is to reduce the number of where clauses in the query and the number of levels in order to improve the performance. So We will have only 2 IDs:</p>
+<ol>
+<li><strong>Item level</strong>: <code>&quot;&#123;ProductId&#125;&quot;</code></li>
+<li><strong>TenantUserAndSession level</strong>: A string concat <code>&quot;&#123;TenantId&#125;-&#123;UserId&#125;-&#123;SessionId&#125;&quot;</code>, and some <strong>Data</strong></li>
+</ol>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+    &quot;id&quot;: &quot;b79bd870-a752-4457-81b0-550af9e6b2c8&quot;,
+    &quot;Rows&quot;: [&#123;
+        &quot;TenantUserAndSessionId&quot;: &quot;a02054b8-7ddd-46b6-a855-4408f469be11-962504d8-d434-4a57-b90b-d521a381e6e6-944c3e84-8c31-4593-a6e8-568ca7c39cc4&quot;,
+        &quot;Data&quot;: &quot;417c1bb5-6549-493d-b72e-8a30c3b52e79&quot;
+    &#125;]
+&#125;</code></pre>
+
+<p>Queries should filter by the 2 IDs like:</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT
+    c.id,
+    t.TenantUserAndSessionId,
+    t.Data
+FROM 
+    c
+JOIN
+        t IN c.Rows
+WHERE
+    c.id &#x3D; &#39;aaeab0ff-f000-4745-8a67-b68cddaccc0a&#39;
+    AND t.TenantUserAndSessionId &#x3D; &#39;b01fedbd-8097-4c5e-9760-5274c0fa490d-68a90395-2500-4548-8edd-3839145e1d29-99f58b1b-13cf-4430-9d19-f0960347c1e2&#39;</code></pre>
+
+<h1 id="Option-3-Concatenate-all-the-Ids-and-use-it-as-the-partition-key"><a href="#Option-3-Concatenate-all-the-Ids-and-use-it-as-the-partition-key" class="headerlink" title="Option 3: Concatenate all the Ids and use it as the partition-key"></a>Option 3: Concatenate all the Ids and use it as the partition-key</h1><p>The idea here is to, following <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query-metrics#best-practices-for-query-performance">Cosmos DB best practices for query performance</a>, “Favor queries with the partition-key value in the filter clause for low latency”. And also try to take advantage of <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-query-container#in-partition-query">In-partition querys</a> optimizations, to improve performance:</p>
+<ol>
+<li><strong>Product level</strong> : A string concat <code>&quot;&#123;ProductId&#125;-&#123;TenantId&#125;-&#123;UserId&#125;-&#123;SessionId&#125;&quot;</code>, and some <strong>Data</strong></li>
+</ol>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+    &quot;id&quot;: &quot;b79bd870-a752-4457-81b0-550af9e6b2c8-a02054b8-7ddd-46b6-a855-4408f469be11-962504d8-d434-4a57-b90b-d521a381e6e6-944c3e84-8c31-4593-a6e8-568ca7c39cc4&quot;,
+    &quot;Data&quot;: &quot;417c1bb5-6549-493d-b72e-8a30c3b52e79&quot;
+&#125;</code></pre>
+
+<p>Remember that partition-key is a path on the tree. To search by partition in our example we will request data directly ussing <code>ReadItemAsync(id, partitionKey)</code> method, while id &#x3D; partition-key value. the query will conceptualy look like this:</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT 
+    c.id,
+    c.Data
+FROM
+    c
+WHERE
+    c.id &#x3D; &#39;b79bd870-a752-4457-81b0-550af9e6b2c8-a02054b8-7ddd-46b6-a855-4408f469be11-962504d8-d434-4a57-b90b-d521a381e6e6-944c3e84-8c31-4593-a6e8-568ca7c39cc4&#39;</code></pre>
+
+<h1 id="Option-4-Use-Hierarchical-partition-keys"><a href="#Option-4-Use-Hierarchical-partition-keys" class="headerlink" title="Option 4: Use Hierarchical partition-keys"></a>Option 4: Use Hierarchical partition-keys</h1><p>Using <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/hierarchical-partition-keys?tabs=net-v3,bicep">Hierarchical partition-keys</a> is only recommended if we need highly scale horizontally across multiple physical partitions. But we wanted to test another option.</p>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+    &quot;id&quot;: &quot;b79bd870-a752-4457-81b0-550af9e6b2c8&quot;,
+    &quot;TenantId&quot;: &quot;a02054b8-7ddd-46b6-a855-4408f469be11&quot;,
+    &quot;UserId&quot;: &quot;962504d8-d434-4a57-b90b-d521a381e6e6&quot;,
+    &quot;SessionId&quot;: &quot;944c3e84-8c31-4593-a6e8-568ca7c39cc4&quot;,
+    &quot;Data&quot;: &quot;417c1bb5-6549-493d-b72e-8a30c3b52e79&quot;
+&#125;</code></pre>
+
+<p>To search by partition-key in our example we will request data directly ussing <code>ReadItemAsync(id, partitionKey)</code> method, the query will conceptualy look like this:</p>
+<pre class="language-sql" data-language="sql"><code class="language-sql">SELECT
+    c.id,
+    c.TenantId,
+    c.UserId,
+    c.SessionId,
+    c.Data
+FROM 
+    c
+WHERE
+    c.id &#x3D; &#39;b79bd870-a752-4457-81b0-550af9e6b2c8&#39;
+    AND c.TenantId &#x3D; &#39;a02054b8-7ddd-46b6-a855-4408f469be11&#39;
+    AND c.UserId &#x3D; &#39;962504d8-d434-4a57-b90b-d521a381e6e6&#39;
+    AND c.SessionId &#x3D; &#39;944c3e84-8c31-4593-a6e8-568ca7c39cc4&#39;</code></pre>
+
+<h1 id="Benchmarks-Results"><a href="#Benchmarks-Results" class="headerlink" title="Benchmarks Results"></a>Benchmarks Results</h1><p>In <a target="_blank" rel="noopener" href="https://github.com/espumita/databases-performance-comparison">this repo</a>, you can find the automated benchmark tests for comparing speed and client memory allocation, that use <a target="_blank" rel="noopener" href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotNet</a>.</p>
+<p>For this case, we randomly created 100000 combinations of the 4 IDs (<code>ProductId/ TenantId/UserId/SessionId</code>) and some <code>Data</code> values. Then, we stored them in different containers, one for each option. And finally, we executed the benchmarks running a bunch of 100 random reads for each option:</p>
+<img src="/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/aslkjnjlkasdflkjlasdjklasdjkd2.png" class="">
+
+<p>Also, we had compare query performance stats using the query executor stats tab:</p>
+<ul>
+<li><p><strong>Option1 Query Stats</strong><br>  Request Charge 3.58 RUs<br>  Index lookup time 0.11 ms<br>  Document load time 0.15 ms<br>  Query engine execution time 0.030000000000000002 ms</p>
+</li>
+<li><p><strong>Option2 Query Stats</strong><br>  Request Charge 5.53 RUs<br>  Index lookup time 0.08 ms<br>  Document load time 0.17 ms<br>  Query engine execution time 0.12000000000000001 ms</p>
+</li>
+<li><p><strong>Option3 Query Stats</strong><br>  Request Charge 2.83 RUs<br>  Index lookup time 0.23 ms<br>  Document load time 0.030000000000000002 ms<br>  Query engine execution time 0.01 ms</p>
+</li>
+<li><p><strong>Option4 Query Stats</strong><br>  Request Charge 3.13 RUs<br>  Index lookup time 0.7100000000000001 ms<br>  Document load time 0.030000000000000002 ms<br>  Query engine execution time 0.01 ms</p>
+</li>
+</ul>
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><p>In <strong>Option1</strong> we use 4 equality filters, so this will result in a <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#index-seek">Index seek</a>,<em>“ the most efficient way to use the index”</em>, Index lookup over a <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-overview#range-index">range index</a>.</p>
+<p>In <strong>Option2</strong> we are using 2 equality filters. As we can see, the fewer levels we need to go deep in through the tree are not necessarily faster. In this case, this is the worst option because the data is not balanced through the tree, the second level grows in width too much.</p>
+<p>The indexing mode is set to <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels#strong-consistency">consistent</a> by default. This means that some system properties are <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/index-policy#includeexclude-strategy">automatically indexed</a> like the <code>&quot;&#123;Item id&#125;&quot;</code>. </p>
+<p>The Item id &#x2F; partition-keys paths looks like:</p>
+<ol>
+<li><strong>Option1:</strong> Item id &#x3D; <code>&quot;&#123;ProductId&#125;&quot;</code> Partition-key path: <code>/id</code></li>
+<li><strong>Option2:</strong> Item id &#x3D; <code>&quot;&#123;ProductId&#125;&quot;</code> Partition-key path: <code>/id</code></li>
+<li><strong>Option3:</strong> Item id &#x3D; <code>&quot;&#123;ProductId&#125;-&#123;TenantId&#125;-&#123;UserId&#125;-&#123;SessionId&#125;&quot;</code> Partition-key path: <code>/id</code></li>
+<li><strong>Option4:</strong> Item id &#x3D; <code>&quot;&#123;ProductId&#125;&quot;</code> Partition-key path: <code>/TenantId;/UserId;/SessionId;</code></li>
+</ol>
+<p>We can <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/performance-tips-query-sdk?tabs=v3&pivots=programming-language-csharp#use-single-partition-queries">specify a partition-key value</a> with de SDK to access logical partition data directly. This could results in a performance boost in (<strong>Option3</strong> and <strong>Option4</strong>).</p>
+<p>When querying data in a distributed system like Cosmos DB, latency enters the game. So if the system is degraded by latency, all options will be affected. For this experiment, we will test only against one single physical partition, for all options.</p>
+<p>Querying data by Partition-key, <strong>Option3</strong>, and hierarchical partition-keys, <strong>Option4</strong>, can reduce latency if queries are performed over the <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-query-container#in-partition-query">same physical partition</a>.</p>
+<h1 id="And-What-about-the-Write-Cost"><a href="#And-What-about-the-Write-Cost" class="headerlink" title="And What about the Write Cost?"></a>And What about the Write Cost?</h1><p>In all options we are using CosmosDB NoSql, so we need to read and write the entire document for every single write. (Writes <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/request-units">RUs</a> is directly related with Reads RUs) .So, more efficient reads result in more efficient writes.</p>
+<p>Unlike what happens in a SQL-type database, where the index has been defined before data insertion, in Cosmos DB we are using an inverted index, so the index is created after the insertion, when the engine has analyzed the documents on which the search will be based.</p>
+<p>During writes, items inside a container and item’s properties are <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/optimize-cost-reads-writes#writing-data">automatically indexed</a>. This results in extra operation of indexation (<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/cosmos-db/request-units#request-unit-considerations">more RUs</a>), in order to maintain index consistency.</p>
+<p><strong>Option1</strong> and <strong>Option2</strong> have a more complex schema inside the item but <strong>Option3</strong> and <strong>Option4</strong>, reindexe the “top level more frequently. So <strong>Option3</strong> and <strong>Option4</strong> are more “slow” while doing writes. You can test this easily by running the <a target="_blank" rel="noopener" href="https://github.com/espumita/databases-performance-comparison">benchmarks example</a>.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/04/how-to-reach-the-senior-software-engineer-level/" rel="prev" title="How to reach the Senior Software Engineer level">
+                  <i class="fa fa-angle-left"></i> How to reach the Senior Software Engineer level
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/12/sql-query-performance-tuning/" rel="next" title="Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server">
+                  Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"espumita","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
+
+</body>
+</html>
