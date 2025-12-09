@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2025-12-09T10:59:00.492Z</updated>
+  <updated>2025-12-09T11:39:35.040Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Book notes: System Design Interview: Volume 1</title>
+    <title>📚 Book notes: System Design Interview: Volume 1</title>
     <link href="https://espumita.org/2025/11/28/system-design-interview-book-notes/"/>
     <id>https://espumita.org/2025/11/28/system-design-interview-book-notes/</id>
     <published>2025-11-28T15:42:25.000Z</published>
-    <updated>2025-12-09T10:59:00.492Z</updated>
+    <updated>2025-12-09T11:39:35.040Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2025/11/28/system-design-interview-book-notes/dleknjn3job4gfj3b4djkn32dklj23kld2kld2.jpg&quot; class=&quot;&quot;&gt;
@@ -36,11 +36,11 @@
   </entry>
   
   <entry>
-    <title>How Many Bits Do Character Encodings Use?</title>
+    <title>🔢 How Many Bits Do Character Encodings Use?</title>
     <link href="https://espumita.org/2025/03/11/character-encodings/"/>
     <id>https://espumita.org/2025/03/11/character-encodings/</id>
     <published>2025-03-11T09:29:34.000Z</published>
-    <updated>2025-12-06T18:06:19.883Z</updated>
+    <updated>2025-12-09T11:44:38.658Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2025/03/11/character-encodings/kdjsckjsdafklsfkjlsdfklsfklsdfklsdfjlksflksdlklksdf.jpg&quot; class=&quot;&quot;&gt;
@@ -55,11 +55,11 @@
   </entry>
   
   <entry>
-    <title>Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling</title>
+    <title>📚 Book notes: Agile Technical Practices Distilled, 50 years of Cohesion and Coupling</title>
     <link href="https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/"/>
     <id>https://espumita.org/2024/09/01/agile-technical-practices-distilled-book-notes/</id>
     <published>2024-09-01T08:29:34.000Z</published>
-    <updated>2025-12-06T18:06:19.878Z</updated>
+    <updated>2025-12-09T11:44:38.645Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2024/09/01/agile-technical-practices-distilled-book-notes/ljk123lj1elklk2slksk12ksk21lsllslsl.png&quot; class=&quot;&quot;&gt;
@@ -74,11 +74,11 @@
   </entry>
   
   <entry>
-    <title>Book notes: Staff Engineer, Leadership beyond the management track</title>
+    <title>📚 Book notes: Staff Engineer, Leadership beyond the management track</title>
     <link href="https://espumita.org/2024/06/12/staff-engineering-book-notes/"/>
     <id>https://espumita.org/2024/06/12/staff-engineering-book-notes/</id>
     <published>2024-06-12T19:29:34.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:40:31.381Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2024/06/12/staff-engineering-book-notes/123981293881238912w899so121.jpg&quot; class=&quot;&quot;&gt;
@@ -93,11 +93,11 @@
   </entry>
   
   <entry>
-    <title>Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server</title>
+    <title>⚡ Query Performance Tuning: ORDER BY from 20s to 119ms in Microsoft SQL Server</title>
     <link href="https://espumita.org/2024/05/12/sql-query-performance-tuning/"/>
     <id>https://espumita.org/2024/05/12/sql-query-performance-tuning/</id>
     <published>2024-05-12T07:20:47.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:44:38.659Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2024/05/12/sql-query-performance-tuning/lkj2ajlks23lk23lks23lk2lk3l2s3l2ls2.png&quot; class=&quot;&quot;&gt;
@@ -112,11 +112,11 @@
   </entry>
   
   <entry>
-    <title>Azure Cosmos DB filter by multiple IDs performance comparison:</title>
+    <title>⚡ Azure Cosmos DB filter by multiple IDs performance comparison:</title>
     <link href="https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/"/>
     <id>https://espumita.org/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/</id>
     <published>2024-04-29T16:46:02.000Z</published>
-    <updated>2025-12-06T18:06:19.883Z</updated>
+    <updated>2025-12-09T12:00:01.069Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2024/04/29/cosmos-db-filter-by-multiple-ids-perfomance-compartion/2akjhbsjk32bxkjs2z3ks2k.png&quot; class=&quot;&quot;&gt;
@@ -131,11 +131,11 @@
   </entry>
   
   <entry>
-    <title>How to reach the Senior Software Engineer level</title>
+    <title>🚀 How to reach the Senior Software Engineer level</title>
     <link href="https://espumita.org/2024/03/04/how-to-reach-the-senior-software-engineer-level/"/>
     <id>https://espumita.org/2024/03/04/how-to-reach-the-senior-software-engineer-level/</id>
     <published>2024-03-04T16:19:53.000Z</published>
-    <updated>2025-12-06T18:06:19.892Z</updated>
+    <updated>2025-12-09T11:44:38.658Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2024/03/04/how-to-reach-the-senior-software-engineer-level/aslkjnjlkasdflkjlasdjklasdjkl.png&quot; class=&quot;&quot;&gt;
@@ -150,11 +150,11 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples : Vertical Slice</title>
+    <title>🏗️ Software Architectures examples : Vertical Slice</title>
     <link href="https://espumita.org/2023/08/15/vertical-slice/"/>
     <id>https://espumita.org/2023/08/15/vertical-slice/</id>
     <published>2023-08-15T13:00:56.000Z</published>
-    <updated>2025-12-06T18:06:19.915Z</updated>
+    <updated>2025-12-09T11:53:15.095Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png&quot; class=&quot;&quot;&gt;
@@ -169,11 +169,11 @@
   </entry>
   
   <entry>
-    <title>Book notes: User Story Mapping</title>
+    <title>📚 Book notes: User Story Mapping</title>
     <link href="https://espumita.org/2022/01/15/user-story-mapping/"/>
     <id>https://espumita.org/2022/01/15/user-story-mapping/</id>
     <published>2022-01-15T20:24:32.000Z</published>
-    <updated>2025-12-06T18:06:19.915Z</updated>
+    <updated>2025-12-09T11:54:47.264Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2022/01/15/user-story-mapping/56787d65s67d8767890sd987sd.png&quot; class=&quot;&quot;&gt;
@@ -188,11 +188,11 @@
   </entry>
   
   <entry>
-    <title>My first TDD approach with GitHub Copilot Technical Preview</title>
+    <title>🤖 My first TDD approach with GitHub Copilot Technical Preview</title>
     <link href="https://espumita.org/2021/10/31/tdd-with-copilot-preview/"/>
     <id>https://espumita.org/2021/10/31/tdd-with-copilot-preview/</id>
     <published>2021-10-31T08:04:02.000Z</published>
-    <updated>2025-12-06T18:06:19.915Z</updated>
+    <updated>2025-12-09T11:44:38.659Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2021/10/31/tdd-with-copilot-preview/asjkhgdkhqkjh2kjj2kkakddak.png&quot; class=&quot;&quot;&gt;
@@ -207,11 +207,11 @@
   </entry>
   
   <entry>
-    <title>Find Azure Application Insights by instrumentation key</title>
+    <title>☁️ Find Azure Application Insights by instrumentation key</title>
     <link href="https://espumita.org/2021/10/26/find-azure-application-insights-by-instrumentation-key/"/>
     <id>https://espumita.org/2021/10/26/find-azure-application-insights-by-instrumentation-key/</id>
     <published>2021-10-26T20:28:44.000Z</published>
-    <updated>2025-12-06T18:06:19.892Z</updated>
+    <updated>2025-12-09T11:44:38.658Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/static/h2ehs2jj2k2skskjje2kdkdj2dj.png&quot;/&gt;
@@ -226,11 +226,11 @@
   </entry>
   
   <entry>
-    <title>Stop sending me this shit</title>
+    <title>💩 Stop sending me this shit</title>
     <link href="https://espumita.org/2021/05/08/about-resources/"/>
     <id>https://espumita.org/2021/05/08/about-resources/</id>
     <published>2021-05-08T15:00:43.000Z</published>
-    <updated>2025-12-06T18:06:19.878Z</updated>
+    <updated>2025-12-09T11:54:43.680Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2021/05/08/about-resources/asdasdkmawmdkl2123lkasj1l23l123ljk12hjkl31l.PNG&quot; class=&quot;&quot;&gt;
@@ -245,11 +245,11 @@
   </entry>
   
   <entry>
-    <title>9 Years of code</title>
+    <title>👨‍💻 9 Years of code</title>
     <link href="https://espumita.org/2021/05/08/9-years-of-code/"/>
     <id>https://espumita.org/2021/05/08/9-years-of-code/</id>
     <published>2021-05-08T14:34:38.000Z</published>
-    <updated>2025-12-06T18:06:19.872Z</updated>
+    <updated>2025-12-09T11:44:38.645Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2021/05/08/9-years-of-code/345hj34h534hjk5k3j45k34534kjh5gh34vh.jpg&quot; class=&quot;&quot;&gt;
@@ -264,11 +264,11 @@
   </entry>
   
   <entry>
-    <title>Thoughts on Minimalism</title>
+    <title>🧘 Thoughts on Minimalism</title>
     <link href="https://espumita.org/2021/04/01/minimalism-thoughts/"/>
     <id>https://espumita.org/2021/04/01/minimalism-thoughts/</id>
     <published>2021-04-01T21:57:57.000Z</published>
-    <updated>2025-12-06T18:06:19.899Z</updated>
+    <updated>2025-12-09T11:54:51.170Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2021/04/01/minimalism-thoughts/3hjk434k3k4jjk53j45j3kjjk5h3k45.jpg&quot; class=&quot;&quot;&gt;
@@ -283,11 +283,11 @@
   </entry>
   
   <entry>
-    <title>How to debug HTTPS traffic</title>
+    <title>🔒 How to debug HTTPS traffic</title>
     <link href="https://espumita.org/2021/03/25/debug-https/"/>
     <id>https://espumita.org/2021/03/25/debug-https/</id>
     <published>2021-03-25T20:28:21.000Z</published>
-    <updated>2025-12-06T18:06:19.883Z</updated>
+    <updated>2025-12-09T11:44:38.658Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2021/03/25/debug-https/kj3bajk32jk23ejlkd23jlksdjlk2jlk23elkjl2kdlk.JPG&quot; class=&quot;&quot;&gt;
@@ -303,11 +303,11 @@
   </entry>
   
   <entry>
-    <title>Money is draining your life</title>
+    <title>💸 Money is draining your life</title>
     <link href="https://espumita.org/2021/02/21/money/"/>
     <id>https://espumita.org/2021/02/21/money/</id>
     <published>2021-02-21T10:31:15.000Z</published>
-    <updated>2025-12-06T18:06:19.901Z</updated>
+    <updated>2025-12-09T11:44:38.658Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2021/02/21/money/LKLKWEKLWEKWLKRLKWLKRWLKRKLWE.jpg&quot; class=&quot;&quot;&gt;
@@ -323,11 +323,11 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples : Asynchronous Command Queue</title>
+    <title>🏗️ Software Architectures examples : Asynchronous Command Queue</title>
     <link href="https://espumita.org/2020/12/26/asynchronous-command-queue/"/>
     <id>https://espumita.org/2020/12/26/asynchronous-command-queue/</id>
     <published>2020-12-26T15:59:57.000Z</published>
-    <updated>2025-12-06T18:06:19.878Z</updated>
+    <updated>2025-12-09T11:44:38.656Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg&quot; class=&quot;&quot;&gt;
@@ -343,11 +343,11 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples: Event-Driven</title>
+    <title>🏗️ Software Architectures examples: Event-Driven</title>
     <link href="https://espumita.org/2020/12/19/event-driven/"/>
     <id>https://espumita.org/2020/12/19/event-driven/</id>
     <published>2020-12-19T12:15:04.000Z</published>
-    <updated>2025-12-06T18:06:19.892Z</updated>
+    <updated>2025-12-09T11:55:01.484Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/12/19/event-driven/jd3jdjk32jkt2k3jrk32jd3j2dk32kd32e32d.png&quot; class=&quot;&quot;&gt;
@@ -362,11 +362,11 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples: CQRS</title>
+    <title>🏗️ Software Architectures examples: CQRS</title>
     <link href="https://espumita.org/2020/11/30/cqrs/"/>
     <id>https://espumita.org/2020/11/30/cqrs/</id>
     <published>2020-11-30T21:02:56.000Z</published>
-    <updated>2025-12-06T18:06:19.883Z</updated>
+    <updated>2025-12-09T11:44:38.658Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg&quot; class=&quot;&quot;&gt;
@@ -381,11 +381,11 @@
   </entry>
   
   <entry>
-    <title>Software Architectures examples: Hexagonal Architecture</title>
+    <title>🏗️ Software Architectures examples: Hexagonal Architecture</title>
     <link href="https://espumita.org/2020/11/21/hexagonal-architecture/"/>
     <id>https://espumita.org/2020/11/21/hexagonal-architecture/</id>
     <published>2020-11-21T17:41:45.000Z</published>
-    <updated>2025-12-06T18:06:19.892Z</updated>
+    <updated>2025-12-09T11:55:13.596Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png&quot; class=&quot;&quot;&gt;
@@ -402,11 +402,11 @@
   </entry>
   
   <entry>
-    <title>Be the worst != Feel the worst</title>
+    <title>📉 Be the worst != Feel the worst</title>
     <link href="https://espumita.org/2020/10/20/be-the-worst/"/>
     <id>https://espumita.org/2020/10/20/be-the-worst/</id>
     <published>2020-10-20T15:37:25.000Z</published>
-    <updated>2025-12-06T18:06:19.878Z</updated>
+    <updated>2025-12-09T11:44:38.656Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/10/20/be-the-worst/jl23h4jkh23kjsjkwjwsjj2jsjwskkkw.png&quot; class=&quot;&quot;&gt;
@@ -422,11 +422,11 @@
   </entry>
   
   <entry>
-    <title>Dangers of using your own HTTP authentication scheme</title>
+    <title>⚠️ Dangers of using your own HTTP authentication scheme</title>
     <link href="https://espumita.org/2020/09/22/http-custom-authentication/"/>
     <id>https://espumita.org/2020/09/22/http-custom-authentication/</id>
     <published>2020-09-22T19:49:01.000Z</published>
-    <updated>2025-12-06T18:06:19.892Z</updated>
+    <updated>2025-12-09T11:44:38.659Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/static/J23J2J2KSKK12lkk2kwlsll22la.png&quot;/&gt;
@@ -441,11 +441,11 @@
   </entry>
   
   <entry>
-    <title>Book notes: Soft Skills, The software developer&#39;s life manual</title>
+    <title>📚 Book notes: Soft Skills, The software developer&#39;s life manual</title>
     <link href="https://espumita.org/2020/08/13/soft-skills/"/>
     <id>https://espumita.org/2020/08/13/soft-skills/</id>
     <published>2020-08-13T18:51:57.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:40:59.386Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/08/13/soft-skills/njb32hbj2whkasj2j2hjj.png&quot; class=&quot;&quot;&gt;
@@ -460,11 +460,11 @@
   </entry>
   
   <entry>
-    <title>Motivation Boost: Stimulus</title>
+    <title>✨ Motivation Boost: Stimulus</title>
     <link href="https://espumita.org/2020/06/13/motivation-boost-stimulus/"/>
     <id>https://espumita.org/2020/06/13/motivation-boost-stimulus/</id>
     <published>2020-06-13T22:51:55.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:48:36.962Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/06/13/motivation-boost-stimulus/aslkdnklajsdkladklaldlaedkjlaeldkld.jpg&quot; class=&quot;&quot;&gt;
@@ -479,11 +479,11 @@
   </entry>
   
   <entry>
-    <title>Dotnet Dependency Injection Setup</title>
+    <title>💻 Dotnet Dependency Injection Setup</title>
     <link href="https://espumita.org/2020/06/07/dotnet-dependency-injection/"/>
     <id>https://espumita.org/2020/06/07/dotnet-dependency-injection/</id>
     <published>2020-06-07T20:52:27.000Z</published>
-    <updated>2025-12-06T18:06:19.883Z</updated>
+    <updated>2025-12-09T11:55:36.943Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/static/J23J2J2KSKK12lkk2kwlsll22la.png&quot;/&gt;
@@ -498,11 +498,11 @@
   </entry>
   
   <entry>
-    <title>Motivation Boost: Objetives</title>
+    <title>🎯 Motivation Boost: Objetives</title>
     <link href="https://espumita.org/2020/06/01/motivation-boost-objetives/"/>
     <id>https://espumita.org/2020/06/01/motivation-boost-objetives/</id>
     <published>2020-06-01T17:05:01.000Z</published>
-    <updated>2025-12-06T18:06:19.901Z</updated>
+    <updated>2025-12-09T11:44:38.659Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/06/01/motivation-boost-objetives/hjs3j3j3sg5h3k3k3k3sgha3h3sl.jpg&quot; class=&quot;&quot;&gt;
@@ -517,11 +517,11 @@
   </entry>
   
   <entry>
-    <title>Book notes: Patterns, Principles, and Practices of Domain-Driven Design</title>
+    <title>📚 Book notes: Patterns, Principles, and Practices of Domain-Driven Design</title>
     <link href="https://espumita.org/2020/04/25/pppddd/"/>
     <id>https://espumita.org/2020/04/25/pppddd/</id>
     <published>2020-04-25T08:10:44.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:48:00.742Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/04/25/pppddd/h23h424bj234j32h3jj.png&quot; class=&quot;&quot;&gt;
@@ -536,11 +536,11 @@
   </entry>
   
   <entry>
-    <title>The Software Development Pyramid</title>
+    <title>🔺 The Software Development Pyramid</title>
     <link href="https://espumita.org/2020/04/04/software-development-pyramid/"/>
     <id>https://espumita.org/2020/04/04/software-development-pyramid/</id>
     <published>2020-04-04T15:57:19.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:56:32.048Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/04/04/software-development-pyramid/23nje4o93xo23dn29od0923d.png&quot; class=&quot;&quot;&gt;
@@ -555,11 +555,11 @@
   </entry>
   
   <entry>
-    <title>The Software Craftsman (Part I)</title>
+    <title>🛠️ The Software Craftsman (Part I)</title>
     <link href="https://espumita.org/2020/03/04/software-craftsmanship/"/>
     <id>https://espumita.org/2020/03/04/software-craftsmanship/</id>
     <published>2020-03-04T19:35:10.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:44:38.659Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/03/04/software-craftsmanship/asibjhd8238db231b8fna.jpg&quot; class=&quot;&quot;&gt;
@@ -574,11 +574,11 @@
   </entry>
   
   <entry>
-    <title>Software Development</title>
+    <title>🧙‍♂️ Software Development</title>
     <link href="https://espumita.org/2019/07/05/software-development/"/>
     <id>https://espumita.org/2019/07/05/software-development/</id>
     <published>2019-07-05T22:03:34.000Z</published>
-    <updated>2025-12-06T18:06:19.903Z</updated>
+    <updated>2025-12-09T11:57:46.748Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2019/07/05/software-development/1_4z2eywRcXvk8bJM4eDunhQ.jpeg&quot; class=&quot;&quot;&gt;
