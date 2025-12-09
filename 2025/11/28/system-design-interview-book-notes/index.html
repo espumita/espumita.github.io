@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://espumita.org/2025/11/28/system-design-interview-book-notes/dleknjn3job4gfj3b4djkn32dklj23kld2kld2.jpg">
 <meta property="article:published_time" content="2025-11-28T15:42:25.000Z">
-<meta property="article:modified_time" content="2025-11-28T22:04:16.317Z">
+<meta property="article:modified_time" content="2025-12-09T10:59:00.492Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://espumita.org/2025/11/28/system-design-interview-book-notes/dleknjn3job4gfj3b4djkn32dklj23kld2kld2.jpg">
@@ -287,18 +287,18 @@
 <p><span id="system-design-basics"></span></p>
 <h1 id="1-System-Design-Basics"><a href="#1-System-Design-Basics" class="headerlink" title="1. System Design Basics"></a>1. System Design Basics</h1><p>How to scale from zero to millions of users:</p>
 <ul>
-<li>Start simple, a single server, and iterate only when needed.<ul>
+<li><strong>Start simple</strong>, a single server, and iterate only when needed.<ul>
 <li>Metrics: user base, traffic, use case latency, costs…</li>
 </ul>
 </li>
 <li>Which <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Database">Database</a> to use?<ul>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Relational_database">Relational (RDBMS)</a> by default. Worked well for over 40 years.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Relational_database">Relational (RDBMS)</a> by default</strong>. Worked well for over 40 years.</li>
 <li>If the use case is not suitable, ask:<ul>
-<li>Does the application require super-low latency?</li>
-<li>Unstructured data or non‑relational data?</li>
-<li>Do you only need to serialize and deserialize data (JSON, XML, etc.)?</li>
-<li>Do you need to store a massive amount of data?</li>
-<li>Solution: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/NoSQL">Non-Relational (NoSQL)</a><ul>
+<li>Does the application require <strong>super-low latency</strong>?</li>
+<li><strong>Unstructured data or non‑relational data</strong>?</li>
+<li>Do you only need to <strong>serialize and deserialize</strong> data (JSON, XML, etc.)?</li>
+<li>Do you need to <strong>store a massive amount of data</strong>?</li>
+<li>Solution: <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/NoSQL">Non-Relational (NoSQL)</a></strong><ul>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Key%E2%80%93value_database">Key-value</a> (Redis, Amazon DynamoDB…)</li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Graph_database">Graph</a> (Neo4j…)</li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wide-column_store">Column</a> (Cassandra, HBase…)</li>
@@ -311,23 +311,23 @@
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Scalability">Scalability</a><ul>
-<li>Vertical: scale-up, CPU, RAM, etc.<ul>
+<li><strong>Vertical</strong>: scale-up, CPU, RAM, etc.<ul>
 <li>Simple, and good for low traffic.</li>
 <li>Limited by hardware in a single server.</li>
 <li>No failover or redundancy. Server down means business down.</li>
 </ul>
 </li>
-<li>Horizontal: scale-out, more servers to the pool.</li>
+<li><strong>Horizontal</strong>: scale-out, more servers to the pool.</li>
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Load_balancing_(computing)">Load Balancer</a><ul>
-<li>If one server goes down, the balancer redirects traffic to available servers.</li>
-<li>If traffic grows, more servers can be added without changing the request flow.</li>
+<li>If one server goes down, the balancer <strong>redirects traffic to available servers</strong>.</li>
+<li>If traffic grows, more servers can be <strong>added without changing the request flow</strong>.</li>
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Replication_(computing)#Database_replication">Database Replication</a><ul>
 <li>Master (original) &#x2F; slave (copies), only the master accepts writes.</li>
-<li>In general systems do many more reads than writes, so there are more slaves than master.</li>
+<li>In general systems do many more reads than writes, so there are <strong>more slaves than masters</strong>.</li>
 <li>Better performance: more queries running in parallel.</li>
 <li>More reliability: if one database is destroyed, data is preserved due to replication.</li>
 <li>Disaster recovery:<ul>
@@ -341,21 +341,21 @@
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cache_(computing)">Cache</a><ul>
-<li>Temporary storage, much faster than the database, that stores expensive responses of frequently accessed data in memory.</li>
-<li>Use when data is accessed frequently but modified infrequently.</li>
-<li>Cache is volatile; important data must be persisted in data stores.</li>
-<li>Define an expiration policy; it is a good practice.<ul>
+<li>Temporary storage, much <strong>faster than the database</strong>, that stores expensive responses of frequently accessed data in memory.</li>
+<li>Use when <strong>data is accessed frequently but modified infrequently</strong>.</li>
+<li>Cache is <strong>volatile</strong>; important data must be persisted in data stores.</li>
+<li>Define an <strong>expiration policy</strong>; it is a good practice.<ul>
 <li>Not too short (to avoid unnecessary data reload).</li>
 <li>Not too long (data can become stale or unused).</li>
 </ul>
 </li>
-<li>Consistency trade-off: sync cache with data store; they are not in the same transaction.</li>
+<li>Consistency trade-off: sync cache with data store; they are <strong>not in the same transaction</strong>.</li>
 <li>Possible <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Single_point_of_failure">Single point of failure (SPOF)</a>.<ul>
 <li>Recommend multiple cache servers across data centers.</li>
 <li>Overprovision the required memory by certain percentages.</li>
 </ul>
 </li>
-<li>Eviction policy: when cache is full, requests to add fail.<ul>
+<li><strong>Eviction policy</strong>: when cache is full, requests to add fail.<ul>
 <li>Least-recently-used (LRU) policy (most common).</li>
 <li>Least-frequently-used (LFU) policy.</li>
 <li>First-in-first-out (FIFO) policy.</li>
@@ -364,9 +364,9 @@
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Content_delivery_network">Content delivery network (CDN)</a><ul>
-<li>Content is delivered from the closest (lowest latency) CDN server.</li>
+<li><strong>Content is delivered from the closest (lowest latency) CDN server</strong>.</li>
 <li>Cache only relevant and frequent data (to avoid unnecessary costs).</li>
-<li>Define cache expiration.<ul>
+<li>Define <strong>cache expiration</strong>.<ul>
 <li>Not too long if data is time-sensitive; data needs to be fresh.</li>
 <li>Not too short; to avoid repeated reloading.</li>
 </ul>
@@ -379,14 +379,14 @@
 </li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Service_statelessness_principle">Stateless web servers</a><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Service_statelessness_principle">Stateless web servers</a></strong><ul>
 <li>Apply <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/REST">REST</a> principles.</li>
 <li>Store sessions in persistent storage.</li>
 <li><a target="_blank" rel="noopener" href="https://wiki.metawerx.net/wiki/StickySessions">Sticky Sessions</a> can be a problem.</li>
 </ul>
 </li>
 <li>Multiple data centers&#x2F;zones<ul>
-<li>Geo-routed worldwide, routes client traffic to the nearest data center.</li>
+<li><strong>Geo-routed worldwide</strong>, routes client traffic to the nearest data center.</li>
 <li>In failover: data is replicated in multiple data centers, and traffic routed to the available one.</li>
 <li>For example: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GeoDNS">GeoDNS</a></li>
 <li>Data should be geo‑replicated in order to achieve multi-data-center consistency.</li>
@@ -394,11 +394,11 @@
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Message_queue">Message queue</a><ul>
-<li>Enables asynchronous communication and asynchronous request processing.</li>
-<li>Decouples requests from processing, which adds more reliability to the system.</li>
-<li>If workers are unavailable, producers can still publish messages to the queues.</li>
+<li>Enables <strong>asynchronous communication and asynchronous request processing</strong>.</li>
+<li>Decouples requests from processing, which adds <strong>more reliability to the system</strong>.</li>
+<li>If workers are unavailable, <strong>producers can still publish messages</strong> to the queues.</li>
 <li>Workers can work when producers are not available.</li>
-<li>The number of workers can be scaled depending on queue size.</li>
+<li>The <strong>number of workers can be scaled</strong> depending on queue size.</li>
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Logging_(computing)">Logging</a> &amp; Metrics for <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Observability_(software)">Observability</a><ul>
@@ -411,23 +411,23 @@
 </li>
 </ul>
 </li>
-<li>Database scaling<ul>
+<li><strong>Database scaling</strong><ul>
 <li>Vertical: more CPU, RAM.</li>
-<li>Single point of failure.</li>
+<li><strong>Single point of failure.</strong></li>
 <li>High cost.</li>
-<li>Horizontal scaling: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shard_(database_architecture)">Sharding</a><ul>
+<li><strong>Horizontal scaling: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shard_(database_architecture)">Sharding</a></strong><ul>
 <li>Same schema, but database is partitioned in smaller, easy-to-manage parts (shards).</li>
-<li>Define a good partition key to distribute data<ul>
+<li><strong>Define a good partition key to distribute data</strong><ul>
 <li>One or more columns that determine how data is distributed physically in shards.</li>
 </ul>
 </li>
 <li>Challenges:<ul>
-<li>Resharding data<ul>
+<li><strong>Resharding data</strong><ul>
 <li>One shard is full, and the sharding function needs to change to balance data between shards.</li>
 <li>Solution: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Consistent_hashing">Consistent hashing</a></li>
 </ul>
 </li>
-<li>Celebrity problem (hotspot key problem).<ul>
+<li><strong>Celebrity problem (hotspot key problem).</strong><ul>
 <li>Some data inside a shard receives a disproportionate amount of traffic (celebrity).</li>
 <li>We may need to allocate dedicated shards for each celebrity.</li>
 </ul>
@@ -443,7 +443,7 @@
 </li>
 </ul>
 </li>
-<li>Scaling is an iterative process<ul>
+<li><strong>Scaling is an iterative process</strong><ul>
 <li>For example, the business may realize it needs to split services into smaller microservices.</li>
 </ul>
 </li>
@@ -500,15 +500,14 @@
 </ul>
 <p><span id="framework-for-system-design-interviews"></span></p>
 <h1 id="3-Framework-for-System-Design-Interviews"><a href="#3-Framework-for-System-Design-Interviews" class="headerlink" title="3. Framework for System Design Interviews"></a>3. Framework for System Design Interviews</h1><ol>
-<li>Understand the problem and establish design scope (3 - 10min)</li>
-<li>Understand the problem and establish design scope (3 - 10min)<ul>
+<li><strong>Understand the problem and establish design scope</strong> (3 - 10min)<ul>
 <li>What specific features are we going to build?</li>
 <li>How many users does the product have?</li>
 <li>How fast does the company anticipate scaling up? What are the anticipated scales in 3 months, 6 months, and a year?</li>
 <li>What is the company’s technology stack? What existing services might you leverage to simplify the design?</li>
 </ul>
 </li>
-<li>Propose high-level design and iterate (10 - 15min)<ul>
+<li><strong>Propose high-level design and iterate</strong> (10 - 15min)<ul>
 <li>Come up with an initial design</li>
 <li>Ask for feedback</li>
 <li>Treat your interviewer as a teammate and work together</li>
@@ -518,7 +517,7 @@
 <li>Communicate with your interviewer if calculations are necessary before starting.</li>
 </ul>
 </li>
-<li>Design deep dive (10 - 25min)<ul>
+<li><strong>Design deep dive</strong> (10 - 25min)<ul>
 <li>Work with the interviewer to identify and prioritize components in the architecture:<ul>
 <li>High-level design</li>
 <li>Or performance characteristics</li>
@@ -534,7 +533,7 @@
 </li>
 </ul>
 </li>
-<li>Wrap up (3 - 5min)<ul>
+<li><strong>Wrap up</strong> (3 - 5min)<ul>
 <li>If you have the freedom to discuss additional points:</li>
 <li>Identify the system bottlenecks and discuss potential improvements</li>
 <li>Never say your design is perfect and nothing can be improved; show your critical thinking.</li>
@@ -566,7 +565,7 @@
 </ul>
 </li>
 <li>Design<ul>
-<li>Building your own rate limiting service takes time. If the effort is too high, a commercial <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern">API Gateway</a> is a better option.<ul>
+<li>Building your own rate limiting service takes time. <strong>If the effort is too high, a commercial <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern">API Gateway</a> is a better option.</strong><ul>
 <li>Authentication and authorization</li>
 <li>Service discovery integration</li>
 <li>Response caching</li>
@@ -581,7 +580,7 @@
 </ul>
 </li>
 <li>Responses will return: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429">HTTP 429 Too Many Requests</a>.</li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/rate-limiting-algorithms-system-design/">Rate Limiting Algorithms</a> (To determine when to block requests):<ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/rate-limiting-algorithms-system-design/">Rate Limiting Algorithms</a> (To determine when to block requests):</strong><ul>
 <li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/computer-networks/token-bucket-algorithm/">Token bucket</a><ul>
 <li>Easy to implement.</li>
 <li>Memory efficient.</li>
@@ -629,12 +628,12 @@
 </ul>
 </li>
 <li>Rate limiter in a distributed environment<ul>
-<li>Race conditions (when updating the request counter in Redis from multiple threads).<ul>
+<li><strong>Race conditions</strong> (when updating the request counter in Redis from multiple threads).<ul>
 <li>Locks slow down the system.</li>
-<li>Common Solutions: <a target="_blank" rel="noopener" href="https://gist.github.com/ptarjan/e38f45f2dfe601419ca3af937fff574d#request-rate-limiter">Lua script</a> or <a target="_blank" rel="noopener" href="https://engineering.classdojo.com/blog/2015/02/06/rolling-rate-limiter/">Redis Sorted Sets</a></li>
+<li>Common Solutions: <strong><a target="_blank" rel="noopener" href="https://gist.github.com/ptarjan/e38f45f2dfe601419ca3af937fff574d#request-rate-limiter">Lua script</a> or <a target="_blank" rel="noopener" href="https://engineering.classdojo.com/blog/2015/02/06/rolling-rate-limiter/">Redis Sorted Sets</a></strong></li>
 </ul>
 </li>
-<li>Synchronization issues (when scaling with multiple rate limiter instances, recommended approach: centralized data store for counters, e.g. Redis).</li>
+<li><strong>Synchronization issues</strong> (when scaling with multiple rate limiter instances, recommended approach: <strong>centralized data store for counters, for example Redis</strong>).</li>
 </ul>
 </li>
 </ul>
@@ -644,9 +643,9 @@
 <h1 id="5-Design-Consistent-Hashing"><a href="#5-Design-Consistent-Hashing" class="headerlink" title="5. Design Consistent Hashing"></a>5. Design Consistent Hashing</h1><ul>
 <li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UF9Iqmg94tk">Video</a></p>
 </li>
-<li><p>A method that helps distribute data among servers during horizontal scaling.</p>
+<li><p><strong>A method that helps distribute data among servers during horizontal scaling.</strong></p>
 </li>
-<li><p>Define hashing function.</p>
+<li><p>Define <strong>hashing function.</strong></p>
 </li>
 <li><p>Simple hashing:</p>
 <ul>
@@ -659,7 +658,7 @@
 </li>
 </ul>
 </li>
-<li><p>Consistent hashing</p>
+<li><p><strong>Consistent hashing</strong></p>
 <ul>
 <li>Hash space and hash ring</li>
 <li>Example: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SHA-1">SHA-1</a> as hash function.</li>
@@ -706,7 +705,7 @@
 <li>Store only frequently used data in memory; store the rest on disk.</li>
 </ul>
 </li>
-<li><p>CAP theorem</p>
+<li><p><strong>CAP theorem</strong></p>
 <ul>
 <li>It is impossible for a distributed system to simultaneously provide more than two of the following three guarantees:</li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Consistency_model">Consistency</a></li>
@@ -723,7 +722,7 @@
 </ul>
 </li>
 <li>Distributed system components<ul>
-<li>Data partition<ul>
+<li><strong>Data partition</strong><ul>
 <li>All data does not fit in a single server.</li>
 <li>Challenges:</li>
 <li>Distributing data across multiple servers evenly.</li>
@@ -734,13 +733,13 @@
 <li>Heterogeneity: Servers with higher capacity can have more virtual nodes.</li>
 </ul>
 </li>
-<li>Data replication<ul>
+<li><strong>Data replication</strong><ul>
 <li>Data must be replicated across multiple data centers to prevent data loss during an outage, disaster, or network failure.</li>
 </ul>
 </li>
-<li>Consistency<ul>
+<li><strong>Consistency</strong><ul>
 <li>Replicas must be synchronized.</li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/quorum-vs-consensus-vs-vector-clock-in-distributed-systems/">Quorum consensus</a> can guarantee consistency for read and write (N,W,R)<ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/quorum-vs-consensus-vs-vector-clock-in-distributed-systems/">Quorum consensus</a> can guarantee consistency for read and write (N,W,R)</strong><ul>
 <li>N &#x3D;&gt; Number of replicas.</li>
 <li>W &#x3D;&gt; Number of ACKs from replicas needed to consider write successful.</li>
 <li>R &#x3D;&gt; Number of ACKs from replicas needed to consider read successful.</li>
@@ -751,25 +750,25 @@
 </ul>
 </li>
 <li>Model:<ul>
-<li>Strong consistency: The client never sees out-of-date data.<br>  &#x3D;&gt; Achieved by blocking new reads&#x2F;writes until all replicas have acknowledged the current write.<br>  &#x3D;&gt; Blocks operations.</li>
-<li>Weak consistency: Requests may not see the most updated value.</li>
-<li>Eventual consistency: A specific type of weak consistency; given enough time, all updates are propagated, and replicas become consistent.<br>  &#x3D;&gt; Example: Dynamo and Cassandra adopt eventual consistency.<br>  &#x3D;&gt; Allows inconsistent values to enter the system, forcing the client to perform reconciliation on read.</li>
+<li><strong>Strong consistency</strong>: The client never sees out-of-date data.<br>  &#x3D;&gt; Achieved by blocking new reads&#x2F;writes until all replicas have acknowledged the current write.<br>  &#x3D;&gt; Blocks operations.</li>
+<li><strong>Weak consistency</strong>: Requests may not see the most updated value.</li>
+<li><strong>Eventual consistency</strong>: A specific type of weak consistency; given enough time, all updates are propagated, and replicas become consistent.<br>  &#x3D;&gt; Example: Dynamo and Cassandra adopt eventual consistency.<br>  &#x3D;&gt; Allows inconsistent values to enter the system, forcing the client to perform reconciliation on read.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Inconsistency resolution<ul>
-<li>Solved with versioning and <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/computer-networks/vector-clocks-in-distributed-systems/">vector clocks</a>.</li>
-<li>Versioning: Treating each data modification as a new immutable version of the data (v1, v2, …).</li>
-<li>A vector clock is a [server, version] pair associated with a data item. It can be used to check if one version precedes, succeeds, or is in conflict with others.</li>
+<li><strong>Inconsistency resolution</strong><ul>
+<li>Solved with <strong>versioning and <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/computer-networks/vector-clocks-in-distributed-systems/">vector clocks</a>.</strong></li>
+<li><strong>Versioning: Treating each data modification as a new immutable version of the data (v1, v2, …).</strong></li>
+<li>A <strong>vector clock is a [server, version] pair associated with a data item.</strong> It can be used to check if one version precedes, succeeds, or is in conflict with others.</li>
 <li>Adds complexity to the client because it needs to implement conflict resolution logic.</li>
 <li>Vector clock could grow rapidly. Use a threshold for the length, and if it exceeds the limit, the oldest pairs are removed (solution used by <a target="_blank" rel="noopener" href="https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf">Dynamo</a> without problems in production).</li>
 </ul>
 </li>
-<li>Handling failures<ul>
+<li><strong>Handling failures</strong><ul>
 <li>Detecting if a server is down requires at least two independent sources of information.</li>
 <li>Multicasting is inefficient when there are many servers.</li>
-<li>Better to use the <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/distributed-systems/gossip-protocol-in-disrtibuted-systems/">gossip protocol</a>:<ul>
+<li>Better to use the <strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/distributed-systems/gossip-protocol-in-disrtibuted-systems/">gossip protocol</a>:</strong><ul>
 <li>A failure detection method.</li>
 <li>Each node maintains a node membership list, which contains member IDs and heartbeat counters.</li>
 <li>Each node periodically increments its heartbeat counter.</li>
@@ -778,8 +777,8 @@
 <li>If a member’s heartbeat has not increased for a predefined period, it is considered offline.</li>
 </ul>
 </li>
-<li>Temporary failures: If the system uses strict quorum, reads and writes could be blocked during failures.<br>  &#x3D;&gt; To improve availability, use <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/what-is-sloppy-quorum-and-hinted-handoff/">sloppy quorum</a> (the system chooses healthy W &amp; R servers).<br>  &#x3D;&gt; This allows the write to be temporarily stored on an available node <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/what-is-sloppy-quorum-and-hinted-handoff/">(hinted handoff)</a>.<br>  &#x3D;&gt; When the server is back up, changes are pushed to it to achieve data consistency.</li>
-<li>Permanent failures: To keep replicas in sync, use the <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/anti-entropy-in-distributed-systems/">anti-entropy</a> protocol.<br>  &#x3D;&gt; Compares each piece of data on replicas and updates each replica to the newest version.<br>  &#x3D;&gt; Uses <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/introduction-to-merkle-tree/">Merkle trees</a> for efficient data comparison; the amount of data synchronized is proportional to the differences between the two replicas.<br>  &#x3D;&gt; Example: Apache Cassandra, Amazon DynamoDB, Amazon S3, Google Cloud Storage, Redis, Memcached, etc.</li>
+<li><strong>Temporary failures</strong>: If the system uses strict quorum, reads and writes could be blocked during failures.<br>  &#x3D;&gt; To improve availability, use <strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/what-is-sloppy-quorum-and-hinted-handoff/">sloppy quorum</a></strong> (the system chooses healthy W &amp; R servers).<br>  &#x3D;&gt; This allows the write to be temporarily stored on an available node <strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/what-is-sloppy-quorum-and-hinted-handoff/">(hinted handoff)</a>.</strong><br>  &#x3D;&gt; When the server is back up, changes are pushed to it to achieve data consistency.</li>
+<li>Permanent failures: To keep replicas in sync, use the <strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/anti-entropy-in-distributed-systems/">anti-entropy</a> protocol.</strong><br>  &#x3D;&gt; Compares each piece of data on replicas and updates each replica to the newest version.<br>  &#x3D;&gt; Uses <strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/introduction-to-merkle-tree/">Merkle trees</a> for efficient data comparison; the amount of data synchronized is proportional to the differences between the two replicas.</strong><br>  &#x3D;&gt; Example: Apache Cassandra, Amazon DynamoDB, Amazon S3, Google Cloud Storage, Redis, Memcached, etc.</li>
 <li>Data center outage:<br>  &#x3D;&gt; Replicate data across multiple data centers.</li>
 </ul>
 </li>
@@ -794,7 +793,7 @@
 </li>
 <li>Read path (For this specific problem)<ul>
 <li>Read from the memory cache.</li>
-<li>If not found in cache or Bloom filter, read from persistence: a sorted-string table <a target="_blank" rel="noopener" href="https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/">(SSTable)</a>, which is a sorted list of “&lt;key, value&gt;” pairs.</li>
+<li><strong>If not found in cache or Bloom filter, read from persistence: a sorted-string table <a target="_blank" rel="noopener" href="https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/">(SSTable)</a>, which is a sorted list of “&lt;key, value&gt;” pairs.</strong></li>
 </ul>
 </li>
 </ul>
@@ -814,26 +813,26 @@
 <li>Design:</li>
 </ol>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multi-master_replication">Multi-master replication</a> <ul>
-<li><a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/sql_autoincrement.asp">AUTO_INCREMENT</a></li>
-<li>Hard to scale due to synchronization issues.</li>
+<li>**<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multi-master_replication">Multi-master replication</a> <ul>
+<li><a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/sql_autoincrement.asp">AUTO_INCREMENT</a>**</li>
+<li><strong>Hard to scale due to synchronization issues.</strong></li>
 <li>Can be predictable, posing a possible security issue.</li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally unique identifier (UUID)</a><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally unique identifier (UUID)</a></strong><ul>
 <li>Not numeric; 128-bit.</li>
 <li>No coordination, so no synchronization issues.</li>
-<li>Easy to scale.</li>
+<li><strong>Easy to scale.</strong></li>
 </ul>
 </li>
 <li>Ticket server <ul>
-<li>Generates distributed primary keys (centralized AUTO_INCREMENT).</li>
+<li>Generates <strong>distributed primary keys (centralized AUTO_INCREMENT).</strong></li>
 <li>Numeric IDs.</li>
 <li>SPOF (Single Point of Failure).</li>
-<li>Data synchronization issues if scaled.</li>
+<li><strong>Data synchronization issues if scaled.</strong></li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Snowflake_ID">Twitter snowflake approach</a><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Snowflake_ID">Twitter snowflake approach</a></strong><ul>
 <li>Numeric; 64-bit.</li>
 <li>Divide ID into:<ul>
 <li>Sign bit: 1 bit.</li>
@@ -843,11 +842,11 @@
 <li>Sequence number: 12 bits (incremented by 1 in every machine&#x2F;process, reset to 0 every millisecond).<br>  &#x3D;&gt; Maximum of 2^12 &#x3D; 4096 IDs per millisecond per machine.</li>
 </ul>
 </li>
-<li>Easy to scale.</li>
-<li>No coordination, so no synchronization issues.</li>
+<li><strong>Easy to scale.</strong></li>
+<li><strong>No coordination, so no synchronization issues.</strong></li>
 <li>Considerations:<ul>
 <li>Clock synchronization &#x3D;&gt; <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Network_Time_Protocol">Network Time Protocol (NTP)</a> between machines.</li>
-<li>High availability: ID generation is mission-critical.</li>
+<li>High availability: <strong>ID generation is mission-critical.</strong></li>
 </ul>
 </li>
 </ul>
@@ -865,16 +864,18 @@
 </li>
 <li><p>62^7 &#x3D;&gt; 3,521,614,606,208 possible URLs with 7 characters (few collisions).</p>
 </li>
-<li><p>MD5 or SHA-1 produces too long a hash.<br>  &#x3D;&gt; Low collision probability.<br>  &#x3D;&gt; Fixed size.<br>  &#x3D;&gt; Secure; difficult to predict the next URL.</p>
+<li><p>Hash funciton iteration:</p>
 </li>
-<li><p>Base 62 conversion: 11157 (using ID in database) &#x3D;&gt; 2TX.<br>  &#x3D;&gt; Variable length.<br>  &#x3D;&gt; Easy to predict URLs; not secure.</p>
+<li><p><strong>MD5 or SHA-1 produces too long a hash.</strong><br>  &#x3D;&gt; Low collision probability.<br>  &#x3D;&gt; Fixed size.<br>  &#x3D;&gt; <strong>Secure; difficult to predict the next URL.</strong></p>
 </li>
-<li><p>Unique ID generator<br>  &#x3D;&gt; Example: Snowflake &#x3D;&gt; 2009215674938 (13 digits).<br>  &#x3D;&gt; ID in base 62 &#x3D;&gt; zn9edcu.</p>
+<li><p><strong>Base 62 conversion</strong>: 11157 (using ID in database) &#x3D;&gt; 2TX.<br>  &#x3D;&gt; Variable length.<br>  &#x3D;&gt; <strong>Easy to predict URLs; not secure.</strong></p>
+</li>
+<li><p><strong>Unique ID generator</strong><br>  &#x3D;&gt; Example: Snowflake &#x3D;&gt; 2009215674938 (13 digits).<br>  &#x3D;&gt; <strong>ID in base 62 &#x3D;&gt; zn9edcu.</strong><br>  &#x3D;&gt; <strong>Not predictable</strong><br>  &#x3D;&gt; <strong>Not collision</strong></p>
 </li>
 <li><p>Improvements for scalability:</p>
 <ul>
-<li>Relational database (id, shortUrl, longUrl)<ul>
-<li>Clustered index on shortUrl.</li>
+<li><strong>Relational database (id, shortUrl, longUrl)</strong><ul>
+<li><strong>Clustered index on shortUrl.</strong></li>
 <li>Database scaling.</li>
 <li>Bloom filter.</li>
 </ul>
@@ -909,9 +910,9 @@
 </ul>
 </li>
 <li>Design:<ul>
-<li>The Web can be considered a graph.</li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/depth-first-search-or-dfs-for-a-graph/">DFS</a> vs <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/">BFS</a><ul>
-<li>BFS commonly used.</li>
+<li><strong>The Web can be considered a graph</strong>.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/depth-first-search-or-dfs-for-a-graph/">DFS</a> vs <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/">BFS</a></strong><ul>
+<li><strong>BFS commonly used</strong>.</li>
 <li>Problem: Links from the same web page often link back to the same host. Parallel downloads can be inefficient and trigger DoS protection.<br>  &#x3D;&gt; Solution: Queues for politeness. Maintain a mapping from website hostnames to download (worker) threads. Each downloader thread has a separate FIFO queue and only downloads URLs from that queue.</li>
 <li>Does not take priority into consideration (e.g., home page &gt; blog post).<br>  &#x3D;&gt; Solution: Prioritize URLs based on usefulness (PageRank, traffic, update frequency, etc.).</li>
 </ul>
@@ -987,13 +988,13 @@
 <li>Design<ul>
 <li>Reliability<ul>
 <li>How to prevent data loss?</li>
-<li>Notifications can be reordered or delayed, but never lost.</li>
+<li><strong>Notifications can be reordered or delayed, but never lost.</strong></li>
 <li>Data needs to be persisted to guarantee delivery.<ul>
-<li>DB notification log to mark notifications as sent or pending.</li>
+<li><strong>DB notification log to mark notifications as sent or pending.</strong></li>
 </ul>
 </li>
 <li>Receive only one notification?<ul>
-<li>Checking if an ID has been sent should work.</li>
+<li><strong>Checking if an ID has been sent should work.</strong></li>
 <li>But not always: <a target="_blank" rel="noopener" href="https://bravenewgeek.com/you-cannot-have-exactly-once-delivery/">You Cannot Have Exactly-Once Delivery</a>.</li>
 </ul>
 </li>
@@ -1058,46 +1059,46 @@
 <li>Fan-out service:<ul>
 <li><p>Model</p>
 <ul>
-<li>Fan-out on write (push model)<ul>
-<li>Feeds are pre-computed during write.</li>
-<li>Update all friends’ caches immediately after publication.</li>
+<li><strong>Fan-out on write (push model)</strong><ul>
+<li><strong>Feeds are pre-computed during write.</strong></li>
+<li><strong>Update all friends’ caches immediately after publication.</strong></li>
 <li>Fetching is fast because feeds are pre-computed.</li>
 <li>Cons:<ul>
-<li>Hotkey problem: many friends &#x3D;&gt; many pre-calculations.</li>
-<li>Wasted computation for inactive users.</li>
+<li>Hotkey problem: <strong>many friends &#x3D;&gt; many pre-calculations.</strong></li>
+<li><strong>Wasted computation for inactive users.</strong></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Fan-out on read (pull model)<ul>
-<li>Reads are generated on-demand; recent posts are pulled when the user loads the homepage.</li>
-<li>No hotkey problem.</li>
-<li>Inactive users do not consume computation resources.</li>
+<li><strong>Fan-out on read (pull model)</strong><ul>
+<li><strong>Reads are generated on-demand; recent posts are pulled when the user loads the homepage.</strong></li>
+<li><strong>No hotkey problem.</strong></li>
+<li><strong>Inactive users do not consume computation resources.</strong></li>
 <li>Cons:<ul>
-<li>Fetching new feeds is slow because they are not pre-computed.</li>
+<li><strong>Fetching new feeds is slow because they are not pre-computed.</strong></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Solution: hybrid approach</p>
+<li><p><strong>Solution: hybrid approach</strong></p>
 <ul>
-<li>Push model for the majority of users (pre-computation).</li>
-<li>For celebrities, use the pull model (on-demand).<ul>
+<li><strong>Push model for the majority of users (pre-computation).</strong></li>
+<li><strong>For celebrities, use the pull model (on-demand).</strong><ul>
 <li>Consistent hashing is useful to mitigate the hotkey problem.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Get friends’ IDs using a <a target="_blank" rel="noopener" href="http://geekswithblogs.net/brendonpage/archive/2015/10/26/friend-of-friend-recommendations-with-neo4j.aspx">Graph DB e.g. Neo4j</a>.</p>
+<li><p>Get <strong>friends’ IDs using a <a target="_blank" rel="noopener" href="http://geekswithblogs.net/brendonpage/archive/2015/10/26/friend-of-friend-recommendations-with-neo4j.aspx">Graph DB e.g. Neo4j</a>.</strong></p>
 </li>
-<li><p>Get friends’ data from User cache&#x2F;DB.</p>
+<li><p>Get <strong>friends’ data from User cache&#x2F;DB.</strong></p>
 <ul>
 <li>e.g., a friend is muted, is an inactive account, etc.</li>
 </ul>
 </li>
-<li><p>Message queue:<br>  &#x3D;&gt; Fan-out workers.<br>  &#x3D;&gt; Update news feed cache.<br>  * Only IDs are stored in memory (post_id, user_id).<br>  * Memory size is small &#x3D;&gt; set a configurable limit (users are usually only interested in the latest content, so cache miss rate is low).</p>
+<li><p>Message queue:<br>  &#x3D;&gt; Fan-out workers.<br>  &#x3D;&gt; Update news feed cache.<br>  * <strong>Only IDs are stored in memory (post_id, user_id).</strong><br>  * Memory size is small &#x3D;&gt; <strong>set a configurable limit (users are usually only interested in the latest content, so cache miss rate is low).</strong></p>
 </li>
 </ul>
 </li>
@@ -1150,8 +1151,8 @@
 </ul>
 </li>
 <li>Design<ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/trie-insert-and-search/">Trie data structure</a><ul>
-<li>Designed for string retrieval operations.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dsa/trie-insert-and-search/">Trie data structure</a></strong><ul>
+<li><strong>Designed for string retrieval operations.</strong></li>
 <li>Each node represents a character or a prefix.</li>
 <li>Steps:<ul>
 <li>O(p): Find a prefix in the trie.</li>
@@ -1163,8 +1164,8 @@
 </ul>
 </li>
 <li>Optimizations:<ul>
-<li>Limit max length of a prefix.</li>
-<li>Cache top search queries at each node (e.g., top 5).<ul>
+<li><strong>Limit max length of a prefix.</strong></li>
+<li><strong>Cache top search queries at each node (e.g., top 5).</strong><ul>
 <li>O(1) if cached. This requires significant space.</li>
 </ul>
 </li>
@@ -1180,8 +1181,8 @@
 </ul>
 </li>
 <li>Store the trie<ul>
-<li>Serialize and store in a document DB like MongoDB.</li>
-<li>Key-value store (prefix -&gt; data).</li>
+<li><strong>Serialize and store in a document DB like MongoDB.</strong></li>
+<li><strong>Key-value store (prefix -&gt; data).</strong></li>
 </ul>
 </li>
 <li>Load balancer</li>
@@ -1190,8 +1191,8 @@
 <li>Browser cache: Suggestions do not change much (e.g., Google caches for 1 hour for a single user, “cache-control: private, max-age&#x3D;3600”).</li>
 <li>Use data sampling for logging.</li>
 <li>Update the trie<ul>
-<li>Recreate full trie and replace.</li>
-<li>Update individual nodes &#x3D;&gt; Avoid because it requires updating all parents up to the root (and updating the cache in every node).</li>
+<li><strong>Recreate full trie and replace.</strong></li>
+<li><strong>Update individual nodes &#x3D;&gt; Avoid because it requires updating all parents up to the root (and updating the cache in every node).</strong></li>
 </ul>
 </li>
 <li>Add a filter layer to remove unwanted words from the trie.</li>
@@ -1234,25 +1235,25 @@
 </li>
 <li><p>Receiver</p>
 </li>
-<li><p>Protocol</p>
+<li><p><strong>Protocol</strong></p>
 <ul>
 <li>Option: HTTP with keep-alive header for sender; polling, long polling, or WebSocket for receiver.</li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/javascript/what-is-long-polling-and-short-polling/">Polling (short)</a><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/javascript/what-is-long-polling-and-short-polling/">Polling (short)</a></strong><ul>
 <li>Wastes resources.</li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/javascript/what-is-long-polling-and-short-polling/">Long polling</a><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/javascript/what-is-long-polling-and-short-polling/">Long polling</a></strong><ul>
 <li>Longer connection time &#x3D; fewer requests.</li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/web-tech/what-is-web-socket-and-how-it-is-different-from-the-http/">WebSocket</a><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/web-tech/what-is-web-socket-and-how-it-is-different-from-the-http/">WebSocket</a></strong><ul>
 <li>Handshake and then bi-directional channel connection.</li>
 <li>More difficult to scale; connection persists and needs to be managed in the server.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Solution: Hybrid approach: HTTP for sending messages and WebSockets for receiving them.</p>
+<li><p>Solution: <strong>Hybrid approach: HTTP for sending messages and WebSockets for receiving them.</strong></p>
 </li>
 <li><p>Components: </p>
 <ul>
@@ -1271,18 +1272,18 @@
 </li>
 <li><p>Normal data in relational database.</p>
 </li>
-<li><p>Chat data in key-value stores.</p>
+<li><p><strong>Chat data in key-value stores.</strong></p>
 <ul>
 <li>Easy to scale horizontally.</li>
 <li>Low latency.</li>
-<li>Relational databases have a long-tail problem for random access (expensive).<ul>
-<li>For searching in the chat or jumping to specific messages.</li>
+<li>**Relational databases have a long-tail problem for random access (expensive).<ul>
+<li>For searching in the chat or jumping to specific messages.**</li>
 </ul>
 </li>
 <li>Facebook uses HBase and Discord uses Cassandra.</li>
 </ul>
 </li>
-<li><p>Data model:<br>  Message:<br>  * message_id (pk) bigint<br>  * message_from bigint<br>  * message_to bigint<br>  * content text<br>  * created_at timestamp<br>  Group_Message:<br>  * channel_id (pk) bigint<br>      * message_id (pk) bigint<br>      * user_id bigint<br>      * content text<br>      * created_at timestamp<br>  * message_id is used to order the messages because they can be created at the same time.<br>  * ID: Local sequence number (local to the group or chat), much easier to implement than a global unique ID like Snowflake’s solution.</p>
+<li><p>Data model:<br>  Message:<br>  * message_id (pk) bigint<br>  * message_from bigint<br>  * message_to bigint<br>  * content text<br>  * created_at timestamp<br>  Group_Message:<br>  * channel_id (pk) bigint<br>      * message_id (pk) bigint<br>      * user_id bigint<br>      * content text<br>      * created_at timestamp<br>  * <strong>message_id is used to order the messages because they can be created at the same time.</strong><br>  * ID: Local sequence number (local to the group or chat), much easier to implement than a global unique ID like Snowflake’s solution.</p>
 </li>
 </ul>
 </li>
@@ -1383,7 +1384,7 @@
 <li>Execute sequential or parallel tasks during encoding (e.g., Facebook DAG model).</li>
 </ul>
 </li>
-<li>Safety optimization: Pre-signed upload URL (e.g., <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html">Amazon S3</a>) or Shared Access Signature (e.g., <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/rest/api/storageservices/delegate-access-with-shared-access-signature">Azure Blob Storage</a>).<ul>
+<li><strong>Safety optimization: Pre-signed upload URL (e.g., <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html">Amazon S3</a>) or Shared Access Signature (e.g., <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/rest/api/storageservices/delegate-access-with-shared-access-signature">Azure Blob Storage</a>).</strong><ul>
 <li>This speeds up upload times because content is delivered directly to blob storage.</li>
 <li>Enable multipart upload (multiple chunks) in parallel.</li>
 <li>For performance: Transcode and distribute segments while uploading.</li>
@@ -1412,8 +1413,6 @@
 </ol>
 <p><span id="example-google-drive"></span></p>
 <h1 id="15-Example-Google-Drive"><a href="#15-Example-Google-Drive" class="headerlink" title="15. Example: Google Drive"></a>15. Example: Google Drive</h1><ol>
-<li><p>Requirementsle Drive</p>
-</li>
 <li><p>Requirements</p>
 <ul>
 <li>Upload, download files.</li>
@@ -1458,13 +1457,13 @@
 <li><a target="_blank" rel="noopener" href="https://neil.fraser.name/writing/sync/">Differential Synchronization</a> for multiple users.</li>
 </ul>
 </li>
-<li>Divide and conquer: Use block servers.<ul>
+<li><strong>Divide and conquer: Use block servers.</strong><ul>
 <li>Files are split into blocks.</li>
 <li>Blocks get a content hash.</li>
-<li>Block size of 4MB (<a target="_blank" rel="noopener" href="https://www.dropbox.com/developers/reference/content-hash">like Dropbox</a>).</li>
+<li><strong>Block size of 4MB (<a target="_blank" rel="noopener" href="https://www.dropbox.com/developers/reference/content-hash">like Dropbox</a>).</strong></li>
 <li>To get files, we get blocks and then sort them.</li>
-<li>Files get a checksum.</li>
-<li>Chunking, compression, and encryption are implemented in a single server (in a single language&#x2F;platform, instead of having this responsibility in the clients, for security and maintainability).</li>
+<li><strong>Files get a checksum.</strong></li>
+<li><strong>Chunking, compression, and encryption are implemented in a single server (in a single language&#x2F;platform, instead of having this responsibility in the clients, for security and maintainability (Only one implementation in one languaje)).</strong></li>
 </ul>
 </li>
 <li>Inactive blocks eventually go to cold storage.</li>
@@ -1488,10 +1487,10 @@
 </ul>
 </li>
 <li>Save storage:<ul>
-<li>De-duplicate data blocks among file versions. Redundant blocks are not necessary; only changes are stored.</li>
+<li><strong>De-duplicate data blocks among file versions.</strong> Redundant blocks are not necessary; only changes are stored.</li>
 <li>Limit the number of versions.</li>
 <li>Keep valuable versions only.</li>
-<li>Move infrequently used data to cold storage (e.g., Amazon S3 Glacier).</li>
+<li><strong>Move infrequently used data to cold storage (e.g., Amazon S3 Glacier).</strong></li>
 </ul>
 </li>
 </ul>
@@ -1502,10 +1501,10 @@
 <ul>
 <li><p>Delta synchronization:</p>
 <ul>
-<li>Only modified blocks are synced instead of the whole file using a sync algorithm.<ul>
+<li>**Only modified blocks are synced instead of the whole file using a sync algorithm.<ul>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Delta_encoding">Delta encoding</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/rsync-algorithm-system-design/">Rsync Algorithm</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/librsync/librsync">librsync</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/librsync/librsync">librsync</a>**</li>
 </ul>
 </li>
 </ul>
@@ -1525,7 +1524,7 @@
 <li>In relational databases, consistency is easy because of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ACID">ACID</a>; in NoSQL, ACID properties need to be programmatically incorporated.</li>
 </ul>
 </li>
-<li><p>Error handling.</p>
+<li><p><strong>Error handling:</strong></p>
 <ul>
 <li>Load balancer failure &#x3D;&gt; A secondary becomes active.</li>
 <li>Block server failure &#x3D;&gt; Other servers pick up unfinished or pending jobs.</li>
