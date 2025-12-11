@@ -21,7 +21,7 @@
 
     <meta name="description" content="We can discuss a lot about what is or what is not Event Driven Architecture. But in this post, we will see how events can improve the design in our solutions.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="🏗️ Software Architectures examples: Event-Driven">
+<meta property="og:title" content="🏗️ Software Architectures, Part III: Event-Driven">
 <meta property="og:url" content="https://espumita.org/2020/12/19/event-driven/index.html">
 <meta property="og:site_name" content="Espumita&#39;s Blog">
 <meta property="og:description" content="We can discuss a lot about what is or what is not Event Driven Architecture. But in this post, we will see how events can improve the design in our solutions.">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://espumita.org/2020/12/19/event-driven/hakhjkjhskj2dsjk2ejksjk2jksjk2j2ksj2jkjke2.JPG">
 <meta property="og:image" content="https://espumita.org/2020/12/19/event-driven/hdjk3jksjksjlljk2ljksjk2skjl2sl2krklkdld.JPG">
 <meta property="article:published_time" content="2020-12-19T12:15:04.000Z">
-<meta property="article:modified_time" content="2025-12-09T11:55:01.484Z">
+<meta property="article:modified_time" content="2025-12-11T10:33:10.078Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://espumita.org/2020/12/19/event-driven/jd3jdjk32jkt2k3jrk32jd3j2dk32kd32e32d.png">
@@ -39,10 +39,10 @@
 <link rel="canonical" href="https://espumita.org/2020/12/19/event-driven/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2020/12/19/event-driven/","path":"2020/12/19/event-driven/","title":"🏗️ Software Architectures examples: Event-Driven"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2020/12/19/event-driven/","path":"2020/12/19/event-driven/","title":"🏗️ Software Architectures, Part III: Event-Driven"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>🏗️ Software Architectures examples: Event-Driven | Espumita's Blog</title>
+<title>🏗️ Software Architectures, Part III: Event-Driven | Espumita's Blog</title>
   
 
 
@@ -208,12 +208,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="🏗️ Software Architectures examples: Event-Driven | Espumita's Blog">
+      <meta itemprop="name" content="🏗️ Software Architectures, Part III: Event-Driven | Espumita's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          🏗️ Software Architectures examples: Event-Driven
+          🏗️ Software Architectures, Part III: Event-Driven
         </h1>
 
         <div class="post-meta-container">
@@ -264,6 +264,13 @@
 <p>We can discuss a <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=STKCRSUsyP0&ab_channel=GOTOConferences">lot</a> about what is or what is not <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Event-driven_architecture">Event Driven Architecture</a>. But in this post, we will see how <strong>events</strong> can <strong>improve</strong> the <strong>design</strong> in our solutions.</p>
 <span id="more"></span>
 
+<h1 id="Software-Architectures-Examples-Series"><a href="#Software-Architectures-Examples-Series" class="headerlink" title="Software Architectures Examples Series:"></a>Software Architectures Examples Series:</h1><ul>
+<li><a href="/2023/08/15/vertical-slice/">🏗️ Software Architectures, Part V: Vertical Slice</a></li>
+<li><a href="/2020/12/26/asynchronous-command-queue/">🏗️ Software Architectures, Part IV: Asynchronous Command Queue</a></li>
+<li><a href="/2020/12/19/event-driven/">🏗️ Software Architectures, Part III: Event-Driven</a></li>
+<li><a href="/2020/11/30/cqrs/">🏗️ Software Architectures, Part II: CQRS</a></li>
+<li><a href="/2020/11/21/hexagonal-architecture/">🏗️ Software Architectures, Part I: Hexagonal Architecture</a></li>
+</ul>
 <p>When we talk about events, we can refer to many different things, depending on the context. In this case, we will talk about how <strong>modeling</strong> and <strong>publishing</strong> <a target="_blank" rel="noopener" href="https://martinfowler.com/eaaDev/DomainEvent.html">domain events</a> in our applications can give us a lot of <strong>advantages</strong>.</p>
 <p>We can define our <strong>domain events</strong> as <strong>state changes</strong> in the domain state, this means “things that happen” in our domain. For example: <em>PlayListHasBeenCreated</em> or <em>TrackHasBeenAddedToPlayList</em>.</p>
 <p>From an <strong>architecture abstraction level</strong>, if a system <strong>produces an event</strong>, maybe other parts of the system or even other systems can easily obtain that event information and <strong>perform other tasks</strong> based on that information.</p>
@@ -386,13 +393,13 @@ private void Create() &#123;
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/11/30/cqrs/" rel="prev" title="🏗️ Software Architectures examples: CQRS">
-                  <i class="fa fa-angle-left"></i> 🏗️ Software Architectures examples: CQRS
+                <a href="/2020/11/30/cqrs/" rel="prev" title="🏗️ Software Architectures, Part II: CQRS">
+                  <i class="fa fa-angle-left"></i> 🏗️ Software Architectures, Part II: CQRS
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/12/26/asynchronous-command-queue/" rel="next" title="🏗️ Software Architectures examples : Asynchronous Command Queue">
-                  🏗️ Software Architectures examples : Asynchronous Command Queue <i class="fa fa-angle-right"></i>
+                <a href="/2020/12/26/asynchronous-command-queue/" rel="next" title="🏗️ Software Architectures, Part IV: Asynchronous Command Queue">
+                  🏗️ Software Architectures, Part IV: Asynchronous Command Queue <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

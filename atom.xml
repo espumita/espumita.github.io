@@ -150,11 +150,11 @@
   </entry>
   
   <entry>
-    <title>🏗️ Software Architectures examples : Vertical Slice</title>
+    <title>🏗️ Software Architectures, Part V: Vertical Slice</title>
     <link href="https://espumita.org/2023/08/15/vertical-slice/"/>
     <id>https://espumita.org/2023/08/15/vertical-slice/</id>
     <published>2023-08-15T13:00:56.000Z</published>
-    <updated>2025-12-09T11:53:15.095Z</updated>
+    <updated>2025-12-11T10:33:30.176Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2023/08/15/vertical-slice/as8976d8a697sd5867asd786as876das9d.png&quot; class=&quot;&quot;&gt;
@@ -323,11 +323,11 @@
   </entry>
   
   <entry>
-    <title>🏗️ Software Architectures examples : Asynchronous Command Queue</title>
+    <title>🏗️ Software Architectures, Part IV: Asynchronous Command Queue</title>
     <link href="https://espumita.org/2020/12/26/asynchronous-command-queue/"/>
     <id>https://espumita.org/2020/12/26/asynchronous-command-queue/</id>
     <published>2020-12-26T15:59:57.000Z</published>
-    <updated>2025-12-09T11:44:38.656Z</updated>
+    <updated>2025-12-11T10:33:00.917Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/12/26/asynchronous-command-queue/hj2v3hsbj3hsbjks2jk1nsk2j1bs2jkhbskhj22jkhs2skj.jpg&quot; class=&quot;&quot;&gt;
@@ -343,11 +343,11 @@
   </entry>
   
   <entry>
-    <title>🏗️ Software Architectures examples: Event-Driven</title>
+    <title>🏗️ Software Architectures, Part III: Event-Driven</title>
     <link href="https://espumita.org/2020/12/19/event-driven/"/>
     <id>https://espumita.org/2020/12/19/event-driven/</id>
     <published>2020-12-19T12:15:04.000Z</published>
-    <updated>2025-12-09T11:55:01.484Z</updated>
+    <updated>2025-12-11T10:33:10.078Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/12/19/event-driven/jd3jdjk32jkt2k3jrk32jd3j2dk32kd32e32d.png&quot; class=&quot;&quot;&gt;
@@ -362,11 +362,11 @@
   </entry>
   
   <entry>
-    <title>🏗️ Software Architectures examples: CQRS</title>
+    <title>🏗️ Software Architectures, Part II: CQRS</title>
     <link href="https://espumita.org/2020/11/30/cqrs/"/>
     <id>https://espumita.org/2020/11/30/cqrs/</id>
     <published>2020-11-30T21:02:56.000Z</published>
-    <updated>2025-12-09T11:44:38.658Z</updated>
+    <updated>2025-12-11T10:32:42.970Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/11/30/cqrs/4ljlkhjlk34rjh34jlh3d4lkjl3jk3kl3dkldkl.jpg&quot; class=&quot;&quot;&gt;
@@ -381,18 +381,16 @@
   </entry>
   
   <entry>
-    <title>🏗️ Software Architectures examples: Hexagonal Architecture</title>
+    <title>🏗️ Software Architectures, Part I: Hexagonal Architecture</title>
     <link href="https://espumita.org/2020/11/21/hexagonal-architecture/"/>
     <id>https://espumita.org/2020/11/21/hexagonal-architecture/</id>
     <published>2020-11-21T17:41:45.000Z</published>
-    <updated>2025-12-09T11:55:13.596Z</updated>
+    <updated>2025-12-11T10:32:03.275Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2020/11/21/hexagonal-architecture/ASLDLKHLAJSDJLLMDLJMD2KMK2JKSNS.png&quot; class=&quot;&quot;&gt;
 
-&lt;p&gt;What is this architecture about, and what&amp;#96;s the difference from others more traditional like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;
-&lt;p&gt;If we go back to 2005, according to &lt;a href=&quot;https://alistair.cockburn.us/hexagonal-architecture/&quot;&gt;Alistair Cockburn&lt;/a&gt;, the creator of this term, this architecture tries to solve the problem of &lt;em&gt;Avoid infiltration of business logic into the user interface code&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The most important thing of this architecture is to &lt;strong&gt;protect&lt;/strong&gt; the most valuable code of any application, &lt;strong&gt;the domain&lt;/strong&gt;. &lt;/p&gt;</summary>
+&lt;p&gt;What is this architecture about, and what&amp;#96;s the difference from others more traditional like &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC&lt;/a&gt;?&lt;/p&gt;</summary>
     
     
     
