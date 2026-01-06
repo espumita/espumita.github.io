@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2025-12-09T11:39:35.040Z</updated>
+  <updated>2026-01-06T11:26:58.512Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>💻 Hardware Series, Part I: CPU</title>
+    <link href="https://espumita.org/2026/01/06/hardware-cpu/"/>
+    <id>https://espumita.org/2026/01/06/hardware-cpu/</id>
+    <published>2026-01-06T10:47:13.000Z</published>
+    <updated>2026-01-06T11:26:58.512Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2026/01/06/hardware-cpu/aslkdasljkdlkasdkadlkakdlsasdasd.jpg&quot; class=&quot;&quot;&gt;
+&lt;p&gt;I need to buy a computer, which one is the good one? Intel or AMD? Why is this one 500€ and this other is 1500€? It’s this good to play Fortnite? i7 is better than i5? This one comes with Windows 11. If I buy this new computer, will my Facebook still be there?… If you are in the tech world, &lt;strong&gt;maybe someone has ever asked you these kinds of questions&lt;/strong&gt;, and for &lt;a href=&quot;https://www.acm.org/code-of-ethics&quot;&gt;social responsibility reasons&lt;/a&gt;, you should answer them 🙂.&lt;/p&gt;
+&lt;p&gt;I decided to collect &lt;strong&gt;all my notes and discoveries on hardware over the years&lt;/strong&gt;, and write this Hardware Series to answer these questions.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hardware" scheme="https://espumita.org/categories/Hardware/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>📚 Book notes: System Design Interview: Volume 1</title>
@@ -477,11 +496,11 @@
   </entry>
   
   <entry>
-    <title>💻 Dotnet Dependency Injection Setup</title>
+    <title>⚙️ Dotnet Dependency Injection Setup</title>
     <link href="https://espumita.org/2020/06/07/dotnet-dependency-injection/"/>
     <id>https://espumita.org/2020/06/07/dotnet-dependency-injection/</id>
     <published>2020-06-07T20:52:27.000Z</published>
-    <updated>2025-12-09T11:55:36.943Z</updated>
+    <updated>2025-12-11T10:54:13.125Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/static/J23J2J2KSKK12lkk2kwlsll22la.png&quot;/&gt;
