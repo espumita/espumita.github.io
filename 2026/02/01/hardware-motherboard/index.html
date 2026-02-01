@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="We have been building modular PCs “in the same way” since the 80s. If you compare Jeff Atwood’s (Stack Exchange co-founder) PC build blog entries from 2007 and 2020, you will notice that nothing has">
+<meta property="og:type" content="article">
+<meta property="og:title" content="💻 Hardware Series, Part II: Motherboard">
+<meta property="og:url" content="https://espumita.org/2026/02/01/hardware-motherboard/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="We have been building modular PCs “in the same way” since the 80s. If you compare Jeff Atwood’s (Stack Exchange co-founder) PC build blog entries from 2007 and 2020, you will notice that nothing has">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/786trtfygvuhbjnkmljnhuygytfrdfcgyvhjk2.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/0987yguhij098uigtgfhjgkhkjkl.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/57e5d992e0344.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/huygtfygvuhbijnkmoploi90u8y7ghuijok.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/hftdyrtfgvuhbijnokpoljihouigyuhibujokll.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/j323redsfsdfsdfsafsfsfsfh6.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/jhgyt7rfgyuhuijikou0jiopked.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/76t7r5dtfycgvuhbjnjhgf76rdtfgyuh.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/8786ftvuyhbiuji0987687564rdtyguyvhiubjoik.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/908976tfvyughbijnokjmplopi9u8u7y.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/089786rfyguihoijoiuy9t786r7tfyugihjok.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/iuhiygtfr6d57tfr6yg8uhijnokmjh.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/jnhygtfrt7gytuhji9uihjouhqwjeqwkjeqwkle.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/9786rygiuojyiudhjakdjksadkjsa.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/09876r5tdyfughijokplooi9u08y7t6fyguhijo.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/908978675r6t87y8u9i09u8ytghbjnkmnjkh.gif">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/567utyhgrfew3r4etyhygnbfdsgbhv.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/kijhu8g7ftvgubhinjomkpkojkds.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/87865redrfygvuhbijni7565rtfyguiho.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/56ytrgfwe343regd23ewfsfsdf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/sdif9ushfjosfpddskgdslrfrsd.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/45RTGFDER456U7YJHGNGBFDSERWDFGHF.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/yt6r756dtfygvuhbij9t7r56rdftygu.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/kijuytfrdtgvthbjnko87656tfgy7hu.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/sdfghfdjsffdghhjkdsfgjkklddlksfgkld.jpg">
+<meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/yrhtrefrgthyhgfdgfgdfsjhkgldskjfhgjdkl.jpg">
+<meta property="article:published_time" content="2026-02-01T09:17:58.000Z">
+<meta property="article:modified_time" content="2026-02-01T09:56:12.463Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2026/02/01/hardware-motherboard/786trtfygvuhbjnkmljnhuygytfrdfcgyvhjk2.jpg">
+
+
+<link rel="canonical" href="https://espumita.org/2026/02/01/hardware-motherboard/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2026/02/01/hardware-motherboard/","path":"2026/02/01/hardware-motherboard/","title":"💻 Hardware Series, Part II: Motherboard"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>💻 Hardware Series, Part II: Motherboard | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2026/02/01/hardware-motherboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="💻 Hardware Series, Part II: Motherboard | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          💻 Hardware Series, Part II: Motherboard
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-02-01 09:17:58" itemprop="dateCreated datePublished" datetime="2026-02-01T09:17:58+00:00">2026-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hardware/" itemprop="url" rel="index"><span itemprop="name">Hardware</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2026/02/01/hardware-motherboard/786trtfygvuhbjnkmljnhuygytfrdfcgyvhjk2.jpg" class="">
+
+<p>We have been building modular PCs <strong>“in the same way”</strong> since the 80s. If you compare Jeff Atwood’s (Stack Exchange co-founder) PC build blog entries from <a target="_blank" rel="noopener" href="https://blog.codinghorror.com/building-a-pc-part-i/">2007</a> and <a target="_blank" rel="noopener" href="https://blog.codinghorror.com/building-a-pc-part-ix-downsizing/">2020</a>, you will notice that nothing has changed. <strong>The process and the components remain the same</strong>. But at the same time, everything has changed. All <strong>technologies and standards have evolved</strong>, but the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Von_Neumann_architecture">core concepts</a> remain the same (Processing, Memory, Storage, Expansions, Power, I&#x2F;O, Graphics).</p>
+<p>Modern motherboards still orchestrate all these modular concepts, and today are the result of <strong>40 years of engineering refinement and the operational reality of all humanity</strong>.</p>
+<span id="more"></span>
+
+<h1 id="Hardware-Series"><a href="#Hardware-Series" class="headerlink" title="Hardware Series:"></a>Hardware Series:</h1><ul>
+<li><a href="/2026/01/06/hardware-cpu/">💻 Hardware Series, Part I: CPU</a></li>
+<li><a href="/2026/01/07/hardware-motherboard/">💻 Hardware Series, Part II: Motherboard</a></li>
+</ul>
+<p><strong>⚠️Disclaimer:</strong> I’m not a hardware expert, so I tried to include all the relevant sources and useful links. 🙂</p>
+<h1 id="📃-Content"><a href="#📃-Content" class="headerlink" title="📃 Content:"></a>📃 Content:</h1><ul>
+<li><a href="#what-is-a-motherboard">🕵️ What is a Motherboard?</a></li>
+<li><a href="#chipset">🎛️ The Chipset</a></li>
+<li><a href="#form-factors">📏 Form Factors</a></li>
+<li><a href="#vrms">⚡ VRMs</a></li>
+<li><a href="#ram-slots-channels">🧠 RAM Slots &amp; Channels</a></li>
+<li><a href="#pci-express">🛣️ PCI Express</a></li>
+<li><a href="#io-panels">🔌 I&#x2F;O Panels</a></li>
+<li><a href="#bios-uefi">⚙️ BIOS &#x2F; UEFI</a></li>
+<li><a href="#how-to-choose-motherboard">🆚 How to choose a Motherboard?</a></li>
+</ul>
+<p><span id="what-is-a-motherboard"></span></p>
+<h1 id="🕵️-What-is-a-Motherboard"><a href="#🕵️-What-is-a-Motherboard" class="headerlink" title="🕵️ What is a Motherboard?"></a>🕵️ What is a Motherboard?</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b2pd3Y6aBag">PowerCert Animated Videos - Motherboards Explained ⭐⭐⭐⭐⭐</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=d86ws7mQYIg&t=108s">Branch Education - How does Computer Hardware Work? - Motherboard ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>If the CPU is the brain, the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Motherboard">Motherboard</a> is the <strong>nervous system</strong>. It is the backbone that connects all components, determines <strong>expandability</strong>, and dictates the <strong>lifespan</strong> of a build.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/0987yguhij098uigtgfhjgkhkjkl.jpg" class="" title="ASUS ROG Strix X870E-H Board Diagram">
+  <figcaption>ASUS ROG Strix X870E-H Board Diagram
+</figcaption>
+</figure>
+
+
+<p>The motherboard is the main <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Printed_circuit_board">printed circuit board (PCB)</a>. It <strong>distributes power</strong> and <strong>allows communication</strong> between the electronic components of a system.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/57e5d992e0344.jpg" class="" title="PCB board design">
+  <figcaption>PCB board design</figcaption>
+</figure>
+
+<p>Modern motherboards consist of <strong>multiple layers</strong> (8 to 16+) of <strong>fiberglass, resin, and copper</strong> traces. More layers generally mean <strong>better signal integrity</strong> (less interference between electrical signals) and <strong>better durability</strong>, which is crucial for high-speed components like PCIe 5.0 lines and DDR5 memory.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/huygtfygvuhbijnkmoploi90u8y7ghuijok.jpg" class="" title="Motherboard PCB Layers">
+  <figcaption>Motherboard PCB Layers</figcaption>
+</figure>
+
+<blockquote>
+<p>❓<strong>How thick are copper layers?</strong></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Printed_circuit_board#Copper_thickness">Copper Thickness</a> in the US is specified as ounces per square foot (oz&#x2F;ft2). Greater copper thickness equates to <strong>higher current</strong> capacity, better <strong>thermal management</strong>, more <strong>power efficiency</strong> and more <strong>structural resistance</strong>, but this <strong>increases the cost</strong>. Nowadays motherboards usually do <a target="_blank" rel="noopener" href="https://www.gigabyte.com/MicroSite/57/data/tech_090116_2oz-overview.htm">2 oz</a> (600 g&#x2F;m²) layers but we can find even more in the high-end products.</p>
+<p>❓ <strong>Who builds Motherboards?</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DRSrV0wOsdE">Allround-PC - Inside the MSI Shenzhen Factory ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>Building a motherboard is a <strong>highly automated</strong> and <strong>manual</strong>, multi-stage process generally divided into phases: <strong>PCB Fabrication</strong>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Surface-mount_technology">Surface Mount Technology (SMT)</a>, <strong>Manual Assembly</strong>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Automated_optical_inspection">Automated optical inspection</a>, and <strong>Functional Testing</strong>.</p>
+<p>The <strong>main manufacturers</strong> are ASUS, MSI, GIGABYTE, ASRock, and Biostar, but there are many others that build <strong>proprietary hardware</strong> like Dell, HP, Lenovo, Acer, IBM, etc. Also, we can find <strong>other big players for servers</strong> like Supermicro, Tyan, or ASRock Rack. These companies <strong>design and assemble the motherboards</strong>, but they <strong>buy and integrate finished components from a large number of third-party suppliers</strong>:</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/hftdyrtfgvuhbijnokpoljihouigyuhibujokll.jpg" class="" title="Key chip suppliers For Apple" alt="s iPhone 15">
+  <figcaption>Key chip suppliers For Apple's iPhone 15</figcaption>
+</figure>
+
+<p> For example, they buy <strong>chipsets</strong> from AMD and Intel, <strong>sockets</strong> from Lotes and Foxconn, <strong>VRMs and MOSFETs</strong> from Infineon Technologies, Renesas, or Monolithic Power Systems. <strong>PCB components</strong> from Zhen Ding Technology, Unimicron, and TTM Technologies. <strong>BMC chips</strong> from ASPEED Technology. Lattice Semiconductor, Samsung, SK Hynix, &amp; Micron for <strong>storage and memory chips that need to be soldered on board</strong>, Amphenol &amp; Molex for <strong>physical connectors</strong>, Murata &amp; TDK for <strong>ceramic capacitors</strong>, etc.</p>
+<p><span id="chipset"></span></p>
+<h1 id="🎛️-The-Chipset"><a href="#🎛️-The-Chipset" class="headerlink" title="🎛️ The Chipset"></a>🎛️ The Chipset</h1><p>For me this is the <strong>second most important thing</strong> to check 👀 when building a computer, after the CPU. The <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Chipset">Chipset</a> is an integrated circuit that acts as a <strong>communication hub and traffic control center</strong> between motherboard components. Chipsets determine the motherboard <strong>compatibility with external components</strong>.</p>
+<p>In the past, Chipsets consisted of two main chips: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Northbridge_(computing)">Northbridge</a>, located near the CPU, it handled <strong>high-speed communication</strong> (RAM, PCIe x16 graphics) and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Southbridge_(computing)">Southbridge</a>, located further away, it <strong>managed slower communication</strong> I&#x2F;O like USB, Audio, Storage (SATA&#x2F;IDE), Networking, and BIOS.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/j323redsfsdfsdfsafsfsfsfh6.jpg" class="" title="Typical North&#x2F;Southbridge layout (2007)">
+  <figcaption>Typical North/Southbridge layout (2007)</figcaption>
+</figure>
+
+<p>On modern motherboards, the <strong>Northbridge’s</strong> functions are <strong>integrated directly into the CPU to reduce latency</strong>. The <strong>modern Chipset is essentially just the Southbridge</strong>, now called the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Platform_Controller_Hub">Platform Controller Hub (PCH)</a>, handling <strong>secondary connectivity</strong> like USB ports, SATA drives, WiFi, and extra PCIe lanes.</p>
+<p>CPU and Chipset relation defines the <strong>maximum theoretical specs of motherboards</strong> on a single generation:</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/jhgyt7rfgyuhuijikou0jiopked.jpg" class="" title="Intel Raptor Lake CPUs and Intel Z790 Chipset Diagram">
+  <figcaption>Intel Raptor Lake CPUs and Intel Z790 Chipset Diagram</figcaption>
+</figure>
+
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/76t7r5dtfycgvuhbjnjhgf76rdtfgyuh.jpg" class="" title="AMD X670E&#x2F;X670 Chipset Diagram">
+  <figcaption>AMD X670E/X670 Chipset Diagram</figcaption>
+</figure>
+
+<p>PC manufacturers tier their chipsets to segment the market:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/ark/products/series/237776/intel-800-series-desktop-chipsets.html">Intel 800 Series Chipsets</a></th>
+<th><a target="_blank" rel="noopener" href="https://www.amd.com/en/products/processors/chipsets/am5.html">AMD AM5 Chipsets</a></th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Enthusiast</strong></td>
+<td>Z890</td>
+<td>X870E &#x2F; X870</td>
+<td>Full CPU&#x2F;Memory overclocking, maximum PCIe 5.0 lanes, USB4 standard, and multi-GPU support.</td>
+</tr>
+<tr>
+<td><strong>Mainstream</strong></td>
+<td>B860</td>
+<td>B850</td>
+<td>The “sweet spot.” Supports high-speed RAM and PCIe 5.0 for storage. Limited CPU overclocking on Intel.</td>
+</tr>
+<tr>
+<td><strong>Entry Level</strong></td>
+<td>H810</td>
+<td>B840 &#x2F; A620</td>
+<td>PCIe 4.0 focus, fewer high-speed USB ports, and often limited to two RAM slots.</td>
+</tr>
+</tbody></table>
+<p>We also can have <strong>special chipsets for business</strong>, for example Intel Chipsets with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Intel_vPro">Intel vPro</a> technology (<a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/sku/240125/intel-q870-chipset/specifications.html">Q870</a>, <a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/sku/241151/intel-w880-chipset/specifications.html">W880</a>) offers more stability, remote management and <strong>security features at hardware level</strong> like: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Intel_Threat_Detection_Technologhy">Threat Detection Technology</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Intel_vPro#IBG">Boot&#x2F;BIOS Guard</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cold_boot_attack#FME">Total Memory Encryption</a>, remote recovery (even if OS is dead), etc.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/8786ftvuyhbiuji0987687564rdtyguyvhiubjoik.jpg" class="" title="Lenovo ThinkSystem SD650 V2 with C621A Chipset diagram">
+  <figcaption>Lenovo ThinkSystem SD650 V2 with C621A Chipset diagram</figcaption>
+</figure>
+
+<p>Also we have <strong>different chipsets for servers</strong> (<a target="_blank" rel="noopener" href="https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w790-ace/techspec/">W790</a>, <a target="_blank" rel="noopener" href="https://www.asrockrack.com/general/productdetail.asp?Model=B650D4U3-2L2Q/BCM#Specifications">B650E</a>, <a target="_blank" rel="noopener" href="https://lenovopress.lenovo.com/lp1392-thinksystem-sr650-v2-server">C621A</a>). But modern server processors like Intel Xeon 6500&#x2F;6700-series processors can even have <strong>Chipset integrated into the processor</strong> (For example: <a target="_blank" rel="noopener" href="https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server">ThinkSystem SD650 V4</a>).</p>
+<blockquote>
+<p><strong>❓ How to know CPU&#x2F;Motherboard&#x2F;Chipset compatibility?</strong></p>
+</blockquote>
+<p>Chipsets are designed <strong>closely with CPU architectures and sockets</strong>, so there is a range of compatible processors for each Chipset (generally with the same socket). And a processor can be compatible with multiple Chipsets. So it’s important to know the <strong>Motherboard&#x2F;Chipsets compatibility</strong>.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://compatibleproducts.intel.com/">Intel Motherboards&#x2F;Chipsets compatibility tool</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.amd.com/en/partner/about-partners/motherboard-specifications.html">AMD Motherboards&#x2F;Chipsets compatibility tool</a></li>
+</ul>
+<blockquote>
+<p><strong>❓ Two boards with the same chipset are equal?</strong><br>  <strong>Not necessarily</strong>. Like CPUs, <strong>not all motherboards’ product lines deliver the same product specs</strong>. Two motherboards with the “Z890 chipset” in the product package name can vary in capabilities, for example number of USB ports or PCIe lanes. That’s why motherboards with the same socket&#x2F;chipset have different prices.</p>
+</blockquote>
+<h3 id="DMI"><a href="#DMI" class="headerlink" title="DMI"></a>DMI</h3><p>The Northbridge and Southbridge are connected through PCI Express lanes acting as a <strong>high-speed point-to-point link</strong>. AMD uses PCIe directly and <a target="_blank" rel="noopener" href="https://en.wikichip.org/wiki/amd/infinity_fabric">Infinity Fabric</a> technology, while Intel uses <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Direct_Media_Interface">Direct Media Interface (DMI)</a> proprietary technology:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Version</th>
+<th align="left">Transfer Rate</th>
+<th align="left">Effective Max Bandwidth</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DMI 1.0</td>
+<td align="left">2.5 GT&#x2F;s</td>
+<td align="left">~1 GB&#x2F;s (x4 link)</td>
+</tr>
+<tr>
+<td align="left">DMI 2.0</td>
+<td align="left">5.0 GT&#x2F;s</td>
+<td align="left">~2 GB&#x2F;s (x4 link)</td>
+</tr>
+<tr>
+<td align="left">DMI 3.0</td>
+<td align="left">8.0 GT&#x2F;s</td>
+<td align="left">~4 GB&#x2F;s (x4 link)</td>
+</tr>
+<tr>
+<td align="left">DMI 4.0</td>
+<td align="left">16.0 GT&#x2F;s</td>
+<td align="left">~16 GB&#x2F;s (x8 link)</td>
+</tr>
+</tbody></table>
+<p>The <strong>number of DMI lanes depends on the chipset</strong> model used; they can be x4&#x2F;x8 or even x2 lanes on mobile systems:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Chipset</th>
+<th align="left">DMI Lanes</th>
+<th align="left">Bandwidth</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Z790 &#x2F; Z890</td>
+<td align="left">DMI 4.0 x8</td>
+<td align="left">16 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">B860 &#x2F; H810</td>
+<td align="left">DMI 4.0 x4</td>
+<td align="left">8 GB&#x2F;s</td>
+</tr>
+</tbody></table>
+<p>This is <strong>rarely a meaningful bottleneck</strong>, but if you run two high-speed NVMe drives through <strong>the wrong chipset</strong> simultaneously, you may hit a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Roofline_model#Bandwidth_ceilings">bandwidth ceiling</a>.</p>
+<p><span id="form-factors"></span></p>
+<h1 id="📏-Form-Factors"><a href="#📏-Form-Factors" class="headerlink" title="📏 Form Factors"></a>📏 Form Factors</h1><p>The <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Computer_form_factor">Form Factor</a> is the specification of the printed circuit board (PCB). This specification describes things like: <strong>dimensions, power supply type, connectors, location of the mounting holes, number of ports on the back panel</strong>, etc. Nowadays, the most common form factors for PCs are:</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/908976tfvyughbijnokjmplopi9u8u7y.jpg" class="" title="Form Factor Size Comparison">
+  <figcaption>Form Factor Size Comparison</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Form Factor</th>
+<th>Size</th>
+<th>Typical Use Case</th>
+<th>Expansion Slots (Max)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Extended-ATX</strong></td>
+<td>305 × 330 mm</td>
+<td>Enthusiast &#x2F; Workstation</td>
+<td>8</td>
+</tr>
+<tr>
+<td><strong>Standard ATX</strong></td>
+<td>305 × 244 mm</td>
+<td>Standard Gaming PC</td>
+<td>7</td>
+</tr>
+<tr>
+<td><strong>Micro-ATX</strong> (mATX)</td>
+<td>244 × 244 mm</td>
+<td>Budget &#x2F; Compact builds</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Mini-ITX</strong> (ITX)</td>
+<td>170 × 170 mm</td>
+<td>Small Form Factor (SFF)</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>❓<strong>Does the size affect performance?</strong><br>  <strong>Not necessarily</strong> A Mini-ITX board can run an i9 just as fast as an E-ATX board, assuming it has good power delivery (VRMs) and cooling. However, smaller boards have <strong>fewer physical slots</strong> for RAM (often 1 or 2 instead of 4) and fewer PCIe slots, limiting upgradeability.</p>
+</blockquote>
+<p>In 1995, Intel introduced the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ATX">Advanced Technology Extended (ATX)</a> <strong>motherboard and power supply configuration specification</strong>, improving standardization and interchangeability of components. It is the standard that we still use today, but it has evolved with different revisions over the years (I will cover this in depth in a future post), for example:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cdn.instructables.com/ORIG/FS8/5ILB/GU59Z1AT/FS85ILBGU59Z1AT.pdf">ATX Specification Version 2.2</a></li>
+<li><a target="_blank" rel="noopener" href="https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/atx-version-3-0-multi-rail-desktop-platform-power-supply-design-guide/2.1a/">ATX Power Supply Design Guide Specification Version 3.1</a></li>
+</ul>
+<p><span id="vrms"></span></p>
+<h1 id="⚡-VRMs"><a href="#⚡-VRMs" class="headerlink" title="⚡ VRMs"></a>⚡ VRMs</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B8sTUfusKyo">Nate Gentile - ¿Quién hace las mejores placas? ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>The <a target="_blank" rel="noopener" href="https://en.wikichip.org/wiki/voltage_regulator_module">Voltage Regulator Module (VRM)</a> converts the 12V coming from your power supply (PSU) down to the ~0.6V - 1.4V the CPU&#x2F;Cores needs, and it must do this <strong>cleanly and stably</strong> while the CPU current usage fluctuates wildly (from 10As to 200A in milliseconds).</p>
+<p><strong>High-quality VRM</strong> is essential to achieving <strong>high CPU overclocks</strong>, and <strong>high stable CPU clocks</strong>, since <strong>stable clocks require clean and consistent voltage</strong>. This is what separates the “cheap” boards from the “quality” boards, even if they have the same chipset.</p>
+<p>Also, Motherboards with quality VRMs, can give <strong>same Frequency(HZs) using less voltage</strong>, generating less heat, than others.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/089786rfyguihoijoiuy9t786r7tfyugihjok.jpg" class="" title="VRM Layout">
+  <figcaption>VRM Layout</figcaption>
+</figure>
+
+<p>❓<strong>How VRMs Work?</strong></p>
+<p>The VRM circuit basically lets the electric current pass by <strong>opening and closing a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Switch">switch</a></strong>. Every time the circuit closes, the current passes and we get a pulse. <strong>The number of electric pulses in one second determines the Frequency(HZs) of the circuit</strong>, so the more Hz, the more pulses in 1 second. This switch is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MOSFET#:~:text=The%20metal%E2%80%93oxide%E2%80%93semiconductor%20field,the%20conductivity%20of%20the%20device.s">MOSFET (Metal Oxide Semiconductor Field Effect Transistor)</a>. The one connected directly to the 12V source is called <strong>High-Side MOSFET</strong>.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/iuhiygtfr6d57tfr6yg8uhijnokmjh.jpg" class="" title="1 phase VRM circuit">
+  <figcaption>1 phase VRM circuit</figcaption>
+</figure>
+
+<p>There are <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Choke_(electronics)">Chokes</a>, which is an electromagnetic coil that transforms the <strong>electric current into an electromagnetic field</strong>, and <strong>slowly sends a remaining lowered voltage</strong> to the CPU.  Chokes also store energy briefly to prevent sudden dips in power. This low voltage flow is a secondary circuit enabled by a MOSFET known as <strong>Low-Side MOSFET</strong>.</p>
+<p>When High-Side is closed Low-Side is opened and vice versa. <strong>The High-Side is only on for 10% of the time, the Low-Side is on for the remaining 90% of the time</strong>. Electric current <strong>voltage is regulated</strong> by modifying pulse length of the MOSFETs. This is done by the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse-width modulation (PWM) chip</a>.</p>
+<p>There are electrical <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Capacitor">Capacitors</a> they act like tiny, lightning-fast batteries. They store a charge and release it to <strong>fill in the gaps</strong>, ensuring the CPU receives a <strong>perfectly flat, stable line of power</strong> with no ripples or spikes.</p>
+<p>There are also <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Diode">diodes</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Resistor">resistors</a> to <strong>avoid the current to exceed</strong> desired values.</p>
+<p><strong>❓What are VRM phases?</strong></p>
+<p>Voltage provided by the power supply is not always stable due to micro-variabilities in the electrical network. In order to provide to the CPU the <strong>most stable voltage possible</strong>, <strong>multiple power phases</strong> are used and combined in the VRM circuit. </p>
+<p>The previous <strong>circuit is replicated</strong> in multiple phases and <strong>current is split in parallel</strong>. Pulses are delayed in each phase, <strong>handling a portion of the total resulting current</strong>. The <strong>more power phases</strong> a VRM has, theoretically, the better its ability to supply <strong>power stably</strong> especially in intensive load situations. </p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/jnhygtfrt7gytuhji9uihjouhqwjeqwkjeqwkle.jpg" class="" title="4 phase VRM Voltages">
+  <figcaption>4 phase VRM Voltages</figcaption>
+</figure>
+
+<p>Motherboards usually come with 4,6,8 VRMs. Also, the majority of modern motherboards use <strong>doublers</strong> in order to double the number of VRMs (12,16,24…).</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/9786rygiuojyiudhjakdjksadkjsa.jpg" class="" title="Doubled 4 phase VRM circuit">
+  <figcaption>Doubled 4 phase VRM circuit</figcaption>
+</figure>
+
+<p>A phase doubler <strong>doubles the number of phases</strong> by generating <strong>two interleaved signals</strong> that are formed using the original. Doublers ensure each phase has <strong>less load and less stress</strong>. This increases VRM <strong>durability and supports higher electric loads</strong> (more Frequency(HZs)).</p>
+<blockquote>
+<p>❓ <strong>What is 8+2 phases?</strong><br>  VRM phases are normally expressed as 8+2, which means 8 phases for the CPU circuit and 2 dedicated to integrated graphics, the memory controller, and the I&#x2F;O.</p>
+</blockquote>
+<blockquote>
+<p>❓ <strong>More phases is equal to better voltage delivery?</strong><br> <strong>Not necessarily</strong>. It could be another marketing trap. High end motherboards generally have more phases, but having more phases doesn’t necessarily mean that output voltage will be more stable or will work at lower temperatures. This is a component where <strong>quality almost always beats quantity</strong>, so it <strong>requires manual testing</strong>. Generally Motherboards for overclocking use <strong>very good VRMs</strong> and usually they cover capacitors with <strong>heatsinks</strong>.</p>
+</blockquote>
+<p><span id="ram-slots-channels"></span></p>
+<h1 id="🧠-RAM-Slots-Channels"><a href="#🧠-RAM-Slots-Channels" class="headerlink" title="🧠 RAM Slots &amp; Channels"></a>🧠 RAM Slots &amp; Channels</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zxGqGCtPxn4">Linus Tech Tips - How Motherboards Work - Turbo Nerd Edition ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>The motherboard provides the <strong>physical electrical pathways</strong>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multi-channel_memory_architecture">(channels)</a> that <strong>enable data transfer to the CPU and the rest of the system</strong>. These pathways lead to the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DIMM">DIMM slots</a>, which act as the <strong>physical interface where memory modules are installed</strong> to bridge the gap between storage and processing.</p>
+<p>Nowadays, the most common scenario is that boards have 4 DIMM slots and two channels (dual-channel configuration). (I will cover this in detail in a future post).</p>
+<p>There are <a target="_blank" rel="noopener" href="https://forum-en.msi.com/index.php?threads/ram-explained-why-two-modules-are-better-than-four-single-vs-dual-rank-stability-testing.363139/page-9">differences in memory speed</a> depending on Motherboards’ channel topology:</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/09876r5tdyfughijokplooi9u08y7t6fyguhijo.jpg" class="" title="Direct vs Daisy Chain vs T-Topology">
+  <figcaption>Direct vs Daisy Chain vs T-Topology</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">Memory Topology</th>
+<th align="left">Description</th>
+<th align="left">Best RAM Stick Configuration</th>
+<th align="left">Max Frequency Potential</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Direct ITX</strong></td>
+<td align="left">1 DIMM slot per channel. Shortest, cleanest traces.</td>
+<td align="left">2</td>
+<td align="left">Highest</td>
+</tr>
+<tr>
+<td align="left"><strong>Daisy Chain</strong></td>
+<td align="left">Traces go to the first slot, then extend to the second. Signal is best in the furthest slot.</td>
+<td align="left">2</td>
+<td align="left">High</td>
+</tr>
+<tr>
+<td align="left"><strong>T-Topology</strong></td>
+<td align="left">Traces split equally like a “T” to both slots. Signal distance is identical.</td>
+<td align="left">4</td>
+<td align="left">Moderate</td>
+</tr>
+</tbody></table>
+<p>Nowadays, in PC Motherboards <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Daisy_chain_(electrical_engineering)">Daisy Chain</a> is the standard, <strong>prioritizing speed over capacity</strong>, while Direct Topology is mainly used in Mini-ITX boards. </p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/908978675r6t87y8u9i09u8ytghbjnkmnjkh.gif" class="" title="Daisy Chain Design">
+  <figcaption>Daisy Chain Design</figcaption>
+</figure>
+
+<p>On the other hand, servers standard is <a target="_blank" rel="noopener" href="https://resources.altium.com/p/fly-topology-routing-ddr3-and-ddr4-memory">Fly-by Topology</a> a high-speed routing method, <strong>daisy-chaining</strong> command, address, control, and clock signals to manage <strong>massive amounts of RAM</strong>.</p>
+<p><span id="pci-express"></span></p>
+<h1 id="🛣️-PCI-Express"><a href="#🛣️-PCI-Express" class="headerlink" title="🛣️ PCI Express"></a>🛣️ PCI Express</h1><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PCI_Express">PCI Express</a> (Peripheral Component Interconnect Express) is the <strong>high-speed interface standard</strong> used to connect the Motherboard to peripheral devices like GPUs, NVMe SSDs, and network cards. The <a target="_blank" rel="noopener" href="https://pcisig.com/specification-overview/pci-express-base">PCIe Specification</a> is developed and maintained by the <a target="_blank" rel="noopener" href="https://pcisig.com/">PCI Special Interest Group (PCI-SIG)</a>. Compared to earlier standards (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Industry_Standard_Architecture">ISA</a>,<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Peripheral_Component_Interconnect">PCI</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Accelerated_Graphics_Port">AGP</a>), PCIe supports <strong>faster data transfer</strong>, uses <strong>fewer pins</strong>, <strong>I&#x2F;O virtualization</strong>, and allows <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hot_swapping">hot swapping</a>.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/567utyhgrfew3r4etyhygnbfdsgbhv.jpg" class="" title="Types of PCIe Slots">
+  <figcaption>Types of PCIe Slots</figcaption>
+</figure>
+
+<p>PCIe uses a <strong>point-to-point topology</strong>, where every device has its <strong>own dedicated connection to the CPU</strong>. These connections are made through <strong>lanes</strong>:</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/kijhu8g7ftvgubhinjomkpkojkds.jpg" class="" title="PCIe Lanes and Link">
+  <figcaption>PCIe Lanes and Link</figcaption>
+</figure>
+
+<p>A lane is composed of <strong>two differential signaling pairs</strong>, with <strong>one pair for receiving</strong> data and the <strong>other for transmitting</strong>. Each lane is composed of <strong>four wires or signal traces</strong>. Conceptually, each lane is used as a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Duplex_(telecommunications)#FULL-DUPLEX">full-duplex</a> <strong>byte stream</strong>, transporting data packets in <strong>eight-bit (byte) format simultaneously in both directions</strong>. PCIe Link <strong>bandwidth</strong> is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PCI_Express#Comparison_table">scaled by the number of lanes</a>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">PCIe Link Lane Width</th>
+<th align="left">PCIe 3.0</th>
+<th align="left">PCIe 4.0</th>
+<th align="left">PCIe 5.0</th>
+<th align="left">PCIe 6.0</th>
+<th align="left">PCIe 7.0</th>
+<th align="left">PCIe 8.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>x1</strong></td>
+<td align="left">1 GB&#x2F;s</td>
+<td align="left">1.97 GB&#x2F;s</td>
+<td align="left">3.94 GB&#x2F;s</td>
+<td align="left">7.56 GB&#x2F;s</td>
+<td align="left">15.13 GB&#x2F;s</td>
+<td align="left">30.25 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>x4</strong></td>
+<td align="left">3.94 GB&#x2F;s</td>
+<td align="left">7.88 GB&#x2F;s</td>
+<td align="left">15.75 GB&#x2F;s</td>
+<td align="left">30.25 GB&#x2F;s</td>
+<td align="left">60.5 GB&#x2F;s</td>
+<td align="left">121 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>x8</strong></td>
+<td align="left">7.88 GB&#x2F;s</td>
+<td align="left">15.75 GB&#x2F;s</td>
+<td align="left">31.51 GB&#x2F;s</td>
+<td align="left">60.5 GB&#x2F;s</td>
+<td align="left">121 GB&#x2F;s</td>
+<td align="left">242 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>x16</strong></td>
+<td align="left">15.75 GB&#x2F;s</td>
+<td align="left">31.51 GB&#x2F;s</td>
+<td align="left">63.02 GB&#x2F;s</td>
+<td align="left">121 GB&#x2F;s</td>
+<td align="left">242 GB&#x2F;s</td>
+<td align="left">484 GB&#x2F;s</td>
+</tr>
+</tbody></table>
+<p>The <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PCI_Express#Pinout">PCIe physical pinout</a> has remained identical across all generations enabling <strong>universal backward compatibility</strong> since 1.0. This means that you can plug a PCIe 5.0 SSD into a PCIe 3.0 Motherboard, and it will still work (but at a slower speed).</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/87865redrfygvuhbijni7565rtfyguiho.jpg" class="" title="164 pin PCIe 16x connector">
+  <figcaption>164 pin PCIe 16x connector</figcaption>
+</figure>
+
+<p>We can differentiate two big parts: <strong>the keyside</strong> (first 22 pins), they handle <strong>power</strong> (3.3V and 12V), the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/System_Management_Bus">system management bus (SMBus)</a>, and the <strong>presence detect</strong> signal that tells the system a card is plugged in. On the other hand we have the <strong>data lanes</strong> used for <strong>data transfer</strong>.</p>
+<blockquote>
+<p><strong>❓ Can I use a PCIe x4 card in a PCIe x16 Slot?</strong><br>  It’s not the common thing, but if you are in survival mode, <strong>yes, it will work</strong>. Only the first x4 data lanes will be used, but you will waste the last 12 lanes.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓ Is the PCIe x16 Slot always a 16 Lanes PCIe?</strong><br>  <strong>Not necessarily</strong>, many motherboards could have <strong>physical x16 slot that is electrically a x4</strong>. Normally the ones located more at the bottom. If you plug a high-end GPU into that slot, your software will still run, but you’ll be limited to 1&#x2F;4th the potential bandwidth.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓ In which PCIe Slot should I plug the GPU and the NVMe?</strong><br>  To get the higher bandwidth with these components <strong>follow the Motherboard’s manual instructions</strong>. As seen in the chipset chapter, <strong>the top PCIe x16 slot is wired directly to the CPU</strong> for the GPU, and normally there are other <strong>x4 PCIe Lanes linked between the CPU and the main M2 slot</strong> (M2_1, M2_2 or M2_3) slot.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓ Why are there smaller pins?</strong><br>  Pins “are you present?” PRSNT1 (A1), PRSNT2 (B17, B31, B48 or B81) are shorter, and this is a safety feature called <a target="_blank" rel="noopener" href="https://www.szyunze.com/pcie-hot-plug-explained-clearly-in-one-expert-guide/">Hot Plug detection</a>. Because they are shorter, they are <strong>the last pins to make contact</strong> when you plug a card in and <strong>the first to break contact</strong> when you pull it out. This tells the Motherboard to <strong>instantly cut or enable data flow</strong> to prevent electrical problems. Also this is essential for servers <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hot_swapping">hot-swapping</a> components.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓ Can PCIe power supply the whole PCIe card circuit?</strong><br>  <strong>Normal cards, yes, but not modern GPUs</strong>. Notice that <strong>PCIe max power limit is 75W</strong> (66W from the 12V rail and 9W from the 3.3V rail) through PCIe Slots. <strong>Extra connectors are needed to reach the higher power required for modern CPU chips, GPU memories, and cooling</strong> (450-600W) like <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/12VHPWR">12VHPWR</a>.</p>
+</blockquote>
+<h3 id="PCIe-Generations"><a href="#PCIe-Generations" class="headerlink" title="PCIe Generations"></a>PCIe Generations</h3><p>The industry moved to more efficient ways of packing data into the electrical signals, the standard has been evolving and <strong>doubling the transfer rates every 3 or 4 years</strong> among the different PCIe generations:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Generation</th>
+<th align="left">Release Year</th>
+<th align="left">Transfer rate (x1)</th>
+<th align="left">Bandwidth (x1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>PCIe 1.0</strong></td>
+<td align="left">2003</td>
+<td align="left">2.5 GT&#x2F;s</td>
+<td align="left">250 MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 2.0</strong></td>
+<td align="left">2007</td>
+<td align="left">5 GT&#x2F;s</td>
+<td align="left">500 MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 3.0</strong></td>
+<td align="left">2010</td>
+<td align="left">8 GT&#x2F;s</td>
+<td align="left">985 MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 4.0</strong></td>
+<td align="left">2017</td>
+<td align="left">16 GT&#x2F;s</td>
+<td align="left">1.97 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 5.0</strong></td>
+<td align="left">2019</td>
+<td align="left">32 GT&#x2F;s</td>
+<td align="left">3.94 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 6.0</strong></td>
+<td align="left">2022</td>
+<td align="left">64 GT&#x2F;s</td>
+<td align="left">7.56 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 7.0</strong></td>
+<td align="left">2025</td>
+<td align="left">128 GT&#x2F;s</td>
+<td align="left">15.13 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left"><strong>PCIe 8.0</strong></td>
+<td align="left">2028 (planned)</td>
+<td align="left">256 GT&#x2F;s</td>
+<td align="left">30.25 GB&#x2F;s</td>
+</tr>
+</tbody></table>
+<p>PCIe 1.0 and 2.0 used <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/8b/10b_encoding">8b&#x2F;10b encoding</a>, meaning <strong>20% of the bandwidth was wasted</strong> on protocol overhead and introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Non-return-to-zero">Non-return-to-zero (NRZ)</a>, where basically 1 is represented as a high voltage (+V) and 0 is represented by a low voltage (-V), because the signal doesn’t drop to a neutral state between pulses, it <strong>uses the available bandwidth more efficiently</strong> than older <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Return-to-zero">Return-to-Zero (RZ) methods</a>.</p>
+<p>To correct errors the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">Layer Cyclic Redundancy Check (Link CRC)</a> mechanism is used. Where basically if the checksum of the package fails, the hardware automatically enables a <strong>resend package mechanism</strong>. </p>
+<p>In PCIe 3.0, 4.0, and 5.0: Switched to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/64b/66b_encoding">128b&#x2F;130b encoding</a>, <strong>reducing overhead to a tiny 1.5%</strong>.</p>
+<p><a target="_blank" rel="noopener" href="https://pcisig.com/blog/evolution-pci-express-specification-its-sixth-generation-third-decade-and-still-going-strong">PCIe 6.0</a> introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pulse-amplitude_modulation#Types">Pulse Amplitude Modulation (PAM4 signaling)</a>, which allows for even <a target="_blank" rel="noopener" href="https://pcisig.com/blog/why-did-pcie%C2%AE-60-specification-adopt-pam4-there-are-many-reasons">higher densities of data bits</a> (combinations of 2 bits: 10, 11, 01 or 00 instead of 1 bit: 1 or 0 per clock cycle), this is the core concept of future new releases (PCIe 7.0, 8.0).</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/56ytrgfwe343regd23ewfsfsdf.jpg" class="" title="NRZ and PAM4 Encoding">
+  <figcaption>NRZ and PAM4 Encoding</figcaption>
+</figure>
+
+<p>PAM4 is <strong>much more sensitive to noise signals</strong>, so it uses <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Error_correction_code">forward error correction (FEC)</a>. With PAM4 signaling there are <strong>four voltage levels into the same space, bit errors are inevitable</strong>, bit error rate is much higher at 10<sup>-6</sup> (previously 10<sup>-12</sup>). The solution is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Flit_(computer_networking)">Fixed-Sized FLIT (Flow Control Unit)</a> approach is used: Data is <strong>organized into 256-byte packets</strong> called FLITs. The transmitter adds a <strong>redundant small amount of extra check data</strong> to the end of the packet. If a bit flips due to interference, the receiver <strong>uses that extra data to mathematically calculate</strong> what the bit should have been and corrects it instantly. Also, the previous LCRC mechanism is <a target="_blank" rel="noopener" href="https://pcisig.com/blog/pcie%C2%AE-60-specification-webinar-qa-error-detection-and-correction-fec">still working as a second line of defense</a>.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/sdif9ushfjosfpddskgdslrfrsd.jpg" class="" title="Gen 6.0 PAM-4 signaling">
+  <figcaption>Gen 6.0 PAM-4 signaling</figcaption>
+</figure>
+
+<p><span id="io-panels"></span></p>
+<h1 id="🔌-I-O-Panels"><a href="#🔌-I-O-Panels" class="headerlink" title="🔌 I&#x2F;O Panels"></a>🔌 I&#x2F;O Panels</h1><h3 id="Back-Panel"><a href="#Back-Panel" class="headerlink" title="Back Panel"></a>Back Panel</h3><p> This is the main connection hub of the system that allows you to plug in <strong>external peripherals</strong>, like USB cables, Network, Audio, Monitors, etc.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/45RTGFDER456U7YJHGNGBFDSERWDFGHF.jpg" class="" title="MSI PRO Z890-P WIFI Back Panel">
+  <figcaption>MSI PRO Z890-P WIFI Back Panel</figcaption>
+</figure>
+
+<p>The most common <strong>peripheral interfaces</strong> (I will cover this in depth in a future post) that we can find are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Ports</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Data Transfer</strong></td>
+<td align="left">USB4, Thunderbolt, USB Type-C 3.2 Gen 2, USB Type-A 2.0 &#x2F; 3.2 Gen 1</td>
+</tr>
+<tr>
+<td align="left"><strong>Networking</strong></td>
+<td align="left">Ethernet (LAN), Wi-Fi&#x2F;Bluetooth Antennas</td>
+</tr>
+<tr>
+<td align="left"><strong>Video Output</strong></td>
+<td align="left">HDMI, DP</td>
+</tr>
+<tr>
+<td align="left"><strong>Audio</strong></td>
+<td align="left">3.5mm jacks, 7.1 Audio, Optical S&#x2F;PDIF, Mic</td>
+</tr>
+<tr>
+<td align="left"><strong>Utility</strong></td>
+<td align="left">Buttons for BIOS Flashback, Reset, Safe Boot, Clear CMOS, PS&#x2F;2</td>
+</tr>
+</tbody></table>
+<h3 id="Front-Panel"><a href="#Front-Panel" class="headerlink" title="Front Panel"></a>Front Panel</h3><p>The rest of the peripherals connectors will end in other areas of the case, normally <strong>on the front or the top of the PC case</strong>. These connectors in the Motherboard are usually located in these areas:</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/yt6r756dtfygvuhbij9t7r56rdftygu.jpg" class="" title="MSI PRO Z890-P WIFI Front Panel Areas">
+  <figcaption>MSI PRO Z890-P WIFI Front Panel Areas</figcaption>
+</figure>
+
+<p>In these areas we can find USB Connectors, Audio, Fans, RGB controllers. Also, the <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nBJJj3FB2P8">Front Panel Connectors</a><strong>(JFP1 or F Panel)</strong>, this is the cluster of pins that connects your computer case’s <strong>On&#x2F;Off button and LEDs</strong>.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/kijuytfrdtgvthbjnko87656tfgy7hu.jpg" class="" title="F Panel Connector and Case Cables">
+  <figcaption>F Panel Connector and Case Cables</figcaption>
+</figure>
+
+<p><span id="bios-uefi"></span></p>
+<h1 id="⚙️-BIOS-UEFI"><a href="#⚙️-BIOS-UEFI" class="headerlink" title="⚙️ BIOS &#x2F; UEFI"></a>⚙️ BIOS &#x2F; UEFI</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/LGz0Io_dh_I?si=UUHVorcc_ZuIZlvy">PowerCert Animated Videos - BIOS, CMOS, UEFI - What’s the difference? ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>In Modern Motherboards <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/BIOS">BIOS (Basic Input&#x2F;Output System)</a> is replaced by the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/UEFI">UEFI (Unified Extensible Firmware Interface)</a>. It’s <strong>the first software that runs when the system powers up</strong>. It <strong>initializes hardware</strong> like motherboard’s chipset, memory, and peripherals and hands over control to the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Operating_system">Operating system</a>.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/sdfghfdjsffdghhjkdsfgjkklddlksfgkld.jpg" class="" title="MSI UEFI Configuration Menu">
+  <figcaption>MSI UEFI Configuration Menu</figcaption>
+</figure>
+
+<p>In the old days, a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Button_cell">Button cell battery (CR2032)</a> was essential for powering <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nonvolatile_BIOS_memory">CMOS RAM</a>, a tiny bit of <strong>volatile memory</strong> that stored your <strong>BIOS settings</strong> (like boot order and CPU clocks). If the battery died, your settings vanished and the system <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Real-time_clock">real-time clock (RTC)</a> reset.</p>
+<figure>
+  <img src="/2026/02/01/hardware-motherboard/yrhtrefrgthyhgfdgfgdfsjhkgldskjfhgjdkl.jpg" class="" title="MXIC MX25U25673G BIOS&#x2F;UEFI Chip in a MSI MPG B550">
+  <figcaption>MXIC MX25U25673G BIOS/UEFI Chip in a MSI MPG B550</figcaption>
+</figure>
+
+<p>Modern Motherboards use <a target="_blank" rel="noopener" href="https://writerit.nl/hardware/cmos/replace-wired-cmos-batteries/">pre-wired CR2032</a>. Some Motherboards use <a target="_blank" rel="noopener" href="https://www.gigabyte.com/fileupload/mx/microsite/53/data/tech_081027_x58_bios-dualbios.htm">Dual BIOS</a> (a primary and a backup) to prevent system failure from corrupted firmware. Also most recent Motherboards can have <strong>up to 64MB of BIOS memory</strong>, which allows them to store even primary drivers directly in the BIOS.</p>
+<blockquote>
+<p>❓<strong>Do I need to update my BIOS?</strong><br>  <strong>Depends</strong>, for personal use if your system is stable generally you don’t, but if you want to be up to date with security updates, new CPU&#x2F;Memory support and fix some compatibility bugs, being up to date is <strong>highly recommended</strong>. In enterprise context, it’s <strong>mandatory</strong>.</p>
+</blockquote>
+<p><span id="how-to-choose-motherboard"></span></p>
+<h1 id="🆚-How-to-choose-a-Motherboard"><a href="#🆚-How-to-choose-a-Motherboard" class="headerlink" title="🆚 How to choose a Motherboard?"></a>🆚 How to choose a Motherboard?</h1><ul>
+<li><strong>Buying a Motherboard means buying a new system</strong>. Statistically (I’m 95% sure) you will probably never upgrade any component (like CPU, GPU, NVMe), because when you do a full build, you want to amortize it. <strong>Think about how many years you want to amortize the system first.</strong></li>
+<li>Check your <strong>peripheral needs first</strong> (interfaces, speeds, technology, number of ports, etc.) before starting to look for a Motherboard. Trust me, <strong>you will always use more USB ports than you think</strong>.</li>
+<li>Look for the <strong>CPU and Chipset theoretical max capacity</strong>, and then look for the Motherboard that fits your needs (and your budget).</li>
+<li>If you just care about <strong>performance</strong>, normally a mid-range budget has just <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GvyQXkFUe3E&t=3s">a few differences in real performance and temperature</a> compared with high-end motherboards. (Unless you are going to overclock).</li>
+<li>If you spend a lot on a high-performance CPU, <strong>do not skimp on quality VRMs</strong>. Killing the CPU is not fun.</li>
+<li>If you are doing a low-budget build, just look for the minimum quality requirements and <strong>avoid the Marketing traps</strong> like built-in screens, RGB lights, 100 VRM phases, etc.</li>
+<li>If you want the fastest load times, prioritize the <strong>main storage disk to use PCIe 5.0 directly connected to the CPU</strong>.</li>
+<li>How would you interact with the case? Define the position first, having the <strong>right peripheral ports accessible</strong> from the front&#x2F;back could be important.</li>
+<li>If you <strong>need to avoid cables</strong>, look for Motherboards with Bluetooth&#x2F;WiFi support.</li>
+<li>The Motherboard’s manual is the <strong>most important source of knowledge for your computer</strong>. If you have doubts between two different boards, just take a look at the manuals and compare.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/01/06/hardware-cpu/" rel="prev" title="💻 Hardware Series, Part I: CPU">
+                  <i class="fa fa-angle-left"></i> 💻 Hardware Series, Part I: CPU
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"espumita/espumita.github.io","repo_id":"MDEwOlJlcG9zaXRvcnk1NTU0MTk3Mg==","category":"General","category_id":"DIC_kwDOA0-A1M4C0paO","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"en","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
