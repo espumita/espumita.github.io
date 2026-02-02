@@ -53,7 +53,7 @@
 <meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/sdfghfdjsffdghhjkdsfgjkklddlksfgkld.jpg">
 <meta property="og:image" content="https://espumita.org/2026/02/01/hardware-motherboard/yrhtrefrgthyhgfdgfgdfsjhkgldskjfhgjdkl.jpg">
 <meta property="article:published_time" content="2026-02-01T09:17:58.000Z">
-<meta property="article:modified_time" content="2026-02-01T09:56:12.463Z">
+<meta property="article:modified_time" content="2026-02-02T19:02:49.849Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://espumita.org/2026/02/01/hardware-motherboard/786trtfygvuhbjnkmljnhuygytfrdfcgyvhjk2.jpg">
@@ -276,7 +276,7 @@
 
 <h1 id="Hardware-Series"><a href="#Hardware-Series" class="headerlink" title="Hardware Series:"></a>Hardware Series:</h1><ul>
 <li><a href="/2026/01/06/hardware-cpu/">💻 Hardware Series, Part I: CPU</a></li>
-<li><a href="/2026/01/07/hardware-motherboard/">💻 Hardware Series, Part II: Motherboard</a></li>
+<li><a href="/2026/02/01/hardware-motherboard/">💻 Hardware Series, Part II: Motherboard</a></li>
 </ul>
 <p><strong>⚠️Disclaimer:</strong> I’m not a hardware expert, so I tried to include all the relevant sources and useful links. 🙂</p>
 <h1 id="📃-Content"><a href="#📃-Content" class="headerlink" title="📃 Content:"></a>📃 Content:</h1><ul>
@@ -735,6 +735,7 @@
 <p>PCIe 1.0 and 2.0 used <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/8b/10b_encoding">8b&#x2F;10b encoding</a>, meaning <strong>20% of the bandwidth was wasted</strong> on protocol overhead and introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Non-return-to-zero">Non-return-to-zero (NRZ)</a>, where basically 1 is represented as a high voltage (+V) and 0 is represented by a low voltage (-V), because the signal doesn’t drop to a neutral state between pulses, it <strong>uses the available bandwidth more efficiently</strong> than older <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Return-to-zero">Return-to-Zero (RZ) methods</a>.</p>
 <p>To correct errors the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">Layer Cyclic Redundancy Check (Link CRC)</a> mechanism is used. Where basically if the checksum of the package fails, the hardware automatically enables a <strong>resend package mechanism</strong>. </p>
 <p>In PCIe 3.0, 4.0, and 5.0: Switched to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/64b/66b_encoding">128b&#x2F;130b encoding</a>, <strong>reducing overhead to a tiny 1.5%</strong>.</p>
+<p>PCIe 5.0 operates at <strong>much higher frequencies</strong>, so the signal needs to be boosted (using <a target="_blank" rel="noopener" href="https://www.asteralabs.com/pci-express-retimers-vs-redrivers-an-eye-popping-difference/">Redrivers</a>). At these speeds, signals become <strong>incredibly sensitive to noise</strong>, so to keep the signal <strong>clean</strong>, <a target="_blank" rel="noopener" href="https://www.asteralabs.com/pci-express-retimers-vs-redrivers-an-eye-popping-difference/">Redrivers</a> are used, but they are expensive. Also, <strong>more PCB layers</strong> are needed, using <a target="_blank" rel="noopener" href="https://hilpcb.com/en/blog/low-loss-pcb/">Low-Loss Materials</a>. This results in much more complex and <strong>expensive Motherboards</strong>.</p>
 <p><a target="_blank" rel="noopener" href="https://pcisig.com/blog/evolution-pci-express-specification-its-sixth-generation-third-decade-and-still-going-strong">PCIe 6.0</a> introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pulse-amplitude_modulation#Types">Pulse Amplitude Modulation (PAM4 signaling)</a>, which allows for even <a target="_blank" rel="noopener" href="https://pcisig.com/blog/why-did-pcie%C2%AE-60-specification-adopt-pam4-there-are-many-reasons">higher densities of data bits</a> (combinations of 2 bits: 10, 11, 01 or 00 instead of 1 bit: 1 or 0 per clock cycle), this is the core concept of future new releases (PCIe 7.0, 8.0).</p>
 <figure>
   <img src="/2026/02/01/hardware-motherboard/56ytrgfwe343regd23ewfsfsdf.jpg" class="" title="NRZ and PAM4 Encoding">
