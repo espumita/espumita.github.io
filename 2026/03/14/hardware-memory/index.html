@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="We need more RAM! Probably I have heard this hundreds of times. For some reason people are addicted to vertical scaling-up. And it’s crazy that this is a general solution to many problems (and somet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="💻 Hardware Series, Part III: Memory">
+<meta property="og:url" content="https://espumita.org/2026/03/14/hardware-memory/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="We need more RAM! Probably I have heard this hundreds of times. For some reason people are addicted to vertical scaling-up. And it’s crazy that this is a general solution to many problems (and somet">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/098765trfghjkloiuytredfghjkloiuytfrewsdfgh.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/auhsdoihasdja9id9292dujsdoasdoasdo.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/dfgdgdsg4rgtdfhdsfsrfswfsfgsdr.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/asdjhifhjsjofhsdjfjosfioswfoijhsdoifhodihjfdsoikj.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/8ydgusiydfgsdgfishf9is9df08sdf8sdf9hsudfh.gif">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/098sdbkjsdhfiusfigs87dsfs8ufhiujpsdfljksdkljfksldf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/8SADYGUASDJHOAHDADAKJDAKJDJAKSJKD.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/SDFDSFSDFSDFSFSFSS3F3RFFGH43WG4GS.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/9fi09sf00dfsiofosdfsdfjsdflsdlsdfl.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/asd0adaodaodnasdlkasdlkks.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/0987TGFBHNJMKLKJHGFRTYHJKLIHGFGH.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/2090878yghjpkdpkjsakksadkasdl.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/0908yuhojkmnbiut6t7yuiok.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/4354refssdfsdfssdfghy53.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/kjdf8e893d0fdfhidsaifsikf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/yjhgfbvder456ythrgfre43ewd.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/9876RTGVHBJKOI4W4ERTFYGUHIJ.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/09h23duijodhsdjkhisokdiofisdf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/98g3hiweiufduhisuifs9838hrujajusdsdjfdf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/09789yuehiwdjsohfhshfdi39029dsufgsudfsdkiuf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/IJDFSDOFHUWPFOH32OFOKKFDKFLDFK.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/0ruwidsofjsdofjjfsdjfsdflsdkf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/023urpuihwqeojfhsjkdfjsldfjslkdfjlk.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/98yftghjiu8yutrsdxfcfvfre4r5t6yuijkh.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/sdufh232oewfksdfkjsdflksdjf.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/8sad082h2do2jldwlkaslkdaklsdklas.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/asodyuhuj2jjwsdasjkdjaskd.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/092eoudohwqdhjasjhdkasjdhasj.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/aso8iduyhuoqdoihj1do2ioi2dkdjjdsd.jpg">
+<meta property="og:image" content="https://espumita.org/2026/03/14/hardware-memory/987YGFGGDHH23UWQDI3HOIWEIDW.jpg">
+<meta property="article:published_time" content="2026-03-14T10:27:58.000Z">
+<meta property="article:modified_time" content="2026-04-05T19:57:12.932Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2026/03/14/hardware-memory/098765trfghjkloiuytredfghjkloiuytfrewsdfgh.jpg">
+
+
+<link rel="canonical" href="https://espumita.org/2026/03/14/hardware-memory/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2026/03/14/hardware-memory/","path":"2026/03/14/hardware-memory/","title":"💻 Hardware Series, Part III: Memory"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>💻 Hardware Series, Part III: Memory | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2026/03/14/hardware-memory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="💻 Hardware Series, Part III: Memory | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          💻 Hardware Series, Part III: Memory
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-03-14 10:27:58" itemprop="dateCreated datePublished" datetime="2026-03-14T10:27:58+00:00">2026-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hardware/" itemprop="url" rel="index"><span itemprop="name">Hardware</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2026/03/14/hardware-memory/098765trfghjkloiuytredfghjkloiuytfrewsdfgh.jpg" class="">
+
+<p>We need more RAM! Probably I have heard this hundreds of times. For some reason people are addicted to <strong>vertical scaling-up</strong>. And it’s crazy that this is a general solution to many problems (and sometimes it works 😂). But, wait. Do we know what really Computer Memory is? 🤔</p>
+<p>Modern Memory is DDR5 SDRAM DIMM. Let’s dive 🕵️ in at what this means.</p>
+<span id="more"></span>
+
+<h1 id="Hardware-Series"><a href="#Hardware-Series" class="headerlink" title="Hardware Series:"></a>Hardware Series:</h1><ul>
+<li><a href="/2026/01/06/hardware-cpu/">💻 Hardware Series, Part I: CPU</a></li>
+<li><a href="/2026/02/01/hardware-motherboard/">💻 Hardware Series, Part II: Motherboard</a></li>
+<li><a href="/2026/03/14/hardware-memory/">💻 Hardware Series, Part III: Memory</a></li>
+</ul>
+<p><strong>⚠️Disclaimer:</strong> I’m not a hardware expert, so I tried to include all the relevant sources and useful links. 🙂</p>
+<h1 id="📃-Content"><a href="#📃-Content" class="headerlink" title="📃 Content:"></a>📃 Content:</h1><ul>
+<li><a href="#what-is-memory">🕵️ What is Computer Memory?</a></li>
+<li><a href="#sdram-memory">🔢 SDRAM Memory</a><ol>
+<li><a href="#dram">DRAM</a></li>
+<li><a href="#synchronous">Synchronous</a></li>
+<li><a href="#dynamic">Dynamic</a></li>
+<li><a href="#random-access">Random Access</a></li>
+</ol>
+</li>
+<li><a href="#ddr-generations">🧬 DDR Generations</a><ol>
+<li><a href="#prefetching">Prefetching Architecture</a></li>
+<li><a href="#lpddr">📱 LPDDR</a></li>
+</ol>
+</li>
+<li><a href="#how-memory-works">🛠️ How Read&#x2F;Write Works?</a></li>
+<li><a href="#speed-latency">🏎️ Speed, Bandwidth &amp; Latency</a><ol>
+<li><a href="#transfer-rate">Speed &#x2F; Transfer Data Rate (MT&#x2F;s)</a></li>
+<li><a href="#bandwidth">Bandwidth (MB&#x2F;s)</a></li>
+<li><a href="#cas-latency">CAS Latency</a></li>
+</ol>
+</li>
+<li><a href="#channels-rank">🛣️ Channels &amp; Ranks</a><ol>
+<li><a href="#dual-channel">Dual-Channel</a></li>
+<li><a href="#ranks-organization">Ranks Organization</a></li>
+</ol>
+</li>
+<li><a href="#manufacturer-process">🏭 How Memory is built: Manufacturing process</a></li>
+<li><a href="#dimm-variants">📏 DIMM Variants</a><ol>
+<li><a href="#dimm">DIMM</a></li>
+<li><a href="#rdimm-lrdimm">RDIMM&#x2F;LRDIMM</a></li>
+<li><a href="#mrdimm-mcrdimm">MRDIMM&#x2F;MCRDIMM</a></li>
+<li><a href="#cudimm">CUDIMM</a></li>
+</ol>
+</li>
+<li><a href="#camm2">🌟 CAMM2</a></li>
+<li><a href="#hbm">🤖 HBM</a></li>
+<li><a href="#ecc">🛡️ ECC</a></li>
+<li><a href="#cxl">🔗 CXL (Compute Express Link)</a></li>
+<li><a href="#xmp-expo">⚡ XMP &amp; EXPO</a></li>
+<li><a href="#how-to-choose-memory">🆚 How to choose Memory?</a></li>
+</ul>
+<p><span id="what-is-memory"></span></p>
+<h1 id="🕵️-What-is-Memory"><a href="#🕵️-What-is-Memory" class="headerlink" title="🕵️ What is Memory?"></a>🕵️ What is Memory?</h1><p>While the CPU executes instructions, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Computer_memory">Computer Memory</a> is where information is stored for immediate use like <strong>data</strong> and <strong>program instructions</strong>. Modern computer memory is also known as <strong>Main Memory</strong> or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Random-access_memory">RAM (Random Access Memory)</a>.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/auhsdoihasdja9id9292dujsdoasdoasdo.jpg" class="" title="Von Neumann Architecture">
+  <figcaption>Von Neumann Architecture</figcaption>
+</figure>
+
+<p>If we take a look at the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Von_Neumann_architecture">Von Neumann Architecture (1945)</a>, we will notice that the <strong>Memory Unit</strong> operates with the CPU using different registers:</p>
+<ul>
+<li><strong>MAR (Memory Address Register)</strong>: Which stores the <strong>address of the memory</strong> location being accessed.</li>
+<li><strong>MDR (Memory Data Register)</strong>: Which temporarily <strong>holds data</strong> being transferred to or from memory.</li>
+</ul>
+<p>Nowadays, this behavior is located <strong>inside the CPU</strong> in the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_controller#:~:text=A%20memory%20controller%2C%20also%20known,from%20a%20computer's%20main%20memory">Memory controller (MCC)</a> or Integrated Memory Controller (IMC). Also, it is where all <strong>memory tasks</strong> take place: Address mapping, buffering, refresh, error corrections, security protocols, scheduling, multi-channel read&#x2F;write, etc.</p>
+<p><span id="sdram-memory"></span></p>
+<h1 id="🔢-SDRAM-Memory"><a href="#🔢-SDRAM-Memory" class="headerlink" title="🔢 SDRAM Memory"></a>🔢 SDRAM Memory</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=7J7X7aZvMXQ">Branch Education - How does Computer Memory Work? ⭐⭐⭐⭐⭐</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OZCEHXlHY4E">Nate Gentile - TODO sobre la RAM Parte 2 ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p><span id="dram"></span></p>
+<h2 id="1-DRAM"><a href="#1-DRAM" class="headerlink" title="1. DRAM"></a>1. DRAM</h2><p>In 1966, Robert Dennard at IBM invented modern <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dynamic_random-access_memory">DRAM (Dynamic Random Access Memory)</a> architecture, where just a single <strong>transistor</strong> and a <strong>capacitor</strong> can store <strong>1 bit</strong> of data. Stacking this very simple circuit allowed <strong>much more memory density</strong> than previous technologies like <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Magnetic-core_memory">Magnetic Core Memory</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Drum_memory">Drum memory</a>, or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Static_random-access_memory">SRAM (Static Random Access Memory)</a>.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/dfgdgdsg4rgtdfhdsfsrfswfsfgsdr.jpg" class="" title="DRAM and SRAM Circuits complexity">
+  <figcaption>DRAM and SRAM Circuits complexity</figcaption>
+</figure>
+
+<p>In DRAM the memory cell circuit contains these elements: </p>
+<ul>
+<li><strong>Transistor</strong>: The “gate”, which will enable electrons to enter or exit the capacitor.</li>
+<li><strong>Capacitor</strong>: The “battery”, where the bit (0 or 1) is stored.</li>
+<li><strong>Bit line</strong>: Is where the information that needs to be stored arrives (when writing) or leaves (when reading).</li>
+<li><strong>Word line</strong>: Is where the signal to open&#x2F;close the gate will arrive, enabling write&#x2F;read operations.</li>
+</ul>
+<p>It’s much more <strong>scalable</strong> to build <strong>cheap and simple chips</strong> with billions of simple circuits creating general-purpose memories, stacking (transistor and capacitor pair) as <strong>arrays of cells</strong>:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/asdjhifhjsjofhsdjfjosfioswfoijhsdoifhodihjfdsoikj.jpg" class="" title="2D DRAM Memory Cell Array">
+  <figcaption>2D DRAM Memory Cell Array</figcaption>
+</figure>
+
+<p><span id="dynamic"></span></p>
+<h2 id="2-Dynamic"><a href="#2-Dynamic" class="headerlink" title="2. Dynamic"></a>2. Dynamic</h2><p>A charged capacitor represents a 1 and an uncharged one represents a 0. Capacitors <a target="_blank" rel="noopener" href="https://youtu.be/7WnbIeMgWYA?si=lZXbfWzUwpS-UpuO&t=745">naturally leak charge over time</a>. To not “forget” any bit of data, the memory controller <strong>reads and rewrites</strong> the data to refresh the value. This <strong>constant, active process</strong> of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_refresh">refreshing</a> the state is why it’s called <strong>Dynamic</strong>.</p>
+<p>This is the concept: Memory is <strong>accessed many times</strong> (billions of times per second) <strong>while it is refreshed</strong> (thousands of times per second). During refresh time, <strong>memory is not available</strong> (it is “locked”) 🚨:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/8ydgusiydfgsdgfishf9is9df08sdf8sdf9hsudfh.gif" class="" title="Memory access vs Memory Row Refresh (Concept)">
+  <figcaption>Memory access vs Memory Row Refresh (Concept)</figcaption>
+</figure>
+
+<p>In reality, memory is <strong>refreshed by banks</strong>. During this time, the whole bank <strong>is not available</strong> and all banks are refreshed at the same time, so the whole memory is locked.</p>
+<p>This refresh time is standardized by <a target="_blank" rel="noopener" href="https://www.jedec.org/">JEDEC</a> and defined as <strong>Refresh Interval (tREFI)</strong>. It tells us how often the memory controller sends a refresh command:</p>
+<table>
+<thead>
+<tr>
+<th align="left">DDR Gen</th>
+<th align="left">Refresh Interval (tREFI)</th>
+<th align="left">Refresh Cycle Time (tRFC)</th>
+<th align="left">Total Refresh Period (tREF)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DDR1</td>
+<td align="left">7.8 µs</td>
+<td align="left">70 ns – 120 ns</td>
+<td align="left">64 ms</td>
+</tr>
+<tr>
+<td align="left">DDR2</td>
+<td align="left">7.8 µs</td>
+<td align="left">75 ns – 127.5 ns</td>
+<td align="left">64 ms</td>
+</tr>
+<tr>
+<td align="left">DDR3</td>
+<td align="left">7.8 µs</td>
+<td align="left">90 ns – 350 ns</td>
+<td align="left">64 ms</td>
+</tr>
+<tr>
+<td align="left">DDR4</td>
+<td align="left">7.8 µs</td>
+<td align="left">160 ns – 550 ns</td>
+<td align="left">64 ms</td>
+</tr>
+<tr>
+<td align="left">DDR5</td>
+<td align="left">3.9 µs</td>
+<td align="left">295 ns – 410 ns</td>
+<td align="left">32 ms</td>
+</tr>
+</tbody></table>
+<p><strong>❓ Is full memory always locked during refreshing?</strong></p>
+<p><strong>Depends.</strong> In DDR4, the concept of <strong>Fine-Grained Refresh (FGR)</strong> was introduced, which makes the <strong>duration of lockouts shorter</strong> by adjusting tRFC and increasing the refresh rate in 2x or 4x modes. If capacitors are <strong>refreshed more often</strong>, fewer electrons are needed in every recharge, so <strong>lockouts are much shorter</strong>.</p>
+<p>In DDR5 and LPDDR2 memories, the huge amount of cells makes the 7.8 µs interval inefficient. JEDEC introduced <strong>Same-Bank Refresh (REFsb)</strong>, which allows the controller to refresh <strong>one bank while others remain available</strong> for data, reducing refresh latency compared with the all-banks memory lockout.</p>
+<blockquote>
+<p><strong>❓ Is refresh time always the same?</strong><br>  <strong>No.</strong> For example, if memory temperature is high (more than 85°C), the refresh interval is typically halved (for example, to 3.9 µs for DDR4), because <strong>capacitors leak charge faster when hot</strong> 🔥.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓ Does SRAM need to be refreshed?</strong><br>  <strong>No.</strong> As long as the power is on, the state of the transistors remains static, so they have much <strong>lower access time</strong>. But the <strong>circuits are complex and expensive</strong>. SRAM is mainly used to build L1, L2, and L3 caches inside CPUs.</p>
+</blockquote>
+<p><span id="synchronous"></span></p>
+<h2 id="3-Synchronous"><a href="#3-Synchronous" class="headerlink" title="3. Synchronous"></a>3. Synchronous</h2><p>DRAM is also called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Synchronous_dynamic_random-access_memory">Synchronous dynamic random-access memory (SDRAM)</a>. It means that the memory chip’s operations are timed (synchronized) to the <strong>CPU system clock</strong>. The first SDRAM chip was manufactured by Samsung in 1992.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/098sdbkjsdhfiusfigs87dsfs8ufhiujpsdfljksdkljfksldf.jpg" class="" title="Synchronous vs Asynchronous DRAM">
+  <figcaption>Synchronous vs Asynchronous DRAM</figcaption>
+</figure>
+
+<p>This makes the memory <strong>timing predictable</strong>, allowing, for example, memory <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Burst_mode_(computing)">burst mode</a> or CPU <a href="/2026/01/06/hardware-cpu/#superscalar">out-of-order execution</a>.</p>
+<p><strong>❓ Is a 5 GHz CPU synchronized with a 6000 MT&#x2F;s RAM?</strong></p>
+<p><strong>Yes.</strong> They are synchronous, but they are not running at the same speed:</p>
+<ul>
+<li><a href="/2026/01/06/hardware-cpu/#clock-rate-speed">CPU core clock speed</a> is the result of an original <strong>Base Clock (BCLK)</strong> multiplied by a CPU clock multiplier (100 MHz * 50 &#x3D; 5 GHz).</li>
+<li><strong>Memory Clock (mCLK)</strong> or I&#x2F;O Bus Clock is the result of the BCLK multiplied by a RAM clock multiplier (100 MHz * 30 &#x3D; 3000 MHz).</li>
+<li><strong>Memory Controller Clock (uCLK)</strong> is the mCLK divided by a ratio (3000 MHz 2:1 &#x3D; 1500 MHz).</li>
+</ul>
+<p>They all come from the <strong>same BCLK</strong>, so the <strong>timing remains predictable</strong>.</p>
+<p><strong>❓ Can we manipulate the Memory Controller Clock?</strong></p>
+<p>Memory Controller Clock speed is a <strong>trade-off</strong> between memory <strong>bandwidth and latency</strong>. If memory is much faster than the uCLK, the <strong>bandwidth is much higher</strong>, but it can cause a bottleneck and <strong>create latency</strong> 🐌. And if the memory frequency is slower than the uCLK, <strong>the bandwidth is much lower</strong>, but the latency is minimal 🏎️.</p>
+<p>In Intel processors, we can modify <a target="_blank" rel="noopener" href="https://www.kingston.com/en/blog/pc-performance/what-is-intel-gear-modes">Gear Mode</a> in the BIOS (Gear 1, 2 and 4). In AMD processors, this is called <a target="_blank" rel="noopener" href="https://www.kingston.com/en/blog/pc-performance/amd-gear-modes-uclk-mclk-fclk-why-theyre-important">UCLK DIV1&#x2F;2</a>. This technology enables support for <strong>faster memory while still maintaining system reliability</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Gear Mode</th>
+<th align="left">Memory Controller Clock (uCLK)</th>
+<th align="left">Memory Clock (mCLK)</th>
+<th align="left">Transfer Rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Gear 1 (1:1)</td>
+<td align="left">1800 MHz</td>
+<td align="left">1800 MHz</td>
+<td align="left">3600 MT&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">Gear 2 (2:1)</td>
+<td align="left">1500 MHz</td>
+<td align="left">3000 MHz</td>
+<td align="left">6000 MT&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">Gear 4 (4:1)</td>
+<td align="left">1125 MHz</td>
+<td align="left">4500 MHz</td>
+<td align="left">9000 MT&#x2F;s</td>
+</tr>
+</tbody></table>
+<p><strong>Memory Controller efficiency is application dependent</strong>. For example, in FPS games it may be more important to have the lowest latency 🏎️, while for 3D editing or loading a high amount of data it is better to have the highest bandwidth 🐌.</p>
+<p><span id="random-access"></span></p>
+<h2 id="4-Random-Access"><a href="#4-Random-Access" class="headerlink" title="4. Random Access"></a>4. Random Access</h2><p>DRAM memory is commonly called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Random-access_memory">Random-access memory (RAM)</a> because when doing reading or writing operations, no matter in which physical memory location (any “random” location), <strong>all location positions have the same access time</strong>.</p>
+<p>This results in a very <strong>efficient way to access data</strong>, compared with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sequential_access_memory">sequential access</a> used in previous technologies. The secret behind this is the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_address">Memory Addressing</a> architecture:</p>
+<h3 id="Memory-Addressing"><a href="#Memory-Addressing" class="headerlink" title="Memory Addressing"></a>Memory Addressing</h3><figure>
+  <img src="/2026/03/14/hardware-memory/8SADYGUASDJHOAHDADAKJDAKJDJAKSJKD.jpg" class="" title="Memory cell to memory package">
+  <figcaption>Memory cell to memory package</figcaption>
+</figure>
+
+<p>As we saw in the <a href="/2026/02/01/hardware-motherboard/#%F0%9F%A7%A0-RAM-Slots-Channels">previous post</a>, the memory controller in the CPU communicates with main memory using the motherboard’s physical <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multi-channel_memory_architecture">Channels</a>. Each memory <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DIMM">DIMM stick</a> contains <strong>two ranks</strong> of memory chips (one on each side of the stick). Every memory chip contains <strong>multiple banks</strong>. And these banks are <strong>arrays of memory cells</strong>.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/SDFDSFSDFSDFSFSFSS3F3RFFGH43WG4GS.jpg" class="" title="8GB DDR4 (1GB x8 bits Chips) Memory">
+  <figcaption>8GB DDR4 (1GB x8 bits Chips) Memory</figcaption>
+</figure>
+
+<p>To read a single <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-byte-addressable-memory-and-word-addressable-memory/">byte</a> in an 8GB DDR4 memory, we will point to a specific memory address, for example 0x2BF2200D0:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/9fi09sf00dfsiofosdfsdfjsdflsdlsdfl.jpg" class="" title="JEDEC DDR4 SDRAM Standard JESD79-4B Spec Page 8 2.8.3">
+  <figcaption>JEDEC DDR4 SDRAM Standard JESD79-4B Spec Page 8 2.8.3</figcaption>
+</figure>
+
+<p>If we take a look at the JEDEC standard addressing, we will see that 0x2BF2200D0 (10 1011 1111 0010 0010 0000 0000 1101 0000 in binary) maps to the following memory address:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Bit Range &#x2F; Pins</th>
+<th align="left">Binary Equivalent</th>
+<th align="left">Value (Decimal)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Row</td>
+<td align="left">16 bit &#x2F; A[0:15]</td>
+<td align="left">1010 1111 1100 1000</td>
+<td align="left">45000</td>
+</tr>
+<tr>
+<td align="left">Column</td>
+<td align="left">10 bit &#x2F; A[0:9]</td>
+<td align="left">10 0000 0000</td>
+<td align="left">512</td>
+</tr>
+<tr>
+<td align="left">Bank Group</td>
+<td align="left">2 bit &#x2F; BG[0:1]</td>
+<td align="left">11</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">Bank</td>
+<td align="left">2 bit &#x2F; BA[0:1]</td>
+<td align="left">01</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">Rank</td>
+<td align="left">1 bit &#x2F; CS_n&#x2F;C[0:1]</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">Byte Offset</td>
+<td align="left">3 bit (not sent by the MC)</td>
+<td align="left">000</td>
+<td align="left">0</td>
+</tr>
+</tbody></table>
+<p>The path that needs to be followed is: Channel A &#x3D;&gt; Rank 0 &#x3D;&gt; Bank Group 3 &#x3D;&gt; Bank 1 &#x3D;&gt; Row 45000 &#x3D;&gt; Column 512. This is <strong>ultra-fast</strong>, because we do not need to find it, just recover data with <strong>direct access</strong>.</p>
+<p>In reality, if we run a read command to this address, we will actually read 64 bits (8 bytes) (or 72 if the memory has ECC), because <strong>DDR4 works with 64 data lanes</strong> (in this case x8 DQ[7:0] lanes per chip). The memory controller <strong>talks to all x8 chips in the rank simultaneously</strong>.</p>
+<p><span id="ddr-generations"></span></p>
+<h1 id="🧬-DDR-Generations"><a href="#🧬-DDR-Generations" class="headerlink" title="🧬 DDR Generations"></a>🧬 DDR Generations</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=yUeE4NmMj48">Nate Gentile - Por ESTO inventaron la nueva RAM DDR5 ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>Modern memory standard is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Double_data_rate">Double Data Rate (DDR)</a>, which means it transfers data on <strong>both the rising (upbeat) and falling edges (downbeat)</strong> of the clock signal, effectively <strong>doubling the bandwidth</strong> by transferring data twice per clock cycle:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/asd0adaodaodnasdlkasdlkks.jpg" class="" title="SDR vs DDR vs QDR signal">
+  <figcaption>SDR vs DDR vs QDR signal</figcaption>
+</figure>
+
+<p>Every few years, a new generation is released, offering <strong>higher speeds, higher transfer rate, lower power consumption, and higher capacity</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">SDRAM Name</th>
+<th align="left">Release Year</th>
+<th align="left">Fastest Standard (theoretical)</th>
+<th align="left">Module</th>
+<th align="left">Bandwidth (64-bit bus)</th>
+<th align="left">Voltage</th>
+<th align="left">Max Size Stick PC</th>
+<th align="left">Max Size Stick Server</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR_SDRAM">DDR</a></td>
+<td align="left">1998</td>
+<td align="left">DDR-400</td>
+<td align="left">PC-3200</td>
+<td align="left">3.2 GB&#x2F;s</td>
+<td align="left">2.6 V</td>
+<td align="left">1 GB</td>
+<td align="left">4 GB</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR2_SDRAM">DDR2</a></td>
+<td align="left">2003</td>
+<td align="left">DDR2-1066</td>
+<td align="left">PC2-8500</td>
+<td align="left">8.5 GB&#x2F;s</td>
+<td align="left">1.8 V</td>
+<td align="left">4 GB</td>
+<td align="left">8 GB</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR3_SDRAM">DDR3</a></td>
+<td align="left">2007</td>
+<td align="left">DDR3-2133</td>
+<td align="left">PC3-17000</td>
+<td align="left">17 GB&#x2F;s</td>
+<td align="left">1.5&#x2F;1.35 V</td>
+<td align="left">8 GB</td>
+<td align="left">64 GB</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR4_SDRAM">DDR4</a></td>
+<td align="left">2014</td>
+<td align="left">DDR4-3200</td>
+<td align="left">PC4-25600</td>
+<td align="left">25.6 GB&#x2F;s</td>
+<td align="left">1.2 V</td>
+<td align="left">32 GB</td>
+<td align="left">256 GB</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR5_SDRAM">DDR5</a></td>
+<td align="left">2020</td>
+<td align="left">DDR5-7200</td>
+<td align="left">PC5-57600</td>
+<td align="left">57.6 GB&#x2F;s</td>
+<td align="left">1.1 V</td>
+<td align="left">128 GB</td>
+<td align="left">512 GB</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR6_SDRAM">DDR6</a></td>
+<td align="left">2027 (estimated)</td>
+<td align="left">DDR6-21000</td>
+<td align="left">PC6-168000</td>
+<td align="left">134.4 GB&#x2F;s</td>
+<td align="left">? V</td>
+<td align="left">? GB</td>
+<td align="left">? GB</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>❓ Do all buses use DDR?</strong><br>  <strong>Depends</strong>. DDR SDRAM uses <strong>double-data-rate</strong> signaling only on the <strong>data lines</strong>. Address and control signals are still sent to the DRAM <strong>once per clock cycle</strong> (to be precise, on the rising edge of the clock).<br>  But, some less common DRAM interfaces like LPDDR2, GDDR5, and XDR DRAM send commands and addresses <strong>using double-data-rate signaling</strong>. DDR5 uses <strong>two 7-bit double-data-rate</strong> command&#x2F;address buses (CA) to each DIMM, where a registered clock driver chip converts them into a <strong>14-bit SDR bus</strong> to each memory chip.</p>
+</blockquote>
+<p><span id="prefetching"></span></p>
+<h2 id="1-Prefetching-Architecture"><a href="#1-Prefetching-Architecture" class="headerlink" title="1. Prefetching Architecture"></a>1. Prefetching Architecture</h2><p>Another difference between generations is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Synchronous_dynamic_random-access_memory#DDR_SDRAM_prefetch_architecture">Prefetch Architecture</a>, which is a <strong>parallelism technique</strong> that enables the memory chips to <strong>read or write multiple bits of data in parallel</strong> from the memory array.</p>
+<p>Also, the <strong>Burst Length (BL)</strong> has been increased across generations too. This is the number of data units transferred over the data bus in a single <strong>continuous stream after one READ command</strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">SDRAM Name</th>
+<th align="left">Pre-fetch</th>
+<th align="left">Burst Length</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DDR</td>
+<td align="left">2n</td>
+<td align="left">BL2, BL4, BL8</td>
+</tr>
+<tr>
+<td align="left">DDR2</td>
+<td align="left">4n</td>
+<td align="left">BL4, BL8</td>
+</tr>
+<tr>
+<td align="left">DDR3</td>
+<td align="left">8n</td>
+<td align="left">BL8</td>
+</tr>
+<tr>
+<td align="left">DDR4</td>
+<td align="left">8n</td>
+<td align="left">BL8</td>
+</tr>
+<tr>
+<td align="left">DDR5</td>
+<td align="left">16n</td>
+<td align="left">BL16</td>
+</tr>
+</tbody></table>
+<p>For example, when executing a single READ command in DDR4, every single x8 chip will send 8 bits (BL8) to the Data Bus in <strong>exactly 4 cycles</strong> (the DDR bus has to send 2 bits per cycle). But the problem is that <strong>the memory cells are too slow to give 1 bit every half-cycle</strong> for 4 cycles 🔥. (If we push the internal chip circuits too much, it results in <strong>overheating</strong> and <strong>corrupt data</strong>).</p>
+<p>To solve this, an <strong>internal pre-fetching action</strong> is executed. The chip’s array does one single slow action, <strong>grabbing 8 bits of data simultaneously</strong> (8n). Data is pre-fetched into a <strong>buffer</strong>, and the chip can <strong>stream the bits across the wire</strong> one by one in <strong>perfect synchronization</strong>.</p>
+<blockquote>
+<p><strong>❓ Waiting for pre-fetching data slow the Memory performance?</strong><br>  <strong>No, in fact it’s a performance boost.</strong> Notice that the internal pre-fetching action takes <strong>1 single Internal Memory Clock cycle</strong> to complete (for example at 400 MHz). For DDR4 (8n Pre-fetch), the external bus is 4 times faster (1600 MHz). In the time it takes the internal memory chip to do <strong>one single</strong> burst read, the external I&#x2F;O Bus Clock &#x2F; <strong>Memory Clock (mCLK)</strong> has completed <strong>4 full cycles</strong> (8 bits), which is exactly enough time to <strong>finish the previous burst</strong> and be ready for the next one. This <strong>predictive behavior</strong> creates a <strong>perfect pipeline</strong> where data <strong>never stops</strong> moving ⚡.</p>
+</blockquote>
+<p><span id="lpddr"></span></p>
+<h2 id="2-📱-LPDDR"><a href="#2-📱-LPDDR" class="headerlink" title="2. 📱 LPDDR"></a>2. 📱 LPDDR</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/LPDDR">Low Power DDR (LPDDR)</a> is a variation designed for <strong>mobile devices</strong> (phones, thin laptops). It runs at <strong>lower voltages</strong> to save battery and reduce power consumption, but it is usually <strong>soldered directly to the motherboard</strong> and cannot be upgraded.</p>
+<p>While standard DDR SDRAM uses a 64-bit wide memory bus, LPDDR also permits <strong>16 or 32-bit wide channels</strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">LPDDR Name</th>
+<th align="left">Release Year</th>
+<th align="left">Chip Clock Rate</th>
+<th align="left">Bus Clock Rate</th>
+<th align="left">Transfer Rate</th>
+<th align="left">Max Bandwidth (32-bit bus)</th>
+<th align="left">Voltages</th>
+<th align="left">Max Capacity (Single Package)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">LPDDR1</td>
+<td align="left">2006</td>
+<td align="left">200 MHz</td>
+<td align="left">200 MHz</td>
+<td align="left">400 MT&#x2F;s</td>
+<td align="left">1.6 GB&#x2F;s</td>
+<td align="left">1.8 V</td>
+<td align="left">1 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR1E</td>
+<td align="left">2006</td>
+<td align="left">266 MHz</td>
+<td align="left">266 MHz</td>
+<td align="left">533 MT&#x2F;s</td>
+<td align="left">2.1 GB&#x2F;s</td>
+<td align="left">1.8 V</td>
+<td align="left">1 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR2</td>
+<td align="left">2009</td>
+<td align="left">200 MHz</td>
+<td align="left">400 MHz</td>
+<td align="left">800 MT&#x2F;s</td>
+<td align="left">3.2 GB&#x2F;s</td>
+<td align="left">1.2&#x2F;1.8 V</td>
+<td align="left">4 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR2E</td>
+<td align="left">2009</td>
+<td align="left">266 MHz</td>
+<td align="left">533 MHz</td>
+<td align="left">1067 MT&#x2F;s</td>
+<td align="left">4.2 GB&#x2F;s</td>
+<td align="left">1.2&#x2F;1.8 V</td>
+<td align="left">4 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR3</td>
+<td align="left">2012</td>
+<td align="left">200 MHz</td>
+<td align="left">800 MHz</td>
+<td align="left">1600 MT&#x2F;s</td>
+<td align="left">6.4 GB&#x2F;s</td>
+<td align="left">1.2&#x2F;1.8 V</td>
+<td align="left">8 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR3E</td>
+<td align="left">2012</td>
+<td align="left">266 MHz</td>
+<td align="left">1067 MHz</td>
+<td align="left">2133 MT&#x2F;s</td>
+<td align="left">8.5 GB&#x2F;s</td>
+<td align="left">1.2&#x2F;1.8 V</td>
+<td align="left">8 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR4</td>
+<td align="left">2014</td>
+<td align="left">200 MHz</td>
+<td align="left">1600 MHz</td>
+<td align="left">3200 MT&#x2F;s</td>
+<td align="left">12.8 GB&#x2F;s</td>
+<td align="left">0.6&#x2F;1.1&#x2F;1.8 V</td>
+<td align="left">16 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR4X</td>
+<td align="left">2017</td>
+<td align="left">266 MHz</td>
+<td align="left">2133 MHz</td>
+<td align="left">4267 MT&#x2F;s</td>
+<td align="left">17 GB&#x2F;s</td>
+<td align="left">0.6&#x2F;1.1&#x2F;1.8 V</td>
+<td align="left">16 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR5</td>
+<td align="left">2019</td>
+<td align="left">400 MHz</td>
+<td align="left">3200 MHz</td>
+<td align="left">6400 MT&#x2F;s</td>
+<td align="left">25.6 GB&#x2F;s</td>
+<td align="left">0.5&#x2F;1.05&#x2F;1.8 V</td>
+<td align="left">32 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR5X</td>
+<td align="left">2021</td>
+<td align="left">533 MHz</td>
+<td align="left">4267 MHz</td>
+<td align="left">8533 MT&#x2F;s</td>
+<td align="left">34.1 GB&#x2F;s</td>
+<td align="left">0.5&#x2F;1.05&#x2F;1.8 V</td>
+<td align="left">32 GB</td>
+</tr>
+<tr>
+<td align="left">LPDDR6</td>
+<td align="left">2025</td>
+<td align="left">450 MHz</td>
+<td align="left">7200 MHz</td>
+<td align="left">14400 MT&#x2F;s</td>
+<td align="left">57.6 GB&#x2F;s</td>
+<td align="left">~0.5 V</td>
+<td align="left">64-128 GB</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>❓<strong>Do servers use LPDDR memory?</strong><br>  <strong>Yes</strong>. Due to its <strong>efficiency and bandwidth</strong> capabilities, Low Power DDR Memory has become the preferred SDRAM Main Memory in AI Datacenters, especially in <a href="/2026/02/03/hardware-memory/#camm2">CAMM2</a> modules.</p>
+</blockquote>
+<p><span id="how-memory-works"></span></p>
+<h1 id="🛠️-How-Read-Write-Works"><a href="#🛠️-How-Read-Write-Works" class="headerlink" title="🛠️ How Read&#x2F;Write Works?"></a>🛠️ How Read&#x2F;Write Works?</h1><p>Read and write operations are a <strong>2-step process</strong>. Every operation needs <a target="_blank" rel="noopener" href="https://www.systemverilog.io/design/ddr4-basics/">multiple commands</a> on different buses:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/0987TGFBHNJMKLKJHGFRTYHJKLIHGFGH.jpg" class="" title="DDR4 Command Truth Table">
+  <figcaption>DDR4 Command Truth Table</figcaption>
+</figure>
+
+<p><strong>READ operation:</strong></p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/2090878yghjpkdpkjsakksadkasdl.jpg" class="" title="Memory Read Operation">
+  <figcaption>Memory Read Operation</figcaption>
+</figure>
+
+<ul>
+<li><p>The first step is to send an <strong>ACT</strong> command through the <strong>command bus</strong>. At the same time, the <strong>ROW address</strong> to activate is sent on the <strong>address bus</strong>.</p>
+</li>
+<li><p>In the second step, a <strong>RDA</strong> command (Read with Auto-Precharge) is sent. The <strong>COLUMN address</strong> is sent on the <strong>address bus</strong>.</p>
+</li>
+<li><p>After waiting some time <a href="#cas-latency">(CAS Latency)</a>, the signal on the Data Strobe bus (DQS) tells us that the <strong>data on the Data bus is valid</strong>. Notice that it toggles twice per clock cycle (CK bus), which is why this is Double Data Rate (DDR).</p>
+</li>
+<li><p>Also notice there are <strong>8 data packets</strong> labeled D0 through D7. DRAM is designed to send a “burst” of data for every single read command to improve efficiency. In DDR4 we get a burst of 8 (BL8), which means <strong>8 consecutive transfers</strong> across that 64-bit bus. So every READ command returns <strong>64 bytes</strong>.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>❓ Is it the same in DDR5?</strong></p>
+</blockquote>
+<blockquote>
+<p>In DDR5, the burst size is doubled to 16 (BL16), but the data bus size is 32 bits per sub-channel. <strong>Each subchannel has its own dedicated buses</strong> (CMD, ADDR, DQS, DQ). So a single read command still returns <strong>64 bytes</strong>.</p>
+</blockquote>
+<p><strong>WRITE operation:</strong></p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/0908yuhojkmnbiut6t7yuiok.jpg" class="" title="Memory Write Operation">
+  <figcaption>Memory Write Operation</figcaption>
+</figure>
+
+<ul>
+<li><p>The first step is an <strong>ACT</strong> command that activates a <strong>ROW</strong>.</p>
+</li>
+<li><p>In this example, we write 128 bytes, so we need to use <strong>2 WRITE</strong> commands for each “package” of 64 bytes. The first <strong>WR</strong> targets <strong>COLUMN</strong> and the second <strong>WRA</strong> targets <strong>COL+8</strong> (no row reactivation needed). <strong>WRA</strong> deactivates the row after the write completes.</p>
+</li>
+<li><p>The <strong>Data Strobe (DQS)</strong> bus starts toggling when the data appears on the <strong>Data Bus (DQ)</strong>. The time we wait for writes is called Write Latency (WL).</p>
+</li>
+</ul>
+<p><span id="speed-latency"></span></p>
+<h1 id="🏎️-Speed-Bandwidth-Latency"><a href="#🏎️-Speed-Bandwidth-Latency" class="headerlink" title="🏎️ Speed, Bandwidth &amp; Latency"></a>🏎️ Speed, Bandwidth &amp; Latency</h1><p><span id="transfer-rate"></span></p>
+<h2 id="1-Speed-Transfer-Data-Rate-MT-s"><a href="#1-Speed-Transfer-Data-Rate-MT-s" class="headerlink" title="1. Speed &#x2F; Transfer Data Rate (MT&#x2F;s)"></a>1. Speed &#x2F; Transfer Data Rate (MT&#x2F;s)</h2><p>Double data rate (DDR) means transferring <strong>two data</strong> in the same clock cycle. This speed of the memory is called <strong>Transfer Data Rate</strong> which refers to the number of operations <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transfers_per_second">transferring data that occur in each second</a>, measured in <strong>MT&#x2F;s</strong>. Manufacturers refer to this spec as the <strong>bus speed</strong> (all pins at the same time). </p>
+<p>Do not confuse with the memory bus <strong>Clock Rate</strong>, measured in <strong>hertz (MHz)</strong>, which is a <strong>unit of cycles per second</strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Standard</th>
+<th align="left">Bus Clock Rate</th>
+<th align="left">Transfer Data Rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DDR-400</td>
+<td align="left">200 MHz</td>
+<td align="left">400 MT&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR2-1066</td>
+<td align="left">533 MHz</td>
+<td align="left">1067 MT&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR3-2133</td>
+<td align="left">1067 MHz</td>
+<td align="left">2133 MT&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR4-3200</td>
+<td align="left">1600 MHz</td>
+<td align="left">3200 MT&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR5-7200</td>
+<td align="left">200 MHz</td>
+<td align="left">7200 MT&#x2F;s</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>❓<strong>Why I See DDR5-6000 MHz on Amazon?</strong><br>   <strong>This is just marketing</strong>. We can consider Transfer Rate MT&#x2F;s is <strong>the double</strong> than Clock Rate MHz. So, some companies use a marketing trick to put Speed in 6000 MHz (which is technically incorrect) instead of 3000 MHz, because <strong>bigger numbers sell more</strong>, and nowadays seems like an industry standard.</p>
+</blockquote>
+<p><span id="bandwidth"></span></p>
+<h2 id="2-Bandwidth-MB-s"><a href="#2-Bandwidth-MB-s" class="headerlink" title="2. Bandwidth (MB&#x2F;s)"></a>2. Bandwidth (MB&#x2F;s)</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_bandwidth">Memory bandwidth</a> is the rate at which <strong>data can be read from or stored into a semiconductor memory by a processor</strong>. Memory bandwidth is expressed in <strong>bytes&#x2F;second</strong>. The memory bus is typically a 64-bit (8 byte) data bus. So if we know the Transfer Data Rate, we can calculate the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data-rate_units">data rate</a> Bandwidth. For example, for DDR-400 it is 400 MT&#x2F;s * 8 bytes &#x3D; 3200 MB&#x2F;s. JEDEC also created the <strong>PC modules nomenclature</strong> to identify memory modules by peak bandwidth.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Standard</th>
+<th align="left">Module</th>
+<th align="left">Bandwidth</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DDR-400</td>
+<td align="left">PC-3200</td>
+<td align="left">3200  MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR2-1066</td>
+<td align="left">PC2-8500</td>
+<td align="left">8533  MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR3-2133</td>
+<td align="left">PC3-17000</td>
+<td align="left">17067  MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR4-3200</td>
+<td align="left">PC4-25600</td>
+<td align="left">25600  MB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">DDR5-7200</td>
+<td align="left">PC5-57600</td>
+<td align="left">57600  MB&#x2F;s</td>
+</tr>
+</tbody></table>
+<p><span id="cas-latency"></span></p>
+<h2 id="3-CAS-Latency"><a href="#3-CAS-Latency" class="headerlink" title="3. CAS Latency"></a>3. CAS Latency</h2><p>During <a href="#how-memory-works">read and write</a> data memory operations there are many <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_timings">memory delays (latencies)</a> involved. Also manufacturers deliver these specs in the format CL40-39-39-79 referring to these latencies:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/4354refssdfsdfssdfghy53.jpg" class="" title="Branch Education - Memory timings">
+  <figcaption>Branch Education - Memory timings</figcaption>
+</figure>
+
+<ul>
+<li><strong>CL</strong>, is the <strong>delay between the READ command</strong> (Column Address Strobe), and the moment <strong>data is available</strong>, is specified in <strong>clock cycles (ticks)</strong>.</li>
+<li><strong>Row Address to Column Address Delay (tRCD)</strong>: Minimum number of clock cycles between opening a row and accessing columns within it.</li>
+<li><strong>Row Precharge Time (tRP)</strong>: Minimum number of clock cycles between sending the precharge command, closing any open row and opening the next one.</li>
+<li><strong>Row Active Time (tRAS)</strong>: Minimum number of clock cycles between a row active command and sending the precharge command.</li>
+</ul>
+<p>CL, unlike other latency parameters is a <strong>fixed value</strong>, not a minimum. This <strong>predictable fixed</strong> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CAS_latency">CAS latency</a>, enables that the memory controller <strong>can perform Pipelining and Bus Scheduling</strong>.</p>
+<p><strong>❓ How much is CL in seconds?</strong> </p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/kjdf8e893d0fdfhidsaifsikf.jpg" class="" title="DDR5 Latency Table">
+  <figcaption>DDR5 Latency Table</figcaption>
+</figure>
+
+<p><strong>Depends on the speeds</strong>. We have to consider bus Clock Rate, for example: DDR4-2400 CL17 is 17 clock cycles at 1200 MHz, so <strong>real delay in nanoseconds</strong> will be: 17&#x2F;(1200 * 10^6) &#x3D; 14.17 ns.</p>
+<p>CL30 is faster than CL40 (at the same frequency). But, higher speed SDRAM has faster (shorter) cycles, <strong>high CL not always mean “slower” in real time</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Standard</th>
+<th align="left">CL</th>
+<th align="left">CAS latency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DDR-400</td>
+<td align="left">3</td>
+<td align="left">15.00 ns</td>
+</tr>
+<tr>
+<td align="left">DDR2-1066</td>
+<td align="left">7</td>
+<td align="left">13.125 ns</td>
+</tr>
+<tr>
+<td align="left">DDR3-2133</td>
+<td align="left">14</td>
+<td align="left">13.127 ns</td>
+</tr>
+<tr>
+<td align="left">DDR4-3200</td>
+<td align="left">24</td>
+<td align="left">15.00 ns</td>
+</tr>
+<tr>
+<td align="left">DDR5-7200</td>
+<td align="left">34</td>
+<td align="left">9.44 ns</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>❓Is DDR5 slower than DDR4 because timings are higher?</strong><br>  <strong>No.</strong> Early DDR5 memories had slightly higher real latency than top-tier DDR4, but <strong>modern DDR5 kits (6000MT&#x2F;s CL30) are superior in both bandwidth and latency</strong>.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓What is Command rate (CR)?</strong><br>  Sometimes manufacturers specify a fifth parameter, the Command rate, which is sometimes added (normally 2T or 1T, also written as 2N, 1N or CR2). With 1T the memory controller sends a command, and the DRAM processes it in a single clock cycle (fastest settings). With 2T the DRAM is given an <strong>extra clock cycle</strong> to “decode” the command before acting on it. This adds <strong>much higher stability</strong>, the default setting in heavy load scenarios like high capacity configurations (more than 64 GB), servers, or when using all four motherboard slots.</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pc-builds.com/ram-latency/">PC Builds - DDR5 Latency Table tool</a></li>
+</ul>
+<p><span id="channels-rank"></span></p>
+<h1 id="🛣️-Channels-Ranks"><a href="#🛣️-Channels-Ranks" class="headerlink" title="🛣️ Channels &amp; Ranks"></a>🛣️ Channels &amp; Ranks</h1><p><span id="dual-channel"></span></p>
+<h2 id="1-Dual-Channel"><a href="#1-Dual-Channel" class="headerlink" title="1. Dual-Channel"></a>1. Dual-Channel</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multi-channel_memory_architecture">Multi-channel</a> technology enables joining multiple channels as a single logical channel, this <strong>doubles the data transfer rate</strong> between DRAM and the CPU. This enables the CPU to <strong>write and read data from the two modules at the same time</strong>. Normal DDR4 Bus is 64 bits, in dual-channel it’s 128 bits.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Configuration</th>
+<th align="left">Channels</th>
+<th align="left">DDR4 Bus Size</th>
+<th align="left">DDR5 Bus Size</th>
+<th align="left">Bandwidth Multiplier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Single DIMM</td>
+<td align="left">1</td>
+<td align="left">64 bit</td>
+<td align="left">2 x 32 bit sub-channels</td>
+<td align="left">x1</td>
+</tr>
+<tr>
+<td align="left">Dual Channel</td>
+<td align="left">2</td>
+<td align="left">128 bit</td>
+<td align="left">4 x 32 bit sub-channels</td>
+<td align="left">x2</td>
+</tr>
+<tr>
+<td align="left">Quad Channel</td>
+<td align="left">4</td>
+<td align="left">256 bit</td>
+<td align="left">8 x 32 bit sub-channels</td>
+<td align="left">x4</td>
+</tr>
+<tr>
+<td align="left">Octa Channel</td>
+<td align="left">8</td>
+<td align="left">512 bit</td>
+<td align="left">16 x 32 bit sub-channels</td>
+<td align="left">x8</td>
+</tr>
+<tr>
+<td align="left">Dodeca Channel</td>
+<td align="left">12</td>
+<td align="left">768 bit</td>
+<td align="left">24 x 32 bit sub-channels</td>
+<td align="left">x12</td>
+</tr>
+</tbody></table>
+<figure>
+  <img src="/2026/03/14/hardware-memory/yjhgfbvder456ythrgfre43ewd.jpg" class="" title="ASUS PRO WS WRX90E-SAGE Recommended Memory Configuration">
+  <figcaption>ASUS PRO WS WRX90E-SAGE Recommended Memory Configuration</figcaption>
+</figure>
+
+<p>Motherboards can handle <strong>more than one DIMM Stick per channel</strong> (or not). In servers we can find CPUs that support <a target="_blank" rel="noopener" href="https://www.techpowerup.com/cpu-specs/ryzen-threadripper-pro-9995wx.c4163">8</a>, <a target="_blank" rel="noopener" href="https://www.techpowerup.com/cpu-specs/epyc-9754.c3257">12</a> or even <a target="_blank" rel="noopener" href="https://www.techpowerup.com/344788/amd-zen-6-epyc-venice-introduces-a-radical-package-redesign">16</a> channels. On the other hand, we can find motherboards with 16 DIMM Slots and just 8 channels.</p>
+<p>This concept is called <strong>DIMMs Per Channel (DPC)</strong> or <strong>Slot Per Channel (SPC)</strong>. In a 1 DPC system each channel has one DIMM Slot, in a 2 DPC two slots, etc. This will be a <strong>trade-off between speed and capacity</strong>. If all slots are filled, the electrical load on each channel increases. This causes “signal noise.” To stay stable, <strong>the CPU’s memory controller will often automatically drop the Memory speed</strong>.</p>
+<p>Normally, servers that <strong>prioritize capacity and throughput</strong> over clock speed tend to use more slots at a lower safe speed (for example: <a target="_blank" rel="noopener" href="https://lenovopress.lenovo.com/lp2231-thinksystem-sr860-v4-server">Lenovo ThinkSystem SR860 V4 Server</a>). While <strong>performance servers</strong> go for 1 DPC, where the electrical path is very clean, and this allows the memory controller to run at its <strong>maximum rated frequency</strong> without stability issues (for example: <a target="_blank" rel="noopener" href="https://lenovopress.lenovo.com/lp2009-thinksystem-sc750-v4-neptune-server">Lenovo ThinkSystem SC750 V4 Neptune Server</a>).</p>
+<blockquote>
+<p><strong>❓ How to enable Dual-Channel?</strong><br>  In our <a href="/2026/02/01/hardware-motherboard/#%F0%9F%A7%A0-RAM-Slots-Channels">previous post</a> we talked about the DIMM Slots topology (normally Daisy Chain for Desktop computers). It’s important to follow the motherboard’s instructions to enable Dual-Channel.</p>
+</blockquote>
+<blockquote>
+<p><strong>❓ Is DDR5 Dual Channel a “better” 128-bit bus than DDR4?</strong><br>  <strong>Yes</strong>, in DDR5, each memory stick has two <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DDR5_SDRAM#Subchannels">subchannels</a> ending in a 4 x 32 bit bus, this <strong>increases the level of parallelism</strong>. In DDR4, the CPU has to wait for the entire 64-bit bus to be free. When doing dual channel, in DDR4 each 64 bit block is “monolithic”, while in DDR5 Dual Channel, the CPU can operate on <strong>four different areas of memory simultaneously at the same time</strong>.</p>
+</blockquote>
+<p><span id="ranks-organization"></span></p>
+<h2 id="2-Ranks-Organization"><a href="#2-Ranks-Organization" class="headerlink" title="2. Ranks Organization"></a>2. Ranks Organization</h2><p>DRAM Memory chips are connected and grouped by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_rank">DIMM Memory Ranks</a>. There are different organizations based on number of Ranks: Single (1R), Dual (2R), Quad (4R) or Octa (8R), and the number of bits managed for each chip: 4 bits (x4), 8 bits (x8) or 16 bits (x16):</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/9876RTGVHBJKOI4W4ERTFYGUHIJ.jpg" class="" title="DRAM Ranks Organization">
+  <figcaption>DRAM Ranks Organization</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">Organization</th>
+<th align="left">Chips per Rank</th>
+<th align="left">Total Chips</th>
+<th align="left">Data Bus Size (DDR4)</th>
+<th align="left">Data Bus Size (DDR5)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1Rx16</td>
+<td align="left">4</td>
+<td align="left">4</td>
+<td align="left">64-bit</td>
+<td align="left">2 x 32-bit</td>
+</tr>
+<tr>
+<td align="left">1Rx8</td>
+<td align="left">8</td>
+<td align="left">8</td>
+<td align="left">64-bit</td>
+<td align="left">2 x 32-bit</td>
+</tr>
+<tr>
+<td align="left">1Rx4</td>
+<td align="left">16</td>
+<td align="left">16</td>
+<td align="left">64-bit</td>
+<td align="left">2 x 32-bit</td>
+</tr>
+<tr>
+<td align="left">2Rx8</td>
+<td align="left">8</td>
+<td align="left">16</td>
+<td align="left">64-bit (x2)</td>
+<td align="left">4 x 32-bit</td>
+</tr>
+<tr>
+<td align="left">2Rx4</td>
+<td align="left">16</td>
+<td align="left">32</td>
+<td align="left">64-bit (x2)</td>
+<td align="left">4 x 32-bit</td>
+</tr>
+<tr>
+<td align="left">4Rx4</td>
+<td align="left">16</td>
+<td align="left">64</td>
+<td align="left">64-bit (x4)</td>
+<td align="left">8 x 32-bit</td>
+</tr>
+<tr>
+<td align="left">8Rx4</td>
+<td align="left">16</td>
+<td align="left">128</td>
+<td align="left">64-bit (x8)</td>
+<td align="left">16 x 32-bit</td>
+</tr>
+</tbody></table>
+<p><strong>❓ More Ranks is better?</strong></p>
+<p><strong>Depends</strong>. Multi-rank modules allow several open DRAM pages (row) in each Rank (8 pages per Rank). This <strong>increases the possibility of getting a hit on an already open row address</strong>. The performance gain that can be achieved <strong>depends on the application and the memory controller’s</strong> ability to take advantage of open pages.</p>
+<p>Ranks are selected one at a time through a chip select signal (CS), therefore <strong>only one rank is accessible at a time</strong>.</p>
+<p>But, Multi-rank memory modules use a process called <strong>rank interleaving</strong>, where the ranks that are not accessed go through their <strong>refresh cycles in parallel</strong>. This pipelined process <strong>reduces memory response time</strong>, as soon as the previous rank completes data transmission, the next rank can start its transmission.</p>
+<p>Also, memory controllers need additional clock cycles to move from one rank to another, so multi-rank organization <strong>adds some I&#x2F;O latency penalty</strong>. But on the other hand, it <strong>doubles or quadruples the memory capacity</strong> on a module.</p>
+<blockquote>
+<p><strong>❓ More chips is better?</strong><br><strong>Depends</strong>, having more chips to reach the same memory capacity can <strong>substantially reduce power consumption</strong>. For example <a target="_blank" rel="noopener" href="https://blog.cloudflare.com/ddr4-memory-organization-and-how-it-affects-memory-bandwidth/">2Rx8 32GB memory modules using 16Gb sticks consume 31% less power than 2Rx4 32GB memory modules using 8Gb sticks</a>♻️, while getting similar performance. This <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Performance_per_watt">performance per watt</a> gain is important, especially for datacenters.</p>
+</blockquote>
+<p><span id="manufacturer-process"></span></p>
+<h1 id="🏭-How-Memory-is-built-Manufacturing-process"><a href="#🏭-How-Memory-is-built-Manufacturing-process" class="headerlink" title="🏭 How Memory is built: Manufacturing process"></a>🏭 How Memory is built: Manufacturing process</h1><p>DRAM Memory manufacturing can be split into two parts: <strong>Memory chips manufacturing</strong> and <strong>Memory sticks manufacturing</strong>:</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-EhDlXx3okU">Linus Tech Tips - I made my own RAM! - Micron Factory Tour ⭐⭐⭐⭐⭐</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=VzolYf9b0LM">Kingston Technology - DRAM Module Manufacturing Process ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>Now there are 3 main <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Category:DRAM_manufacturers">DRAM Memory chips manufacturers</a> that control the market share: <strong>Samsung, SK Hynix</strong> and <strong>Micron</strong>:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/09h23duijodhsdjkhisokdiofisdf.jpg" class="" title="Semiconductor Industry Ecosystem and Value Chain">
+  <figcaption>Semiconductor Industry Ecosystem and Value Chain</figcaption>
+</figure>
+
+<p>Memory chips manufacturing is similar to <a href="/2026/01/06/hardware-cpu/#2-Integrated-Circuit-Lithography">CPU Integrated Circuit Lithography</a>. In this case Memory cells (transistor + capacitor) and connections (bit line&#x2F;wordline) are built on <strong>top of a silicon wafer</strong> using <strong>multiple steps</strong> like: ISO area etch, buried wordlines, bit line contact, storage node contact, capacitor etch, mesh spacer, and capacitor plate formation.</p>
+<p>For the last 20 years, the industry has been using <strong>2D 1T1C</strong> (1 transistor, 1 capacitor) DRAM. Technologies have been evolving in order to gain more density from <a target="_blank" rel="noopener" href="https://semiwiki.com/forum/threads/samsung-teases-16-layer-3d-dram-with-vct-dram-as-a-stepping-stone-for-future-ram.20285/">6F2 to 4F2 architecture</a>. But, <strong>2D space is not enough</strong>. Manufacturers have been <a target="_blank" rel="noopener" href="https://www.linkedin.com/posts/hyeongwon-seo-60206a244_httpslnkdineagf4rvb-it-seems-that-the-activity-7214312840998920193-bp20/">researching and developing (R&amp;D)</a> different <strong>3D stacking</strong> solutions in order to build chips with more memory cell capacity. For example <strong>Vertical Channel Transistor (VCT)</strong>, which means that the transistor is flipped, so it stands up vertically allowing much more cells into the same area.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/98g3hiweiufduhisuifs9838hrujajusdsdjfdf.jpg" class="" title="4F2 VCT Memory Cells Architecture">
+  <figcaption>4F2 VCT Memory Cells Architecture</figcaption>
+</figure>
+
+<figure>
+  <img src="/2026/03/14/hardware-memory/09789yuehiwdjsohfhshfdi39029dsufgsudfsdkiuf.jpg" class="" title="Tokyo Electron DRAM Technology Roadmap">
+  <figcaption>Tokyo Electron DRAM Technology Roadmap</figcaption>
+</figure>
+
+<p>Nowadays all manufacturers are using <strong>10nm Process node</strong> for chips:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Manufacturer</th>
+<th align="left">Samsung</th>
+<th align="left">SK hynix</th>
+<th align="left">Micron</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DRAM Process Node</td>
+<td align="left">1c (10 nm)</td>
+<td align="left">1c (10 nm)</td>
+<td align="left">1-Gamma (10 nm)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>❓ Is DRAM also affected by Silicon Lottery?</strong><br>  <strong>Yes</strong>. Memory chips use lithography, and as we saw in <a href="/2026/01/06/hardware-cpu/#silicon-lottery">CPU Silicon Lottery</a>, this is something natural. In fact, the latency defined in the modules means that it’s the <strong>minimum time</strong> to ensure that all chips in the module <strong>can run without issues</strong>. Probably there are individual chips that can perform much better times but <strong>they are capped from the factory</strong>. Also, modules with better performance chips will run at <strong>higher speed</strong>, can even be overclocked, and can be <strong>sold at a higher price</strong>.</p>
+</blockquote>
+<blockquote>
+<p>❓ <strong>What about the Future?</strong><br>  <a target="_blank" rel="noopener" href="https://www.techinvestments.io/p/atomic-layer-deposition-next-gen">In the future</a> it’s expected that DRAM Cells use <strong>3D Horizontal Stacking technologies</strong> (for example Samsung VS-CAT technology).</p>
+</blockquote>
+<p>Once the chips are built, DRAM sticks manufacturers <strong>assemble and tune DRAM Modules</strong>. For example: Corsair, Kingston, HP, Acer, Gigabyte, Lenovo, GoodRam, Dell, Transcend, G.Skill, etc. Chips manufacturers can sell <strong>their own memory sticks</strong> with their brand, or even under <strong>specialized consumers brands</strong> like Crucial (Stopped due to the RAMmageddon).</p>
+<blockquote>
+<p>❓ <strong>What is RAMmageddon?</strong><br>  In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/2024%E2%80%93present_global_memory_supply_shortage">2024, computer memory supply shortage</a> started caused by the IA Revolution. This shortage is driven by a <strong>structural reallocation of manufacturing capacity</strong> toward high-margin products for artificial intelligence infrastructure (<a href="/2026/02/03/hardware-memory/#hbm">Like HBM4 Memory</a>), creating scarcity in consumer and enterprise PC markets (by the time of writing this, prices have grown x4 or x5).</p>
+</blockquote>
+<p><span id="dimm-variants"></span></p>
+<h1 id="📏-DIMM-Variants"><a href="#📏-DIMM-Variants" class="headerlink" title="📏 DIMM Variants"></a>📏 DIMM Variants</h1><p><span id="dimm"></span></p>
+<h2 id="1-DIMM"><a href="#1-DIMM" class="headerlink" title="1. DIMM"></a>1. DIMM</h2><p>Memory sticks are <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DIMM">Dual In-line Memory Module (DIMM)</a>s. These modules are the physical Printed Circuit Board (PCB) that holds the memory chips. Before the 1990s, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SIMM">Single In-line Memory Modules (SIMMs)</a> were used.</p>
+<p>Both would have memory chips on both sides of the stick, but the key difference is that in older memory SIMMs, the <strong>pins on both sides were connected</strong>, so the maximum amount of bits of the data bus was 32-bit. On a DIMM, the pins on the <strong>front and back are independent</strong>, allowing for a wider 64-bit data bus to communicate with the CPU with a single stick.</p>
+<p>In 1997 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DIMM#SO-DIMM">Small Outline DIMM (SO-DIMM)</a> was introduced by JEDEC, as a size-reduced version of DIMM for laptops: </p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/IJDFSDOFHUWPFOH32OFOKKFDKFLDFK.jpg" class="" title="DIMM and SO-DIMM Form Factor">
+  <figcaption>DIMM and SO-DIMM Form Factor</figcaption>
+</figure>
+
+<p><strong>Different generations are not interchangeable</strong>: neither forward compatible nor backward compatible. To make this difference clear and avoid any confusion, their DIMM modules all have <strong>different pin counts and&#x2F;or different notch positions</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Form Factor</th>
+<th align="left">Size</th>
+<th align="left">SDR Pins</th>
+<th align="left">DDR Pins</th>
+<th align="left">DDR2 Pins</th>
+<th align="left">DDR3 Pins</th>
+<th align="left">DDR4 Pins</th>
+<th align="left">DDR5 Pins</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DIMM</td>
+<td align="left">133.35 x 30 mm</td>
+<td align="left">168</td>
+<td align="left">184</td>
+<td align="left">240</td>
+<td align="left">240</td>
+<td align="left">288</td>
+<td align="left">288</td>
+</tr>
+<tr>
+<td align="left">SO-DIMM</td>
+<td align="left">67.6 x 30 mm</td>
+<td align="left">144</td>
+<td align="left">200</td>
+<td align="left">200</td>
+<td align="left">204</td>
+<td align="left">260</td>
+<td align="left">262</td>
+</tr>
+<tr>
+<td align="left">MicroDIMM</td>
+<td align="left">55 x 30 mm</td>
+<td align="left">144</td>
+<td align="left">172</td>
+<td align="left">214</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>❓ Can I use any form factor memory?</strong><br>  <strong>No</strong>, depending on the form factor that is accepted by the motherboard: desktop PCs, workstations and servers can use DIMM, laptops and small PCs use SO-DIMM and small notebooks used to use MicroDIMM, but now the trend is <strong>soldering RAM directly to the motherboard.</strong></p>
+</blockquote>
+<p><span id="rdimm-lrdimm"></span></p>
+<h2 id="2-RDIMM-LRDIMM"><a href="#2-RDIMM-LRDIMM" class="headerlink" title="2. RDIMM&#x2F;LRDIMM"></a>2. RDIMM&#x2F;LRDIMM</h2><p>The <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Registered_memory">Registered memory</a> or <strong>buffered memory</strong>, is the one that has a <strong>register</strong> between the DRAM modules and the CPU memory chip controller (MCC).</p>
+<p>Standard DRAM computer memory, do not use a “buffer” between the memory and the CPU. They are also called <strong>Unbuffered DIMM (UDIMM)</strong>. This is good to reach <strong>much lower latency and higher frequencies</strong>, but the amount of Memory is limited (before the system will become unstable).</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/0ruwidsofjsdofjjfsdjfsdflsdkf.jpg" class="" title="LRDIMM&#x2F;RDIMM Memory">
+  <figcaption>LRDIMM/RDIMM Memory</figcaption>
+</figure>
+
+<p>Servers, manage terabytes of data across many memory slots (16, 24, 32+), and the <strong>electrical strain becomes too much for the CPU</strong> to handle alone. <strong>Registered DIMM (RDIMM)</strong> solves this problem by including a register, the <strong>Registered Clock Driver (RCD)</strong>, that <strong>buffers commands and address signals</strong>. This allows controlling the electrical load and allowing <strong>higher memory capacity and stability</strong>.</p>
+<p>Also, we could find <strong>Load Reduced DIMM (LRDIMM)</strong>, which goes a step further: They buffer and manage the <strong>control signals and the data lines</strong>. This minimizes the electrical load significantly, allowing servers to be packed with <strong>massive amounts of memory</strong> (terabytes) without crashing. While with RDIMM clock frequency can drop as you add more DIMMs to keep the signal clean, <strong>LRDIMM allow	higher frequencies even with full slots</strong> (at least for DDR3 and DDR4 servers).</p>
+<h3 id="3DS-RDIMM"><a href="#3DS-RDIMM" class="headerlink" title="3DS RDIMM"></a>3DS RDIMM</h3><p>While a standard RDIMM uses single-die packages, a <a target="_blank" rel="noopener" href="https://www.jedec.org/sites/default/files/Tom_Kinsley%20(DDR3%203DS).pdf">3DS RDIMM</a> stacks <strong>multiple DRAM chips</strong> vertically using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Through-silicon_via">Through-Silicon Via (TSV)</a> technology. This allows for massive capacities (like 128GB, 256GB or <a target="_blank" rel="noopener" href="https://news.samsung.com/global/samsung-develops-industrys-first-hkmg-based-ddr5-memory-ideal-for-bandwidth-intensive-advanced-computing-applications">even more 512 GB</a>) that standard memory simply can’t reach.</p>
+<p><span id="mrdimm-mcrdimm"></span></p>
+<h2 id="3-MRDIMM-MCRDIMM"><a href="#3-MRDIMM-MCRDIMM" class="headerlink" title="3. MRDIMM&#x2F;MCRDIMM"></a>3. MRDIMM&#x2F;MCRDIMM</h2><p>In 2026, in the middle of the AI datacenter race, the need for more capacity and reaching higher stable frequencies has resulted in two similar approaches for server memories:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/023urpuihwqeojfhsjkdfjsldfjslkdfjlk.jpg" class="" title="MRDIMM&#x2F;MCRDIMM Memory">
+  <figcaption>MRDIMM/MCRDIMM Memory</figcaption>
+</figure>
+
+<p><strong>Multiplexed Rank DIMM (MRDIMM)</strong> (powered by JEDEC, AMD and Micron) or <strong>Multiplexed Combined Rank DIMM (MCRDIMM)</strong> (powered by Intel and SK hynix) allow data from <strong>multiple ranks to be transmitted on the same channel</strong>. Essentially, a <strong>Multiplexer Data Buffer (MDB)</strong> takes the data from both ranks and “multiplexes” it. It converts two 4400MT&#x2F;s (DDR5 RDIMM) streams into a single 8800MT&#x2F;s stream to the CPU. This enables <strong>doubling the frequency and stick capacities</strong>. Some of these memories use <strong>Tall Form Factor (TFF)</strong> to handle even more memory chips. (Example: <a target="_blank" rel="noopener" href="https://www.techpowerup.com/320852/micron-shows-off-tall-form-factor-256-gb-ddr5-8000-mcrdimm">Micron 256 GB DDR5-8000 MCRDIMM</a>).</p>
+<p>In DDR5 Gen, <strong>MRDIMM&#x2F;MCRDIMM servers overtake LRDIMM</strong> when comparing memory max server capacity, transfer rate and latency ending in much more efficient (Performance per Watt), making them the choice for “traditional” datacenters in 2026 for example the <a target="_blank" rel="noopener" href="https://lenovopress.lenovo.com/lp2127-thinksystem-sr650-v4-server">Lenovo ThinkSystem SR650 V4 Server</a>, and in AI Datacenters they can be found for example in the <a target="_blank" rel="noopener" href="https://lenovopress.lenovo.com/lp2264-thinksystem-sr680a-v4-server">SR680a V4</a> but we can also find other options like directly soldered memory or SOCAMM2.</p>
+<p><span id="cudimm"></span></p>
+<h2 id="4-CUDIMM"><a href="#4-CUDIMM" class="headerlink" title="4. CUDIMM"></a>4. CUDIMM</h2><p>With the introduction of DDR5, in addition to the DDR5 UDIMM memories for consumer systems, a new memory technology for high performance systems has been introduced: <strong>Clocked Unbuffered DIMM (CUDIMM)</strong>, where a <strong>Client Clock Driver (CKD)</strong> chip in the stick <strong>handles the clock signal</strong>. This chip <strong>cleans and regenerates the signal</strong> locally on the memory, and this is needed for speeds above 6400 MT&#x2F;s, to avoid signals getting blurred, allowing stable speeds of 8400 MT&#x2F;s to 10000 MT&#x2F;s.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/98yftghjiu8yutrsdxfcfvfre4r5t6yuijkh.jpg" class="" title="CUDIMM Memory">
+  <figcaption>CUDIMM Memory</figcaption>
+</figure>
+
+<p>There also exists <strong>Clocked Small Outline DIMM (CSODIMM)</strong> which is the reduced version of this technology over SO-DIMM chips for laptops.</p>
+<p>To reach <strong>high density and max transfer rate</strong>, we can find solutions like <a target="_blank" rel="noopener" href="https://www.msi.com/news/detail/MSI-and-ADATA-Join-Forces-to-Launch-4-Rank-128GB-High-Capacity-Memory-for-Intel-Z890-Platform-147445">MSI 4 Ranks 128GB CUDIMM</a> sticks that use <a target="_blank" rel="noopener" href="https://elchapuzasinformatico.com/2025/12/msi-ddr5-memorias-4-rank-doble-ckd/">dual CKD</a> to maintain 10000 MT&#x2F;s over a 256 GB system 🤯.</p>
+<p><span id="camm2"></span></p>
+<h1 id="🌟-CAMM2"><a href="#🌟-CAMM2" class="headerlink" title="🌟 CAMM2"></a>🌟 CAMM2</h1><p>Fast memory like DDR5 is very sensitive to the synchrony of signals, a large amount of PCB area needs to be dedicated to carefully length-matched traces. The <strong>longer these traces</strong> get (even 7 cm for SO-DIMM), the more <strong>power they waste</strong>, and the <strong>harder it is to keep the speed high while keeping the signals intact</strong>. Also, the mere presence of a soldered connector (even if there is no memory stick inside), creates <strong>signal integrity stubs</strong> ⚠️ reducing the bus speed. In the future with DDR6, and higher frequencies, this will be even more critical. </p>
+<p>One solution to this problem is to just <strong>solder the Memory chips to the motherboard</strong>, but memory <strong>cannot be upgraded or repaired</strong>.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/sdufh232oewfksdfkjsdflksdjf.jpg" class="" title="LPCAMM2&#x2F;CAMM2 Memory">
+  <figcaption>LPCAMM2/CAMM2 Memory</figcaption>
+</figure>
+
+<p>To solve this problem, in 2022 DELL introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CAMM_(memory_module)">Compression Attached Memory Module (CAMM)</a>. Replacing the edge connectors with a <strong>land grid array</strong>, so more pins can be connected with <strong>much shorter traces length</strong> (around 50% less distance), allowing the module to run at a lower voltage at higher speeds. Also, the device can be much thinner because there is no need to support 2 or 1 SO-DIMM slots, the sticks (57% thinner) are just placed on top of the motherboards. Also, they can reach higher capacity (around 128GB per stick), stable high frequencies (more than 10,000 MT&#x2F;s), and lower latency.</p>
+<p>There also exists <strong>Low Power CAMM2 (LPCAMM2)</strong>, a flagship memory solution for thin and light laptops which uses <strong>Low-power DRAM</strong> chips.  </p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/8sad082h2do2jldwlkaslkdaklsdklas.jpg" class="" title="DDR5 CAMM2 Variants">
+  <figcaption>DDR5 CAMM2 Variants</figcaption>
+</figure>
+
+<p>In 2023, partnering on DELL’s proprietary framework, JEDEC <a target="_blank" rel="noopener" href="http://jedec.org/sites/default/files/Tom_Schnell_FINAL_%202024-05-03.pdf">standardized CAMM2</a>.</p>
+<p>This technology is <strong>in adoption</strong> yet, but we can see them in laptops like the <a target="_blank" rel="noopener" href="https://www.lenovo.com/es/es/p/laptops/thinkpad/thinkpadp/thinkpad-p1-gen-7-16-inch-intel/len101t0107">Lenovo ThinkPad P1 Gen 7</a> or <a target="_blank" rel="noopener" href="https://www.dell.com/es-es/shop/port%c3%a1tiles-de-dell/port%c3%a1til-dell-pro-max-16-plus/spd/dell-pro-max-mb16250-laptop">Dell Pro Max 16 Plus</a>, and we can even see motherboards supporting this like the <a target="_blank" rel="noopener" href="https://www.tweaktown.com/news/98668/msi-z790-project-zero-plus-motherboard-adopts-camm2-memory-for-extreme-overclocking/index.html">MSI Z790 Project Zero Plus</a> to theoretically reach higher frequencies.</p>
+<h3 id="SOCAMM2"><a href="#SOCAMM2" class="headerlink" title="SOCAMM2"></a>SOCAMM2</h3><p>In 2026, <a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/?ncid=no-ncid">AI Datacenters</a> are powered by HBM4 memories at GPUs. Meanwhile, CPUs use high speed <strong>LPDDR5X</strong> memory that is <strong>co-packaged “soldered”</strong> to server motherboards like the <a target="_blank" rel="noopener" href="https://resources.nvidia.com/en-us-grace-cpu/data-center-datasheet?ncid=no-ncid&xs=1123791">NVIDIA Grace Arm CPU</a>. </p>
+<p>But, new servers like the <a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/vera-cpu/?ncid=no-ncid">Nvidia Vera CPU</a> are using <a target="_blank" rel="noopener" href="https://semiconductor.samsung.com/news-events/tech-blog/introducing-samsungs-socamm2-new-lpddr-memory-module-empowering-next-generation-ai-infrastructure/">SOCAMM2 LPDDR5X</a> technology:</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/asodyuhuj2jjwsdasjkdjaskd.jpg" class="" title="NVIDIA Vera CPUs Server Motherboard">
+  <figcaption>NVIDIA Vera CPUs Server Motherboard</figcaption>
+</figure>
+
+<figure>
+  <img src="/2026/03/14/hardware-memory/092eoudohwqdhjasjhdkasjdhasj.jpg" class="" title="Samsung SOCAMM2 LPDDR5X Memory">
+  <figcaption>Samsung SOCAMM2 LPDDR5X Memory</figcaption>
+</figure>
+
+<p><span id="hbm"></span></p>
+<h1 id="🤖-HBM"><a href="#🤖-HBM" class="headerlink" title="🤖 HBM"></a>🤖 HBM</h1><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/High_Bandwidth_Memory">High Bandwidth Memory (HBM)</a> is a 3D-stacked computer memory used in servers for high-performance computing. Nowadays, it is mainly found in GPUs, but it can also be found with CPUs. It is <strong>expensive and difficult to manufacture</strong>, but it achieves <strong>higher bandwidth</strong> than DDR5 or GDDR5 while <strong>using less power</strong>, in a substantially <strong>smaller form factor</strong>. This is achieved by stacking DRAM dies, interconnected via through-silicon vias (TSVs) (similar to 3DS RDIMMs) using fine interconnect lines, on top of an extra logic die.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/aso8iduyhuoqdoihj1do2ioi2dkdjjdsd.jpg" class="" title="HBM Memory">
+  <figcaption>HBM Memory</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Release Year</th>
+<th align="left">Max Pin Speed</th>
+<th align="left">Bus Width</th>
+<th align="left">Max Bandwidth (per stack)</th>
+<th align="left">Max Capacity (per stack)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">HBM1</td>
+<td align="left">2013</td>
+<td align="left">1 Gb&#x2F;s</td>
+<td align="left">8x128 bit</td>
+<td align="left">128 GB&#x2F;s</td>
+<td align="left">4 dies × 1 GB &#x3D; 4 GB</td>
+</tr>
+<tr>
+<td align="left">HBM2</td>
+<td align="left">2016</td>
+<td align="left">2.4 Gb&#x2F;s</td>
+<td align="left">8x128 bit</td>
+<td align="left">307 GB&#x2F;s</td>
+<td align="left">8 dies × 1 GB &#x3D; 8 GB</td>
+</tr>
+<tr>
+<td align="left">HBM2E</td>
+<td align="left">2019</td>
+<td align="left">3.6 Gb&#x2F;s</td>
+<td align="left">8x128 bit</td>
+<td align="left">461 GB&#x2F;s</td>
+<td align="left">12 dies × 2 GB &#x3D; 24 GB</td>
+</tr>
+<tr>
+<td align="left">HBM3</td>
+<td align="left">2022</td>
+<td align="left">6.4 Gb&#x2F;s</td>
+<td align="left">16x64 bit</td>
+<td align="left">819 GB&#x2F;s</td>
+<td align="left">12 dies × 2 GB &#x3D; 24 GB</td>
+</tr>
+<tr>
+<td align="left">HBM3E</td>
+<td align="left">2023</td>
+<td align="left">9.8 Gb&#x2F;s</td>
+<td align="left">16x64 bit</td>
+<td align="left">1229 GB&#x2F;s</td>
+<td align="left">16 dies × 3 GB &#x3D; 48 GB</td>
+</tr>
+<tr>
+<td align="left">HBM4</td>
+<td align="left">2025</td>
+<td align="left">8 Gb&#x2F;s</td>
+<td align="left">32x64 bit</td>
+<td align="left">2048 GB&#x2F;s</td>
+<td align="left">16 dies × 4 GB &#x3D; 64 GB</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>❓ Is the JEDEC standard max speed the real maximum?</strong><br>  <strong>No</strong>. Like DDR Speed, HBM speed tends to <strong>increase over the years</strong> with optimizations and improvements, also overlapping with the next generation. For example, we can see <a target="_blank" rel="noopener" href="https://news.samsung.com/pe/samsung-presento-hbm4e-destacando-soluciones-integrales-de-ia-su-asociacion-con-nvidia-y-su-vision-en-nvidia-gtc-2026">Samsung HBM4 Memories with max pin speeds of 11.7-13 Gb&#x2F;s</a>, well over the 8 Gb&#x2F;s of the standard. Or HBM4E speeds even before the official spec is published.</p>
+</blockquote>
+<p>The HBM bus width is very wide, allowing <strong>huge bandwidth per chip</strong> in comparison with other technologies, for example:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Memory Type</th>
+<th align="left">Data Rate</th>
+<th align="left">Bus Width</th>
+<th align="left">Bandwidth</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DDR5 (1 stick)</td>
+<td align="left">8800 MT&#x2F;s</td>
+<td align="left">64-bit</td>
+<td align="left">64 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">GDDR7 (RTX-5090)</td>
+<td align="left">32-48 Gb&#x2F;s per pin</td>
+<td align="left">512-bit (16 chips)</td>
+<td align="left">1792 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">HBM4 (1 chip)</td>
+<td align="left">8 Gb&#x2F;s per pin</td>
+<td align="left">2048-bit</td>
+<td align="left">2 TB&#x2F;s</td>
+</tr>
+</tbody></table>
+<p>This memory <strong>is a critical strategic resource</strong> for AI companies these days. Notice that a single AI supercomputer like <a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/">NVIDIA Vera Rubin NVL72</a> uses 72 NVIDIA Rubin GPUs, each one running 288 GB of HBM4 memory (8 stacks of 12-Hi (12 die layers) of 36 GB), resulting in 1.5 PB&#x2F;s of bandwidth (That is 10 times the whole Internet traffic&#x2F;s) 🤯</p>
+<blockquote>
+<p>❓ <strong>Are all manufacturers building the same HBM chips?</strong></p>
+</blockquote>
+<p><strong>No</strong>, all manufacturers are using 10nm Process Node for chips these days. But we can see some <strong>differences in the Process Node</strong> used for the logic die: </p>
+<table>
+<thead>
+<tr>
+<th align="left">Manufacturer</th>
+<th align="left">DRAM Process Node</th>
+<th align="left">HBM4 Core DRAM Die</th>
+<th align="left">HBM4 Base (Logic) Die Process</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Samsung</td>
+<td align="left">1c (10nm)</td>
+<td align="left">1c DRAM</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://semiconductor.samsung.com/dram/hbm/hbm4/">Samsung 4nm</a></td>
+</tr>
+<tr>
+<td align="left">SK hynix</td>
+<td align="left">1c (10nm)</td>
+<td align="left">1c DRAM</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.tomshardware.com/pc-components/dram/sk-hynix-completes-development-of-hbm4-2-048-bit-interface-and-10-gt-s-speeds-promised">TSMC 5nm &#x2F; 12nm</a></td>
+</tr>
+<tr>
+<td align="left">Micron</td>
+<td align="left">1-Gamma (10nm)</td>
+<td align="left">1b DRAM</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.tomshardware.com/pc-components/dram/micron-starts-to-ship-samples-of-hbm4-memory-to-clients-36-gb-capacity-and-bandwidth-of-2-tb-s">TSMC 5nm &#x2F; 12nm</a></td>
+</tr>
+</tbody></table>
+<p><span id="ecc"></span></p>
+<h1 id="🛡️-ECC"><a href="#🛡️-ECC" class="headerlink" title="🛡️ ECC"></a>🛡️ ECC</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AaZ_RSt0KP8">Veritasium - The Universe is Hostile to Computers ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>Galactic <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cosmic_ray">Cosmic Rays</a> 🌠 can generate a change of state in one memory bit (for example changing a 0 to a 1). This phenomenon is known as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Single-event_upset">Single-event upset (SEU)</a> where <strong>high-energy</strong> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Subatomic_particle">subatomic particles</a> like ions, protons or neutrons accelerated to <strong>nearly the speed of light</strong> by massive events like  <a target="_blank" rel="noopener" href="https://es.wikipedia.org/wiki/Supernova">supernovas</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Black_hole">black holes</a> strikes a sensitive node in the memory cell, it <strong>can deposit enough charge to flip the bit</strong> 🤯.</p>
+<figure>
+  <img src="/2026/03/14/hardware-memory/987YGFGGDHH23UWQDI3HOIWEIDW.jpg" class="" title="Galactic Cosmic Rays">
+  <figcaption>Galactic Cosmic Rays</figcaption>
+</figure>
+
+<p>These are <strong>soft errors</strong>, very difficult to detect because there is no trace. If it was part of a critical system instruction, the program might crash or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Blue_screen_of_death">Blue screen of death</a>.</p>
+<blockquote>
+<p>❓ <strong>What happens outside the Earth’s atmosphere?</strong><br>  At high altitude and in space these SEUs are an important topic to consider, because without Earth’s atmosphere to filter out cosmic radiation. They use <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Triple_modular_redundancy">redundancy</a>, physical <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Radiation_hardening">radiation-hardening</a> and <strong>Smart Software</strong>. (For example <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/RAD750">PowerPC RAD750</a> built in the <a target="_blank" rel="noopener" href="https://es.wikipedia.org/wiki/Curiosity">Curiosity</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Perseverance_(rover)">Perseverance rovers</a> missions).</p>
+</blockquote>
+<blockquote>
+<p>❓ <strong>Only cosmic rays cause SEUs?</strong><br>  <strong>No</strong>. This phenomenon can also happen because of an <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Alpha_particle">alpha particle</a> from trace impurities in the chip packaging like trace amounts of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Radioactive_decay">radioactive</a> elements (like Thorium or Uranium). The first widely recognized <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Alpha_strike_(engineering)">radiation-generated error (alpha-strike)</a> was the appearance of random errors in the Intel 4k 2107 DRAM in the late 1970s.</p>
+</blockquote>
+<h3 id="ECC-memory"><a href="#ECC-memory" class="headerlink" title="ECC memory"></a>ECC memory</h3><p>One solution to these problems is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ECC_memory">ECC memory</a>, which basically uses an <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Error_correction_code">ECC (Error Correcting Code)</a> mechanism to <strong>detect and fix</strong> single-bit errors automatically.</p>
+<p>The mechanism is similar to <a href="/2026/02/01/hardware-motherboard/#PCIe-Generations">PCIe correction strategies</a>.  When data is written, the system <strong>calculates a checksum</strong>. When data is read, the system <strong>recalculates the checksum</strong>. If the checksums don’t match, the ECC can <strong>detect and fix single-bit errors</strong> and <strong>detect double-bit errors</strong> (SECDED).</p>
+<p>Historically this technology has been <strong>used in servers</strong>. In DDR4 ECC Memory, there is a 9th chip dedicated solely to storing the error-correction bits. The “correction” happens as the data travels between the memory chips and the Memory Controller (72 bits data bus, 64 bits for data 8 bits for ECC).</p>
+<p>Due to higher densities and frequencies, <strong>all</strong> DDR5 memory has <strong>On-Die ECC</strong> to fix errors <strong>inside the chip</strong> due to the tiny lithography and high density. Once the data leaves the Memory stick it is <strong>no longer protected</strong> (x2-32 bits data buses).</p>
+<p>Also DDR5 ECC like DDR4 ECC memory it’s “server grade” memory, adds <strong>Side-band ECC</strong> and use extra correction to protect the communication with the Memory Controller (x2-40 bits data buses, 32 for data and 8 bits for ECC in every channel). Also, DDR5 ECC ranks require 10 chips.</p>
+<p><span id="cxl"></span></p>
+<h1 id="🔗-CXL-Compute-Express-Link"><a href="#🔗-CXL-Compute-Express-Link" class="headerlink" title="🔗 CXL (Compute Express Link)"></a>🔗 CXL (Compute Express Link)</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9vm210yUKsY">CXL Consortium - Introducing the CXL 4.0 Specification Webinar ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compute_Express_Link">Compute Express Link (CXL)</a> is an <strong>open standard interconnect</strong> for high-speed, high-capacity <strong>CPU-to-device and CPU-to-memory</strong> connections, designed for high-performance datacenter computers. CXL is built on top of the <strong>serial <a href="/2026/02/01/hardware-motherboard/#PCIe-Generations">PCIe</a> physical and electrical interface</strong>, adding new cache-coherent protocols that allow CPUs, accelerators, and memory devices to <strong>share and access memory efficiently</strong>.</p>
+<p>Created in 2019 by the <a target="_blank" rel="noopener" href="https://computeexpresslink.org/our-members/">CXL Consortium</a> (with worldwide <a target="_blank" rel="noopener" href="https://computeexpresslink.org/our-members/">very important contributors</a> 👀), it absorbed other competing standards and became the <strong>dominant CPU memory interconnect standard</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">CXL Version</th>
+<th align="left">Release Year</th>
+<th align="left">PCIe Gen</th>
+<th align="left">Transfer Rate</th>
+<th align="left">Bandwidth ×16 (Full Duplex)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CXL 1.0</td>
+<td align="left">2019</td>
+<td align="left">PCIe 5.0</td>
+<td align="left">32 GT&#x2F;s</td>
+<td align="left">~63 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">CXL 2.0</td>
+<td align="left">2020</td>
+<td align="left">PCIe 5.0</td>
+<td align="left">32 GT&#x2F;s</td>
+<td align="left">~63 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">CXL 3.0</td>
+<td align="left">2022</td>
+<td align="left">PCIe 6.0</td>
+<td align="left">64 GT&#x2F;s</td>
+<td align="left">~121 GB&#x2F;s</td>
+</tr>
+<tr>
+<td align="left">CXL 4.0</td>
+<td align="left">2025</td>
+<td align="left">PCIe 7.0</td>
+<td align="left">128 GT&#x2F;s</td>
+<td align="left">~242 GB&#x2F;s</td>
+</tr>
+</tbody></table>
+<p>❓<strong>How do AI Datacenters share memory to increase power?</strong></p>
+<p>The CXL transaction layer is composed of <strong>three dynamically multiplexed sub-protocols</strong> on a single link:</p>
+<ul>
+<li><strong>CXL.io</strong>: Based on PCIe, it provides device discovery, enumeration, configuration, DMA, and register I&#x2F;O access.</li>
+<li><strong>CXL.cache</strong>: Allows peripheral devices (like accelerators) to <strong>coherently access and cache host CPU memory</strong> with low latency.</li>
+<li><strong>CXL.mem</strong>: Allows the host CPU to <strong>coherently access device-attached memory</strong> with load&#x2F;store commands, for both volatile (RAM) and persistent (flash) storage.</li>
+</ul>
+<p>Devices that use CXL.io + CXL.mem (type 3) allow servers to <strong>expand memory beyond the physical DIMM slots</strong> on the motherboard. <strong>Memory pooling</strong> enables multiple hosts to <strong>dynamically share a pool of CXL-attached memory</strong>, where a CXL switch allocates memory segments to different servers on demand. This is a <strong>fundamental shift for datacenter architecture</strong>, enabling <strong>disaggregated memory</strong> where compute and memory resources can be <strong>scaled independently</strong>.</p>
+<blockquote>
+<p><strong>❓ What about latency?</strong><br>  CXL memory controllers typically add around 200 ns of latency compared to local DIMM memory 80 ns. This makes CXL ideal for adding <strong>capacity</strong> for heavy workloads rather than a replacement for latency-sensitive local memory.</p>
+</blockquote>
+<p><span id="xmp-expo"></span></p>
+<h1 id="⚡-XMP-EXPO"><a href="#⚡-XMP-EXPO" class="headerlink" title="⚡ XMP &amp; EXPO"></a>⚡ XMP &amp; EXPO</h1><p><strong>AMD Extended Profiles for Overclocking (EXPO)</strong> and <strong>Intel Extreme Memory Profile (XMP)</strong> are overclocking profiles that can be loaded from <strong>BIOS&#x2F;UEFI</strong>. The BIOS will use a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Serial_presence_detect">Serial Presence Detect (SPD)</a> chip to configure DRAM to get max speeds, different voltages, or stability.</p>
+<p>With XMP 3.0, we can adjust even more voltages like (VDDQ, VDD, VPP). <strong>SPD chip is non-volatile memory</strong> and since DDR5 the chip was expanded and more profiles can be saved, not only manufacturer-tested settings, but also we can <strong>persist our own custom overclocking profiles</strong> inside the module 🤯.</p>
+<p><span id="how-to-choose-memory"></span></p>
+<h1 id="🆚-How-to-choose-Memory"><a href="#🆚-How-to-choose-Memory" class="headerlink" title="🆚 How to choose Memory?"></a>🆚 How to choose Memory?</h1><ul>
+<li><strong>Check compatibility</strong>: Check for CPU and motherboard specs, like <strong>max capacity and supported speeds</strong>.</li>
+<li><strong>Prioritize Dual-Channel</strong>: Always <strong>install memory in pairs</strong> (for example two 16GB sticks instead of one 32GB stick) to take advantage of dual-channel bandwidth. Check your motherboard manual to <strong>use the correct slots</strong>.</li>
+<li><strong>Find the Speed&#x2F;Latency sweet spot</strong>: Look for the best balance between Transfer Data Rate (MT&#x2F;s) and CAS Latency (CL). For example, nowadays DDR5, 6000 MT&#x2F;s with CL30 is often the target for price-performance.</li>
+<li><strong>Don’t fall for marketing traps</strong>: Remember that shops often advertise MT&#x2F;s as “MHz”. Extreme speeds (like 8000+ MT&#x2F;s) are <strong>very expensive and might not run stably</strong> unless your CPU’s memory controller and motherboard can handle them.</li>
+<li><strong>Don’t fall for Gamer RGB marketing traps</strong>: Check for <strong>real specs and reviews</strong>. Especially if you are looking for high performance, check number of ranks, internal latencies not only CL, etc.</li>
+<li><strong>Avoid automatic downclocking</strong>: If you are looking for high performance, go for <strong>two high-speed sticks</strong> over four. When running high speed, <strong>more sticks equal less stability</strong> and normally the system will automatically downclock the speed.</li>
+<li><strong>Pick the right capacity</strong>: 64GB of slightly slower memory will serve you <strong>better than 16GB of high-speed Memory</strong> that forces your system to swap data to disk. For gaming, <strong>32GB is the modern standard</strong>.</li>
+<li><strong>Capacity matters most for heavy loads</strong>: If you do 3D rendering, use virtual machines, or do heavy multitasking, having enough <strong>capacity</strong> (32GB, 64GB, or more) is <strong>more important</strong> than having highest speed.</li>
+<li><strong>Check the Motherboard’s QVL</strong>: Manufacturers publish a <strong>Qualified Vendor List (QVL)</strong> for their motherboards. Buying memory from this list ensures it has been <strong>tested to run at its advertised speeds</strong> on a specific board.</li>
+<li><strong>Enable XMP &#x2F; EXPO</strong>: If <strong>you need to</strong>, like for gaming, remember <strong>to enable memory overclocking profiles</strong> in the BIOS&#x2F;UEFI, you paid for it.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/02/01/hardware-motherboard/" rel="prev" title="💻 Hardware Series, Part II: Motherboard">
+                  <i class="fa fa-angle-left"></i> 💻 Hardware Series, Part II: Motherboard
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"espumita/espumita.github.io","repo_id":"MDEwOlJlcG9zaXRvcnk1NTU0MTk3Mg==","category":"General","category_id":"DIC_kwDOA0-A1M4C0paO","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"en","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

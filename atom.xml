@@ -6,7 +6,7 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   
   <link href="https://espumita.org/"/>
-  <updated>2026-02-19T17:05:31.244Z</updated>
+  <updated>2026-04-05T19:57:12.932Z</updated>
   <id>https://espumita.org/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>💻 Hardware Series, Part III: Memory</title>
+    <link href="https://espumita.org/2026/03/14/hardware-memory/"/>
+    <id>https://espumita.org/2026/03/14/hardware-memory/</id>
+    <published>2026-03-14T10:27:58.000Z</published>
+    <updated>2026-04-05T19:57:12.932Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2026/03/14/hardware-memory/098765trfghjkloiuytredfghjkloiuytfrewsdfgh.jpg&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;We need more RAM! Probably I have heard this hundreds of times. For some reason people are addicted to &lt;strong&gt;vertical scaling-up&lt;/strong&gt;. And it’s crazy that this is a general solution to many problems (and sometimes it works 😂). But, wait. Do we know what really Computer Memory is? 🤔&lt;/p&gt;
+&lt;p&gt;Modern Memory is DDR5 SDRAM DIMM. Let’s dive 🕵️ in at what this means.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hardware" scheme="https://espumita.org/categories/Hardware/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>💻 Hardware Series, Part II: Motherboard</title>
     <link href="https://espumita.org/2026/02/01/hardware-motherboard/"/>
     <id>https://espumita.org/2026/02/01/hardware-motherboard/</id>
     <published>2026-02-01T09:17:58.000Z</published>
-    <updated>2026-02-19T17:05:31.244Z</updated>
+    <updated>2026-04-05T19:57:12.982Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2026/02/01/hardware-motherboard/786trtfygvuhbjnkmljnhuygytfrdfcgyvhjk2.jpg&quot; class=&quot;&quot;&gt;
@@ -41,7 +61,7 @@
     <link href="https://espumita.org/2026/01/06/hardware-cpu/"/>
     <id>https://espumita.org/2026/01/06/hardware-cpu/</id>
     <published>2026-01-06T10:47:14.000Z</published>
-    <updated>2026-02-19T17:02:38.220Z</updated>
+    <updated>2026-04-05T19:57:12.932Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/2026/01/06/hardware-cpu/aslkdasljkdlkasdkadlkakdlsasdasd.jpg&quot; class=&quot;&quot;&gt;
