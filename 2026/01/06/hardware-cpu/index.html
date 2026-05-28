@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://espumita.org/2026/01/06/hardware-cpu/hjnkmjhugfyd234ghjbkerwdfj.jpg">
 <meta property="og:image" content="https://espumita.org/2026/01/06/hardware-cpu/879uishjdfhnbgsyf8ywu9hifjoesdhgyfuhsdjfk.jpg">
 <meta property="article:published_time" content="2026-01-06T10:47:14.000Z">
-<meta property="article:modified_time" content="2026-04-05T19:57:12.932Z">
+<meta property="article:modified_time" content="2026-05-28T19:54:09.819Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://espumita.org/2026/01/06/hardware-cpu/aslkdasljkdlkasdkadlkakdlsasdasd.jpg">
@@ -1090,11 +1090,14 @@ _start:
 <p><strong>❓ Does the clock signal “power” the CPU?</strong><br>  <strong>No</strong>, the electricity provided to the CPU, comes from the VRMs at a certain stable voltage. The clock signal is a <strong>separate circuit</strong>, and its only job is to carry a high&#x2F;low, voltage signal. But they are <strong>synchronized</strong>. For example, when the crystal oscillator triggers a high-speed clock cycle, the VRM detect this surge in demand and react (in microseconds) to keep the voltage from dropping.</p>
 </blockquote>
 <p><span id="cpu-cache"></span></p>
-<h1 id="🚀-CPU-Cache"><a href="#🚀-CPU-Cache" class="headerlink" title="🚀 CPU Cache"></a>🚀 CPU Cache</h1><p>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CPU_cache">CPU cache</a> is a <strong>small, ultra-fast</strong> type of memory located directly <strong>inside the processor</strong>. This memory stores copies of the data from <strong>frequently used</strong> main memory (RAM) locations like data and instructions.</p>
+<h1 id="🚀-CPU-Cache"><a href="#🚀-CPU-Cache" class="headerlink" title="🚀 CPU Cache"></a>🚀 CPU Cache</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TfhL5kBiQVI">Branch Education - Why Don’t Computers Just Use One Type of Memory? ⭐⭐⭐⭐⭐</a></p>
+</blockquote>
+<p>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CPU_cache">CPU cache</a> is a <strong>small, ultra-fast</strong> type of memory located directly <strong>inside the processor</strong>. This memory stores copies of the data from <strong>frequently used</strong> main memory (RAM) locations like data and instructions.</p>
 <figure>
-  <img src="/2026/01/06/hardware-cpu/dxfcgvhbjiuy78t6r5tdyfgcvuhbjioki.jpg" class="" title="CPU cache hierarchy">
+  <img src="/2026/01/06/hardware-cpu/dxfcgvhbjiuy78t6r5tdyfgcvuhbjioki.jpg" class="" title="CPU Memory Hierarchy">
   <figcaption>
-    CPU cache hierarchy
+    CPU Memory Hierarchy
   </figcaption>
 </figure>
 
@@ -1148,6 +1151,12 @@ _start:
 <p>The CPU <strong>checks caches sequentially</strong> (L1 → L2 → L3) and only accesses main memory (RAM) if the data is not found in any cache level. L1 and L2 caches run at <strong>the same frequency as the processor</strong>. While L3 can sometimes <strong>run at a different frequency</strong> (this can be overclocked separately at BIOS level). CPU <strong>Cache hit rate</strong> is very high (around <a target="_blank" rel="noopener" href="https://www.extremetech.com/extreme/188776-how-l1-and-l2-cpu-caches-work-and-why-theyre-an-essential-part-of-modern-chips#:~:text=The%20L1%20cache%20has%20a,nanoseconds%20to%20perform%20this%20operation">95-97%</a>).</p>
 <blockquote>
 <p>❓ <strong>The bigger the cache the better?</strong><br>  <strong>Not necessarily</strong>. Total cache size (like 96 MB L3) is great for marketing, but <strong>latency matters more</strong>. Look at <strong>cycles-to-hit (Hit Latency) for L1, L2, and L3</strong>. Large caches, for example AMD’s 3D V-Cache, significantly reduce <strong>DRAM wait states</strong> which boost performance for large-dataset simulations or frame-time consistency in gaming.</p>
+</blockquote>
+<blockquote>
+<p>❓<strong>How many transistors are needed to build CPU Cache?</strong><br>  Cache memory uses <a href="/2026/03/14/hardware-memory/#dram">Static random-access memory (SRAM)</a> cells, that use <strong>6 transistors per bit</strong>. For example, for a 36MB L3 cache we need 1.8 billion transistors. If we take into account L1 + L2 + L3 Caches along with the space for each addressable address, we find that <strong>33% of the transistors of modern CPUs are just Cache</strong> 🤯.</p>
+</blockquote>
+<blockquote>
+<p>❓<strong>How many transistors are needed to build CPU Registers?</strong><br>  CPU Registers store bits in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Flip-flop_(electronics)#D_flip-flop">D flip-flops</a>, using around <strong>16 transistors per bit</strong>. Registers are 64 bits wide and each core uses a 32-entry <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Register_file#In_central_processing_units_(CPUs)">Register File</a>.</p>
 </blockquote>
 <p>Some interesting <strong>CPU cache technologies</strong> are:</p>
 <figure>
