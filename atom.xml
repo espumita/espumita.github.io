@@ -9,7 +9,23 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, David Falcón Naranjo</rights>
   <title>Espumita's Blog</title>
-  <updated>2026-04-06T07:16:42.223Z</updated>
+  <updated>2026-07-16T20:09:07.132Z</updated>
+  <entry>
+    <author>
+      <name>David Falcón Naranjo</name>
+    </author>
+    <category term="AI" scheme="https://espumita.org/categories/AI/"/>
+    <id>https://espumita.org/2026/07/15/5-years-of-ai-assisted-coding/</id>
+    <link href="https://espumita.org/2026/07/15/5-years-of-ai-assisted-coding/"/>
+    <published>2026-07-15T18:38:32.000Z</published>
+    <summary>
+      <![CDATA[<img src="/2026/07/15/5-years-of-ai-assisted-coding/98786ytfvghbnk35serdvghb8uyhjk.jpg" class="">
+
+<p>In 2021 I wrote my first thoughts about <a href="/2021/10/31/tdd-with-copilot-preview/">GitHub Copilot Technical Preview</a>. A lot has happened since then, so I think it’s time to recap some things I have learned in the process of integrating coding with AI:</p>]]>
+    </summary>
+    <title>🤖 5 Years of AI-Assisted Coding</title>
+    <updated>2026-07-16T20:09:07.132Z</updated>
+  </entry>
   <entry>
     <author>
       <name>David Falcón Naranjo</name>
@@ -208,7 +224,7 @@
     <author>
       <name>David Falcón Naranjo</name>
     </author>
-    <category term="AI Software Development" scheme="https://espumita.org/categories/AI-Software-Development/"/>
+    <category term="AI" scheme="https://espumita.org/categories/AI/"/>
     <id>https://espumita.org/2021/10/31/tdd-with-copilot-preview/</id>
     <link href="https://espumita.org/2021/10/31/tdd-with-copilot-preview/"/>
     <published>2021-10-31T08:04:02.000Z</published>
@@ -218,7 +234,7 @@
 <p>This weekend I had the opportunity to test <a href="https://copilot.github.com/">GitHub Copilot</a> and to play a little bit with it. And, yeah, it blew my mind.</p>]]>
     </summary>
     <title>🤖 My first TDD approach with GitHub Copilot Technical Preview</title>
-    <updated>2025-12-09T11:44:38.659Z</updated>
+    <updated>2026-06-24T18:41:32.527Z</updated>
   </entry>
   <entry>
     <author>
