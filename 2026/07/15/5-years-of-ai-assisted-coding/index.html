@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://espumita.org/2026/07/15/5-years-of-ai-assisted-coding/09yhgijajsda0dc8z8cgxhoijcoklasjdlkasdjlakksd.jpg">
 <meta property="og:image" content="https://espumita.org/2026/07/15/5-years-of-ai-assisted-coding/ygfhvbh8tyufgvh5664rdytfughyb.jpg">
 <meta property="article:published_time" content="2026-07-15T18:38:32.000Z">
-<meta property="article:modified_time" content="2026-07-16T20:09:07.132Z">
+<meta property="article:modified_time" content="2026-07-17T07:55:19.340Z">
 <meta property="article:author" content="David Falcón Naranjo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://espumita.org/2026/07/15/5-years-of-ai-assisted-coding/98786ytfvghbnk35serdvghb8uyhjk.jpg">
@@ -297,59 +297,70 @@
 
 <p>Well, in reality, it is not that easy, but I will try to cover <strong>all the topics I found relevant</strong> in this field. But first, I want to put things into perspective, focusing only on LLMs and transformer-based AIs. I will avoid <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Diffusion_model">diffusion models</a>:</p>
 <p><span id="chronology-and-milestones"></span></p>
-<h1 id="📈-Chronology-and-Milestones"><a href="#📈-Chronology-and-Milestones" class="headerlink" title="📈 Chronology and Milestones"></a>📈 Chronology and Milestones</h1><p>If we look at the timelines of <a target="_blank" rel="noopener" href="https://hidekazu-konishi.com/entry/openai_gpt_model_release_timeline.html">OpenAI</a>, <a target="_blank" rel="noopener" href="https://hidekazu-konishi.com/entry/anthropic_claude_model_release_timeline.html">Anthropic</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Google_DeepMind">Google DeepMind</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DeepSeek">DeepSeek</a> and other labs, we can get something like this:</p>
+<h1 id="📈-Chronology-and-Milestones"><a href="#📈-Chronology-and-Milestones" class="headerlink" title="📈 Chronology and Milestones"></a>📈 Chronology and Milestones</h1><p>If we look at the timelines of <a target="_blank" rel="noopener" href="https://hidekazu-konishi.com/entry/openai_gpt_model_release_timeline.html">OpenAI</a>, <a target="_blank" rel="noopener" href="https://hidekazu-konishi.com/entry/anthropic_claude_model_release_timeline.html">Anthropic</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Google_DeepMind">Google DeepMind</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DeepSeek">DeepSeek</a>, and other labs, we get something like this:</p>
 <ul>
-<li><strong>2017</strong>: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">Attention Is All You Need</a> introduced the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transformer_(deep_learning)">transformer</a> neural architecture.</li>
-<li><strong>2020</strong>: <a target="_blank" rel="noopener" href="https://github.com/openai/gpt-3">OpenAI GPT-3</a>: Demonstrated for the first time a surprising ability to generate <strong>functional code blocks from natural language</strong> (initially not designed for that).<ul>
+<li><strong>2017</strong>:<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">Attention Is All You Need</a> research paper introduced the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transformer_(deep_learning)">transformer</a> neural architecture.</li>
+</ul>
+</li>
+<li><strong>2020</strong>:<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/gpt-3">OpenAI GPT-3</a>: Demonstrated for the first time a surprising ability to generate <strong>functional code blocks</strong> from natural language (initially not designed for that).</li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">Retrieval-augmented generation (RAG)</a> architecture appeared.</li>
 </ul>
 </li>
-<li><strong>2021</strong>: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GitHub_Copilot">GitHub Copilot</a> appeared, powered by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OpenAI_Codex_(language_model)">OpenAI Codex</a>, a modified production version of GPT-3 fine-tuned on source code in multiple programming languages.<ul>
+<li><strong>2021</strong>:<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GitHub_Copilot">GitHub Copilot</a> appeared, powered by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OpenAI_Codex_(language_model)">OpenAI Codex</a>, a modified production version of GPT-3 fine-tuned on source code in multiple programming languages.</li>
 <li><strong>Implementation of functions</strong> described in comments.</li>
-<li>Chat mode with <strong>multiple solutions</strong> to a problem.</li>
+<li>Chat mode with offering multiple solutions to a problem.</li>
 <li>Ghost Text, <strong>predictive autocomplete</strong> as you typed code manually.</li>
 </ul>
 </li>
-<li><strong>2022</strong>: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ChatGPT">ChatGPT 3.5, the fastest-growing technology product in history</a>, reaching 100 million MAUs (monthly active users) in 2 months.<ul>
+<li><strong>2022</strong>:<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ChatGPT">ChatGPT 3.5, the <strong>fastest-growing technology</strong> product in history</a>, reaching 100 million MAUs (monthly active users) in 2 months.</li>
+<li>New tool: <a target="_blank" rel="noopener" href="https://n8n.io/">n8n</a>.</li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prompt_engineering">Prompt Engineering&#x2F;Context Engineering</a> appeared.</li>
-<li>Automation tools like <a target="_blank" rel="noopener" href="https://n8n.io/">n8n</a> appeared.</li>
 </ul>
 </li>
-<li><strong>2023</strong>: GPT-4, Claude 1, Claude 2, Gemini 1.0.<ul>
-<li><strong>Multimodal capabilities and Computer Vision</strong>: LLMs can process, generate and edit <strong>voice and images</strong>.</li>
-<li>Google released <a target="_blank" rel="noopener" href="https://notebooklm.google/">NotebookLM</a>.</li>
+<li><strong>2023</strong>:<ul>
+<li>New models: GPT-4, Claude 1, Claude 2, Gemini 1.0.</li>
+<li>New tool: <a target="_blank" rel="noopener" href="https://notebooklm.google/">NotebookLM</a> by Google.</li>
+<li><strong>Multimodal</strong> capabilities and <strong>Computer Vision</strong>: LLMs can process, generate and edit <strong>voice and images</strong>.</li>
 </ul>
 </li>
-<li><strong>2024</strong>: Gemini 1.5 Pro, Claude 3 Opus, Grok-1, DeepSeek V2, GPT-4o, Claude 3.5 Sonnet, o1-preview.<ul>
-<li>New tools like <a target="_blank" rel="noopener" href="https://cursor.com/">Cursor</a>, <a target="_blank" rel="noopener" href="https://v0.app/">v0 by Vercel</a>, <a target="_blank" rel="noopener" href="https://docs.devin.ai/get-started/devin-intro">Windsurf</a>, <a target="_blank" rel="noopener" href="https://lovable.dev/es/home">Lovable</a>, and <a target="_blank" rel="noopener" href="https://www.notion.com/">Notion AI</a> appeared.</li>
+<li><strong>2024</strong>:<ul>
+<li>New models: Gemini 1.5 Pro, Claude 3 Opus, Grok-1, DeepSeek V2, GPT-4o, Claude 3.5 Sonnet, o1-preview.</li>
+<li>New tools: <a target="_blank" rel="noopener" href="https://cursor.com/">Cursor</a>, <a target="_blank" rel="noopener" href="https://v0.app/">v0</a> by Vercel, <a target="_blank" rel="noopener" href="https://docs.devin.ai/get-started/devin-intro">Windsurf</a>, <a target="_blank" rel="noopener" href="https://lovable.dev/es/home">Lovable</a>, and <a target="_blank" rel="noopener" href="https://www.notion.com/">Notion AI</a>.</li>
 <li><strong>Autonomous Agents</strong> appeared.</li>
 <li><a target="_blank" rel="noopener" href="https://cursor.com/es/help/customization/context">@Mention files (Cursor)</a>, routes, lines of code for agent context.</li>
 <li><a target="_blank" rel="noopener" href="https://cursor.com/es/docs/rules">Agent Rules (Cursor)</a>.</li>
 <li>Anthropic introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol (MCP)</a>.</li>
 <li><a target="_blank" rel="noopener" href="https://docs.devin.ai/desktop/cascade/modes">Windsurf introduced Agent Cascade mode</a>: the agent itself <strong>executes commands, reads execution output and indexes code automatically</strong>.</li>
 <li>Nvidia first became the <a target="_blank" rel="noopener" href="https://companiesmarketcap.com/nvidia/marketcap/">world’s most valuable company</a>.</li>
-<li>Google DeepMind introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OpenAI_o1">o1</a>, first <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Reasoning_model">Reasoning Model</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Neural_scaling_law">Test-Time Compute paradigm</a> began.</li>
+<li><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt?hl=es-419">llms.txt</a> appeared, an LLM-friendly version of the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Robots.txt">robots.txt</a> for AI models.</li>
+<li>Google DeepMind introduced <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OpenAI_o1">o1</a>, first <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Reasoning_model">Reasoning Model</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Neural_scaling_law"><strong>Test-Time Compute</strong> paradigm</a> began.</li>
 </ul>
 </li>
-<li><strong>2025</strong>: Claude Sonnet 3.7, Claude Opus 4.1&#x2F;4.5, DeepSeek-V3 R1, GPT-4.5, Gemini 2.5, GPT-4.1, o3, o4.<ul>
-<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/blogs/2025/04/07/agentMode">VS Code GitHub Copilot agent mode</a> appeared.<ul>
-<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/changelog#0-2-21">Claude Code CLI</a> appears, <strong>native integration with Git and system tools</strong>.</li>
-<li><a target="_blank" rel="noopener" href="https://opencode.ai/">Opencode</a> appeared.</li>
+<li><strong>2025</strong>:<ul>
+<li>New models: Claude Sonnet 3.7, Claude Opus 4.1&#x2F;4.5, DeepSeek-V3 R1, GPT-4.5, Gemini 2.5, GPT-4.1, o3, o4.</li>
+<li>New tools: <a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/changelog#0-2-21">Claude Code CLI</a>, <a target="_blank" rel="noopener" href="https://opencode.ai/">Opencode</a>.</li>
+<li>Agents now have <strong>native integration with Git and system tools</strong>.</li>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/blogs/2025/04/07/agentMode">VS Code GitHub Copilot agent mode</a> appeared.</li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vibe_coding">Vibe Coding</a> appeared.</li>
-<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/sub-agents">Subagents (Claude)</a>.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">OpenClaw</a>, open-source autonomous artificial intelligence agent appeared.</li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/sub-agents">Subagents (Claude)</a>, enabling <strong>Multi-Agent Orchestration</strong>.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">OpenClaw</a>, <strong>autonomous</strong> artificial intelligence agent appeared.</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><strong>2026</strong>: Claude Sonnet 4.6&#x2F;5, Opus 4.6&#x2F;4.7&#x2F;4.8, GPT-5.1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6, GPT-5-Codex, Mythos 5, Fable 5, Gemini 3.1&#x2F;pro&#x2F;3.5.<ul>
+<li><strong>2026</strong>:<ul>
+<li>New models: Claude Sonnet 4.6&#x2F;5, Opus 4.6&#x2F;4.7&#x2F;4.8, GPT-5.1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6, GPT-5-Codex, Mythos 5, Fable 5, Gemini 3.1&#x2F;pro&#x2F;3.5.</li>
 <li><a target="_blank" rel="noopener" href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Agent Skills (Claude)</a>.</li>
 <li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/agent-sdk/hooks">Agent Hooks (Claude)</a>.</li>
 <li><a target="_blank" rel="noopener" href="https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking">Adaptive thinking (Claude)</a>.</li>
 <li><a target="_blank" rel="noopener" href="https://openai.com/index/harness-engineering/">Harness engineering</a> appeared.</li>
-<li><a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/es/github-copilot/">GitHub Copilot</a> is not a plugin anymore, it is <strong>directly integrated</strong> into the Visual Studio Code codebase.</li>
-<li>ChatGPT reached <a target="_blank" rel="noopener" href="https://www.reuters.com/technology/chatgpt-app-hits-1-billion-monthly-active-users-record-time-data-shows-2026-06-02/">1 billion MAUs</a>.</li>
+<li>Agents now do <strong>Self-Verification</strong> and <strong>proactive, autonomous error fixing</strong>. </li>
 <li><a target="_blank" rel="noopener" href="https://cursor.com/en-US/blog/agent-sandboxing">Background Sandbox Agents (Cursor)</a> and <a target="_blank" rel="noopener" href="https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes">Agent Sandbox (Claude)</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/es/github-copilot/">GitHub Copilot</a> is not a plugin anymore, it is directly integrated into the Visual Studio Code codebase.</li>
+<li>ChatGPT reached <a target="_blank" rel="noopener" href="https://www.reuters.com/technology/chatgpt-app-hits-1-billion-monthly-active-users-record-time-data-shows-2026-06-02/">1 billion MAUs</a>.</li>
+<li>Google introduced <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/ai/webmcp?hl=es-419">WebMCP</a>, a proposed web standard that allows websites to explicitly declare their capabilities for AI Agents.</li>
 <li><a target="_blank" rel="noopener" href="https://openai.com/es-ES/index/introducing-gpt-live/">ChatGPT Voice full duplex</a>.</li>
 <li><a target="_blank" rel="noopener" href="https://tosea.ai/blog/loop-engineering-ai-agents-complete-guide-2026">Loop engineering</a> appeared.</li>
 </ul>
@@ -494,11 +505,25 @@ Reply with this message:
 <p><span id="mcps"></span></p>
 <h2 id="4-MCPs"><a href="#4-MCPs" class="headerlink" title="4. MCPs"></a>4. MCPs</h2><p>Basically, <a target="_blank" rel="noopener" href="https://www.anthropic.com/news/model-context-protocol">Model Context Protocol (MCP)</a> servers are tools that LLMs can integrate with across many technologies. For example, you can check <a target="_blank" rel="noopener" href="https://github.com/punkpeye/awesome-mcp-servers">Awesome MCPs</a>. MCPs can be <a target="_blank" rel="noopener" href="https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers">remote</a> or run on local networks.</p>
 <p>Like skills, an <strong>MCP itself is not in the context window</strong>, just the definition. So from a token perspective, MCPs will not spend more tokens unless they are used. But remember that <strong>too many tools can affect the context</strong>.</p>
+<p>Example of <a target="_blank" rel="noopener" href="https://playwright.dev/docs/getting-started-mcp">Playwright MCP</a> config:</p>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;mcpServers&quot;: &#123;
+    &quot;playwright&quot;: &#123;
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@playwright&#x2F;mcp@latest&quot;
+      ]
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+
 <p><span id="hooks"></span></p>
 <h2 id="5-Hooks"><a href="#5-Hooks" class="headerlink" title="5. Hooks"></a>5. Hooks</h2><p><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/hooks">Agent Hooks</a> work exactly like <a target="_blank" rel="noopener" href="https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks">Git Hooks</a>. Basically, you can <strong>trigger the execution of a script</strong> at different parts of the agent execution lifecycle.</p>
 <img src="/2026/07/15/5-years-of-ai-assisted-coding/ygfhvbh8tyufgvh5664rdytfughyb.jpg" class="">
 
-<p>For example, a <code>settings.json</code> file could include this to run a lint every time the agent ends a session in the <code>SessionEnd</code> hook:</p>
+<p>For example, a <em>settings.json</em> file could include this to run a lint every time the agent ends a session in the <em>SessionEnd</em> hook:</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;hooks&quot;: &#123;
     &quot;SessionEnd&quot;: [
@@ -533,8 +558,7 @@ Reply with this message:
         └── config.md            # Cleans code, removes duplication, checks style</code></pre>
 
 <p><span id="the-loop"></span></p>
-<h1 id="♻️-The-loop"><a href="#♻️-The-loop" class="headerlink" title="♻️ The loop"></a>♻️ The loop</h1><p>The challenge nowadays is not generating new code. <strong>It’s keeping work verifiable</strong>.</p>
-<p>AI is a democratic technology and <strong>everybody can run a prompt</strong>. It accelerates implementation and discovery, but also mistakes and mess if it’s used without control (harness).</p>
+<h1 id="♻️-The-loop"><a href="#♻️-The-loop" class="headerlink" title="♻️ The loop"></a>♻️ The loop</h1><p>AI is a democratic technology and <strong>everybody can run a prompt</strong>. It accelerates implementation and discovery, but also mistakes and mess if it’s used without control (harness). The challenge nowadays is not generating new code. <strong>It’s keeping work verifiable</strong>.</p>
 <p>We need to <strong>impact the full workflow</strong> and set up limits. Our interactions with models should be <strong>productive</strong>, which means: <strong>correct, reviewable, and repeatable</strong>.</p>
 
     </div>
