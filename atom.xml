@@ -9,7 +9,23 @@
   <link href="https://espumita.org/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, David Falcón Naranjo</rights>
   <title>Espumita's Blog</title>
-  <updated>2026-09-10T12:13:58.964Z</updated>
+  <updated>2026-09-12T16:45:50.850Z</updated>
+  <entry>
+    <author>
+      <name>David Falcón Naranjo</name>
+    </author>
+    <category term="Software Architecture" scheme="https://espumita.org/categories/Software-Architecture/"/>
+    <id>https://espumita.org/2026/09/12/rest-api-best-practices/</id>
+    <link href="https://espumita.org/2026/09/12/rest-api-best-practices/"/>
+    <published>2026-09-12T12:20:40.000Z</published>
+    <summary>
+      <![CDATA[<img src="/2026/09/12/rest-api-best-practices/lpmby789uijduhofystf78syuidfoshuhfsoifj.jpg" class="">
+
+<p>We all know how to build REST APIs? Right? 👀 Here we go again… this time I wanted to take a look at REST, and share the most useful best practices I’ve gathered over the years.</p>]]>
+    </summary>
+    <title>🏗️ REST API Best Practices</title>
+    <updated>2026-09-12T16:45:50.850Z</updated>
+  </entry>
   <entry>
     <author>
       <name>David Falcón Naranjo</name>

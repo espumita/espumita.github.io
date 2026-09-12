@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"espumita.org","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"shades-of-purple","dark":"shades-of-purple"},"prism":{"light":"prism-shades-of-purple","dark":"prism-shades-of-purple"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="We all know how to build REST APIs? Right? 👀 Here we go again… this time I wanted to take a look at REST, and share the most useful best practices I’ve gathered over the years.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🏗️ REST API Best Practices">
+<meta property="og:url" content="https://espumita.org/2026/09/12/rest-api-best-practices/index.html">
+<meta property="og:site_name" content="Espumita&#39;s Blog">
+<meta property="og:description" content="We all know how to build REST APIs? Right? 👀 Here we go again… this time I wanted to take a look at REST, and share the most useful best practices I’ve gathered over the years.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://espumita.org/2026/09/12/rest-api-best-practices/lpmby789uijduhofystf78syuidfoshuhfsoifj.jpg">
+<meta property="article:published_time" content="2026-09-12T12:20:40.000Z">
+<meta property="article:modified_time" content="2026-09-12T16:45:50.850Z">
+<meta property="article:author" content="David Falcón Naranjo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espumita.org/2026/09/12/rest-api-best-practices/lpmby789uijduhofystf78syuidfoshuhfsoifj.jpg">
+
+
+<link rel="canonical" href="https://espumita.org/2026/09/12/rest-api-best-practices/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://espumita.org/2026/09/12/rest-api-best-practices/","path":"2026/09/12/rest-api-best-practices/","title":"🏗️ REST API Best Practices"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>🏗️ REST API Best Practices | Espumita's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Espumita's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Espumita's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Posts</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="David Falcón Naranjo"
+      src="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+  <p class="site-author-name" itemprop="name">David Falcón Naranjo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/espumita" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;espumita" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/davidfalconnaranjo" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;davidfalconnaranjo" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://espumita.org/2026/09/12/rest-api-best-practices/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/2627afa6f9274de857e7200029103907">
+      <meta itemprop="name" content="David Falcón Naranjo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="🏗️ REST API Best Practices | Espumita's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          🏗️ REST API Best Practices
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-09-12 13:20:40" itemprop="dateCreated datePublished" datetime="2026-09-12T13:20:40+01:00">2026-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Architecture/" itemprop="url" rel="index"><span itemprop="name">Software Architecture</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="/2026/09/12/rest-api-best-practices/lpmby789uijduhofystf78syuidfoshuhfsoifj.jpg" class="">
+
+<p>We all know how to build REST APIs? Right? 👀 Here we go again… this time I wanted to take a look at REST, and share the most useful best practices I’ve gathered over the years.</p>
+<span id="more"></span>
+
+<h1 id="📃-Content"><a href="#📃-Content" class="headerlink" title="📃 Content:"></a>📃 Content:</h1><ul>
+<li><a href="#what-is-rest">🧠 What is REST?</a><ul>
+<li><a href="#follow-constraints">🤔 Do we always have to follow these constraints?</a></li>
+</ul>
+</li>
+<li><a href="#good-practices">👩🏻‍💻 Good Practices</a><ol>
+<li><a href="#resource-naming">Resource Naming</a></li>
+<li><a href="#right-http-method">The Right HTTP Method</a></li>
+<li><a href="#right-status-codes">Meaningful Status Codes</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#pagination">Pagination</a></li>
+<li><a href="#filtering-sorting">Filtering, Sorting</a></li>
+<li><a href="#standard-error-formats">Standard Error Formats</a></li>
+<li><a href="#rate-limiting">Rate limiting</a></li>
+<li><a href="#partial-responses">Partial responses</a></li>
+<li><a href="#documentation">Documentation</a></li>
+</ol>
+</li>
+<li><a href="#references">📃 Some References</a></li>
+</ul>
+<p><span id="what-is-rest"></span></p>
+<h1 id="🧠-What-is-a-REST"><a href="#🧠-What-is-a-REST" class="headerlink" title="🧠 What is a REST?"></a>🧠 What is a REST?</h1><p>In 1991, the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/HTTP">Hypertext Transfer Protocol (HTTP&#x2F;0.9)</a> was introduced. It is the foundation of data communication for the World Wide Web, where hypertext documents include hyperlinks to other resources that users can easily access. Here is some <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP">chronology</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>HTTP version</th>
+<th>Methods</th>
+<th>Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1991</td>
+<td>HTTP&#x2F;0.9</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/GET">GET</a></td>
+<td>Simple protocol designed to fetch raw HTML documents over the web</td>
+</tr>
+<tr>
+<td>1996</td>
+<td>HTTP&#x2F;1.0</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/POST">POST</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/HEAD">HEAD</a></td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers">Headers</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status">response status codes</a>, enabling form submissions and metadata retrieval</td>
+</tr>
+<tr>
+<td>1997</td>
+<td>HTTP&#x2F;1.1</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/PUT">PUT</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/DELETE">DELETE</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/OPTIONS">OPTIONS</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/TRACE">TRACE</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT">CONNECT</a></td>
+<td>Persistent connections, chunked transfers, and robust resource manipulation capabilities</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>-</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/PATCH">PATCH</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>HTTP&#x2F;2.0</td>
+<td>-</td>
+<td>Binary framing, request multiplexing, header compression (<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/">HPACK</a>), and server push</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>HTTP&#x2F;3.0</td>
+<td>-</td>
+<td>Replaced TCP with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/QUIC">QUIC</a> (running over UDP) to eliminate head-of-line blocking and drastically speed up handshakes on unstable mobile networks</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>-</td>
+<td><a target="_blank" rel="noopener" href="https://www.rfc-editor.org/info/rfc10008/">QUERY</a></td>
+<td>-</td>
+</tr>
+</tbody></table>
+<p>In 2000, a new pattern for using HTTP was described: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/REST">Representational State Transfer (REST)</a> was defined by Roy Fielding in his doctoral dissertation <a target="_blank" rel="noopener" href="https://roy.gbiv.com/pubs/dissertation/top.htm">Architectural Styles and the Design of Network-based Software Architectures</a> to provide a formal architectural blueprint for the World Wide Web. REST refers to a group of <strong>software architecture design constraints</strong> that bring about <strong>efficient, reliable, and scalable distributed systems</strong>:</p>
+<ol>
+<li><strong>Client&#x2F;Server</strong>: Separates user interface concerns from data storage and business logic concerns. This separation of concerns improves the portability of user interfaces across multiple platforms and allows server components to <strong>scale independently</strong>.</li>
+<li><strong>Stateless</strong>: Requires that every request from a client contains <strong>all the necessary context</strong> and information required to process it. The server cannot rely on any previously stored session context and any <strong>session state</strong> is maintained entirely on the <strong>client side</strong>.</li>
+<li><strong>Cacheable</strong>: Responses must be <strong>explicitly or implicitly labeled as cacheable</strong> or non-cacheable. If a response is cacheable, the client cache is authorized to reuse that response data for identical subsequent requests, <strong>reducing network bandwidth and latency</strong>.</li>
+<li><strong>Layered system</strong>: Restricts component behavior such that <strong>each component cannot see beyond the immediate layer</strong> with which they are interacting. A client may communicate with an intermediary (such as a load balancer, reverse proxy, or security gateway) <strong>without knowing</strong> whether it is talking to the ultimate server, enabling better <strong>scalability and security</strong> architecture.</li>
+<li><strong>Code on demand</strong> (optional): Servers are able to temporarily extend or customize the functionality of a client by <strong>transferring logic to the client</strong> that can be executed within a standard virtual machine.</li>
+<li><strong>Uniform interface</strong>: The defining characteristic of REST architecture that simplifies and decouples the architecture. It relies on four guiding constraints:<ol>
+<li><strong>Resource identification:</strong> Individual resources are uniquely identified using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">Uniform Resource Identifiers (URIs)</a>.</li>
+<li><strong>Resource manipulation through representations</strong>: Clients interact with resources through <strong>representations</strong> (HTML, XML or plain text) rather than directly accessing the underlying database.<blockquote>
+<p>👀 Notice that the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/JSON">JSON</a> representation did not appear until 2001.</p>
+</blockquote>
+</li>
+<li><strong>Self-descriptive messages</strong>: Each message includes <strong>enough information to describe how to process it</strong> (standard HTTP methods like GET, POST, PUT, DELETE, and media type headers).</li>
+<li><strong>Hypermedia as the engine of application state <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/HATEOAS">(HATEOAS)</a></strong>: Clients navigate the application dynamically by following <strong>hyperlinks provided within the server’s responses</strong>, rather than hardcoding URIs.</li>
+</ol>
+</li>
+</ol>
+<p>The basic idea of REST is that a resource, for example a document, is transferred via <strong>well-recognized, language-agnostic, and reliably standardized client&#x2F;server interactions</strong>. Services are called <strong>RESTful</strong> when they follow these constraints.</p>
+<p><span id="follow-constraints"></span></p>
+<h2 id="🤔-Do-we-always-have-to-follow-these-constraints"><a href="#🤔-Do-we-always-have-to-follow-these-constraints" class="headerlink" title="🤔 Do we always have to follow these constraints?"></a>🤔 Do we always have to follow these constraints?</h2><p><strong>It depends.</strong> Nowadays, people call any API a REST API. In a later publication, <a target="_blank" rel="noopener" href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">REST APIs must be hypertext-driven (2008)</a>, Roy Fielding declared: “I am getting frustrated by the number of people calling any HTTP-based interface a REST API. Today’s example is the SocialSite REST API. That is RPC. It screams RPC.”</p>
+<p>The reality is that many modern APIs <strong>sacrifice</strong> one or more of these constraints for the sake of <strong>simplicity, performance, or development speed</strong>.</p>
+<p>In my view, <strong>REST was not created to fit the modern web’s reality</strong>, but it is still a powerful design tool, and <strong>we should keep questioning some of these constraints</strong> because doing so helps us write <strong>better distributed and scalable software</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Do you have to follow it?</th>
+<th>Why?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Client-Server Architecture</td>
+<td>✅</td>
+<td>Artifacts must remain <strong>decoupled</strong>, allow front-end and back-end to <strong>evolve independently</strong></td>
+</tr>
+<tr>
+<td>Statelessness</td>
+<td>❓</td>
+<td>It depends. Each request from client to server must contain <strong>all the information necessary</strong> to understand and process the request. But sometimes working with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/HTTP_cookie">HTTP cookies</a> or external session stores compromises the constraint</td>
+</tr>
+<tr>
+<td>Cacheability</td>
+<td>❓</td>
+<td>Depends on data, it’s optional but highly <strong>recommended for performance</strong></td>
+</tr>
+<tr>
+<td>Layered System</td>
+<td>✅</td>
+<td>Layered design ensures intermediaries (CDNs, API gateways, load balancers, proxies, etc.) <strong>don’t break functionality</strong>, increasing <strong>scalability and security</strong></td>
+</tr>
+<tr>
+<td>Code-on-Demand (optional)</td>
+<td>❌</td>
+<td>Obsolete, modern APIs do not use code-on-demand. They use their own precompiled logic</td>
+</tr>
+<tr>
+<td>Identification of resources</td>
+<td>✅</td>
+<td>URIs identify <strong>individual resources</strong> (for example: <code>/users/123</code>)</td>
+</tr>
+<tr>
+<td>Manipulation of resources through representations</td>
+<td>✅</td>
+<td>Clients receive <strong>representations of resources</strong> (usually JSON)</td>
+</tr>
+<tr>
+<td>Self-descriptive messages</td>
+<td>✅</td>
+<td>Each message includes <strong>enough information</strong> to describe how to process it, for example correct Content-Type headers and use correct HTTP method to alter them</td>
+</tr>
+<tr>
+<td>HATEOAS</td>
+<td>❌</td>
+<td>Obsolete, responses rarely contain links to other related actions and resources</td>
+</tr>
+</tbody></table>
+<p><span id="good-practices"></span></p>
+<h1 id="👩🏻‍💻-Good-Practices"><a href="#👩🏻‍💻-Good-Practices" class="headerlink" title="👩🏻‍💻 Good Practices"></a>👩🏻‍💻 Good Practices</h1><p><span id="resource-naming"></span></p>
+<h2 id="1-Resource-Naming"><a href="#1-Resource-Naming" class="headerlink" title="1. Resource Naming"></a>1. Resource Naming</h2><p>This is not part of the original REST architectural style, Roy Fielding <strong>deliberately left URI naming conventions opaque to the architecture</strong>. Naming conventions were popularized in later books like <a target="_blank" rel="noopener" href="https://www.amazon.es/-/en/REST-API-Design-Rulebook-Consistent/dp/1449310508/ref=sr_1_7?dib=eyJ2IjoiMSJ9.aXMGjoWoAQA-jE0h04DRWrf89hfSCgkrwp0PiAUC7GNK7Mz09-oHouEZY6WDxk9Kpi2hYHQ7YTy450vHxjQM4P25QFT0UhSPl6WMo1qt1X5fbfL3M0kASQVvL_HfSxjAWABLC5cbw0Beub6e6j3anhuP8Y6WLYYsXXPOLiTOn1F2TAcpyib2rBV2obq4j4NYNnxJ97rjqOZiUMhNktjD27YFQ7hlMj-oJbUkku9uE7tx0Y0OrdQyT31a5bBv08V-D1HM3MhWV_oYJApEVKdfm3vzh9E0txrcrQyOFGKWS-0.wkbTTD7AWvrqP1AxwulUOF6_FaQBCaY-UZvKdYGyyjc&dib_tag=se&keywords=rest+api&qid=1789139323&sr=8-7">REST API Design Rulebook (2011)</a> by Mark Massé:</p>
+<ul>
+<li>Use <strong>nouns instead of verbs</strong> for example <code>/users</code> instead of <code>/getUsers</code>.</li>
+<li>Use <strong>lowercase letters</strong>.</li>
+<li>Use <strong>hyphens for readability</strong> for example <code>/user-management/users</code> instead of underscores.</li>
+<li><strong>Avoid</strong> file <strong>extensions</strong> and <strong>&#x2F;</strong> at the end.</li>
+<li><strong>Avoid</strong> going <strong>deeper</strong> than <code>collection/resource/collection</code>.</li>
+<li><strong>Don’t mirror database structure</strong> in URLs to prevent exposing unnecessary information.</li>
+<li>We have 4 <strong>archetypes</strong>:</li>
+</ul>
+<ol>
+<li><strong>Document</strong>: that is a <strong>singular concept</strong>.</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">&#x2F;leagues&#x2F;seattle
+&#x2F;leagues&#x2F;seattle&#x2F;teams&#x2F;trebuchet
+&#x2F;leagues&#x2F;seattle&#x2F;teams&#x2F;trebuchet&#x2F;players&#x2F;&#123;id&#125;</code></pre>
+
+<ol start="2">
+<li><strong>Collection</strong>: this is a directory of resources managed by the server, <strong>nouns in plural</strong>.</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">&#x2F;leagues
+&#x2F;leagues&#x2F;seattle&#x2F;teams
+&#x2F;leagues&#x2F;seattle&#x2F;teams&#x2F;trebuchet&#x2F;players</code></pre>
+
+<ol start="3">
+<li><strong>Store</strong>: this is a directory of resources managed by the client (<strong>URI decided by the client</strong>).</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">PUT &#x2F;users&#x2F;1234&#x2F;favorites&#x2F;alonso</code></pre>
+
+<ol start="4">
+<li><strong>Controller</strong>: Procedural concept, executable functions with parameters, return values, inputs and outputs, names use <strong>verbs</strong> in the last segment.</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">POST &#x2F;alerts&#x2F;245743&#x2F;resend</code></pre>
+
+<p><span id="right-http-method"></span></p>
+<h2 id="2-The-Right-HTTP-Method"><a href="#2-The-Right-HTTP-Method" class="headerlink" title="2. The Right HTTP Method"></a>2. The Right HTTP Method</h2><ul>
+<li>Use the <strong>correct method for the semantic action</strong>.</li>
+<li>Keep <strong>safe</strong> methods <strong>side-effect-free</strong>, without impacting the server state.</li>
+<li>Keep <strong>methods idempotent</strong>, making multiple identical requests produce the <strong>same result as a single request</strong>.<blockquote>
+<p>👀 For sensitive operations, consider using <a target="_blank" rel="noopener" href="https://docs.stripe.com/api/idempotent_requests">idempotency keys</a> (Notice that POST is not idempotent by default).</p>
+</blockquote>
+</li>
+<li>In case of complex searches that cannot be resolved with query params, use a request body in a <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/info/rfc10008/">QUERY</a> method instead of GET.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Safe</th>
+<th>Idempotent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>QUERY</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Sometimes POST method serves many valid purposes in HTTP, including acting as a <strong>general-purpose method</strong> for actions that don’t fit neatly into other standard methods (or actions “not worth standardizing”). Roy Fielding talked about this in <a target="_blank" rel="noopener" href="https://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post">It is okay to use POST (2009)</a>.</li>
+</ul>
+<p><span id="right-status-codes"></span></p>
+<h2 id="3-Meaningful-Status-Codes"><a href="#3-Meaningful-Status-Codes" class="headerlink" title="3. Meaningful Status Codes"></a>3. Meaningful Status Codes</h2><p>Do not always return 200 OK by default. Leverage <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status">standard HTTP status</a> categories:</p>
+<ul>
+<li>Use <strong>200 OK</strong> as a general response for <strong>all requests returning data</strong>.</li>
+<li>Use <strong>201 Created</strong> for POST method.</li>
+<li>Use <strong>202 Accepted</strong>, for asynchronous processing. The request was accepted, but execution has not finished yet.</li>
+<li>Use <strong>204 No Content</strong>, action completed successfully, but there is <strong>no body in the response</strong>: PUT, PATCH, DELETE. (👀 This depends if you decide to return the new state in the payload or not).</li>
+<li>Use <strong>400 Bad Request</strong>, payload or query parameters are malformed or invalid (for example: failed JSON validation).</li>
+<li>Use <strong>401 Unauthorized</strong> when Authentication is required.</li>
+<li>Use <strong>403 Forbidden</strong> when authenticated, but does not have permission to perform an action.</li>
+<li>Use <strong>404 Not Found</strong> when request URI does not exist.</li>
+<li>Use <strong>409 Conflict</strong> when request conflicts with current state (for example: registering a user with an already existing email address).</li>
+<li>Use <strong>422 Unprocessable Entity</strong> when request syntax is valid, but contains semantic errors (for example: field validation errors).</li>
+</ul>
+<p><span id="versioning"></span></p>
+<h2 id="4-Versioning"><a href="#4-Versioning" class="headerlink" title="4. Versioning"></a>4. Versioning</h2><p>API versioning is essential for maintaining stability, <strong>preventing service disruptions</strong>, and allowing systems to <strong>evolve without breaking existing integrations</strong>. But, <strong>it’s not FREE</strong> ⚠️. Notice that it creates <strong>maintenance overhead</strong> of multiple versions, which <strong>increases complexity</strong>. Also notice that it automatically creates technical debt, not only on the server side, but also in every client. Such as the ‘have to migrate to v2’ task in all clients, and this <strong>could take years</strong> or <strong>will coexist forever</strong>.</p>
+<p>Roy Fielding is more “radical”: <a target="_blank" rel="noopener" href="https://www.hmeid.com/blog/just-say-no-to-versioning">“v1 is a middle finger to your API customers”</a> 🖕. For him well designed webs have no versions, and if they follow strict REST, they have enough extensibility to operate and add new functionality instead of forcing clients to rewrite their code with a V2 version.</p>
+<p>For me it’s a trade-off, and it’s the perfect example of <strong>“Just because you can, doesn’t mean you should”</strong>. If v1 has no deadline, the <strong>maintenance cost should be in the table</strong>, <strong>multiplied by clients</strong>, and <strong>projected to the next 5 years</strong>. Only then, you can check if it’s worth the price to create a V2.</p>
+<p>We have multiple options for versioning with pros and cons:</p>
+<ul>
+<li><strong>Path versioning</strong>: <code>/v1/users</code>, <code>/v2/users</code> (For example: <a target="_blank" rel="noopener" href="https://developers.google.com/youtube/v3/docs?hl=es-419">Youtube</a> or <a target="_blank" rel="noopener" href="https://www.dropbox.com/developers/documentation/http/documentation">Dropbox</a>)</li>
+<li><strong>Hostname versioning</strong>: <code>api-v1.example.com</code>, <code>api-v2.example.com</code></li>
+<li><strong>Body or Query Params versioning</strong>: <code>?version=1.0</code>, <code>?version=2.0</code></li>
+</ul>
+<p><span id="pagination"></span></p>
+<h2 id="5-Pagination"><a href="#5-Pagination" class="headerlink" title="5. Pagination"></a>5. Pagination</h2><p>Pagination <strong>prevents performance bottlenecks and memory overload</strong> on server and client. It’s especially recommended for large collections. We mainly got two different approaches depending on the problem we are solving:</p>
+<h3 id="Offset-Pagination"><a href="#Offset-Pagination" class="headerlink" title="Offset Pagination:"></a><strong>Offset Pagination:</strong></h3><pre class="language-bash" data-language="bash"><code class="language-bash">GET &#x2F;api&#x2F;v1&#x2F;products?limit&#x3D;2&amp;offset&#x3D;2 HTTP&#x2F;1.1
+Host: api.example.com</code></pre>
+
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;data&quot;: [
+    &#123;
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Wireless Mechanical Keyboard&quot;,
+      &quot;price&quot;: 89.99
+    &#125;,
+    &#123;
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Ergonomic Vertical Mouse&quot;,
+      &quot;price&quot;: 49.99
+    &#125;
+  ],
+  &quot;meta&quot;: &#123;
+    &quot;total_items&quot;: 45,
+    &quot;limit&quot;: 2,
+    &quot;offset&quot;: 2,
+    &quot;total_pages&quot;: 23
+  &#125;
+&#125;</code></pre>
+
+<ul>
+<li><strong>Easy to implement</strong>, you can just map directly to standard SQL <code>LIMIT</code> and <code>OFFSET</code> clause.</li>
+<li>Good <strong>for experiences where you want pages</strong>, for example search in a booking system.</li>
+<li><strong>Poor at scale</strong>: Database must scan and discard all skipped rows, slowing down as offsets grows.</li>
+<li><strong>Vulnerable to data drift</strong>: Possible duplicate or missed entries if data is inserted or deleted while browsing.</li>
+</ul>
+<h3 id="Cursor-Pagination"><a href="#Cursor-Pagination" class="headerlink" title="Cursor Pagination:"></a><strong>Cursor Pagination:</strong></h3><pre class="language-bash" data-language="bash"><code class="language-bash">GET &#x2F;api&#x2F;v1&#x2F;products?limit&#x3D;2&amp;after&#x3D;eyJpZCI6Mn0&#x3D; HTTP&#x2F;1.1
+Host: api.example.com</code></pre>
+
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;data&quot;: [
+    &#123;
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Wireless Mechanical Keyboard&quot;,
+      &quot;price&quot;: 89.99
+    &#125;,
+    &#123;
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Ergonomic Vertical Mouse&quot;,
+      &quot;price&quot;: 49.99
+    &#125;
+  ],
+  &quot;pagination&quot;: &#123;
+    &quot;next_cursor&quot;: &quot;eyJpZCI6NH0&#x3D;&quot;,
+    &quot;prev_cursor&quot;: &quot;eyJpZCI6M30&#x3D;&quot;,
+    &quot;has_more&quot;: true
+  &#125;
+&#125;</code></pre>
+<ul>
+<li><strong>More complex to implement</strong>, Requires encoding <strong>unique, sorted identifiers</strong> (like IDs or timestamps) into tokens.</li>
+<li><strong>High performance</strong>: Uses indexed lookups directly, <strong>keeping query speed constant</strong> regardless of dataset size.</li>
+<li><strong>Random access</strong>: Not supported, <strong>only allows sequential navigation</strong> (Ideal for infinite scroll).</li>
+<li><strong>Resilient to data drift</strong>: Stays accurate even when underlying data changes in real time.</li>
+</ul>
+<p><span id="filtering-sorting"></span></p>
+<h2 id="6-Filtering-and-Sorting"><a href="#6-Filtering-and-Sorting" class="headerlink" title="6. Filtering and Sorting"></a>6. Filtering and Sorting</h2><p>In general, these techniques can <strong>improve server &amp; client performance and extensibility</strong>, but sometimes add <strong>more complexity</strong> to queries (especially when using dynamic WHERE and ORDER BY), which will have a direct impact on our database design and index strategy.</p>
+<p>Also, they <strong>increase the attack surface</strong> for query injections or denial-of-service attacks. We have to perform extra validations for inputs. On the other hand, each unique combination of query parameters creates a distinct cache key, <strong>reducing overall cache hit ratios</strong>.</p>
+<h3 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h3><p>Filtering allows clients to <strong>request a specific subset of resources</strong> based on attributes, keeping payloads lean and relevant.</p>
+<p>We can define filters in <strong>query params or body</strong>, and we can also provide a <strong>catalog of operators</strong> (ne, gt, gte, lt, lte, in, min, max, like, contains, etc.), combined filters, etc. One simple example could be: </p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">GET &#x2F;api&#x2F;v1&#x2F;products?category&#x3D;electronics&amp;price_lte&#x3D;100 HTTP&#x2F;1.1
+Host: api.example.com</code></pre>
+
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;data&quot;: [
+    &#123;
+      &quot;id&quot;: 12,
+      &quot;name&quot;: &quot;Wireless Earbuds&quot;,
+      &quot;category&quot;: &quot;electronics&quot;,
+      &quot;price&quot;: 59.99
+    &#125;,
+    &#123;
+      &quot;id&quot;: 18,
+      &quot;name&quot;: &quot;USB-C Hub&quot;,
+      &quot;category&quot;: &quot;electronics&quot;,
+      &quot;price&quot;: 34.99
+    &#125;
+  ],
+  &quot;meta&quot;: &#123;
+    &quot;total_items&quot;: 2,
+    &quot;filters_applied&quot;: &#123;
+      &quot;category&quot;: &quot;electronics&quot;,
+      &quot;price_lte&quot;: 100
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+<h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><p>Sorting lets clients <strong>control the order of results</strong> using explicit parameters, supporting ascending&#x2F;descending directions and multi-field sorting. For example:</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">GET &#x2F;api&#x2F;v1&#x2F;products?sort&#x3D;-price,name:asc HTTP&#x2F;1.1
+Host: api.example.com</code></pre>
+
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;data&quot;: [
+    &#123;
+      &quot;id&quot;: 5,
+      &quot;name&quot;: &quot;Ultrawide Monitor&quot;,
+      &quot;category&quot;: &quot;electronics&quot;,
+      &quot;price&quot;: 499.99
+    &#125;,
+    &#123;
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Ergonomic Mouse&quot;,
+      &quot;category&quot;: &quot;electronics&quot;,
+      &quot;price&quot;: 89.99
+    &#125;,
+    &#123;
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Mechanical Keyboard&quot;,
+      &quot;category&quot;: &quot;electronics&quot;,
+      &quot;price&quot;: 89.99
+    &#125;
+  ],
+  &quot;meta&quot;: &#123;
+    &quot;total_items&quot;: 3,
+    &quot;sort_applied&quot;: &quot;-price,name:asc&quot;
+  &#125;
+&#125;</code></pre>
+
+<p><span id="standard-error-formats"></span></p>
+<h2 id="7-Standard-Error-Formats"><a href="#7-Standard-Error-Formats" class="headerlink" title="7. Standard Error Formats"></a>7. Standard Error Formats</h2><p>Instead of inventing a custom format, <strong>adopting an established open standard</strong> helps leverage existing library support and API tooling. For example <a target="_blank" rel="noopener" href="https://www.rfc-editor.org/info/rfc9457/">Problem Details for HTTP APIs (RFC 9457)</a>:</p>
+<p>Example of an <code>application/problem+json</code> media type response:</p>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;type&quot;: &quot;https:&#x2F;&#x2F;example.com&#x2F;errors&#x2F;insufficient-funds&quot;,
+  &quot;title&quot;: &quot;Insufficient Funds&quot;,
+  &quot;status&quot;: 403,
+  &quot;detail&quot;: &quot;Your current balance is $30.00, but the transaction costs $50.00.&quot;,
+  &quot;instance&quot;: &quot;&#x2F;accounts&#x2F;12345&#x2F;transactions&#x2F;abc987&quot;,
+  &quot;balance&quot;: 30.00,
+  &quot;accounts&quot;: [&quot;&#x2F;accounts&#x2F;12345&quot;]
+&#125;</code></pre>
+<p>For instance, Microsoft has adopted this standard as <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/dynamics365/contact-center/extend/error-handling">Problem Details (RFC 7807&#x2F;RFC 9457)</a> specified in the <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.problemdetails?view=aspnetcore-10.0">ProblemDetails Class</a>:</p>
+<pre class="language-json" data-language="json"><code class="language-json">&#123;
+  &quot;type&quot;: &quot;https:&#x2F;&#x2F;tools.ietf.org&#x2F;html&#x2F;rfc7231#section-6.5.1&quot;,
+  &quot;title&quot;: &quot;One or more validation errors occurred.&quot;,
+  &quot;status&quot;: 400,
+  &quot;traceId&quot;: &quot;00-91a382c4-00&quot;,
+  &quot;errors&quot;: &#123;
+    &quot;Email&quot;: [&quot;The Email field is required.&quot;]
+  &#125;
+&#125;</code></pre>
+
+<p><span id="rate-limiting"></span></p>
+<h2 id="8-Rate-limiting"><a href="#8-Rate-limiting" class="headerlink" title="8. Rate limiting"></a>8. Rate limiting</h2><p>Rate limiting <strong>restricts how many requests</strong> a client can make to your API within a given timeframe. It contributes to <strong>security</strong> and <strong>stability</strong> for modern Web APIs.</p>
+<ul>
+<li>Pick the <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/system-design/rate-limiting-algorithms-system-design/">right limit algorithm</a> depending on complexity, memory consumption, burst exposure, and precision:<ul>
+<li><strong>Fixed Window Counters</strong>: Counts requests in fixed time blocks (for example 00:00 to 01:00), easy to implement, low memory. Problem with window boundaries (with a limit of 100 per minute, someone can send 100 at 0:59 and 100 at 1:01, so 200 in 2 seconds), is less precise control for highly variable traffic. Low precision.</li>
+<li><strong>Sliding Window Log</strong>: Tracks timestamps of every request made by a client in a rolling time window. Statistically 100% precision. High memory consumption when scaled to millions of requests.</li>
+<li><strong>Sliding Window Counter</strong>: Combines two approaches. Combines fixed windows with a weighted calculation based on the previous window’s request volume and dispersion. More complex to implement. Burst control. Very low memory consumption. Statistically 99.5% precision.</li>
+<li><strong>Token Bucket</strong>: A bucket holds a fixed capacity of tokens. Tokens are added at a constant rate. Each request consumes a token. Bursts are allowed and controlled. Very low memory consumption. Requires tuning the size and refill rate. High precision.</li>
+<li><strong>Leaky Bucket</strong>: Requests enter a queue (the bucket) and are processed at a steady, fixed output rate regardless of incoming burst speed. Guarantees a continuous, steady flow of requests. High latency if the bucket fills up. Eliminates bursts by design. Low memory consumption (just the FIFO queue). Very high precision.</li>
+</ul>
+</li>
+<li>Return the correct Status Code <strong>429 Too Many Requests</strong>.</li>
+<li>Add <strong>Retry-After</strong> header to communicate to the client when they will be able to try again.</li>
+<li>Add standard rate limit headers:<ul>
+<li><strong>X-RateLimit-Limit</strong>: Maximum requests allowed per period (for example: 1000).</li>
+<li><strong>X-RateLimit-Remaining</strong>: Number of requests remaining in the current period.</li>
+<li><strong>X-RateLimit-Reset</strong>: UTC epoch timestamp indicating when the current window resets (for example: 1789225020).</li>
+</ul>
+</li>
+<li><strong>Avoid IP-Only rate limiting for authenticated routes</strong>: Limiting solely by IP address can mistakenly throttle hundreds of legitimate users sharing a corporate NAT, VPN, or mobile carrier connection.</li>
+<li><strong>Limit by unique credentials</strong>: For authenticated requests, track usage by API Key, User ID, or Account&#x2F;Tenant ID.</li>
+<li><strong>Fallback to IP&#x2F;Fingerprinting for public routes</strong>: Use client IP addresses or request fingerprints (For example: combinations of IP, user agent, and origin headers) only on unauthenticated endpoints like <code>/login</code> or <code>/register</code>.  </li>
+<li><strong>Decouple rate limiting</strong>: Enforce network-level rate limits at <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OSI_model">layer 3&#x2F;4</a> (IP and TCP connection limits via <strong>firewalls or cloud infrastructure</strong>) and application-level limits at layer 7. For layer 7 protection, push rate limiting outward to your <strong>API Gateway, Load Balancer, or Reverse Proxy</strong> (for example: NGINX, Kong, Cloudflare). When running rate limiting within your application, use <strong>middleware</strong> (for example: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/aspnet/core/performance/rate-limit?view=aspnetcore-10.0">ASP.NET Core Rate Limiting Middleware</a>) paired with a <strong>distributed in-memory store like Redis</strong> for horizontally scaled environments.</li>
+</ul>
+<p><span id="partial-responses"></span></p>
+<h2 id="9-Partial-responses"><a href="#9-Partial-responses" class="headerlink" title="9. Partial responses"></a>9. Partial responses</h2><p>Support <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/206">partial content</a> retrieval for large resources (for example: video files). The basic idea is to split content in chunks in different requests:</p>
+<ol>
+<li>Client can make a very fast HEAD request to check resource size:</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">HEAD &#x2F;media&#x2F;example-video.mp4
+Response headers:
+Accept-Ranges: bytes
+Content-Length: 104857600 # 100MB
+Content-Type: video&#x2F;mp4</code></pre>
+<ol start="2">
+<li>Client can request specific chunks using the <strong>Range</strong> header:</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">GET &#x2F;media&#x2F;example-video.mp4
+Range: bytes&#x3D;0-1048575  # Request first 1MB</code></pre>
+<ol start="3">
+<li>Server responds with partial content:</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">HTTP&#x2F;1.1 206 Partial Content
+Content-Range: bytes 0-1048575&#x2F;100000000
+Content-Length: 1048576
+[... first 1MB of data ...]</code></pre>
+<ol start="4">
+<li>Client can request next chunk:</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">GET &#x2F;files&#x2F;big-video.mp4
+Range: bytes&#x3D;1048576-2097151  # Request second 1MB</code></pre>
+
+<p><span id="documentation"></span></p>
+<h2 id="10-Documentation"><a href="#10-Documentation" class="headerlink" title="10. Documentation"></a>10. Documentation</h2><p>The most extended way to document APIs nowadays is using <a target="_blank" rel="noopener" href="https://www.openapis.org/">OpenAPI Specification (OAS)</a>. It is considered an industry standard because it transforms static documentation into a single machine-readable contract (YAML or JSON) that powers your entire development lifecycle. It enables <strong>interactive documentation</strong> (like <a target="_blank" rel="noopener" href="https://swagger.io/open-source/swagger-ui/">Swagger UI</a> or <a target="_blank" rel="noopener" href="https://github.com/scalar/scalar">Scalar</a>), <strong>automated client and server code generation</strong> in multiple languages (like <a target="_blank" rel="noopener" href="https://github.com/ricosuter/nswag">NSWAG</a>), <strong>contract validation</strong> and documentation, <strong>testing and validation</strong>, MCP integration, etc.</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">openapi: 3.0.3
+info:
+  title: Example API
+  version: 1.0.0
+paths:
+  &#x2F;health:
+    get:
+      summary: Health Check API status
+      responses:
+        &#39;200&#39;:
+          description: Service is healthy
+          content:
+            application&#x2F;json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: &quot;ok&quot;</code></pre>
+
+<p><span id="references"></span></p>
+<h2 id="📃-Some-References"><a href="#📃-Some-References" class="headerlink" title="📃 Some References"></a>📃 Some References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design">Azure Best practices for RESTful web API design</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.cloud.google.com/apis/design">Google API design guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.spotify.com/documentation/web-api">Spotify Api reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/api/reference/overview">OpenAI Api reference</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/07/15/5-years-of-ai-assisted-coding/" rel="prev" title="🤖 5 Years of AI-Assisted Coding">
+                  <i class="fa fa-angle-left"></i> 🤖 5 Years of AI-Assisted Coding
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class=""></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Made with ❤️ by David Falcón Naranjo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"espumita/espumita.github.io","repo_id":"MDEwOlJlcG9zaXRvcnk1NTU0MTk3Mg==","category":"General","category_id":"DIC_kwDOA0-A1M4C0paO","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"en","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
